@@ -12,7 +12,7 @@ dictionary_patterns = [
     path('create-word/', views.create_word, name="word-create"),
     path('country/<slug:country_slug>/', views.country_detail, name="country-detail"),
     path('langage/<slug:langage_slug>/', views.langage_details, name="langage-detail"),
-    path('word/<std:word>/<uuid:word_uuid>/', views.word_details, name="word-detail"),
+    path('word/<str:word>/<uuid:word_uuid>/', views.word_details, name="word-detail"),
     
 ]
 
