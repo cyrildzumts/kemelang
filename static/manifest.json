@@ -1,0 +1,16 @@
+{
+    "short_name" : "LYSHOPING",
+    "name": "Boutique en ligne",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "type": "images/png",
+            "sizes": "256x256"
+        }
+    ],
+    "start_url": "/?pinned_site=android",
+    "background_color": "#FF0D00",
+    "display": "standalone",
+    "theme_color": "#FF0D00",
+    "description": "Boutique de mode en ligne"
+}

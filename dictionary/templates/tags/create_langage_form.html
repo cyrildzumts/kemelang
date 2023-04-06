@@ -1,0 +1,40 @@
+{% load i18n %} 
+
+
+<div class="container">
+        
+    <form class="form" name="add-brand" action="{% url COUNTRY_LANGAGE_URL %}" method="POST">{% csrf_token %}
+        <div class="mat-box full create-form">
+    
+                <input type="hidden" name="added_by" value="{{request.user.pk}}">
+                <div class="form-group-wrapper">
+                    <div class="form-group">
+                        <label for="name">{% trans "Name" %}</label>
+                        <input id="name" type="text"  name="name" value="">
+                    </div>
+                </div>
+                <div class="form-group-wrapper">
+                    <div class="form-group">
+                        <label for="countries">{% trans "Countries" %}</label>
+                        <select name="countries" id="countries" multiple>
+                            {% for c in countries %}
+                            <option value="c.pk">{{c.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group-wrapper">
+                    <div class="form-group full description">
+                        <input id="description" type="hidden" name="description">
+                        <span class="padding-bottom">{% trans "Description" %}</span>
+                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                    </div>
+                </div>
+
+                <div class="actions flex-right">
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
+                    <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+                </div>
+        </div>
+    </form>
+</div>          

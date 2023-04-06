@@ -1,0 +1,25 @@
+{% load i18n %} 
+
+
+<div class="container">
+        
+    <form class="form" name="add-brand" action="{% url DEFINITION_CREATE_URL %}" method="POST">{% csrf_token %}
+        <div class="mat-box full create-form">
+    
+                <input type="hidden" name="added_by" value="{{request.user.pk}}">
+                <input type="hidden" name="word" value="{{word.pk}}">
+                <div class="form-group-wrapper">
+                    <div class="form-group full description">
+                        <input id="description" type="hidden" name="description">
+                        <span class="padding-bottom">{% trans "Description" %}</span>
+                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                    </div>
+                </div>
+
+                <div class="actions flex-right">
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
+                    <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+                </div>
+        </div>
+    </form>
+</div>          
