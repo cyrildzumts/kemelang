@@ -155,7 +155,7 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'kemelang.db'),
     },
     'production': {
-	'ENGINE':  os.environ.get('KEMELANG_DATABASE_ENGINE'),
+	'ENGINE':  os.environ.get('KEMELANG_DATABASE_ENGINE', 'django.db.backends.postgresql'),
 	'NAME'	:  os.environ.get('KEMELANG_DATABASE_NAME'),
 	'USER'	:  os.environ.get('KEMELANG_DATABASE_USERNAME'),
 	'PASSWORD':  os.environ.get('KEMELANG_DATABASE_PW'),
