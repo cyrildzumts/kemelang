@@ -78,8 +78,6 @@ DJANGO_VALIDATION_EMAIL_TEMPLATE = "validation_email_new.html"
 # SECURITY WARNING: don't run with debug turned on in production!
 SESSION_COOKIE_AGE = 86400
 
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
