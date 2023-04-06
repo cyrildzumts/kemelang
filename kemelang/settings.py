@@ -173,7 +173,7 @@ DATABASES = {
 DEFAULT_DATABASE = os.environ.get('DJANGO_DATABASE', 'dev')
 DATABASES['default'] = DATABASES[DEFAULT_DATABASE]
 DEV_MODE = DEFAULT_DATABASE == 'dev'
-DEBUG = DEV_MODE
+DEBUG = os.environ.get(f"{SITE_NAME}_DEBUG",'false') == 'true'
 ALLOW_GOOGLE_ANALYTICS = os.environ.get('KEMELANG_ALLOW_GOOGLE_ANALYTICS', 'false') == 'true'
 
 
