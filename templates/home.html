@@ -3,8 +3,16 @@
 
 {% block MAIN %}
 <div class="container">
-  <div class="mat-box-full">
-    <p>Welcome to {{SITE_NAME}} !</p>
+  <div class="mat-box full">
+    <p>{{SITE_NAME}} !</p>
+  </div>
+  <div class="mat-box">
+    <ul>
+        <li><a href="{% url 'dictionary:dict-home' %}">{% translate "Dictionary" %}</a></li>
+        <li><a href="{% url 'dictionary:country-create' %}">{% translate "Create a new Country" %}</a></li>
+        <li><a href="{% url 'dictionary:langage-create' %}">{% translate "Create a new Langage" %}</a></li>
+        <li><a href="{% url 'dictionary:word-create' %}">{% translate "Create a new Word" %}</a></li>
+    </ul>
   </div>
 </div>
 

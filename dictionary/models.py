@@ -18,6 +18,7 @@ class Langage(models.Model):
     name = models.CharField(max_length=constants.NAME_MAX_LENGTH)
     description = models.JSONField(blank=True, null=True)
     countries = models.ManyToManyField('Country', related_name='langages', null=True, blank=True)
+    slug = models.SlugField(max_length=constants.NAME_MAX_LENGTH, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='added_langages', blank=True, null=True)
     changed_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='changed_langages', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
@@ -33,6 +34,7 @@ class Langage(models.Model):
 class Country(models.Model):
     name = models.CharField(max_length=constants.NAME_MAX_LENGTH)
     description = models.JSONField(blank=True, null=True)
+    slug = models.SlugField(max_length=constants.NAME_MAX_LENGTH, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='added_countries', null=True, blank=True)
     changed_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='changed_countries', blank=True, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
