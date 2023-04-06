@@ -23,7 +23,7 @@ from django.contrib.sitemaps.views import sitemap
 from kemelang import views
 
 
-urlpatterns = i18n_patterns(
+urlpatterns_i18n = i18n_patterns(
     *[
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
@@ -32,14 +32,15 @@ urlpatterns = i18n_patterns(
     path('faq/', views.faq, name='faq'),
     path('kemelang-admin-board/', admin.site.urls),
     path('dictionary/', include('dictionary.urls')),
-]
+], prefix_default_language=False
 )
 
 
 
-urlpatterns += [
+urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
     #path('api/', include('api.urls', namespace='api')),
     path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     #path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
+    *urlpatterns_i18n
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
