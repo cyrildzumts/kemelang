@@ -1032,15 +1032,6 @@ ul li{
 	  justify-content: start;
 	  width: 100%;
   }
-  .mat-input, .form-group{
-	  display: flex;
-	  flex-direction: column;
-	  position: relative;
-	  
-	  text-align: left;
-	  padding-bottom: 0.5em;
-	  margin: 0.2em;
-  }
   
   .mat-input label, .form-group label{
 	  display: inline-block;
@@ -1863,11 +1854,6 @@ ul li{
   
   
   
-  
-  .form-group .mat-button{
-	  padding: 0 0.5em;
-	  margin : 0  0.5em;
-  }
   .field-wrapper{
 	  display: flex;
 	  width: 100%;
@@ -4143,11 +4129,6 @@ ul li{
 	padding : 1em;
 	margin: 0.2em;
 }
-  .create-form .form-group{
-	  text-align: left;
-	  padding-bottom: 0.5em;
-	  margin: 0.2em;
-  }
   
   .form-group.error{
 	  border: 1px solid var(--error-color);
@@ -4155,21 +4136,10 @@ ul li{
   
   .create-form select{
 	  border: 2px solid #ccc;
-	  padding: 0.5em !important;
-	  margin: 1em 0 !important;
+	  padding: 0.5em ;
+	  margin: 1em 0;
   }
   
-  .create-form  .form-group > span{
-	  font-weight: 300;
-  }
-  
-  .create-form  label{
-	  width: initial !important;
-	  min-width: initial;
-	  padding-right: 1em !important;
-	  padding-bottom: 0;
-	  font-weight: 300 !important;
-  }
   
   .create-form  input{
 	  width: initial !important;
