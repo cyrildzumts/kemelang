@@ -4,15 +4,17 @@
 <div class="container">
         
     <form class="form" name="add-brand" action="{% url 'dictionary:definition-create' %}" method="POST">{% csrf_token %}
-        <div class="mat-box full create-form">
+        <div class="create-form">
     
                 <input type="hidden" name="added_by" value="{{request.user.pk}}">
                 <input type="hidden" name="word" value="{{word.pk}}">
                 <div class="form-group-wrapper">
-                    <div class="form-group full description">
-                        <input id="description" type="hidden" name="description">
-                        <span class="padding-bottom">{% trans "Description" %}</span>
-                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <input id="definition-description" type="hidden" name="description">
+                            <span class="padding-bottom">{% trans "Description" %}</span>
+                            <div id="editor" class="editor mat-box" data-target="definition-description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                        </div>
                     </div>
                 </div>
 

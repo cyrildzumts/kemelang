@@ -3571,6 +3571,12 @@ navbar-brand{
 .new-product-wrapper #simple-calculator-toggle:checked ~ #simple-calculator{
     display: block;
 }
+.create-form{
+	width: 100%;
+    text-align: left;
+	padding : 1em;
+	margin: 0.2em;
+}
 .create-form .form-group{
     text-align: left;
 	padding-bottom: 0.5em;

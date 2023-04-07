@@ -4,30 +4,36 @@
 <div class="container">
         
     <form class="form" name="add-brand" action="{% url 'dictionary:langage-create' %}" method="POST">{% csrf_token %}
-        <div class="mat-box full create-form">
+        <div class="create-form">
     
                 <input type="hidden" name="added_by" value="{{request.user.pk}}">
                 <div class="form-group-wrapper">
-                    <div class="form-group">
-                        <label for="name">{% trans "Name" %}</label>
-                        <input id="name" type="text"  name="name" value="">
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <label for="name">{% trans "Name" %}</label>
+                            <input id="name" type="text"  name="name" value="">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-wrapper">
-                    <div class="form-group">
-                        <label for="countries">{% trans "Countries" %}</label>
-                        <select name="countries" id="countries" multiple>
-                            {% for c in countries %}
-                            <option value="c.pk">{{c.name}}</option>
-                            {% endfor %}
-                        </select>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <label for="countries">{% trans "Countries" %}</label>
+                            <select name="countries" id="countries" multiple>
+                                {% for c in countries %}
+                                <option value="c.pk">{{c.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-wrapper">
-                    <div class="form-group full description">
-                        <input id="description" type="hidden" name="description">
-                        <span class="padding-bottom">{% trans "Description" %}</span>
-                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <input id="langage-description" type="hidden" name="description">
+                            <span class="padding-bottom">{% trans "Description" %}</span>
+                            <div id="editor" class="editor mat-box" data-target="langage-description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                        </div>
                     </div>
                 </div>
 

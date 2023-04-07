@@ -4,40 +4,48 @@
 <div class="container">
         
     <form class="form" name="add-brand" action="{% url 'dictionary:word-create' %}" method="POST">{% csrf_token %}
-        <div class="mat-box full create-form">
+        <div class="create-form">
     
                 <input type="hidden" name="added_by" value="{{request.user.pk}}">
                 <div class="form-group-wrapper">
-                    <div class="form-group">
-                        <label for="word">{% trans "Word" %}</label>
-                        <input id="word" type="text"  name="word" value="">
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <label for="word">{% trans "Word" %}</label>
+                            <input id="word" type="text"  name="word" value="">
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-wrapper">
-                    <div class="form-group">
-                        <label for="langage">{% trans "Langage" %}</label>
-                        <select name="langage" id="langage">
-                            {% for l in langages %}
-                            <option value="l.pk">{{l.name}}</option>
-                            {% endfor %}
-                        </select>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <label for="langage">{% trans "Langage" %}</label>
+                            <select name="langage" id="langage">
+                                {% for l in langages %}
+                                <option value="l.pk">{{l.name}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-wrapper">
-                    <div class="form-group">
-                        <label for="synonyme">{% trans "Synonyme" %}</label>
-                        <select name="synonyme" id="synonyme" multiple>
-                            {% for w in words %}
-                            <option value="w.pk">{{w.word}}</option>
-                            {% endfor %}
-                        </select>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <label for="synonyme">{% trans "Synonyme" %}</label>
+                            <select name="synonyme" id="synonyme" multiple>
+                                {% for w in words %}
+                                <option value="w.pk">{{w.word}}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div class="form-group-wrapper">
-                    <div class="form-group full description">
-                        <input id="description" type="hidden" name="description">
-                        <span class="padding-bottom">{% trans "Description" %}</span>
-                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                    <div class="col-m-12 col-5">
+                        <div class="form-group full">
+                            <input id="word-description" type="hidden" name="description">
+                            <span class="padding-bottom">{% trans "Description" %}</span>
+                            <div id="editor" class="editor mat-box" data-target="word-description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                        </div>
                     </div>
                 </div>
 
