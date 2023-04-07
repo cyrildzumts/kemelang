@@ -3918,9 +3918,26 @@
 	min-height: 10.25em;
   }
   .word-input-wrapper.target-langage{
-	background-color: #aaa;
+	background-color: #eee;
 	color: var(--secondary-color);
   }
+
+  .word-input-wrapper textarea{
+	max-width: 100%;
+	padding: 0.5em;
+	background-color: var(--textarea-bg);
+	color: var(--textarea);
+	border: 0;
+	resize: none;
+	min-height: 10.25em;
+	min-width: 21em;
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	outline-offset: 2px;
+	caret-color: white;
+  }
+
   
   
   @media only screen and (max-width:50em){

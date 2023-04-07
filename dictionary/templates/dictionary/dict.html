@@ -5,12 +5,12 @@
 
 {% block MAIN %}
 
-<div class="container">
-    <div class="mat-box full">
+<div class="container flex-center">
+    <div class="full padding">
         <ul class="flex">
-            <li><a href="{% url 'dictionary:country-create' %}">{% translate "Create a new Country" %}</a></li>
-            <li><a href="{% url 'dictionary:langage-create' %}">{% translate "Create a new Langage" %}</a></li>
-            <li><a href="{% url 'dictionary:word-create' %}">{% translate "Create a new Word" %}</a></li>
+            <li><a href="{% url 'dictionary:country-create' %}">{% translate "New Country" %}</a></li>
+            <li><a href="{% url 'dictionary:langage-create' %}">{% translate "New Langage" %}</a></li>
+            <li><a href="{% url 'dictionary:word-create' %}">{% translate "New Word" %}</a></li>
         </ul>
       </div>
     <div class="col-m-12 col-8">
