@@ -1,0 +1,36 @@
+
+{% load i18n %}
+
+<div class="sidebar-brand">
+    <h4><span>{{site_name}}</span></h4>
+    {% block SIDEBAR_BRAND_EXTRA %}{% endblock SIDEBAR_BRAND_EXTRA %}
+</div>
+<div id="dashboard-sidebar" class="dashboard-sidebar">
+    <div class="sidebar-menu dashboard-menu">
+        <ul>
+            {% block SIDEBAR_CONTENT %}
+            <li><a href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+            {% if perms.auth.view_user %}
+            <li><a href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+            {% endif %}
+            
+            {% comment %}
+            <li><a href="{% url 'dashboard:facebook-app'%}"><i class="fab fa-facebook icon"></i><span>{% trans "Facebook" %}</span></a></li>
+            <li><a href="{% url 'dashboard:abtests'%}"><i class="fas fa-vials icon"></i><span>{% trans "AB/TEST" %}</span></a></li>
+            <li><a href="{% url 'dashboard:reports' %}"><i class="fas fa-poll icon"></i><span>{% trans "Reports" %}</span></a></li>
+            {% endcomment %}
+            {% if perms.messaging.view_feedback %} 
+            <li><a href="{% url 'dashboard:feedbacks'%}"><i class="fas fa-comment"></i><span>{% trans "Feedbacks" %}</span></a></li>
+            <li><a href="{% url 'dashboard:searches'%}"><i class="fas fa-search"></i><span>{% trans "Searches" %}</span></a></li>
+            {% endif %}
+            {% if perms.messaging.view_message %} 
+            <li><a href="{% url 'dashboard:mails'%}"><i class="fas fa-envelope"></i><span>{% trans "Mails" %}</span></a></li>
+            {% endif %}
+            {% if perms.mailing.view_mailcampaign %} 
+            <li><a href="{% url 'mailing:campaigns'%}"><i class="fas fa-envelope"></i><span>{% trans "Mail Campaigns" %}</span></a></li>
+            {% endif %}
+            {% endblock SIDEBAR_CONTENT %}
+            <li><a href="{% url 'home'%}" target="_blank"><i class="fas fa-home icon"></i><span>{% trans "Dictionary Site" %}</span></a></li>
+        </ul>
+    </div>
+</div>

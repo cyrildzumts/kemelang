@@ -1,0 +1,59 @@
+{% load i18n %}
+{% load core_tags %}
+<nav class="navbar navbar-expand">
+    <div class="container px-5">
+        <div class="flex flex-left">
+            <button class="navbar-toggler js-action-abtest" type="button" data-action="0" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
+            <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
+            {% if root_category_list %}
+            <ul class="navbar-nav hidden-m">
+                <li class="nav-item"><a class="nav-link js-action-abtest bold" data-action="2" href="{% url 'dictionary:dict-home' %}"><span>{% trans "See all" %}</span></a></li>
+                {% for category in root_category_list %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link js-action-abtest" data-action="20">{% translate category.display_name %}</a></li> {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+        <div class="flex main-nav-bar">
+            <ul class="navbar-nav">
+                {% if is_dashboard_allowed %}
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
+                {% endif %}
+                {% if not request.user.is_authenticated %}
+                <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
+                {% else %}
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}"><i class="fas fa-user icon"></i></a></li>
+                {% endif %}
+                {% comment %}<li class="nav-item hidden-m"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i></a></li>{% endcomment %}
+            </ul>
+        </div>
+        
+        <div class="collapse navbar-collapse" id="navbar-main-menu">
+            <div class="navbar-menu-wrapper">
+                {% if root_category_list %}
+                <ul class="navbar-nav primary">
+                    <li class="nav-item"><a class="nav-link js-action-abtest bold" data-action="2" href="{% url 'dictionary:dict-home' %}"><span>{% trans "See all" %}</span></a></li>
+                    {% for category in root_category_list %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link js-action-abtest" data-action="21"">{% translate category.display_name %}</a></li> {% endfor %}
+                </ul>
+                {% endif %}
+                <ul class="navbar-nav secondary">
+                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>{% endcomment %}
+                    
+                    {% if request.user.is_authenticated %}
+                    {% if is_dashboard_allowed %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+                    {% endif %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user icon"></i><span>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}</span></a></li>
+                    {% if is_translator %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'translators:home' %}" title="{% trans 'Translator' %}"><i class="fas fa-handshake icon"></i><span class="hidden-m">{% trans "Vendor Panel" %}</span></a></li>
+                    {% endif %}
+                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>{% endcomment %}
+                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user icon"></i>{% translate "Notifications" %}</a></li>{% endcomment %}
+                    
+                    <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i><span>{% trans 'Logout' %}</span></a></li>
+                    {% else %}
+                        <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i><span>{% trans 'Login' %}</span></a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</nav>

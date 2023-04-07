@@ -1,0 +1,49 @@
+{% load i18n %}
+{% load humanize %}
+{% load core_tags %}
+{% load order_tag %}
+{% load shipment_status %}
+
+<div class="activity-list-wrapper full">
+    <div class="style-box">
+        
+        <div class="container flex-center">
+            <div class="col-m-12 col-6">
+                <div class="container">
+                    <ul class="activity-list status-list js-filter-table full">
+                        {% for order in order_list %}
+                        <li class="activity" data-order="{{order.order_ref_number}}" data-date="{{order.created_at|naturalday}}">
+                            <div class="flex space-between full">
+                                <div class="status-entry-wrapper">
+                                    <div class="status-entry">
+                                        <span>{{order.order_ref_number}}</span><span class="chips status {{order.status|order_status_cls|slugify|lower}}">{% if order.order_shipment.first %}{{order.order_shipment.first.shipment_status|shipment_status_value}}{% else %}{{order.status|order_status_value}}{% endif %}</span><span><i class="fas fa-coins icon"></i>{{order.amount|floatformat:"-2"}} {% trans CURRENCY %}</span>
+                                    </div>
+                                    <div class="status-entry">
+                                        <span><i class="fas fa-user icon"></i>{{order.customer_name|default:'Gast'}}</span><span><i class="fa-regular fa-calendar-check"></i> {{order.created_at|date:"d-m-Y H:i:s"}}</span>
+                                    </div>
+                                </div>
+                                <div class="datatable-actions-container dropdown status-entry">
+                                    <span class="action-btn dropdown-toggle" data-target="order-action-{{forloop.counter0}}" title="Actions"><i class="fas fa-ellipsis-v"></i></span>
+                                    <div id="order-action-{{forloop.counter0}}" class="datatable-actions dropdown-content">
+                                        <ul>
+                                            <li><a href="{% url ORDER_URL order.order_uuid %}"><span><i class="fas fa-folder-open"></i><span>{% translate "Open" %}</span></span></a></li>
+                                            <li><a href="{% url ORDER_UPDATE_URL order.order_uuid %}"><span><i class="fas fa-edit"></i><span>{% translate "Update" %}</span></span></a></li>
+                                            <li><a href="{% url ORDER_CANCEL_URL order.order_uuid %}"><span><i class="fas fa-ban"></i><span>{% translate "Cancel" %}</span></span></a></li>
+                                            {% if order.order_shipment.first %}
+                                            <li><a href="{% url 'shipment:shipment-detail' order.order_shipment.first.shipment_uuid %}"><i class="fas fa-shipping-fast icon"></i><span>{% trans "Shipment" %}</span></a></li>
+                                            {% endif %}
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% empty %}
+                            <li><span>{% trans "There is no orders yet" %}</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "tags/pagination.html" with page_set=order_list params=request.GET.attribute %}
+</div>

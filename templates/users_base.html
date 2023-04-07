@@ -1,0 +1,23 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% if not perms.auth.view_user %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% else %}
+{% block SIDEBAR %}
+{% include "tags/users_sidebar.html" %}
+{% endblock SIDEBAR %}
+
+{% block CONTENT %}
+
+    <div class="actions flex-left">
+        
+        {% block ACTIONS %}
+        {% endblock ACTIONS %}
+    </div><!--End of Banner-Actions-->
+    <div class="container">
+        {% block CONTENT_MAIN %}{% endblock CONTENT_MAIN %}
+    </div>
+{% endblock CONTENT %}
+{% endif %}

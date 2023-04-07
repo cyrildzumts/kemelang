@@ -1,0 +1,38 @@
+{% load i18n %}
+<div class="container style-container">
+        <div class="activity-list-wrapper full">
+                <div class="mat-box style-box">
+                    {% if list_title %}
+                    <div class="padding title flex flex-left">
+                        <span class="medium bold">{{list_title}}</span>
+                    </div>
+                    {% endif %}
+                    <div class="container">
+                            <div class="col-m-12 col-6">
+                                    <div class="container">
+                                            <ul class="activity-list status-list js-filter-table full">
+                                            {% for group in groups %}
+                                            <li class="activity" data-name="{{group.name}}">
+                                                    <a class="full" title="{{group.name}}" href="{% url BASE_URL group.pk %}">
+                                                    <div class="status-entry-wrapper">
+                                                            <div class="status-entry">
+                                                                    <span class="bold">{{group.name}}</span>
+                                                                    <span><i class="fas fa-users icon"></i><span class="margin-h">{{group.user_set.count}}</span></span>
+                                                            </div>
+                                                            <div class="status-entry">
+                                                                    <span class="bold">{% translate "Permissions" %}</span><span>{{group.permissions.count}}</span>
+                                                            </div>
+                                                    </div>
+                                                    </a>
+                                            </li>
+                                            {% empty %}
+                                                    <li><span>{% trans "There is no groups yet" %}</span></li>
+                                            {% endfor %}
+                                            </ul>
+                                    </div>
+                            </div>
+                    </div>
+                </div>
+                {% include "tags/pagination.html" with page_set=groups %}
+        </div>
+</div>

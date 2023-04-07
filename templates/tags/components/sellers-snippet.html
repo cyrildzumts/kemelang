@@ -1,0 +1,44 @@
+{% load i18n %}
+<div class="container style-container">
+        <div class="activity-list-wrapper full">
+                <div class="style-box">
+                        {% if list_title %}
+                        <div class="padding title flex flex-left">
+                            <span class="medium bold">{{list_title}}</span>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="container flex-center">
+                                <div class="col-m-12 col-6">
+                                        <div class="container">
+                                                <ul class="activity-list status-list js-filter-table full">
+                                                {% for u in sellers %}
+                                                <li class="activity" data-username="{{u.username}}" data-name="{{u.get_full_name}}">
+                                                        <a class="full" title="{{u.username}}" href="{% url BASE_URL u.id %}">
+                                                        <div class="status-entry-wrapper">
+                                                                <div class="status-entry">
+                                                                        <span class="bold"><i class="fa-solid fa-user"></i> {{u.username}} {{u.get_full_name}}</span>
+                                                                        <span>{{u.sales|floatformat:"-2"|default:''}} {% if u.sales %}{% trans CURRENCY %}{% endif %}</span>
+                                                                        <span><i class="fas fa-circle {% if u.is_active %}success{% else %}error{% endif %}"></i><span>{{u.is_active|yesno:_('active,inactive')}}</span></span>
+                                                                </div>
+                                                                <div class="status-entry">
+                                                                        
+                                                                        <span>{{u.customer_id}}</span>
+                                                                        <span>{{u.total_sold}}</span>
+                                                                        <span><i class="fa-regular fa-calendar-check"></i><span>{{u.date_joined|date:"F j, Y H:i:s"}}</span></span>
+                                                                        <span><i class="fa-regular fa-clock"></i><span>{{u.last_login|date:"F j, Y H:i:s"}}</span></span>
+                                                                </div>
+                                                        </div>
+                                                        </a>
+                                                </li>
+                                                {% empty %}
+                                                        <li><span>{% trans "There is no users yet" %}</span></li>
+                                                {% endfor %}
+                                                </ul>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                {% include "tags/pagination.html" with page_set=sellers %}
+        </div>
+</div>

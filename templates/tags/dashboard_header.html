@@ -1,0 +1,73 @@
+{% load i18n %}
+<div id="navbar-header" class="navbar-header">
+    <button class="js-button-menu no-padding" title="{% trans 'Sidebar Menu' %}"><label for="sidebar-toggle"><i class="fas fa-bars icon"></i></label></button>
+    <!--
+    <div class="search dropdown">
+    </div>
+    -->
+    <ul class="topbar-menu">
+        <li class="dropdown dropdown-item" tabindex="0">
+            <span class="dropdown-toggle" data-target="shortcuts" role="button" title="{% trans 'Tools' %}"><i class="fas fa-th icon"></i></span>
+            <div id="shortcuts" class="dropdown-menu dropdown-content fixed">
+                <div class="mat-header">
+                    <span class="bold">{% trans "Shortcuts" %}</span>
+                </div>
+                <div class="settings-hint">
+                    <p>{% trans "Use this shortcuts for quick actions" %}</p>
+                </div>
+                <ul class="shortcuts">
+                    <li><a href="{% url 'dashboard:price-calculator'%}"><i class="fas fa-calculator icon"></i><span>{% trans "Price Calculator" %}</span></a></li>
+                    <li><a href="{% url 'dashboard:product-create' %}"><i class="fas fa-plus icon"></i><span>{% trans "New Product" %}</span></a></li>
+                    {% if perms.orders.add_order %}<li><a href="{% url 'dashboard:create-offline-order'%}"><i class="fas fa-plus icon"></i><span>{% trans "offline order" %}</span></a></li>{% endif %}
+                    <li><a href="{% url 'dashboard:brand-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Brand" %}</span></a></li>
+                    <li><a href="{% url 'dashboard:category-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Category" %}</span></a></li>
+                    <li><a href="{% url 'dashboard:attributes-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Attribute" %}</span></a></li>
+                    <li><a href="{% url 'dashboard:coupon-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Coupon" %}</span></a></li>
+                    <li><a href="{% url 'dashboard:highlight-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Highlight" %}</span></a></li>
+                </ul>
+                <div class="actions">
+                    <span class="dropdown-toggle mat-button mat-button-text" data-target="shortcuts">{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span>
+                </div>
+            </div>
+        </li>
+        <li class="dropdown dropdown-item" tabindex="1">
+            <span class="dropdown-toggle" data-target="user-notifications" role="button" title="{% trans 'Notifications' %}"><span></span><i class="far fa-bell icon"></i></span>
+            <div id="user-notifications" class="dropdown-menu dropdown-content fixed">
+                <div class="actions">
+                    <span class="dropdown-toggle mat-button mat-button-text" data-target="user-notifications">{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span>
+                </div>
+            </div>
+        </li>
+        <li class="" title="{% trans 'Settings' %}" tabindex="2">
+            <span class="dropdown-toggle" data-target="settings-container" role="button"><i class="fas fa-cog icon"></i></span>
+        </li>
+        <li class="dropdown dropdown-item" title="{% trans 'User' %}" tabindex="3">
+            <div class="dropdown-toggle flex align-center" data-target="user-settings" role="button">
+                <span class="flex align-center padding-h">
+                    <i class="fas fa-user icon"></i>
+                    {% if request.user.is_authenticated %}
+                    <span class="hidden-m flex-column flex-left left">
+                        <pre class="small">{{request.user.get_full_name|default:request.user.username}}</pre>
+                        <small>Administration</small>
+                    </span>
+                    {% endif %}
+                </span>
+            </div>
+            <div id="user-settings" class="dropdown-menu dropdown-content fixed">
+                <div class="mat-header">
+                    <span class="bold">{% trans "User settings" %}</span>
+                </div>
+                <div class="settings-hint"><p>{% trans "Welcome !" %}</p></div>
+                <ul class="shortcuts">
+                    <li><a href="{% url 'dashboard:user-detail' request.user.pk %}"><i class="fas fa-user icon"></i>{% trans "My Account" %}</a></li>
+                    <li><a href="{% url 'accounts:logout' %}"><i class="fas fa-sign-out-alt icon"></i>{% trans "Logout" %}</a></li>
+                </ul>
+                <div class="actions">
+                    <span class="dropdown-toggle mat-button mat-button-text" data-target="user-settings">{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+</div>
+

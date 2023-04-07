@@ -1,0 +1,10 @@
+<div class="datatable-actions-container dropdown">
+    <span class="action-btn dropdown-toggle"><i class="fas fa-ellipsis-v"></i></span>
+    <div class="datatable-actions dropdown-content">
+        <ul>
+            {% for action in actions %}
+            <li><a href="{{action.link}}"><span><i class="fas {{action.cls_btn}}"></i><span>{{action.label}}</span></span></a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

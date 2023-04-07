@@ -1,0 +1,46 @@
+{% load i18n %}
+{% load humanize %}
+{% load core_tags %}
+{% load shipment_status %}
+
+<div class="activity-list-wrapper full">
+    <div class="style-box">
+        
+        <div class="container flex-center">
+            <div class="col-m-12 col-6">
+                <div class="container">
+                    <ul class="activity-list status-list js-filter-table full">
+                        {% for shipment in shipment_list %}
+                        <li class="activity" data-shipment="{{shipment.shipment_ref_number}}" data-date="{{shipment.created_at|naturalday}}">
+                            <div class="flex space-between padding-h full">
+                                <div class="status-entry-wrapper">
+                                    <div class="status-entry">
+                                        <span class="bold"><i class="fas fa-shipping-fast icon"></i>{{shipment.shipment_ref_number}}</span><span class="chips status {{shipment.shipment_status|shipment_status_cls|slugify|lower}}">{{shipment.shipment_status|shipment_status_value}}</span><span><i class="fas fa-coins icon"></i>{{shipment.price|floatformat:"-2"}} {% trans CURRENCY %}</span>
+                                    </div>
+                                    <div class="status-entry">
+                                        <span><i class="fas fa-user icon"></i>{{shipment.order.customer_name|default:'Gast'}}</span><span class="bold"><i class="fa-solid fa-cart-shopping"></i>{{shipment.order.order_ref_number}}</span><span><i class="fa-regular fa-calendar-check"></i> {{shipment.created_at|date:"d-m-Y H:i:s"}}</span>
+                                    </div>
+                                </div>
+                                <div class="datatable-actions-container dropdown status-entry">
+                                    <span class="action-btn dropdown-toggle" data-target="shipment-action-{{forloop.counter0}}" title="Actions"><i class="fas fa-ellipsis-v"></i></span>
+                                    <div id="shipment-action-{{forloop.counter0}}" class="datatable-actions dropdown-content">
+                                        <ul>
+                                            <li><a href="{% url SHIPMENT_URL shipment.shipment_uuid %}"><span><i class="fa-solid fa-folder-open"></i><span>{% translate "Open" %}</span></span></a></li>
+                                            <li><a href="{% url SHIPMENT_UPDATE_URL shipment.shipment_uuid %}"><span><i class="fa-solid fa-pen"></i><span>{% translate "Update" %}</span></span></a></li>
+                                            <li><a href="{% url SHIPMENT_HISTORY_URL shipment.shipment_uuid %}"><span><i class="fa-regular fa-clock"></i><span>{% translate "History" %}</span></span></a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% empty %}
+                            <li><span>{% trans "There is no shipment yet" %}</span></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% include "tags/pagination.html" with page_set=shipment_list params=request.GET.attribute %}
+</div>
