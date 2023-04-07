@@ -26,13 +26,16 @@
     </div>
     <div class="grid">
         <div class="col-m-12 col-5">
-            <div class="source-langage">
+            <div class="source-langage mat-box">
                 <textarea name="text" id="text" cols="30" rows="10"></textarea>
             </div>
         </div>
+        <div class="col-m-1 col-1">
+            <div class="grid"></div>
+        </div>
         <div class="col-m-12 col-5">
-            <div class="source-langage">
-                <div class="mat-box-full">
+            <div class="target-langage mat-box">
+                <div class="full">
                     <ul>
                         {% for translation in translations %}
                         <li>
