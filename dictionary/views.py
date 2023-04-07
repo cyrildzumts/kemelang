@@ -155,6 +155,23 @@ def update_word(request, word, word_uuid):
 
 
 
+def countries(request):
+    template_name = "dictionary/countries.html"
+    context = {
+        'page_title': f"Countries",
+        'country_list': dictionary_service.get_countries(),
+    }
+    return render(request, template_name, context)
+
+
+def langages(request):
+    template_name = "dictionary/langages.html"
+    context = {
+        'page_title': f"Langages",
+        'country_list': dictionary_service.get_langages(),
+    }
+    return render(request, template_name, context)
+
 
 def country_detail(request, country_slug):
     template_name = "dictionary/country.html"
