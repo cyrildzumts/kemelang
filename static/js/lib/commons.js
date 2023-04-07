@@ -1216,8 +1216,6 @@ function(ajax_api, tag_api,Cookies, Filter) {
 
     $(document).ready(function(){
         fileUpload = new FileUpload();
-        
-        mailcampaignManager.init();
 
         $('#file-upload-form').on('submit', function(event){
             event.preventDefault();
