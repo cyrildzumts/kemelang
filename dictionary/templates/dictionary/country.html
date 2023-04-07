@@ -8,7 +8,9 @@
     <div class="col-m-12 col-8">
         <div class="mat-box">
             <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span></div>
-            <div class="flex flex-left"><p>{{country.description}}</p></div>
+            <div class="flex flex-left">
+                {% render_tag country.description %}
+            </div>
             <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} <span class="lowercase">{{langage_list.count}}</span></span></div>
             <div class="mat-box full">
                 <ul>

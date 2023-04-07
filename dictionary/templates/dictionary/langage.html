@@ -1,6 +1,7 @@
 {% extends "dictionary_base.html" %}
 {% load i18n %} 
 {% load dictionary_tags %}
+{% load core_tags %}
 
 
 {% block MAIN %}
@@ -8,7 +9,9 @@
     <div class="col-12 col-8">
         <div class="grid">
             <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{langage}}</span></span></div>
-            <div class="flex flex-left"><p>{{langage.description}}</p></div>
+            <div class="flex flex-left">
+                {% render_tag langage.description %}
+            </div>
             <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} <span class="lowercase">{{countrie_list.count}}</span></span></div>
             <div class="mat-box full">
                 <ul>

@@ -2,6 +2,7 @@ from django import template
 from django.utils.safestring import mark_safe
 from django.utils.translation import ugettext_lazy as _
 from kemelang import utils
+from dictionary.models import Country, Langage
 from accounts import constants as ACCOUNT_CONSTANTS
 from core import renderers
 import logging
@@ -83,18 +84,18 @@ def json_ld(context, structured_data):
 
 @register.simple_tag
 @register.filter
-def render_tag(product):
-    if isinstance(product, dict):
-        return renderers.render_tag(product)
-    elif not hasattr(product, 'description_json') or not isinstance(product.description_json, dict):
-        return product
-    return renderers.render_tag(product.description_json)
+def render_tag(json_field):
+    if isinstance(json_field, dict):
+        return renderers.render_tag(json_field)
+    elif not hasattr(json_field, 'description') or not isinstance(json_field.description, dict):
+        return json_field
+    return renderers.render_tag(json_field.description)
 
 
 @register.simple_tag
 @register.filter
-def render_product_summary(product):
-    if not hasattr(product, 'description_json') or not isinstance(product.description_json, dict):
+def render_description(model):
+    if not hasattr(model, 'description') or not isinstance(product.description_json, dict):
         return product
     return renderers.render_summary(product.description_json)
 

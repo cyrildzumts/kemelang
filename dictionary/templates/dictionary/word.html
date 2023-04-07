@@ -16,7 +16,9 @@
             <li>
                 <div>
                     <div class="flex flex-left"><span class="bold word-type">{{def.word_type|dict_word_type}}</span></div>
-                    <p>{% translate def.description %}</p>
+                    <div>
+                        {% render_tag def.description %}
+                    </div>
                 </div>
 
             </li>
@@ -31,7 +33,7 @@
             <li>
                 <div>
                     <span class="bold phrase-start"></span>
-                    <p>{% translate phrase.sentence %}</p>
+                    <div>{% render_tag phrase.content %}</div>
                 </div>
 
             </li>
