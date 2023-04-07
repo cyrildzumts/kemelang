@@ -4846,13 +4846,13 @@ main {
     --third-color : #FFFFFF;
     --fourth-color : #FFFFFF;
     --light-color : #FAFAFA;
-    --header : #FFFFFF;
-    --header-color: #0A0A0A;
+    --header : #2C3E50;
+    --header-color: #FAFAFA;
     --nav-menu-bg : #FAFAFA;
     --nav-menu-color: #0a0a0a;
     --label-color : #777;
-    --body-bg : #FFFFFF;
-    --body-color: #0A0A0A;
+    --body-bg : #2C3E50;
+    --body-color: #FAFAFA;
     --notification-bg : #2C3E50;
     --notification-color : #FAFAFA;
     --action-color : #2C3E50;
