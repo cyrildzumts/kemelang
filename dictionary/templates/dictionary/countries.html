@@ -4,22 +4,24 @@
 
 
 {% block MAIN %}
-<div class="container">
-    
-    <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} <span class="lowercase">{{countrie_list.count}}</span></span></div>
-    <div class="mat-box full">
-        <ul>
-            {% for country in country_list %}
-            <li>
-                <div>
-                    <div class="flex flex-left"><span class="bold word-type">{{country}}</span></div>
-                </div>
+<div class="container flex-center padding">
+    <div class="col-12 col-8">
+        <div class="grid">
+            <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} <span class="lowercase">{{countrie_list.count}}</span></span></div>
+            <div class="mat-box full">
+                <ul>
+                    {% for country in country_list %}
+                    <li>
+                        <div>
+                            <div class="flex flex-left"><span class="bold word-type">{{country}}</span></div>
+                        </div>
 
-            </li>
-            {% endfor %}
-        </ul>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
     </div>
-
 </div>
 
 {% endblock MAIN %}
