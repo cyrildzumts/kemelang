@@ -12,7 +12,6 @@ import datetime
 logger = logging.getLogger(__name__)
 
 
-
 def create_country(data):
     country = core_service.create_instance(Country, data)
     return country
@@ -25,7 +24,6 @@ def create_word(data):
 
 def create_definition(data):
     return core_service.create_instance(Definition, data)
-
 
 def update_country(country, data):
     return core_service.update_instance(country, data)

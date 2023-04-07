@@ -4,7 +4,15 @@
 
 
 {% block MAIN %}
+
 <div class="container">
+    <div class="mat-box full">
+        <ul class="flex">
+            <li><a href="{% url 'dictionary:country-create' %}">{% translate "Create a new Country" %}</a></li>
+            <li><a href="{% url 'dictionary:langage-create' %}">{% translate "Create a new Langage" %}</a></li>
+            <li><a href="{% url 'dictionary:word-create' %}">{% translate "Create a new Word" %}</a></li>
+        </ul>
+      </div>
     <div class="flex flex-left flex-wrap">
         <div class="col-m-5 col-5">
             <div class="source-langage"><span>{{source}}</span></div>

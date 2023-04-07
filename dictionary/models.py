@@ -25,7 +25,7 @@ class Langage(models.Model):
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     langage_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['name', 'description', 'countries', 'added_by', 'changed_by']
-    SEARCH_FIELDS = ['name', 'description']
+    SEARCH_FIELDS = ['name']
     
     def __str__(self) -> str:
         return self.name
@@ -60,7 +60,7 @@ class Word(models.Model):
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     word_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['word','audio', 'description','synonyme', 'langage', 'added_by', 'changed_by']
-    SEARCH_FIELDS = ['word', 'name', 'description']
+    SEARCH_FIELDS = ['word', 'description']
     
     def __str__(self) -> str:
         return self.word
@@ -110,7 +110,7 @@ class Phrase(models.Model):
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     phrase_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['word','audio', 'content', 'description', 'langage', 'added_by', 'changed_by']
-    SEARCH_FIELDS = ['name', 'description']
+    SEARCH_FIELDS = ['name','content', 'description']
     
     def __str__(self) -> str:
         return self.word
@@ -126,4 +126,6 @@ class TranslationWord(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     transaltion_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    
+    FORM_FIELDS = ['source_word','target_word', 'source_langage', 'target_langage', 'comment', 'added_by', 'changed_by']
     
