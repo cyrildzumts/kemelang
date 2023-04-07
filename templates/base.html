@@ -1,107 +1,170 @@
 <!DOCTYPE html>
 {% load i18n %} 
+{% load cache %}
 <html lang="{{LANGUAGE_CODE}}">
 {% load static %}
+{% load core_tags %}
 
 <head>
         <meta charset="utf-8">
         {% block META_REDIRECT %}
         
         {% endblock META_REDIRECT %}
-        <title>
-                {% block title %} {{page_title}} {% endblock %}
-        </title>
+        <title>{% block title %}{{SITE_NAME}} | {{page_title}}{% endblock %}</title>
         {% comment %}
                 twitter card
         {% endcomment %}
         <meta name="twitter:card"       content="summary_large_image">
         <meta name="twitter:creator"    content="@cyrildz"/>
-        <meta name="keywords"           content="{{META_KEYWORDS}}">
-        <meta name="description"        content="{{META_DESCRIPTION}}">
+        <meta name="keywords"           content="{{META_KEYWORDS|default:''}}">
+        <meta name="description"        content="{{META_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="og:title"       content="{{OG_TITLE|default:''}}">
+        <meta property="og:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="og:image"       content="{{OG_IMAGE|default:''}}">
+        <meta property="og:url"         content="{{OG_URL|default:''}}">
+
+        <meta property="twitter:title"       content="{{OG_TITLE|default:''}}">
+        <meta property="twitter:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="twitter:image:src"       content="{{OG_IMAGE|default:''}}">
+        <meta property="twitter:url"         content="{{OG_URL|default:''}}">
+
         <meta property="og:type"        content="website">
         <meta property="og:site_name"   content="{{SITE_NAME}}">
-
-        <meta name="theme-color"        content="#0A0A0A">
-
+        <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="{{SITE_NAME}}">
+        <meta name="short_name" content="{{SITE_NAME}}">
+        <meta name="name" content="{{SITE_NAME}}">
+        <meta name="application-name" content="{{SITE_NAME}}">
+        <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <meta name="apple-mobile-web-app-status-bar-style" content="{{SITE_HEADER_BG}}">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon apple-touch-icon" href="{% static 'favicon.ico' %}">
+        <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
+
+        
         {% comment %}
-                <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
+                <link rel="preconnect" href="https://fonts.googleapis.com">
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         {% endcomment %}
+        {% comment %}
+                <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet"> 
+        {% endcomment %}
+       
+                {% comment %}
+                        <link defer href="{% static 'css/fonts/Nunito/Nunito-Regular.ttf' %}" as="font" type="font/ttf">
+                        <link defer href="{% static 'css/fonts/Montserrat/Montserrat-Regular.woff2'' %}" as="font" type="font/woff2">
+                {% endcomment %}
+       
+        {% comment %}
+                <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"> 
+        {% endcomment %}
+        {% comment %}
+                <link rel="stylesheet" href="{% static 'css/vendor/fontawesome/css/all.min.css' %}"> 
+        {% endcomment %}
+        <link rel="canonical" href="{{OG_URL}}">
         
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,400&family=Nunito:ital,wght@0,300;0,400;0,700;1,400;1,700&family=Oswald:wght@300;400;700&display=swap" rel="stylesheet"> 
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-        
-        <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
         <!-- Add icon library -->
-        {% block STYLESHEET %}<link rel="stylesheet" type="text/css" href="{% static 'css/main.min.css' %}" media="all" />{% endblock STYLESHEET %}
+        {% block STYLESHEET %}
+                <link rel="preload stylesheet"  href="{% static 'css/main.min.css' %}" as="style" type="text/css">
+        {% endblock STYLESHEET %}
 
         {% block external %} {% endblock external %}
- 
+        {% if structured_data %}
+        {% json_ld structured_data %}
+        {% endif %}
+
+        {% block GOOGLE_TAG %}
+        {% if ALLOW_GOOGLE_ANALYTICS %}
+        <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+        <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+        {% endif %}
+        {% endblock GOOGLE_TAG %}
+        {% block EXTRA_GOOGLE_TAG %}{% endblock EXTRA_GOOGLE_TAG %}
 </head>
 
 <body>
 <input id="lang" type="hidden" name="lang" value="{{LANGUAGE_CODE}}">
+{% csrf_token %}
 {% block SCRIPT_VAR %}
 {% endblock SCRIPT_VAR %}
 <div class="page full">
-{% block HEADER %}
-<header class="header">
-{% block HEADER_PANEL %}
-<div class="header--panel">
-  <div class="col-xs-12 col-1">
-        <div class="row">
-                <button class="js-menu  menu-button mat-button mat-button-text" data-action="0"><i class="btn-icon fas fa-bars"></i></button>
-                <button class="js-menu-close  menu-close menu-button mat-button" data-action="0"><i class="btn-icon fas fa-times"></i></button>
-                <ul class="logo">
-                <li class="mat-list-item " data-action="3"><a class="mat-button mat-button-text" href="{%url 'home'%}">{{SITE_NAME}}</a></li>
-                </ul>
-        </div>
-  </div>
-    <ul class="mat-list site-panel">
-        <li class="mat-list-item catalog-overlay-item" data-action="6"><label for="catalog-overlay-toggle"><i class="fas fa-bars icon hidden"></i><span class="mat-button mat-button-text">{% trans "Catalog" %}</span></label></li>
-      {% if perms.dashboard.can_view_dashboard %}
-       <li class="mat-list-item"><a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i>{% trans "Dashboard" %}</a></li>
-      {% endif %}
-      
-      {% if request.user.is_authenticated %}
-                <li class="mat-list-item"><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user"></i></a></li>
-                <li class="mat-list-item"><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
+{% block NAV %}
+{% include "tags/nav-tag.html" %}
+{% endblock NAV %}
 
-        {% else %}
-        <li class="mat-list-item " data-action="1"><a class="mat-button mat-button-text" href="{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i></a></li>
-
-      {% endif %}
-      <li  class="mat-list-item">
-        {% include "tags/language.html" %}
-      </li> 
-    </ul>
-    <ul class="mat-list mobile-site-panel hidden-xl">
-        {% if request.user.is_authenticated %}
-                {% if account %}<li class="mat-list-item"><a class="mat-button mat-button-text" href="{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user"></i></a></li>{% endif %}
-                
-                
-                <li class="mat-list-item"><a class="signout-btn mat-button mat-button-text signout" href="{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i></a></li>
-        {% else %}
-        <li class="mat-list-item " data-action="1"><a class="dialog-btn mat-button mat-button-text" href="{% url 'accounts:login' %}?next={{request.path}}" data-tab="0" data-target="#signup-dialog" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt"></i></a></li>
-       {% endif %}
-    </ul>
-    
+{% block SEARCH_BAR %}
+{% if SEARCH_AVAILABLE %}
+{% include 'tags/search_bar.html' with search_id="lyshop-search-tag" %}
+{% endif %}
+{% endblock SEARCH_BAR %}
+{% block CATEGORY_OVERLAY_MENU %}
+{% cache TEMPLATE_CACHE_TIMEOUT overlay_menu LANGUAGE_CODE %}
+<div class="catalog-overlay-wrapper">
+        <input type="checkbox" id="catalog-overlay-toggle" class="hidden">
+        <div class="catalog-overlay">
+                <div class="nav-menu">
+                        <div class="flex flex-left submenu">
+                                <ul class="grid">
+                                        <li><a class="mat-button mat-button-default bold js-action-abtest cta-btn" data-action="2" href="{% url 'dictionary:dict-home' %}">{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_CATALOG}}</a></li>
+                                </ul>
+                        </div>
+                        <ul class="grid">
+                                {% for c in root_category_list %}
+                                <li class="col-xs-12 col-2">
+                                        <div class="submenu full">
+                                                <span class="underline">{% trans c.display_name %} <i class="icon"></i></span>
+                                                {% if c.children.exists %}
+                                                <ul>
+                                                        <li><a href="{{c.get_slug_url}}"><span>{% trans "See all" %}</span></a></li>
+                                                        {% for cc in c.children.all %}
+                                                        {% if cc.is_active %}
+                                                        <li class="full"><a href="{{cc.get_slug_url}}">{% trans cc.display_name %}</a></li>
+                                                        {% endif %}
+                                                        {% endfor %}
+                                                </ul>
+                                                {% endif %}
+                                        </div>
+                                </li>
+                                {% endfor %}
+                        </ul>
+                </div>
+                <div class="actions hidden-m">
+                        <label for="catalog-overlay-toggle"><i class="fas fa-times icon"></i><span>{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span></label>
+                </div>
+        </div>  
 </div>
-{% endblock HEADER_PANEL %}
-         
-</header>
-{% endblock HEADER %}
- 
+{% endcache %}
+{% endblock CATEGORY_OVERLAY_MENU %}  
+{% block NEWS %}
+{% if news %}
+<div class="news">
+<span class="news-title">{% trans news.title %}</span>
+<div class="news-content"> {% trans news.content %}</div>
+</div>
+{% endif %}
+{% endblock NEWS %}
+
+{% block CATEGORIES %}
+{% comment %}{% include 'tags/category_nav.html' %}{% endcomment %}
+{% endblock CATEGORIES %}
+{% if banner %}
 {% block HEADER_BANNER %}
 
 {% endblock HEADER_BANNER %}
 
+{% endif %}
 {% block DIALOGS %}
 
 {% endblock DIALOGS %}
 
+{% block SIGNUP_DIALOG %}
+
+{% endblock SIGNUP_DIALOG %}
+
 <div class="container full-h">
+
 {% block MAIN %}
 
 {% endblock MAIN %}
@@ -124,32 +187,41 @@
 {% endblock NOTIFICATIONS %}
 </div>
 {% block FOOTER %}
- <footer class="footer">
+{% cache TEMPLATE_CACHE_TIMEOUT footer-lyshop LANGUAGE_CODE %}
+<footer class="footer">
         {% block FOOTER_CONTENT %}
+        <div class="footer-content-wrapper">
         {% include 'tags/footer_content.html' %}
+        </div>
         {% endblock FOOTER_CONTENT %}
         <div class="footer-list">
                 {% now "Y" as current_year %}
-                <ul class="mat-list small">
-                        <li class="list-item"><span>Copyright</span> <i class="fa fa-copyright"></i><span class="copyright-year">{{current_year}}</span> <span class="site">{{site_name}} - {%trans 'African Dictionary' %} </span></li>
-                        <li class="list-item">
-                                <div class="actions">
-                                        <a class="mat-button mat-button-text" href="{% url 'about' %}">{% trans "About us" %}</a>
-                                        <a class="mat-button mat-button-text" href="{% url 'faq' %}">{% trans "FAQ" %}</a>
-                                </div>
-                        </li>
+                <ul class="footer-copyright">
+                        <li><span>Copyright <i class="fa fa-copyright"></i><span class="copyright-year padding-h">{{current_year}}</span><span class="site">{{site_name}} - {{UI_STRINGS_CONTEXT.UI_FOOTER_ONLINE_SHOP}}</span></span></li>
                 </ul>
         </div>
 </footer>
+{% endcache %}
 {% endblock FOOTER %}
 
-<script  src="{% static 'js/vendors/jquery-3.5.1.min.js' %}"></script>
+<script defer  src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
 {% block BASE_SCRIPT %}
-<script  data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
+<script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
 {% endblock BASE_SCRIPT %}
 
 {% block SCRIPT %}
 {% endblock SCRIPT %}
+
+{% block GOOGLE_ANALYTICS %}
+{% if ALLOW_GOOGLE_ANALYTICS %}
+<!-- Global site tag (gtag.js) - Google Analytics -->
+{% comment %}
+        <script preload src="https://www.googletagmanager.com/gtag/js?id=UA-189272780-1"></script>
+{% endcomment %}
+<script preload  src="{% static 'js/lib/libgtm.js' %}"></script>
+{% endif %}
+{% endblock GOOGLE_ANALYTICS %}
+
 </body>
 
 </html>

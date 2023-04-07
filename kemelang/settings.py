@@ -26,7 +26,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = os.environ['KEMELANG_SECRET_KEY']
 SITE_NAME           =  os.environ.get('KEMELANG_SITE_NAME', 'KEMELANG')
-
+SITE_HEADER_BG      = "#0A0A0A"
 ###### CELERY SETTINGS
 
 CELERY_BROKER_URL   = os.environ.get('KEMELANG_CELERY_BROKER_URL')
