@@ -6,7 +6,9 @@
     <form class="form" name="add-brand" action="{% url 'dictionary:country-create' %}" method="POST">{% csrf_token %}
         <div class="create-form">
     
+                {% if request.user.is_authenticated %}
                 <input type="hidden" name="added_by" value="{{request.user.pk}}">
+                {% endif %}
                 <div class="form-group-wrapper">
                     <div class="col-m-12 col-5">
                         <div class="form-group full">
