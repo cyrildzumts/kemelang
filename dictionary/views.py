@@ -168,7 +168,7 @@ def langages(request):
     template_name = "dictionary/langages.html"
     context = {
         'page_title': f"Langages",
-        'country_list': dictionary_service.get_langages(),
+        'langage_list': dictionary_service.get_langages(),
     }
     return render(request, template_name, context)
 
