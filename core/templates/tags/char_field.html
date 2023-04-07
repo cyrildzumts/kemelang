@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load core_tags %}
+<div class="char-filter field-filter">
+    <div class="hidden" id="inputs">
+        <input id="{{field_name}}-id" class="filter-input" type="text" name="{{field_name}}" value="{{FILTER.value|default:''}}">
+    </div>
+    <div class="box-content">
+        <div class="form-group">
+            <label for="{{field_name}}-value">{% trans DISPLAY_NAME %}</label>
+            <input id="{{field_name}}-value" class="filter-input-value js-value-filter field-filter-input no-submit" data-type="value" data-target="{{field_name}}-id" type="text" name="{{field_name}}-value" value="{{FILTER.selection|default:''}}" autocomplete="off">
+        </div>   
+    </div>
+</div>

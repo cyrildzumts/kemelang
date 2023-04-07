@@ -1,0 +1,18 @@
+{% load i18n %}
+{% load core_tags %}
+ <div class="collapsible product-filter flex-left">
+    <div {% if field_name in SELECTED_FILTERS  %} class="chips chips-selected" {% else %}class="chips" {% endif %}  title="{{field_name}}">
+        <span class="collapse-toggle" data-target="{{field_name}}-content" >{% trans DISPLAY_NAME %}</span>
+    </div>
+    <div id="{{field_name}}-content" class="collapse-content">
+            <div class="mat-box">
+                <div class="filter-body">
+                    {% include TEMPLATE_NAME with SELECTION=FIELD_FILTER.selection SELECTION_OPTIONS=FIELD_FILTER.selection_options RANGE=FIELD_FILTER.range FILTER=SELECTED_FILTERS|access_dict:field_name  %}
+                </div>
+                <div class="actions">
+                    <span class="collapse-toggle mat-button mat-button-text" data-target="{{field_name}}-content" ><i class="fas fa-close"></i>{% trans "Close" %}</span>
+                    <button class="collapse-toggle mat-button mat-button-default" data-target="{{field_name}}-content">{% trans "Apply" %}</button>
+                </div>
+            </div><!--End of mat-box -->
+    </div><!--End of collapse-content -->
+</div><!--End of Container-->

@@ -1,0 +1,20 @@
+{% load i18n %}
+{% load core_tags %}
+ <div class="collapsible content-filter flex-left">
+    <div {% if field_name in SELECTED_FILTERS  %} class="chips chips-selected" {% else %}class="chips" {% endif %}  title="{{field_name}}">
+        <span class="collapse-toggle" data-target="{{field_name}}-content" >{{DISPLAY_NAME}}</span>
+    </div>
+    <div id="{{field_name}}-content" class="collapse-content">
+        <div class="mat-box">
+                <div class="filter-body">
+                    {% include TEMPLATE_NAME with SELECTION=FIELD_FILTER.selection SELECTION_OPTIONS=FIELD_FILTER.selection_options RANGE=FIELD_FILTER.range FILTER=field_name|mapping_key:SELECTED_FILTERS  %}
+                </div>
+                <div class="actions padding">
+                    <span class="collapse-toggle  close-modal mat-button mat-button-outline" data-target="{{field_name}}-content" ><i class="fas fa-close"></i>{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span>
+                    {% comment %}
+                        <button class="collapse-toggle mat-button-default js-close-modal close-modal" data-target="{{field_name}}-content">{{UI_STRINGS_CONTEXT.UI_APPLY_BTN_LABEL}}</button>
+                    {% endcomment %}
+                </div>
+        </div><!--mat-box-->
+    </div><!--End of collapse-content -->
+</div><!--End of collapsible-->

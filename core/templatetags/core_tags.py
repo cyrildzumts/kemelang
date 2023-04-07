@@ -79,33 +79,6 @@ def json_ld(context, structured_data):
 
 
 
-@register.filter
-def action_value(key):
-    k,v = utils.find_element_by_key_in_tuples(key, INVENTORY_CONSTANTS.ABTEST_ACTIONS)
-    if v is None:
-        return key
-    return v
-
-
-
-@register.filter
-def subscription_title(key):
-    return SUBSCRIPTION_DESCRIPTION_CTX.get(key, {}).get('title', key)
-
-
-@register.filter
-def subscription_subtitle(key):
-    return SUBSCRIPTION_DESCRIPTION_CTX.get(key, {}).get('subtitle', key)
-
-
-@register.filter
-def subscription_attr_title(key):
-    return SUBSCRIPTION_ATTR_DESCRIPTION_CTX.get(key, {}).get('display_name', key)
-
-
-@register.filter
-def subscription_attr_description(key):
-    return SUBSCRIPTION_ATTR_DESCRIPTION_CTX.get(key, {}).get('description', key)
 
 
 @register.simple_tag
@@ -126,20 +99,3 @@ def render_product_summary(product):
     return renderers.render_summary(product.description_json)
 
 
-
-
-
-@register.filter
-def order_status_cls(status):
-    return ORDER_STATUS_CSS_CLS_MAP[status]
-
-
-@register.filter
-def shipment_status_cls(status):
-    return SHIPMENT_STATUS_CSS_CLS_MAP[status]
-
-
-
-@register.filter
-def payment_status_cls(status):
-    return PAYMENT_STATUS_CSS_CLS_MAP[status]

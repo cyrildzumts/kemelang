@@ -1,0 +1,41 @@
+{% load i18n %}
+{% load core_tags %}
+<div class="integer-filter field-filter">
+
+    <div class="hidden" id="inputs">
+        <input id="{{field_name}}-id" class="filter-input" type="text" name="{{field_name}}" value="{{FILTER.value|default:''}}">
+    </div>
+    {% if SELECTION %}
+    {% include "tags/list_filter.html" with target="{{field_name}}-list" field="{{field_name}}"%}
+    <ul id="{{field_name}}-list">
+    {% for k, v in SELECTION_OPTIONS %} 
+        <li><span  class="chips js-list-filter {% if k in FILTER.selection or k == FILTER.selection %} chips-selected {% endif %}" data-target="{{field_name}}-id" data-type="selection" data-name="{{field_name}}" data-{{field_name}}="{{obj.display_name}}" data-value="{{obj.pk}}"  data-value="{{k}}">{% trans v %}</span></li>
+    {% endfor %}
+    </ul>
+    {% elif RANGE %}
+    <div class="box-content">
+        <div class="form-group">
+            {% splitize field as splited_field  %}
+            <label>{% trans splited_field %} : </label>
+        </div>
+        <div class="form-group-wrapper">
+            <div class="form-group">
+                <label for="{{field_name}}-start">{% trans "Min" %}</label>
+                <input id="{{field_name}}-start" class="range-input filter-input-start js-range-filter js-range-start no-submit max-content" data-range-next="{{field_name}}-end" data-type="range-start" data-target="{{field_name}}-id" type="text" name="{{field_name}}-start" value="{{FILTER.range_start|floatformat:'-2'|default:''}}">
+            </div>
+            <div class="form-group">
+                <label for="{{field_name}}-end">{% trans "Max" %}</label>
+                <input id="{{field_name}}-end" class="range-input filter-input-end js-range-filter js-range-end no-submit max-content" data-range-next="{{field_name}}-start" data-type="range-end" data-target="{{field_name}}-id" type="text" name="{{field_name}}-end" value="{{FILTER.range_end|floatformat:'-2'|default:''}}">
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="box-content">
+        <div class="form-group">
+            <label for="{{field_name}}-value"></label>
+            <input id="{{field_name}}-value" class="filter-input-value js-value-filter field-filter-input no-submit max-content" data-type="value" data-target="{{field_name}}-id" type="text" name="{{field_name}}-value" value="{{FILTER.selection|floatformat:'-2'|default:''}}">
+        </div>   
+    </div>
+    {% endif %}
+
+</div>
