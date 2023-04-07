@@ -204,7 +204,7 @@ CACHES = {
         'LOCATION': '127.0.0.1:11211',
     }
 }
-
+TEMPLATE_CACHE_TIMEOUT = 600
 
 #### LOGGING 
 LOGGING = {

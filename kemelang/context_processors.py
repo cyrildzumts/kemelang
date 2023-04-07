@@ -14,5 +14,6 @@ def site_context(request):
         'redirect_to' : '/',
         'dev_mode' : settings.DEV_MODE,
         'next_url' : request.path,
+        'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT,
     }
     return context
