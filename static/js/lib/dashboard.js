@@ -172,94 +172,10 @@ define(['ajax_api'], function(ajax_api) {
         return JSFilter;
     })();
 
-
-    var PaymentFetcher = (function(){
-        function PaymentFetcher(){
-            this.init();
-        };
-
-        PaymentFetcher.prototype.init = function(){
-            this.form = document.querySelector('#fetch-payments-form');
-
-            if(this.form == null){
-                return;
-            }
-            var self = this;
-            this.page_input = document.querySelector('#page');
-            this.limit_input = document.querySelector('#limit');
-            this.date_input = document.querySelector('#created-at');
-            this.payments_container = document.querySelector('#payments-container');
-            this.payment_count = document.querySelector('#payment-count');
-            this.payments = document.querySelector('#payments');
-            this.form.addEventListener('submit', function(event){
-                event.stopPropagation();
-                event.preventDefault();
-                self.fetch();
-            });
-
-        };
-
-
-        PaymentFetcher.prototype.onResponse = function(response){
-            if(!response.is_valid){
-
-                return;
-            }
-            this.payments_container.classList.add('hidden');
-            if(parseInt(response.count) > 1){
-                this.payment_count.innerText = `${response.count} - ${response.page} / ${response.num_pages}`;
-            }else{
-                this.payment_count.innerText = `${response.count}`;
-            }
-            
-            while(this.payments.firstChild){
-                this.payments.removeChild(this.payments.firstChild);
-            }
-            var self = this;
-            var li;
-            let span;
-            response.transactions.forEach(function(e,i){
-                li = document.createElement('li');
-                span = document.createElement('span');
-                span.innerText = `Amount : ${e.amount} - Fee : ${e.fee} - Verification Code : ${e.verification_code} - Details : ${e.details} - Date : ${e.created_at}`;
-                li.appendChild(span);
-                self.payments.appendChild(li);
-            });
-            this.payments_container.classList.remove('hidden');
-        }
-
-        PaymentFetcher.prototype.fetch = function(){
-            let url = '/api/fetch-payments/';
-            let self = this;
-            let options = {
-                url : url,
-                type: 'POST',
-                data : new FormData(this.form),
-                dataset : 'json',
-                processData : false,
-                cache : false,
-                contentType : false
-            };
-            ajax_api.ajax(options).then(function(response){
-                let msg = {
-                    content : response.message,
-                    level : response.created
-                }
-                notify(msg);
-                self.onResponse(response);
-
-            }, function(reason){
-                console.error(reason);
-            });
-        };
-        return PaymentFetcher;
-    })();
-
     $(document).ready(function(){
         var permissionManager = new PermissionGroupManager();
         var jsfilter = new JSFilter();
         var group = new Group();
-        var payment_fetcher = new PaymentFetcher();
         csrfmiddlewaretoken = document.querySelector('input[name="csrfmiddlewaretoken"]');
         permissionManager.init();
         jsfilter.init();
