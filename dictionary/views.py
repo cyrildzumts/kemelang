@@ -76,6 +76,7 @@ def create_word(request):
     template_name = "dictionary/create_word.html"
     context = {
         'page_title': "New Word",
+        'langage_list': dictionary_service.get_langages()
     }
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
