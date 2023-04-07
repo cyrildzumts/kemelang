@@ -864,3 +864,7 @@ option:checked{
 .activity:hover{
 	background-color: var(--activity-hover-bg);
 }
+
+.navbar .fas, .navbar .far{
+    color: var(--secondary-color);
+}
