@@ -3149,7 +3149,7 @@ ul li{
 	  align-items: center;
 	  justify-content: space-between !important;
   }
-  navbar-brand{
+  .navbar-brand{
 	  padding-top: 0.3125rem;
 	  padding-bottom: 0.3125rem;
 	  margin-right: 1rem;
@@ -4383,6 +4383,14 @@ ul li{
   
   .modal-toggle{
 	  cursor: pointer;
+  }
+  .word-input-wrapper{
+	width: 100%;
+	min-height: 10.25em;
+  }
+  .word-input-wrapper.target-langage{
+	background-color: #aaa;
+	color: var(--secondary-color);
   }
   
   
