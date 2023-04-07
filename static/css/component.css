@@ -1319,18 +1319,11 @@
 	  border: 2px solid #aaa;
   }
   
-  /*
   .form-group{
-	  display: flex;
-	  justify-content: right;
-	  align-items: center;
 	  width: 100%;
-	  padding: 0;
-	  margin-bottom: 16px;
+	  padding: 1em;
+	  margin-bottom: 1em;
   }
-  */
-  
-  
 
   .field-wrapper{
 	  display: flex;

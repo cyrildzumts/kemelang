@@ -1851,9 +1851,11 @@ ul li{
 	  border: 2px solid #aaa;
   }
   
-  
-  
-  
+  .form-group{
+	  width: 100%;
+	  padding: 1em;
+	  margin-bottom: 1em;
+  }
   .field-wrapper{
 	  display: flex;
 	  width: 100%;
