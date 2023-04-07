@@ -203,3 +203,22 @@ def search_langages(search_query):
     for p in queryset:
         found_langs.add(p)
     return list(found_langs)
+
+
+
+def slugify_langage():
+    queryset = Langage.objects.filter(slug=None)
+    for l in queryset:
+        l.save()
+
+def slugify_country():
+    queryset = Country.objects.filter(slug=None)
+    for c in queryset:
+        c.save()
+
+
+def slugify_models():
+    logger.info("Slugify Models ...")
+    slugify_country()
+    slugify_langage()
+    logger.info("Slugify Models done")
