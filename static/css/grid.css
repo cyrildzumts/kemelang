@@ -117,8 +117,8 @@
   margin: 0;
 	flex-direction: row;
   flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: flex-start;
+  align-items: center;
+  justify-content: center;
 
 }
 
