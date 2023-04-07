@@ -92,6 +92,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'api.apps.ApiConfig',
     'accounts',
+    'core.apps.CoreConfig',
     'dictionary.apps.DictionaryConfig',
     'dashboard.apps.DashboardConfig',
 ]
