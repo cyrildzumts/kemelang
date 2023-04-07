@@ -56,6 +56,7 @@ def create_langage(request):
     template_name = "dictionary/create_langage.html"
     context = {
         'page_title': "New Langage",
+        'countries': dictionary_service.get_countries(),
     }
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
