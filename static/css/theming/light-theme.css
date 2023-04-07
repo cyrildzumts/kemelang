@@ -1,6 +1,6 @@
 :root{
     --primary-color: #0A0A0A;
-    --secondary-color: #FF0D00;
+    --secondary-color: #2C3E50;
     --third-color : #FFFFFF;
     --fourth-color : #FFFFFF;
     --light-color : #FAFAFA;
@@ -11,17 +11,17 @@
     --label-color : #777;
     --body-bg : #FFFFFF;
     --body-color: #0A0A0A;
-    --notification-bg : #FF0D00;
+    --notification-bg : #2C3E50;
     --notification-color : #FAFAFA;
-    --action-color : #FF0D00;
+    --action-color : #2C3E50;
     --sidebar-bg-color: #fafafa;
     --sidebar-color: #0A0A0A;
-    --sidebar-active-color: #FF0D00;
+    --sidebar-active-color: #2C3E50;
     --text-grey: #777;
     --color-stone : #707C80;
     --color-ebony : #282C35;
-    --warning-color : #FF0D00;
-    --error-color : #FF0D00;
+    --warning-color : #2C3E50;
+    --error-color : #2C3E50;
     --success-color :#45A29E ;
     --info-color: #0A0A0A;
     --debug-color: #1e88e5;
@@ -35,7 +35,7 @@
     --footer-catelog-color: #1A1A1A;
     --footer-catalog-link: #1A1A1A;
 
-    --best-deals: #FF0D00;
+    --best-deals: #2C3E50;
     --best-deals-info: #B40900;
     --best-deals-color : #FAFAFA;
 
@@ -75,7 +75,7 @@
     --lingerie-color : #0A0A0A;
     --subscription-vip-header-bg: #0A0A0A;
     --subscription-vip-header-color: #FAFAFA;
-    --subscription-premium-header-bg: #FF0D00;
+    --subscription-premium-header-bg: #2C3E50;
     --subscription-premium-header-color: #FAFAFA;
     --subscription-basic-header-bg: #00C618;
     --subscription-basic-header-color: #FAFAFA;
@@ -84,7 +84,7 @@
     --subscription-footer-bg: #eee;
     --subscription-fouter-color: #FAFAFA;
     --input-font-family : 'Arial', 'Helvetica', sans-serif;
-    --out-of-stock-border : #FF0D00;
+    --out-of-stock-border : #2C3E50;
     --offline-order : #25D366;
     --offline-order-color :#1A1A1A ;
     --status-delivered: #45A29E;
@@ -93,13 +93,13 @@
     --status-processing: #028E9B;
     --status-waiting : #F3BC00;
     --status-retoure : #707C80;
-    --status-customer-not-found : #FF0D00;
-    --status-customer-can-not-pay: #FF0D00;
-    --status-customer-has-not-pay: #FF0D00;
+    --status-customer-not-found : #2C3E50;
+    --status-customer-can-not-pay: #2C3E50;
+    --status-customer-has-not-pay: #2C3E50;
     --status-closed : #25D366;
     --status-submitted : #1e88e5;
     --status-paid : #0584B5;
-    --status-payment-failed: #FF0D00;
+    --status-payment-failed: #2C3E50;
     --status-canceled: #D64B00;
     --status-ready-for-shipment: #25D366;
     --status-refund: #D64B00;
