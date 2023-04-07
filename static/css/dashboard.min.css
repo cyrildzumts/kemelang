@@ -4393,13 +4393,13 @@ ul li{
 	color: var(--textarea);
 	border: 0;
 	resize: none;
-	min-height: 10.25em;
+	min-height: auto;
 	min-width: 21em;
 	word-break: keep-all;
 	overflow-wrap: break-word;
 	white-space: pre-wrap;
 	outline-offset: 2px;
-	caret-color: white;
+	caret-color: var(--secondary-color);
   }
   
   
