@@ -176,7 +176,7 @@ def langages(request):
 def country_detail(request, country_slug):
     template_name = "dictionary/country.html"
     country = get_object_or_404(Country, slug=country_slug)
-    langage_list = country.langages.all()
+    langage_list = dictionary_service.get_langages_by_country(country)
     context = {
         'page_title': f"Country {country.name}",
         'country': country,
@@ -188,7 +188,7 @@ def country_detail(request, country_slug):
 def langage_details(request,langage_slug):
     template_name = "dictionary/langage.html"
     langage = get_object_or_404(Langage, slug=langage_slug)
-    country_list = langage.countries.all()
+    country_list = dictionary_service.get_countries_by_langage(langage)
     context = {
         'page_title': f"Langage {langage.name}",
         'langage': langage,

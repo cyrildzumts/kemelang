@@ -1,0 +1,26 @@
+{% extends "dictionary_base.html" %}
+{% load i18n %} 
+{% load dictionary_tags %}
+
+
+{% block MAIN %}
+<div class="container flex-center padding">
+    <div class="col-12 col-8">
+        <div class="grid">
+            <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{langage}}</span></span></div>
+            <div class="flex flex-left"><p>{{langage.description}}</p></div>
+            <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} <span class="lowercase">{{countrie_list.count}}</span></span></div>
+            <div class="mat-box full">
+                <ul>
+                    {% for country in country_list %}
+                    <li>
+                        <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock MAIN %}

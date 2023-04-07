@@ -1,0 +1,26 @@
+{% extends "dictionary_base.html" %}
+{% load i18n %} 
+{% load dictionary_tags %}
+
+
+{% block MAIN %}
+<div class="container flex-center">
+    <div class="col-m-12 col-8">
+        <div class="mat-box">
+            <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span></div>
+            <div class="flex flex-left"><p>{{country.description}}</p></div>
+            <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} <span class="lowercase">{{langage_list.count}}</span></span></div>
+            <div class="mat-box full">
+                <ul>
+                    {% for langage in langage_list %}
+                    <li>
+                        <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock MAIN %}
