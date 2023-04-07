@@ -13,50 +13,49 @@
             <li><a href="{% url 'dictionary:word-create' %}">{% translate "Create a new Word" %}</a></li>
         </ul>
       </div>
-    <div class="grid">
-        <div class="col-m-5 col-5">
-            <div class="source-langage padding"><span>{{source}}</span></div>
-        </div>
-        <div class="col-m-1 col-1">
-            <div class="grid"><span class="padding"><i class="fa-solid fa-right-left"></i></span></div>
-        </div>
-        <div class="col-m-5 col-5">
-            <div class="target-langage padding"><span>{{target}}</span></div>
-        </div>
-    </div>
-    <div class="grid">
-        <div class="col-m-12 col-5">
-            <div class="source-langage mat-box word-input-wrapper">
-                <textarea name="text" id="text" cols="30" rows="10" placeholder="{% translate 'Enter word' %}"></textarea>
+    <div class="col-m-12 col-8">
+        <div class="grid">
+            <div class="col-m-5 col-5">
+                <div class="source-langage padding"><span>{{source}}</span></div>
+            </div>
+            <div class="col-m-1 col-1">
+                <div class="grid"><span class="padding"><i class="fa-solid fa-right-left"></i></span></div>
+            </div>
+            <div class="col-m-5 col-5">
+                <div class="target-langage padding"><span>{{target}}</span></div>
             </div>
         </div>
-        <div class="col-m-1 col-1">
-            <div class="grid"></div>
-        </div>
-        <div class="col-m-12 col-5">
-            <div class="target-langage mat-box word-input-wrapper">
-                <div class="target-placeholder">
-                        <span>{% translate "Translation" %}</span>
+        <div class="grid">
+            <div class="col-m-12 col-5">
+                <div class="source-langage mat-box word-input-wrapper">
+                    <textarea name="text" id="text" placeholder="{% translate 'Enter word' %}"></textarea>
                 </div>
-                <div class="full">
-                    <ul>
-                        {% for translation in translations %}
-                        <li>
-                            <div>
-                                <div class="flex flex-left"><span class="bold word-type">{{translation.word_type|dict_word_type}}</span></div>
-                                <div class="flex space-between"><span>{{translation.word}}</span> <div class="flex">{% for synonyme in translation.synonymes %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
-                            </div>
+            </div>
+            <div class="col-m-1 col-1">
+                <div class="grid"></div>
+            </div>
+            <div class="col-m-12 col-5">
+                <div class="target-langage mat-box word-input-wrapper">
+                    <div class="target-placeholder">
+                            <span>{% translate "Translation" %}</span>
+                    </div>
+                    <div class="full">
+                        <ul>
+                            {% for translation in translations %}
+                            <li>
+                                <div>
+                                    <div class="flex flex-left"><span class="bold word-type">{{translation.word_type|dict_word_type}}</span></div>
+                                    <div class="flex space-between"><span>{{translation.word}}</span> <div class="flex">{% for synonyme in translation.synonymes %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
+                                </div>
 
-                        </li>
-                        {% endfor %}
-                    </ul>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    
-    
 </div>
 
 {% endblock MAIN %}
