@@ -22,7 +22,7 @@
                             <label for="langage">{% trans "Langage" %}</label>
                             <select name="langage" id="langage">
                                 {% for l in langages %}
-                                <option value="l.pk">{{l.name}}</option>
+                                <option value="{{l.pk}}">{{l.name}}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -34,7 +34,7 @@
                             <label for="synonyme">{% trans "Synonyme" %}</label>
                             <select name="synonyme" id="synonyme" multiple>
                                 {% for w in words %}
-                                <option value="w.pk">{{w.word}}</option>
+                                <option value="{{w.pk}}">{{w.word}}</option>
                                 {% endfor %}
                             </select>
                         </div>

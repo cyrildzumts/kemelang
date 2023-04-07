@@ -23,7 +23,7 @@
                             <label for="countries">{% trans "Countries" %}</label>
                             <select name="countries" id="countries" multiple>
                                 {% for c in countries %}
-                                <option value="c.pk">{{c.name}}</option>
+                                <option value="{{c.pk}}">{{c.name}}</option>
                                 {% endfor %}
                             </select>
                         </div>
