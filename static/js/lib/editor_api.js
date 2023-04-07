@@ -10,7 +10,7 @@ function(ajax_api,tag_api, EditorJS) {
     let editor;
     let editor_content;
     let editor_content_target;
-    let editor_json_target = null;
+    let editor_target = null;
 
 
     const Header = require('editor/plugins/header.min');
@@ -143,9 +143,9 @@ function(ajax_api,tag_api, EditorJS) {
     function on_editor_save(saved_data){
         editor_content = saved_data;
         if(editor_content['blocks'].length > 0){
-            editor_json_target.value = JSON.stringify(editor_content);
+            editor_target.value = JSON.stringify(editor_content);
         }else{
-            editor_json_target.value = "";
+            editor_target.value = "";
         }
         
     }
@@ -158,11 +158,11 @@ function(ajax_api,tag_api, EditorJS) {
     
     function editor_init(data){
         let init_data = data || {};
-        if(editor_json_target.value.length){   
+        if(editor_target.value.length){   
             try {
-                init_data = JSON.parse(editor_json_target.value);
+                init_data = JSON.parse(editor_target.value);
             } catch (error) {
-                console.warn("error on parsing json data from description_json value : %s", editor_json_target.value);
+                console.warn("error on parsing json data from description_json value : %s", editor_target.value);
                 console.error(error);
                 init_data = {};
             }
@@ -217,36 +217,14 @@ function(ajax_api,tag_api, EditorJS) {
 
     function create_editor(){
         let editor_tag = document.getElementById('editor');
-        editor_json_target = document.getElementById('description_json');
         if( !editor_tag){
             return;
         }
-        if(!editor_json_target){
+        editor_target = document.getElementById(editor_tag.dataset.target);
+        if(!editor_target){
+            console.warn("Editor target not found. %s", editor_target);
             return;
         }
-        //editor_content_target = document.getElementById('editor-content');
-        /*
-        if('product' in editor_json_target.dataset){
-            let product_uuid = editor_json_target.dataset['product'];
-            let url = '/api/product-description-json/' + product_uuid + '/';
-            //let formData = new FormData();
-            //formData.append('csrfmiddlewaretoken', csrfmiddlewaretoken.value);
-            let fetch_options = {
-                method : 'GET'
-            };
-            ajax_api.fetch_api(url, fetch_options).then((response)=>{
-                console.log("got response : ", response);
-                editor_init(response);
-            }, function(reason){
-                console.error("Error on fetching json description.");
-                console.error(reason);
-                
-            });
-
-        }else{
-            editor_init();
-        }
-        */
         editor_init();
     }
     create_editor();
