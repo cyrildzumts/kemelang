@@ -16,10 +16,7 @@
                 <ul>
                     {% for langage in langage_list %}
                     <li>
-                        <div>
-                            <div class="flex flex-left"><span class="bold word-type">{{langage}}</span></div>
-                        </div>
-
+                        <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
                     </li>
                     {% endfor %}
                 </ul>

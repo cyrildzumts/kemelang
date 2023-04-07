@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
+from django.shortcuts import reverse
 from dictionary import constants
 
 # Create your models here.
@@ -29,6 +30,13 @@ class Langage(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("dictionary:langage-detail", kwargs={"langage_slug": self.slug})
+    
+    def get_update_url(self):
+        return reverse("dictionary:langage-update", kwargs={"langage_slug": self.slug, 'langage_uuid': self.langage_uuid})
+    
 
 
 class Country(models.Model):
@@ -45,6 +53,12 @@ class Country(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    def get_absolute_url(self):
+        return reverse("dictionary:country-detail", kwargs={"country_slug": self.slug})
+    
+    def get_update_url(self):
+        return reverse("dictionary:country-update", kwargs={"country_slug": self.slug, 'country_uuid': self.country_uuid})
     
 
 class Word(models.Model):
@@ -64,6 +78,12 @@ class Word(models.Model):
     
     def __str__(self) -> str:
         return self.word
+    
+    def get_absolute_url(self):
+        return reverse("dictionary:word-detail", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
+    
+    def get_update_url(self):
+        return reverse("dictionary:word-update", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
 
 
 class Definition(models.Model):

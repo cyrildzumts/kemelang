@@ -12,10 +12,7 @@
                 <ul>
                     {% for country in country_list %}
                     <li>
-                        <div>
-                            <div class="flex flex-left"><span class="bold word-type">{{country}}</span></div>
-                        </div>
-
+                        <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>
                     </li>
                     {% endfor %}
                 </ul>
