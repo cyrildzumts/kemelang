@@ -48,7 +48,7 @@ class Langage(models.Model):
     def as_dict(self, filter_foreign_key=False):
         if filter_foreign_key:
             return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'langage_uuid': self.langage_uuid}
-        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'countries': [c.as_dict(True) for c in self.countries], 'langage_uuid': self.langage_uuid}
+        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'countries': [c.as_dict(True) for c in self.countries.all()], 'langage_uuid': self.langage_uuid}
     
 
 
