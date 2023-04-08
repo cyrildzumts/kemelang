@@ -27,6 +27,14 @@ class Langage(models.Model):
     langage_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['name', 'description', 'countries', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['name']
+    FORM_MAANAGEMENT_FIELDS = {
+        'fields' : [
+            {'field': 'name','tag': 'input','type':'text','max-length': constants.NAME_MAX_LENGTH, 'required': True},
+            {'field': 'description', 'tag': 'input', 'type':'text','max-length': None, 'required': False},
+            {'field': 'countries', 'tag': 'select', 'selection': 'multiple', 'required': False},
+            {'field': 'added_by', 'tag': 'input', 'type':'hidden','max-length': None, 'required': False},
+        ]
+    }
     
     def __str__(self) -> str:
         return self.name
@@ -50,6 +58,13 @@ class Country(models.Model):
     country_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['name', 'description', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['name', 'description']
+    FORM_MAANAGEMENT_FIELDS = {
+        'fields' : [
+            {'field': 'name','tag': 'input','type':'text','max-length': constants.NAME_MAX_LENGTH, 'required': True},
+            {'field': 'description', 'tag': 'input', 'type':'text','max-length': None, 'required': False},
+            {'field': 'added_by', 'tag': 'input', 'type':'hidden','max-length': None, 'required': False},
+        ]
+    }
     
     def __str__(self) -> str:
         return self.name

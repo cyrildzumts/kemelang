@@ -17,7 +17,7 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
         this.id_form_MIN_NUM_FORMS = $("#id_form-MIN_NUM_FORMS", this.form);
         this.id_form_MAX_NUM_FORMS = $("#id_form-MAX_MIN_FORMS", this.form);
     };
-    AttributManager.prototype.init = function(){
+    FormManager.prototype.init = function(){
         var self = this;
         
         
@@ -50,12 +50,12 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
     };
 
 
-    AttributManager.prototype.clear = function(){
+    FormManager.prototype.clear = function(){
         this.total_form = 0;
         this.updateManagementForm();
     };
 
-    AttributManager.prototype.updateFormInputIndex = function(){
+    FormManager.prototype.updateFormInputIndex = function(){
         var name;
         var id;
         var self = this;
@@ -66,14 +66,14 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
         });
     };
 
-    AttributManager.prototype.updateInputIndex = function(input, index){
+    FormManager.prototype.updateInputIndex = function(input, index){
         var name = input.getAttribute('name');
         var id = input.getAttribute('id');
         input.setAttribute('id', id.replace(this.replace_pattern, index));
         input.setAttribute('name', name.replace(this.replace_pattern, index));
     }
 
-    AttributManager.prototype.create_subscription_attribute = function(){
+    FormManager.prototype.create_subscription_attribute = function(){
         var self = this;
         let create_api = tag_api.create_tag;
         var id = `attr-form-${this.total_form}`;
@@ -189,7 +189,7 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
     }
 
 
-    AttributManager.prototype.create_attribute = function(){
+    FormManager.prototype.create_attribute = function(){
         var self = this;
         let create_api = tag_api.create_tag;
         var id = `attr-form-${this.total_form}`;
@@ -304,14 +304,14 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
         return div;
     }
 
-    AttributManager.prototype.incremente_management_form = function(){
+    FormManager.prototype.incremente_management_form = function(){
         this.total_form = this.total_form + 1;
         this.id_form_TOTAL_FORMS.val(this.total_form);
         this.id_form_MIN_NUM_FORMS.val(this.total_form);
         this.id_form_MAX_NUM_FORMS.val(this.total_form);
     };
 
-    AttributManager.prototype.updateManagementForm = function(){
+    FormManager.prototype.updateManagementForm = function(){
         var self = this;
         this.attrs_inputs.forEach(function (arr_input, index) {
             arr_input.forEach(function(e, i){
@@ -320,12 +320,12 @@ define(["ajax_api", 'tag_api'],function(ajax_api, tag_api) {
         });
     };
 
-    AttributManager.prototype.decremente_management_form = function(){
+    FormManager.prototype.decremente_management_form = function(){
         this.total_form = this.total_form - 1;
         this.id_form_TOTAL_FORMS.val(this.total_form);
         this.id_form_MIN_NUM_FORMS.val(this.total_form);
         this.id_form_MAX_NUM_FORMS.val(this.total_form);
     };
 
-    return AttributManager;
+    return FormManager;
 });

@@ -39,7 +39,7 @@ urlpatterns_i18n = i18n_patterns(
 
 urlpatterns = [
     path('i18n/', include('django.conf.urls.i18n')),
-    #path('api/', include('api.urls', namespace='api')),
+    path('api/', include('api.urls', namespace='api')),
     path('api/api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     #path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name="django.contrib.sitemaps.views.sitemap"),
     *urlpatterns_i18n

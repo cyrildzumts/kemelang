@@ -1,5 +1,6 @@
 
 
+
 TRANSLATION_COMMENT_MAX_LENGTH = 300
 NAME_MAX_LENGTH = 128
 WORD_MAX_LENGTH = 128
@@ -19,3 +20,11 @@ SEARCH_SIMILARITY_FILTER = 0.1
 
 RESOLVE_DICT_HOME = "dictionary:dict-home"
 RESOLVE_HOME = "home"
+
+
+FORM_MANAGEMENT_TYPE_MAPPING = {
+    'langage' : 'Langage',
+    'country': 'Country',
+    'definition': 'Definition',
+    
+}

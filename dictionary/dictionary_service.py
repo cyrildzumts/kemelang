@@ -189,7 +189,7 @@ def search_words(search_query):
 
 def search_langages(search_query):
     
-    logger.info(f"Search word : {search_query}")
+    logger.info(f"Search langage : {search_query}")
     LANG_VECTOR = SearchVector('name') + SearchVector('countries__name')
     DB_VECTOR = LANG_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
