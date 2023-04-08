@@ -36,6 +36,9 @@ class Langage(models.Model):
         ]
     }
     
+    class Meta:
+        ordering = ['name', '-created_at']
+    
     def __str__(self) -> str:
         return self.name
     
@@ -71,6 +74,9 @@ class Country(models.Model):
         ]
     }
     
+    class Meta:
+        ordering = ['name', '-created_at']
+    
     def __str__(self) -> str:
         return self.name
     
@@ -102,6 +108,9 @@ class Word(models.Model):
     FORM_FIELDS = ['word','audio', 'description','synonyme', 'langage', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['word', 'description']
     
+    class Meta:
+        ordering = ['word', '-created_at']
+    
     def __str__(self) -> str:
         return self.word
     
@@ -113,7 +122,7 @@ class Word(models.Model):
     
     
     def as_dict(self, filter_foreign_key=False):
-        return {'id': self.pk, 'type': 'Word', 'word': self.word, 'langage': self.langage.as_dict(True), 'word_uuid': self.word_uuid}
+        return {'id': self.pk, 'type': 'Word', 'word': self.word,'description': self.description, 'langage': self.langage.as_dict(True), 'word_uuid': self.word_uuid}
 
 
 class Definition(models.Model):
@@ -126,6 +135,9 @@ class Definition(models.Model):
     definition_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['word', 'description', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['word', 'description']
+    
+    class Meta:
+        ordering = ['-created_at']
     
     def __str__(self) -> str:
         return self.word
@@ -145,6 +157,9 @@ class Comment(models.Model):
     comment_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['word', 'comment', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['name', 'comment']
+    
+    class Meta:
+        ordering = ['-created_at']
     
     def __str__(self) -> str:
         return self.word
@@ -168,6 +183,9 @@ class Phrase(models.Model):
     FORM_FIELDS = ['word','audio', 'content', 'description', 'langage', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['name','content', 'description']
     
+    class Meta:
+        ordering = ['-created_at']
+    
     def __str__(self) -> str:
         return self.word
     
@@ -187,6 +205,9 @@ class TranslationWord(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     transaltion_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
+    
+    class Meta:
+        ordering = ['-created_at']
     
     FORM_FIELDS = ['source_word','target_word', 'source_langage', 'target_langage', 'comment', 'added_by', 'changed_by']
     
