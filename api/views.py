@@ -200,6 +200,7 @@ def search_langage(request):
         result = {'success': True, 'langages': langage_list, 'query': search_query}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Search Langages request failed : {e}")
     return Response(data=result, status=status.HTTP_200_OK)
 
 
@@ -216,6 +217,7 @@ def search_country(request):
         result = {'success': True, 'countries': country_list, 'query': search_query}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Search Country request failed : {e}")
     return Response(data=result, status=status.HTTP_200_OK)
 
 
@@ -227,8 +229,9 @@ def word_synonymes(request, word, word_uuid):
     try:
         w = Word.objects.get(word_uuid=word_uuid)
         query_list = dictionary_service.get_synonymes(w)
-        word_list = [{'id': instance.id,'word': instance.word, 'word_uuid': instance.word_uuid} for instance in query_list]
-        result = {'success': True, 'synonymes': word_list, 'word': {'id': w.id, 'word': w.word, 'word_uuid': w.word_uuid, 'langage': w.langage.name}}
+        word_list = [instance.as_dict() for instance in query_list]
+        result = {'success': True, 'synonymes': word_list, 'word': w.as_dict()}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Search Synonymes request failed : {e}")
     return Response(data=result, status=status.HTTP_200_OK)
