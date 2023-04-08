@@ -45,6 +45,11 @@ class Langage(models.Model):
     def get_update_url(self):
         return reverse("dictionary:langage-update", kwargs={"langage_slug": self.slug, 'langage_uuid': self.langage_uuid})
     
+    def as_dict(self, filter_foreign_key=False):
+        if filter_foreign_key:
+            return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'langage_uuid': self.langage_uuid}
+        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'countries': [c.as_dict(True) for c in self.countries], 'langage_uuid': self.langage_uuid}
+    
 
 
 class Country(models.Model):
@@ -75,6 +80,12 @@ class Country(models.Model):
     def get_update_url(self):
         return reverse("dictionary:country-update", kwargs={"country_slug": self.slug, 'country_uuid': self.country_uuid})
     
+    
+    def as_dict(self, filter_foreign_key=False):
+        if filter_foreign_key:
+            return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'country_uuid': self.country_uuid}
+        return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'langages': [l.as_dict(True) for l in self.langages.all()], 'country_uuid': self.country_uuid}
+    
 
 class Word(models.Model):
     word = models.CharField(max_length=constants.WORD_MAX_LENGTH)
@@ -99,6 +110,10 @@ class Word(models.Model):
     
     def get_update_url(self):
         return reverse("dictionary:word-update", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
+    
+    
+    def as_dict(self, filter_foreign_key=False):
+        return {'id': self.pk, 'type': 'Word', 'word': self.word, 'langage': self.langage.as_dict(True), 'word_uuid': self.word_uuid}
 
 
 class Definition(models.Model):
@@ -114,6 +129,9 @@ class Definition(models.Model):
     
     def __str__(self) -> str:
         return self.word
+    
+    def as_dict(self, filter_foreign_key=False):
+        return {'id': self.pk, 'type': 'Definition', 'word': self.word.as_dict(),'description': self.description,'definition_uuid': self.definition_uuid}
     
 
 
@@ -131,6 +149,9 @@ class Comment(models.Model):
     def __str__(self) -> str:
         return self.word
     
+    
+    def as_dict(self, filter_foreign_key=False):
+        return {'id': self.pk, 'type': 'Comment', 'word': self.word.as_dict(),'comment': self.comment,'comment_uuid': self.comment_uuid}
 
 
 class Phrase(models.Model):
@@ -150,6 +171,11 @@ class Phrase(models.Model):
     def __str__(self) -> str:
         return self.word
     
+    def as_dict(self, filter_foreign_key=False):
+        return {'id': self.pk, 'type': 'Phrase', 'word': self.word.as_dict(),'content': self.content, 'description': self.description,'phrase_uuid': self.phrase_uuid}
+    
+    
+    
 class TranslationWord(models.Model):
     source_word = models.ForeignKey('Word', on_delete=models.CASCADE, related_name='translations')
     target_word = models.ForeignKey('Word', on_delete=models.CASCADE, related_name='translations_target')
@@ -163,4 +189,7 @@ class TranslationWord(models.Model):
     transaltion_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     
     FORM_FIELDS = ['source_word','target_word', 'source_langage', 'target_langage', 'comment', 'added_by', 'changed_by']
+    
+    def as_dict(self, filter_foreign_key=False):
+        return {'id': self.pk, 'type': 'TranslationWord', 'source_word': self.source_word.as_dict(),'target_word': self.target_word.as_dict(), 'source_langage': self.source_langage.as_dict(True),'target_langage': self.target_langage.as_dict(True),'comment': self.comment, 'transaltion_uuid': self.transaltion_uuid}
     
