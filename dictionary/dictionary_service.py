@@ -154,10 +154,10 @@ def get_word_translations_for_langage(word, langage):
 def search_countries(search_query):
     
     logger.info(f"Search word : {search_query}")
-    COUNTRY_VECTOR = SearchVector('name') + SearchVector('langages__name')
+    COUNTRY_VECTOR = SearchVector('name') + SearchVector('slug')
     DB_VECTOR = COUNTRY_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
-    TRIGRAM_SIMILARITY = TrigramSimilarity('name',search_query) + TrigramSimilarity('langages__name',search_query)
+    TRIGRAM_SIMILARITY = TrigramSimilarity('name',search_query) + TrigramSimilarity('slug',search_query)
     RANK_FILTER = Q(rank__gte=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gte=Constants.SEARCH_SIMILARITY_FILTER)
     SEARCH_FILTER = RANK_FILTER | TRIGRAM_FILTER
@@ -190,10 +190,10 @@ def search_words(search_query):
 def search_langages(search_query):
     
     logger.info(f"Search langage : {search_query}")
-    LANG_VECTOR = SearchVector('name') + SearchVector('countries__name')
+    LANG_VECTOR = SearchVector('name') + SearchVector('slug')
     DB_VECTOR = LANG_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
-    TRIGRAM_SIMILARITY = TrigramSimilarity('name',search_query) + TrigramSimilarity('countries__name',search_query)
+    TRIGRAM_SIMILARITY = TrigramSimilarity('name',search_query) + TrigramSimilarity('slug',search_query)
     RANK_FILTER = Q(rank__gte=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gte=Constants.SEARCH_SIMILARITY_FILTER)
     SEARCH_FILTER = RANK_FILTER | TRIGRAM_FILTER
