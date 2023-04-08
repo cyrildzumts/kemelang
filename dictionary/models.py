@@ -47,8 +47,8 @@ class Langage(models.Model):
     
     def as_dict(self, filter_foreign_key=False):
         if filter_foreign_key:
-            return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'langage_uuid': self.langage_uuid}
-        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'countries': [c.as_dict(True) for c in self.countries.all()], 'langage_uuid': self.langage_uuid}
+            return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'description': self.description,'langage_uuid': self.langage_uuid}
+        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'description': self.description, 'countries': [c.as_dict(True) for c in self.countries.all()], 'langage_uuid': self.langage_uuid}
     
 
 
@@ -83,8 +83,8 @@ class Country(models.Model):
     
     def as_dict(self, filter_foreign_key=False):
         if filter_foreign_key:
-            return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'country_uuid': self.country_uuid}
-        return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'langages': [l.as_dict(True) for l in self.langages.all()], 'country_uuid': self.country_uuid}
+            return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'description': self.description, 'country_uuid': self.country_uuid}
+        return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug,'description': self.description, 'langages': [l.as_dict(True) for l in self.langages.all()], 'country_uuid': self.country_uuid}
     
 
 class Word(models.Model):
