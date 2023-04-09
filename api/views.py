@@ -208,6 +208,25 @@ def search_langage(request):
 @api_view(['GET'])
 @permission_classes([])
 @authentication_classes([])
+def detect_langage(request):
+    logger.info(f"API: Search Langages request")
+    try:
+        search_query = utils.get_request_data(request).get('search')
+        result_dict = dictionary_service.find_word_langages(search_query)
+        if result_dict['found']:
+            result = {'success': True, 'found': True, 'langages': [lang.as_dict(True) for lang in result_dict['langages']], 'size': result_dict['size'], 'query': result_dict['query']}
+        else:
+            result = {'success': True, 'found': False, 'suggestions': [lang.as_dict(True) for lang in result_dict['suggestions']], 'size': result_dict['size'], 'query': result_dict['query']}
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Search Langages request failed : {e}")
+    return Response(data=result, status=status.HTTP_200_OK)
+
+
+
+@api_view(['GET'])
+@permission_classes([])
+@authentication_classes([])
 def search_country(request):
     logger.info(f"API: Search Countries request")
     try:

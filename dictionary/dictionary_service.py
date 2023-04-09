@@ -205,6 +205,28 @@ def search_langages(search_query):
     return list(found_langs)
 
 
+def find_word_langages(search_query):
+    logger.info(f"Search word : {search_query}")
+    
+    queryset = Langage.objects.filter(words__word__iexact=search_query)
+    if queryset.exists():
+        return {'query': search_query, 'langages': queryset, 'found': True, 'size': queryset.count()}
+    
+    WORD_VECTOR = SearchVector('words__word')
+    DB_VECTOR = WORD_VECTOR 
+    DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
+    TRIGRAM_SIMILARITY = TrigramSimilarity('words__word',search_query)
+    RANK_FILTER = Q(rank__gte=Constants.SEARCH_RANK_FILTER)
+    TRIGRAM_FILTER = Q(similarity__gte=Constants.SEARCH_SIMILARITY_FILTER)
+    SEARCH_FILTER = RANK_FILTER | TRIGRAM_FILTER
+    ORDER_BY = ['-similarity','-rank']
+    found_langages = set()
+    queryset = Langage.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY).filter(SEARCH_FILTER).order_by(*ORDER_BY)
+    for p in queryset:
+        found_langages.add(p)
+    return {'query': search_query, 'found': False, 'suggestions': list(found_langages), 'size': len(found_langages)}
+
+
 
 def slugify_langage():
     queryset = Langage.objects.filter(slug=None)
