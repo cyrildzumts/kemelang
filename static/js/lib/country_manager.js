@@ -143,7 +143,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         var self = this;
         this.wrappers.forEach(function (div, index) {
             console.log("Updating Index for wrapper %s - index %s", div.id, index);
-            let managed_update = document.querySelectorAll('.managed-update', div);
+            let managed_update = div.querySelectorAll('.managed-update');
             managed_update.forEach(function(e, i){
                 console.log("Updating Index for wrapper %s", div.id);
                 self.updateFormIndex(e, index);
