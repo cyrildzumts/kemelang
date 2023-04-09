@@ -120,8 +120,8 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         if(tag.hasAttribute('name')){
             tag.setAttribute('name', tag.getAttribute('name').replace(this.replace_pattern, index));
         }
-        if(tag.hasAttribute('htmlFor')){
-            tag.setAttribute('htmlFor', tag.getAttribute('htmlFor').replace(this.replace_pattern, index));
+        if(tag.hasAttribute('for')){
+            tag.setAttribute('for', tag.getAttribute('for').replace(this.replace_pattern, index));
         }
     }
 
