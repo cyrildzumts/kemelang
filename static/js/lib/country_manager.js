@@ -81,7 +81,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
     }
 
     CountryManager.prototype.add_country_form = function(prefix){
-        let result = this.countryFormFactory.create_form(prefix, this.total_form, this.remove_country_form);
+        let result = this.countryFormFactory.create_form(this.total_form, prefix, this.remove_country_form);
         this.wrappers.push(result.tag);
         this.form_container.appendChild(result.tag);
         this.incremente_management_form();
