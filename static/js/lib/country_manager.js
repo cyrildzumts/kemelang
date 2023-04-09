@@ -22,7 +22,8 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         if(!this.form_container){
             return;
         }
-        CountryFormFactory.init();
+        this.countryFormFactory = new CountryFormFactory();
+        this.countryFormFactory.init();
         let add_form_btn = document.getElementById('add-country-btn');
         if(add_form_btn){
             add_form_btn.addEventListener('click', (even) => self.create_managed_country_form('country'));
