@@ -26,8 +26,12 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         this.countryFormFactory.init();
         let add_form_btn = document.getElementById('add-country-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', (even) => self.create_managed_country_form('country'));
+            add_form_btn.addEventListener('click', (even) => {
+                console.log("Click on Add Country Form");
+                self.create_managed_country_form('country');
+            });
         }
+        console.log("Country Manager initialised");
     };
 
     CountryManager.prototype.create_managed_country_form = function(prefix){
