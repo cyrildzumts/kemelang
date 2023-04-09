@@ -122,16 +122,16 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
 
     CountryManager.prototype.incremente_management_form = function(){
         this.total_form = this.total_form + 1;
-        this.form_TOTAL_FORMS.val(this.total_form);
-        this.form_MIN_NUM_FORMS.val(this.total_form);
-        this.form_MAX_NUM_FORMS.val(this.total_form);
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
     };
 
     CountryManager.prototype.decremente_management_form = function(){
         this.total_form = this.total_form - 1;
-        this.form_TOTAL_FORMS.val(this.total_form);
-        this.form_MIN_NUM_FORMS.val(this.total_form);
-        this.form_MAX_NUM_FORMS.val(this.total_form);
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
     };
 
     CountryManager.prototype.updateManagementFormIndex = function(){
