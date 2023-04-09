@@ -111,6 +111,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
 
 
     CountryManager.prototype.updateFormIndex = function(tag, index){
+        console.log("Updating FormIndex for Tag  and index %", index,tag);
         if(Object.hasOwn(tag, 'id')){
             tag.setAttribute('id', tag.getAttribute('id').replace(this.replace_pattern, index));
         }
@@ -141,8 +142,10 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
     CountryManager.prototype.updateManagementFormIndex = function(){
         var self = this;
         this.wrappers.forEach(function (div, index) {
+            console.log("Updating Index for wrapper %s - index %s", div.id, index);
             let managed_update = document.querySelectorAll('.managed-update', div);
             managed_update.forEach(function(e, i){
+                console.log("Updating Index for wrapper %s", div.id);
                 self.updateFormIndex(e, index);
             });
             self.updateFormIndex(div, index);
