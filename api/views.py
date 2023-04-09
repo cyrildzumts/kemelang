@@ -94,7 +94,7 @@ def langages(request):
     try:
         queryset = dictionary_service.get_langages()
         #langage_list = queryset.values('id', 'name','slug', 'langage_uuid')
-        result = {'success': True, 'countries': [l.as_dict() for l in queryset], 'size': queryset.count()}
+        result = {'success': True, 'langages': [l.as_dict() for l in queryset], 'size': queryset.count()}
         #result = {'success': True, 'langages': langage_list}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
