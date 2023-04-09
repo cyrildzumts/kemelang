@@ -28,9 +28,10 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         if(add_form_btn){
             add_form_btn.addEventListener('click', (even) => {
                 console.log("Click on Add Country Form");
-                self.create_managed_country_form('country');
+                self.add_country_form('country');
             });
         }
+        self.create_managed_country_form('country');
         console.log("Country Manager initialised");
     };
 
@@ -73,10 +74,14 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
+        this.form_container.appendChild(this.form_TOTAL_FORMS);
+        this.form_container.appendChild(this.form_INITIAL_FORMS);
+        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
     }
 
-    CountryManager.prototype.add_country_form = function(){
-        let country_form_wrapper = CountryFormFactory.create_form('country', this.total_form, this.remove_country_form);
+    CountryManager.prototype.add_country_form = function(prefix){
+        let country_form_wrapper = CountryFormFactory.create_form(prefix, this.total_form, this.remove_country_form);
         this.wrappers.push(country_form_wrapper);
         this.form_container.appendChild(country_form_wrapper);
         this.incremente_management_form();
