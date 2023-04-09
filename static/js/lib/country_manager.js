@@ -81,11 +81,11 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
     }
 
     CountryManager.prototype.add_country_form = function(prefix){
-        let country_form_wrapper = this.countryFormFactory.create_form(prefix, this.total_form, this.remove_country_form);
-        this.wrappers.push(country_form_wrapper);
-        this.form_container.appendChild(country_form_wrapper);
+        let result = this.countryFormFactory.create_form(prefix, this.total_form, this.remove_country_form);
+        this.wrappers.push(result.div);
+        this.form_container.appendChild(result.div);
         this.incremente_management_form();
-        console.log("Added new country form %s", country_form_wrapper.id);
+        console.log("Added new country form %s", result.div.id);
     };
 
 
