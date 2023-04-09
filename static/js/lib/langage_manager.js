@@ -19,7 +19,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory', 'langage_form_factory'],f
         
         //this.form = $('#form-attrs-management');
         this.form = document.getElementById('managed-form');
-        this.country_form = document.getElementById('country-form');
+
         this.langage_form = document.getElementById('langage-form');
         this.form_container = $('#form-container', this.form);
         this.attrs_inputs = [];
@@ -35,47 +35,6 @@ define(["ajax_api", 'tag_api', 'country_form_factory', 'langage_form_factory'],f
         LangageFormFactory.init();
         
     };
-
-    FormManager.prototype.create_managed_country_form = function(prefix){
-        const FORM_PREFIX = prefix || 'form';
-        let create_tag = tag_api.create_tag;
-        this.form_TOTAL_FORMS = create_tag({
-            'element': 'input', 
-            'options': {
-                'id': `id_${FORM_PREFIX}-${TOTAL_FORMS}`,
-                'value': 1,
-                'type': 'hidden',
-                'name': `${FORM_PREFIX}-${TOTAL_FORMS}`
-            }
-        });
-        this.form_INITIAL_FORMS = create_tag({
-            'element': 'input', 
-            'options': {
-                'id': `id_${FORM_PREFIX}-${INITIAL_FORMS}`,
-                'value': this.total_form,
-                'type': 'hidden',
-                'name': `${FORM_PREFIX}-${INITIAL_FORMS}`
-            }
-        });
-        this.form_MIN_NUM_FORMS = create_tag({
-            'element': 'input', 
-            'options': {
-                'id': `id_${FORM_PREFIX}-${MIN_NUM_FORMS}`,
-                'value': this.total_form,
-                'type': 'hidden',
-                'name': `${FORM_PREFIX}-${MIN_NUM_FORMS}`
-            }
-        });
-        this.form_MAX_NUM_FORMS = create_tag({
-            'element': 'input', 
-            'options': {
-                'id': `id_${FORM_PREFIX}-${MAX_NUM_FORMS}`,
-                'value': MAX_SUBMITTED_FORMS,
-                'type': 'hidden',
-                'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
-            }
-        });
-    }
 
     FormManager.prototype.create_managed_langage_form = function(prefix){
         const FORM_PREFIX = prefix || 'form';
