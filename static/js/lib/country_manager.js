@@ -42,7 +42,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
             'element': 'input', 
             'options': {
                 'id': `id_${FORM_PREFIX}-${TOTAL_FORMS}`,
-                'value': 1,
+                'value': 0,
                 'type': 'hidden',
                 'name': `${FORM_PREFIX}-${TOTAL_FORMS}`
             }
