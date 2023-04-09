@@ -90,14 +90,18 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
 
 
     CountryManager.prototype.remove_country_form = function(element_id){
-        console.log("Removing country form wrapper %s", element_id);
+        
         let element_index = this.wrappers.findIndex((element) => element.id == element_id);
         if(element_index > -1){
+            console.log("Removing country form wrapper %s", element_id);
             this.wrappers.slice(element_index, 1);
             this.decremente_management_form();
             this.updateManagementFormIndex();
+            console.log("Removed country form wrapper %s", element_id);
+        }else{
+            console.log("Removed country form wrapper  failed:  %s not found", element_id);
         }
-        console.log("Removed country form wrapper %s", element_id);
+        
     };
 
     CountryManager.prototype.clear = function(){
