@@ -94,7 +94,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         let element_index = this.wrappers.findIndex((element) => element.id == element_id);
         if(element_index > -1){
             console.log("Removing country form wrapper %s - Size %s", element_id, this.wrappers.length);
-            this.wrappers = this.wrappers.slice(element_index, 1);
+            this.wrappers = this.wrappers.splice(element_index, 1);
             this.decremente_management_form();
             this.updateManagementFormIndex();
             console.log("Removed country form wrapper %s - Size %s", element_id, this.wrappers.length);
