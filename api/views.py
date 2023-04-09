@@ -44,8 +44,8 @@ def countries(request):
     logger.info(f"API: Countries request")
     try:
         queryset = dictionary_service.get_countries()
-        country_list = queryset.values('id', 'name','slug', 'country_uuid')
-        result = {'success': True, 'countries': country_list}
+        #country_list = queryset.values('id', 'name','slug', 'country_uuid')
+        result = {'success': True, 'countries': [c.as_dict() for c in queryset], 'size': queryset.count()}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)
@@ -93,8 +93,9 @@ def langages(request):
     logger.info(f"API: Langages request")
     try:
         queryset = dictionary_service.get_langages()
-        langage_list = queryset.values('id', 'name','slug', 'langage_uuid')
-        result = {'success': True, 'langages': langage_list}
+        #langage_list = queryset.values('id', 'name','slug', 'langage_uuid')
+        result = {'success': True, 'countries': [l.as_dict() for l in queryset], 'size': queryset.count()}
+        #result = {'success': True, 'langages': langage_list}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)
@@ -108,8 +109,7 @@ def country_langages(request, country_slug, country_uuid):
     try:
         country = Country.objects.get(country_uuid=country_uuid)
         queryset = dictionary_service.get_langages_by_country(country)
-        langage_list = queryset.values('id', 'name','slug', 'langage_uuid')
-        result = {'success': True, 'langages': langage_list, 'country': CountrySerializer(country).data}
+        result = {'success': True, 'langages': [l.as_dict(True) for l in queryset], 'country': country.as_dict(True), 'size': queryset.count()}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)

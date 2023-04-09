@@ -8,6 +8,7 @@ app_name = "api"
 api_patterns = [
     path('countries/', views.countries, name="countries"),
     path('langages/', views.langages, name="langages"),
+    path('country-langages/<slug:country_slug>/<uuid:country_uuid>/', views.langages, name="langages"),
     path('create-country/', views.create_country, name="country-create"),
     path('create-langage/', views.create_langage, name="langage-create"),
     path('create-word/', views.create_word, name="word-create"),
