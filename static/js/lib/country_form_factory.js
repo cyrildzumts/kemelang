@@ -101,7 +101,7 @@ define(['tag_api'],function(tag_api) {
         delete_button.addEventListener('click', function(event){
             event.stopPropagation();
             event.preventDefault();
-            let tag_id = this.id;
+            let tag_id = div.id;
             div.remove();
             if(delete_callback){
                 delete_callback(tag_id);
