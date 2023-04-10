@@ -4424,6 +4424,9 @@ ul li{
 	width:100%;
 	overflow-y: auto;
   }
+  .editor-box .codex-editor__redactor{
+	margin-right: 0.2em !important;
+  }
   .editor-box-wrapper .form-group{
 	display: flex;
 	width: 100%;
