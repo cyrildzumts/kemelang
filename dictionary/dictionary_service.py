@@ -30,10 +30,10 @@ def create_mass_country(data):
     result = {}
     if formset.is_valid():
         logger.info(f"Country Formset is valid. Dataset : {formset.cleaned_data}")
-        #countries = formset.save()
+        countries = formset.save()
         logger.info(f"Country Formset created.")
-        result = {'success' : True, 'message': f'Created countries'}
-        #result = {'success' : True, 'message': f'Created {len(countries)} countries'}
+        #result = {'success' : True, 'message': f'Created countries'}
+        result = {'success' : True, 'message': f'Created {len(countries)} countries'}
     else:
         result = {'success': False, 'message': formset.errors}
     return result
