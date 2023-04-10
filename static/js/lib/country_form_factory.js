@@ -15,11 +15,10 @@ define(['tag_api'],function(tag_api) {
         let form_prefix = prefix || 'form';
         let create_api = tag_api.create_tag;
         let id = `${form_prefix}-${form_index}`;
-        let delete_button = create_api({'element': 'button', 'options':{
-            'cls': 'mat-button managed-update',
+        let delete_button = create_api({'element': 'span', 'options':{
+            'cls': 'managed-update',
             'id': id + '-delete-btn',
             'title': 'Delete this country',
-            'type': 'button',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
         }});
         let header_label = create_api({'element': 'div', 'options':{
