@@ -2,14 +2,17 @@
 
 
 <div class="container">
-        
-    <form id="country-form" class="country-form" name="country" action="{% url 'dictionary:country-create' %}" method="POST">{% csrf_token %}
-        <div id="country-form-container" class="create-form">  
+    <div class="col-m-12 col-7">
+        <div class="grid">
+            <form id="country-form" class="country-form" name="country" action="{% url 'dictionary:country-create' %}" method="POST">{% csrf_token %}
+                <div id="country-form-container" class="create-form">  
+                </div>
+                <div class="actions">
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url 'dictionary:dict-home' %}">{% trans "Cancel" %}</a>
+                    <button id="add-country-btn" class="mat-button mat-button-default" type="button"><span><i class="fas fa-plus"></i><span>{% trans "Add" %}</span></span></button>
+                    <button class="mat-button mat-button-default create-country-btn" type="submit">{% trans "Create" %}</button>
+                </div>
+            </form>
         </div>
-        <div class="actions">
-            <a class="mat-button mat-button-outline js-cancel" href="{% url 'dictionary:dict-home' %}">{% trans "Cancel" %}</a>
-            <button id="add-country-btn" class="mat-button mat-button-default" type="button"><span><i class="fas fa-plus"></i><span>{% trans "Add" %}</span></span></button>
-            <button class="mat-button mat-button-default create-country-btn" type="submit">{% trans "Create" %}</button>
-        </div>
-    </form>
+    </div>
 </div>          
