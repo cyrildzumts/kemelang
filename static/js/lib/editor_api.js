@@ -508,7 +508,7 @@ function(require, ajax_api, tag_api, EditorJS) {
         }
 
         EditorWrapper.prototype.on_editor_change = function(api, event){
-            api.saver.save().then(this.on_editor_save).catch((error)=>{
+            this.editor.save().then(this.on_editor_save).catch((error)=>{
                 console.log("Error on saving editor content after changes : ", error);
             });
 
