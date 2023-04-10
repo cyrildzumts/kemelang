@@ -35,8 +35,8 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
             });
         }
         self.create_managed_country_form('country');
-        if(create_country_btn){
-            create_country_btn.addEventListener('click', function(even){
+        if(this.form){
+            this.form.addEventListener('submit', function(even){
                 event.stopPropagation();
                 event.preventDefault();
                 console.log("Click on Create Country Btn");
