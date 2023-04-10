@@ -4405,8 +4405,8 @@ ul li{
 	max-width: 25em;
   }
   .editor-box-wrapper .editor-box{
-	max-height: 20em;
-	height: 20em;
+	max-height: 10.25em;
+	height: 10.25em;
 	width:100%;
 	overflow-y: auto;
   }
