@@ -29,7 +29,7 @@ def create_mass_country(data):
     formset = CountryFormSet(data, prefix=Constants.COUNTRY_FORMSET_PREFIX)
     result = {}
     if formset.is_valid():
-        logger.info(f"Country Formset is valid.")
+        logger.info(f"Country Formset is valid. Dataset : {formset.cleaned_data}")
         #countries = formset.save()
         logger.info(f"Country Formset created.")
         result = {'success' : True, 'message': f'Created countries'}
