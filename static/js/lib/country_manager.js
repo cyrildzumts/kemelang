@@ -25,6 +25,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         this.countryFormFactory = new CountryFormFactory();
         this.countryFormFactory.init();
         let add_form_btn = document.getElementById('add-country-btn');
+        let create_country_btn = document.getElementById('create-country-btn');
         if(add_form_btn){
             add_form_btn.addEventListener('click', function(even){
                 event.stopPropagation();
@@ -34,6 +35,14 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
             });
         }
         self.create_managed_country_form('country');
+        if(create_country_btn){
+            create_country_btn.addEventListener('click', function(even){
+                event.stopPropagation();
+                event.preventDefault();
+                console.log("Click on Create Country Btn");
+                self.submit();
+            });
+        }
         console.log("Country Manager initialised");
     };
 
@@ -108,7 +117,13 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
 
     CountryManager.prototype.clear = function(){
         this.total_form = 0;
-        this.updateManagementForm();
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
+        this.wrappers.length = 0;
+        while(this.form_container.firstChild){
+            this.form_container.removeChild(this.form_container.firstChild);
+        }
     };
 
 
@@ -155,5 +170,28 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
             self.updateFormIndex(div, index);
         });
     };
+
+    CountryManager.prototype.submit = function(){
+        let self = this;
+        let formData = new FormData(this.country_form);
+        let url = "http://api.kemelang-local.com/create-country/";
+        let option = {
+            type:'POST',
+            method: 'POST',
+            dataType: 'json',
+            data: formData,
+            url : url
+        }
+        ajax_api.ajax(option).then(function(response){
+            if(response.success){
+                notify({'level': 'info', 'content': response.message})
+                self.clear();
+            }else{
+                notify({'level': 'warn', 'content': response.message});
+            }
+        }, function(reason){
+            console.error(reason);
+        });
+    }
     return CountryManager;
 });

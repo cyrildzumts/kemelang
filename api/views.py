@@ -60,8 +60,7 @@ def create_country(request):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        country = dictionary_service.create_country(utils.get_postdata(request))
-        result = {'success': True, 'country': CountrySerializer(country).data, 'url': country.get_absolute_url(), 'message': f"Country {country.name}"}
+        result = dictionary_service.create_mass_country(utils.get_postdata(request))
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)

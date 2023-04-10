@@ -1,7 +1,7 @@
 from django.utils.translation import ugettext_lazy as _
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import User
-from django.forms import formset_factory, modelformset_factory
+from django.forms import formset_factory, modelformset_factory, inlineformset_factory
 from django.forms import ValidationError
 from django.db import transaction
 from django.db.models import Q, Count, F
@@ -22,6 +22,20 @@ logger = logging.getLogger(__name__)
 def create_country(data):
     country = core_service.create_instance(Country, data)
     return country
+
+
+def create_mass_country(data):
+    CountryFormSet = modelformset_factory(Country, form=CountryForm)
+    formset = CountryFormSet(data, prefix=Constants.COUNTRY_FORMSET_PREFIX)
+    result = {}
+    if formset.is_valid():
+        logger.info(f"Country Formset is valid.")
+        countries = formset.save()
+        logger.info(f"Country Formset created.")
+        result = {'success' : True, 'message': f'Created {len(countries)} countries'}
+    else:
+        result = {'success': False, 'message': formset.errors}
+    return result
 
 def create_langage(data):
     return core_service.create_instance(Langage, data)
