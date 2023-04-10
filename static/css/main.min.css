@@ -4408,7 +4408,8 @@ ul li{
 	caret-color: var(--secondary-color);
   }
   .editor-box-wrapper{
-	max-width: 25em;
+	max-width: 20em;
+	width: 20em;
 	padding: 1em;
   }
   .editor-box-wrapper .header-group{
