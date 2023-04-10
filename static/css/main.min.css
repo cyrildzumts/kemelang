@@ -4423,6 +4423,9 @@ ul li{
 	width:100%;
 	overflow-y: auto;
   }
+  .editor-box .codex-editor--narrow .ce-toolbar__actions{
+	right: 5px !important;
+  }
   .editor-box .codex-editor__redactor{
 	margin-right: 0.2em !important;
   }
