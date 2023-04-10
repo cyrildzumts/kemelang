@@ -19,7 +19,6 @@ define(['tag_api'],function(tag_api) {
             'cls': 'mat-button mat-button-default managed-update',
             'id': id + '-delete-btn',
             'type': 'button',
-            'data-target': id,
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-backspace icon'}}),create_api({'element': 'span', 'options':{'innerText': 'Delete'}})]
         }});
         let name = create_api({'element': 'input', 'options':{
