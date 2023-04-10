@@ -182,6 +182,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
             processData: false,
             contentType : false,
             enctype : 'multipart/form-data',
+            crossDomain: true,
             data: formData,
             url : url
         }
