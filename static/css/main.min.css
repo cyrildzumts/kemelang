@@ -4409,6 +4409,13 @@ ul li{
   }
   .editor-box-wrapper{
 	max-width: 25em;
+	padding: 1em;
+  }
+  .editor-box-wrapper .header-group{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding : 1em 0;
   }
   .editor-box-wrapper .editor-box{
 	max-height: 10.25em;

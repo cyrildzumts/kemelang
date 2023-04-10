@@ -25,7 +25,7 @@ define(['tag_api'],function(tag_api) {
             'children': [create_api({'element': 'span', 'options':{'innerText': 'Country', 'cls': 'bold'}})]
         }});
         let header_group = create_api({'element': 'div', 'options':{
-            'cls': 'actions space-between',
+            'cls': 'header-group',
             'id': id + '-delete-btn-header',
             'children': [header_label, delete_button]
         }});
