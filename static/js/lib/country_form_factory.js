@@ -21,6 +21,15 @@ define(['tag_api'],function(tag_api) {
             'type': 'button',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-backspace icon'}}),create_api({'element': 'span', 'options':{'innerText': 'Delete'}})]
         }});
+        let header_label = create_api({'element': 'div', 'options':{
+            'cls': 'padding-h',
+            'children': [create_api({'element': 'span', 'options':{'innerText': 'Country'}})]
+        }});
+        let header_group = create_api({'element': 'div', 'options':{
+            'cls': 'actions space-between',
+            'id': id + '-delete-btn-header',
+            'children': [header_label, delete_button]
+        }});
         let name = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-name`,
             'name': `${form_prefix}-${form_index}-name`,
@@ -89,7 +98,7 @@ define(['tag_api'],function(tag_api) {
         let div = create_api({'element': 'div', 'options': {
             'cls': 'mat-box',
             'id': id,
-            'children': [hidden_div,delete_button, div_name_wrapper, div_description_wrapper]
+            'children': [hidden_div,header_group, div_name_wrapper, div_description_wrapper]
         }});
 
         
