@@ -41,6 +41,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
                 event.preventDefault();
                 console.log("Click on Create Country Btn");
                 self.submit();
+                return false;
             });
         }
         console.log("Country Manager initialised");
