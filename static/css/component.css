@@ -3937,10 +3937,14 @@
 	outline-offset: 2px;
 	caret-color: var(--secondary-color);
   }
-  .editor-box{
-	max-height: 10em;
-	width: 100%;
-	max-width: 20em;
+
+  .editor-box-wrapper{
+	max-width: 25em;
+  }
+  .editor-box-wrapper .editor-box{
+	max-height: 20em;
+	height: 20em;
+	width:100%;
 	overflow-y: auto;
   }
 
