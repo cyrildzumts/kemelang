@@ -48,6 +48,11 @@ function(require, ajax_api, tag_api, EditorJS) {
         'emoji': render_emoji
     };
 
+    function render_emoji(emoji){
+        console.log(emoji);
+        return emoji.data.text;
+    }
+
     function render_header(header){
         let node = tag_api.create_tag({
             element:headers[header.data.level],
