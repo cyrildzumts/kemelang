@@ -4407,6 +4407,12 @@ ul li{
 	outline-offset: 2px;
 	caret-color: var(--secondary-color);
   }
+  .editor-box{
+	max-height: 10em;
+	width: 100%;
+	max-width: 20em;
+	overflow-y: auto;
+  }
   
   
   @media only screen and (max-width:50em){
