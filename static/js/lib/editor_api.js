@@ -322,8 +322,7 @@ function(require, ajax_api, tag_api, EditorJS) {
                     config: {
                         embed : {
                             display: true
-                        },
-                        unsplash : unsplash_conf
+                        }
                     }
                 },
                 list: {
