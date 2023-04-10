@@ -52,6 +52,7 @@ define(['tag_api'],function(tag_api) {
         let description = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-description`,
             'name': `${form_prefix}-${form_index}-description`,
+            'value': '',
             'cls': 'managed-update',
             'type':'hidden'
         }});
