@@ -98,10 +98,13 @@ define(['tag_api'],function(tag_api) {
         
 
         let form_inputs = [name, description, added_by, input_form_id];
-        delete_button.addEventListener('click', function(){
+        delete_button.addEventListener('click', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            let tag_id = this.id;
             div.remove();
             if(delete_callback){
-                delete_callback(id);
+                delete_callback(tag_id);
             }
         });
         return {'tag': div, 'inputs': form_inputs};

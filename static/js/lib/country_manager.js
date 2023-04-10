@@ -26,7 +26,9 @@ define(["ajax_api", 'tag_api', 'country_form_factory'],function(ajax_api, tag_ap
         this.countryFormFactory.init();
         let add_form_btn = document.getElementById('add-country-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', (even) => {
+            add_form_btn.addEventListener('click', function(even){
+                event.stopPropagation();
+                event.preventDefault();
                 console.log("Click on Add Country Form");
                 self.add_country_form('country');
             });
