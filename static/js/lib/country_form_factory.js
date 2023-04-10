@@ -49,16 +49,22 @@ define(['tag_api'],function(tag_api) {
             'id': `id-${form_prefix}-${form_index}-description`,
             'name': `${form_prefix}-${form_index}-description`,
             'cls': 'managed-update',
-            'type':'text'
+            'type':'hidden'
         }});
         let label_description = create_api({'element': 'label', 'options': {
             'innerText': 'Description',
             'cls': 'managed-update',
             'htmlFor': description.id
         }});
+        let editor = create_api({'element': 'div', 'options': {
+            'cls': 'editor',
+            'id': `editor-${form_prefix}-${form_index}-description`,
+            'data-target': `id-${form_prefix}-${form_index}-description`
+
+        }});
         let form_group_description = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_description, description]
+            'children': [label_description, description, editor]
         }});
 
         let div_description_col = create_api({'element': 'div', 'options': {
@@ -106,7 +112,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback(tag_id);
             }
         });
-        return {'tag': div, 'inputs': form_inputs};
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor};
     }
 
     return CountryFormFactory;

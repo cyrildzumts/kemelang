@@ -1,7 +1,11 @@
-define(['ajax_api','tag_api','editor/editor', 
-'editor/plugins/header.min','editor/plugins/list.min',
-'editor/plugins/checklist.min'], 
-function(ajax_api,tag_api, EditorJS) {
+define(['require','ajax_api', 'tag_api', 'editor/editor', 
+'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
+'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
+'editor/plugins/inline-image','editor/plugins/editor-emoji.min',
+'editor/plugins/code.min','editor/plugins/inline-code.min',
+'editor/plugins/marker.min'
+], 
+function(require, ajax_api, tag_api, EditorJS) {
     'use strict';
 
     const SAVE_DRAFT_INTERVAL = 10000; // 10s
@@ -15,7 +19,15 @@ function(ajax_api,tag_api, EditorJS) {
 
     const Header = require('editor/plugins/header.min');
     const List = require('editor/plugins/list.min');
+    const Link = require('editor/plugins/link.min');
+    const Code = require('editor/plugins/code.min');
+    const Marker = require('editor/plugins/marker.min');
+    const InlineCode = require('editor/plugins/inline-code.min');
     const Checklist = require('editor/plugins/checklist.min');
+    const Quote = require('editor/plugins/quote.min');
+    const Emoji = require('editor/plugins/editor-emoji.min');
+    const Table = require('editor/plugins/table.min');
+    const InlineImage = require('editor/plugins/inline-image');
 
     let headers = [null, "h1","h2", "h3", "h4", "h5", "h6"];
     let LIST_TYPE_MAPPING = {
@@ -27,8 +39,13 @@ function(ajax_api,tag_api, EditorJS) {
     let BLOCK_MAPPING = {
         'header': render_header,
         'paragraph': render_paragraph,
+        'table': render_table,
         'list': render_list,
+        'linkTool': render_linkTool,
         'checklist': render_checklist,
+        'quote': render_quote,
+        'image': render_inlineImage,
+        'emoji': render_emoji
     };
 
     function render_header(header){
@@ -42,12 +59,105 @@ function(ajax_api,tag_api, EditorJS) {
         return node;
     }
 
+    function render_linkTool(linkTool){
+        let node = tag_api.create_tag({
+            element: "a",
+            options : {
+                id:linkTool.id,
+                cls:'mat-button mat-button-text',
+                href : linkTool.data.link,
+                innerText: linkTool.data.link
+            }
+        });
+        return node;
+    }
+
+    function render_inlineImage(inlineImage){
+        let node = tag_api.create_tag({
+            element: "img",
+            options : {
+                id:inlineImage.id,
+                src: inlineImage.data.url,
+                title: inlineImage.data.caption,
+                cls:'img-responsive',
+            }
+        });
+        return node;
+    }
+
     function render_paragraph(paragraph){
         let node = tag_api.create_tag({
             element: "p",
             options : {
                 id:paragraph.id,
                 innerHTML : paragraph.data.text
+            }
+        });
+        return node;
+    }
+
+    function render_table(table){
+        let items = [];
+        let startIndex = 0;
+        let content;
+
+        if(table.data.withHeadings){
+            
+            let ths = [];
+            table.data.content[startIndex].forEach((h)=>{
+                ths.push(tag_api.create_tag({
+                    element:'th',
+                    options:{
+                        innerHTML:h
+                    }
+                }));
+            });
+            let tr = tag_api.create_tag({
+                element: 'tr',
+                options:{
+                    children: ths
+                }
+            });
+            items.push(tag_api.create_tag({
+                element: 'thead',
+                options:{
+                    children: [tr]
+                }
+            }));
+
+            startIndex = 1;
+            content = table.data.content.slice(startIndex);
+        }else{
+            content = table.data.content;
+        }
+
+        let trs = [];
+        content.forEach((item)=>{
+            let tds = [];
+            item.forEach((value) => tds.push(tag_api.create_tag({
+                element: "td",
+                options : {
+                    innerText : value
+                }
+            })));
+            trs.push(tag_api.create_tag({
+                element: "tr",
+                options : {
+                    children : tds
+                }
+            }));
+        });
+        items.push(tag_api.create_tag({
+            element: "tbody",
+            options : {
+                children: trs
+            }
+        }));
+        let node = tag_api.create_tag({
+            element: table.type,
+            options : {
+                id:table.id,
+                children : items
             }
         });
         return node;
@@ -114,6 +224,30 @@ function(ajax_api,tag_api, EditorJS) {
         return node;
     }
 
+    function render_quote(quote){
+        let span = tag_api.create_tag({
+            element: "span",
+            options : {
+                innerHTML : quote.data.text
+            }
+        });
+        let cite = tag_api.create_tag({
+            element: "cite",
+            options : {
+                innerHTML : quote.data.caption
+            }
+        });
+        let node = tag_api.create_tag({
+            element: "blockquote",
+            options : {
+                id:quote.id,
+                innerHTML : quote.data.text,
+                children: [cite]
+            }
+        });
+        return node;
+    }
+
     function editor_content_clear(container){
         let editor_content_target = container || document.querySelector('#editor-content');
         if (editor_content_target){
@@ -156,7 +290,7 @@ function(ajax_api,tag_api, EditorJS) {
         });
     }
     
-    function editor_init(data){
+    function editor_init(data, editor_holder){
         let init_data = data || {};
         if(editor_target.value.length){   
             try {
@@ -167,25 +301,70 @@ function(ajax_api,tag_api, EditorJS) {
                 init_data = {};
             }
         }
-        let editor_tag = document.getElementById('editor');
+        let holder = editor_holder || 'editor';
+        let editor_tag = document.getElementById(holder);
 
         editor = new EditorJS({
-            holder:'editor',
+            holder: holder,
             tools: {
                 header : {
                     class : Header,
                     inlineToolbar : true
                 },
+                image: {
+                    class : InlineImage,
+                    inlineToolbar : true,
+                    config: {
+                        embed : {
+                            display: true
+                        },
+                        unsplash : unsplash_conf
+                    }
+                },
                 list: {
                     class: List,
+                    inlineToolbar: true
+                },
+                linkTool: {
+                    class: Link,
+                    inlineToolbar: true,
+                    config:{
+                        endpoint:"/api/fetchUrl/",
+                    }
+                },
+                code: Code,
+                emoji: {
+                    class:Emoji,
                     inlineToolbar: true
                 },
                 checklist: {
                     class:Checklist,
                     inlineToolbar:true
-                }
+                },
+                quote: {
+                    class:Quote,
+                    inlineToolbar:true,
+                    shortcut: 'CMD+SHIFT+Q',
+                    config: {
+                        quotePlaceholder: editor_tag.dataset.quotePlaceholder,
+                        captionPlaceholder: editor_tag.dataset.captionPlaceholder,
+                    },
+                },
+                Marker:{
+                    class:Marker,
+                    shortcut: 'CMD+SHIFT+M',
+                },
+                table: {
+                    class: Table,
+                    inlineToolbar: true,
+                    config: {
+                      rows: 2,
+                      cols: 3,
+                    },
+                  },
             },
             data: init_data,
+            autofocus: true,
             placeholder: editor_tag.dataset.placeholder,
             onReady: function(){
                 console.log("Editor is ready");
@@ -214,6 +393,137 @@ function(ajax_api,tag_api, EditorJS) {
         return editor;
     }
 
+    var EditorWrapper = (function(){
+        function EditorWrapper(holder, initial_data){
+
+            this.editor = undefined;
+            this.editor_data = {};
+            this.initial_data = initial_data || {};
+            this.target = undefined;
+            this.holder_id = holder || 'editor';
+            this.created = false;
+            this.holder = document.getElementById(this.holder_id);
+
+        }
+
+        EditorWrapper.prototype.init = function(){
+            if(!this.holder){
+                console.warn("EditorWrapper called but no holder could be found.");
+                return;
+            }
+            this.target = document.getElementById(this.holder.dataset.target);
+            if(!this.target){
+                console.warn("EditorWrapper called but no target could be found.");
+                return;
+            }
+            this.create_editor();
+            this.created = true;
+        }
+
+        EditorWrapper.prototype.create_editor = function(){
+            let self = this;
+            this.editor = new EditorJS({
+                holder: this.holder.id,
+                tools: {
+                    header : {
+                        class : Header,
+                        inlineToolbar : true
+                    },
+                    image: {
+                        class : InlineImage,
+                        inlineToolbar : true,
+                        config: {
+                            embed : {
+                                display: true
+                            },
+                            unsplash : unsplash_conf
+                        }
+                    },
+                    list: {
+                        class: List,
+                        inlineToolbar: true
+                    },
+                    linkTool: {
+                        class: Link,
+                        inlineToolbar: true,
+                        config:{
+                            endpoint:"/api/fetchUrl/",
+                        }
+                    },
+                    code: Code,
+                    emoji: {
+                        class:Emoji,
+                        inlineToolbar: true
+                    },
+                    checklist: {
+                        class:Checklist,
+                        inlineToolbar:true
+                    },
+                    quote: {
+                        class:Quote,
+                        inlineToolbar:true,
+                        shortcut: 'CMD+SHIFT+Q',
+                        config: {
+                            quotePlaceholder: this.holder.dataset.quotePlaceholder,
+                            captionPlaceholder: this.holder.dataset.captionPlaceholder,
+                        },
+                    },
+                    Marker:{
+                        class:Marker,
+                        shortcut: 'CMD+SHIFT+M',
+                    },
+                    table: {
+                        class: Table,
+                        inlineToolbar: true,
+                        config: {
+                          rows: 2,
+                          cols: 3,
+                        },
+                      },
+                },
+                data: this.initial_data,
+                autofocus: true,
+                placeholder: this.holder.dataset.placeholder,
+                onReady: function(){
+                    console.log("Editor is ready");
+                },
+                onChange: (api, event) =>{
+                    if(AUTO_SAVE_TIMER){
+                        clearTimeout(AUTO_SAVE_TIMER);
+                    }
+                    AUTO_SAVE_TIMER = setTimeout(self.on_editor_change, EDITOR_CHANGE_TIMEOUT, api, event);
+                }
+            });
+        }
+
+        EditorWrapper.prototype.clear = function(){
+            this.target.value = "";
+            this.editor_data = {};
+            this.editor.clear();
+
+        }
+
+        EditorWrapper.prototype.on_editor_change = function(api, event){
+            api.saver.save().then(this.on_editor_save).catch((error)=>{
+                console.log("Error on saving editor content after changes : ", error);
+            });
+
+        }
+
+        EditorWrapper.prototype.on_editor_save = function(saved_data){
+            this.editor_data = saved_data;
+            if(this.editor_data['blocks'].length > 0){
+                this.target.value = JSON.stringify(saved_data);
+            }else{
+                this.target.value = "";
+            }
+            console.log("updated editor for target %s", this.target.id);
+        }
+
+
+        return EditorWrapper;
+    })();
+
 
     function create_editor(){
         let editor_tag = document.getElementById('editor');
@@ -227,5 +537,8 @@ function(ajax_api,tag_api, EditorJS) {
         }
         editor_init();
     }
-    create_editor();
+    return {
+        'create_editor': create_editor,
+        'EditorWrapper': EditorWrapper
+    }
 });
