@@ -495,7 +495,7 @@ function(require, ajax_api, tag_api, EditorJS) {
                     if(AUTO_SAVE_TIMER){
                         clearTimeout(AUTO_SAVE_TIMER);
                     }
-                    AUTO_SAVE_TIMER = setTimeout(self.on_editor_change, EDITOR_CHANGE_TIMEOUT, api, event);
+                    AUTO_SAVE_TIMER = setTimeout(self.on_editor_change.bind(self), EDITOR_CHANGE_TIMEOUT, api, event);
                 }
             });
         }
@@ -508,7 +508,7 @@ function(require, ajax_api, tag_api, EditorJS) {
         }
 
         EditorWrapper.prototype.on_editor_change = function(api, event){
-            this.editor.save().then(this.on_editor_save).catch((error)=>{
+            this.editor.save().then(this.on_editor_save.bind(this)).catch((error)=>{
                 console.log("Error on saving editor content after changes : ", error);
             });
 
