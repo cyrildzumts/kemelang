@@ -41,6 +41,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 });
             }
         });
+        return true;
     }
 
     function LangageManager(){
