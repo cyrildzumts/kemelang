@@ -65,6 +65,7 @@ define(['tag_api'],function(tag_api) {
             'id': id + '-delete-btn-header',
             'children': [add_country_btn]
         }});
+        /*
 
         add_country_btn.addEventListener('click', function(event){
             event.preventDefault();
@@ -75,7 +76,7 @@ define(['tag_api'],function(tag_api) {
             }
         });
 
-
+        */
 
         let div_countries_group = create_api({'element': 'div', 'options': {
             'id': `${form_prefix}-${form_index}-countries-actions`,
