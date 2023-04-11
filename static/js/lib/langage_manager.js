@@ -209,7 +209,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         if(!country_tag){
             return;
         }
-        let selected = country_tag.classList.countains('selected');
+        let selected = country_tag.classList.contains('selected');
         if(selected){
             // remove country
             let selected_country = document.querySelector(`input[name='${this.active_langage}'][value=${country_tag.dataset.id}]`);
