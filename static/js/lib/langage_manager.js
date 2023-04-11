@@ -106,7 +106,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             let modal = document.getElementById(btn.dataset.target);
             let container = document.getElementById(btn.dataset.container);
             let selected_countries = container.querySelectorAll(`input:not([name='${btn.dataset.name}'])`);
-            let countries = Array.from(modal.querySelectorAll('country-selection'));
+            let countries = Array.from(modal.querySelectorAll('.country-selection'));
             let find = null;
             selected_countries.forEach(function(input, index){
                 find = countries.find((c) => input.value == c.dataset.id);
