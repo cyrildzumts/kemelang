@@ -22,7 +22,7 @@
                         <div class="form-group full">
                             <label for="countries">{% trans "Countries" %}</label>
                             <select name="countries" id="countries" multiple>
-                                {% for c in countries %}
+                                {% for c in country_list %}
                                 <option value="{{c.pk}}">{{c.name}}</option>
                                 {% endfor %}
                             </select>

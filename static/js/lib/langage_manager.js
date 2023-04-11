@@ -1,6 +1,5 @@
-define(["ajax_api", 'tag_api', 'country_form_factory', 'langage_form_factory'],function(ajax_api, tag_api, CountryFormFactory, LangageFormFactory) {
+define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(ajax_api, tag_api, LangageFormFactory, Editor_API) {
     'use strict';
-    var attr_template;
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
     const MIN_NUM_FORMS = "MIN_NUM_FORMS";
@@ -8,42 +7,54 @@ define(["ajax_api", 'tag_api', 'country_form_factory', 'langage_form_factory'],f
     const MAX_SUBMITTED_FORMS = 100;
 
 
-
-
-    
-
-
-
-
-    function FormManager(){
+    function LangageManager(){
         
-        //this.form = $('#form-attrs-management');
-        this.form = document.getElementById('managed-form');
-
+        this.form = document.getElementById('langage-form');
         this.langage_form = document.getElementById('langage-form');
-        this.form_container = $('#form-container', this.form);
-        this.attrs_inputs = [];
+        this.form_container = document.getElementById('langage-form-container');
+        this.wrappers = [];
         this.total_form = 0;
-        this.total_country_form = 0;
-        this.total_langage_form = 0;
         this.input_max_length = 32;
         this.replace_pattern = /\d+/g;
     };
-    FormManager.prototype.init = function(){
+    LangageManager.prototype.init = function(){
         var self = this;
-        CountryFormFactory.init();
-        LangageFormFactory.init();
-        
+        if(!this.form_container){
+            return;
+        }
+        this.langageFormFactory = new LangageFormFactory();
+        this.langageFormFactory.init();
+        let add_form_btn = document.getElementById('add-langage-btn');
+        let create_langage_btn = document.getElementById('create-langage-btn');
+        if(add_form_btn){
+            add_form_btn.addEventListener('click', function(even){
+                event.stopPropagation();
+                event.preventDefault();
+                console.log("Click on Add langage Form");
+                self.add_langage_form('langage');
+            });
+        }
+        self.create_managed_langage_form('langage');
+        if(this.langage_form){
+            this.langage_form.addEventListener('submit', function(even){
+                event.stopPropagation();
+                event.preventDefault();
+                console.log("Click on Create langage Btn");
+                self.submit();
+                return false;
+            });
+        }
+        console.log("langage Manager initialised");
     };
 
-    FormManager.prototype.create_managed_langage_form = function(prefix){
+    LangageManager.prototype.create_managed_langage_form = function(prefix){
         const FORM_PREFIX = prefix || 'form';
         let create_tag = tag_api.create_tag;
         this.form_TOTAL_FORMS = create_tag({
             'element': 'input', 
             'options': {
                 'id': `id_${FORM_PREFIX}-${TOTAL_FORMS}`,
-                'value': 1,
+                'value': 0,
                 'type': 'hidden',
                 'name': `${FORM_PREFIX}-${TOTAL_FORMS}`
             }
@@ -75,69 +86,124 @@ define(["ajax_api", 'tag_api', 'country_form_factory', 'langage_form_factory'],f
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
+        this.form_container.appendChild(this.form_TOTAL_FORMS);
+        this.form_container.appendChild(this.form_INITIAL_FORMS);
+        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
     }
 
-    FormManager.add_country_form = function(){
-        let country_form_wrapper = CountryFormFactory.create_form('country', this.total_country_form);
-        this.total_country_form ++;
-        this.total_form ++;
-    };
-    FormManager.add_langage_form = function(){
-        let langage_form_wrapper = LangageFormFactory.create_form('langage', this.total_langage_form);
-        this.total_langage_form ++;
-        this.total_form ++;
+    LangageManager.prototype.add_langage_form = function(prefix){
+        let result = this.langageFormFactory.create_form(this.total_form, prefix, this.remove_langage_form.bind(this));
+        
+        this.form_container.appendChild(result.tag);
+        let editor = new Editor_API.EditorWrapper(result.editor.id, {});
+        editor.init()
+        if(!editor.created){
+            console.warn("Editor not created for tag %s", result.editor.id);
+            return;
+        }
+        this.wrappers.push(result.tag);
+        console.warn("Editor created for tag %s", result.editor.id);
+        this.incremente_management_form();
+        console.log("Added new langage form %s", result.tag.id);
     };
 
-    FormManager.prototype.clear = function(){
+
+    LangageManager.prototype.remove_langage_form = function(element_id){
+        
+        let element_index = this.wrappers.findIndex((element) => element.id == element_id);
+        if(element_index > -1){
+            console.log("Removing langage form wrapper %s - Size %s", element_id, this.wrappers.length);
+            this.wrappers.splice(element_index, 1);
+            this.decremente_management_form();
+            this.updateManagementFormIndex();
+            console.log("Removed langage form wrapper %s - Size %s", element_id, this.wrappers.length);
+        }else{
+            console.log("Removed langage form wrapper  failed:  %s not found", element_id);
+        }
+        
+    };
+
+    LangageManager.prototype.clear = function(){
         this.total_form = 0;
-        this.total_langage_form = 0;
-        this.updateManagementForm();
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
+        this.wrappers.length = 0;
+        while(this.form_container.firstChild){
+            this.form_container.removeChild(this.form_container.firstChild);
+        }
     };
 
-    FormManager.prototype.updateFormInputIndex = function(){
-        var name;
-        var id;
-        var self = this;
-        this.attrs_inputs.forEach(function (arr_input, index) {
-            arr_input.forEach(function(e, i){
-                self.updateInputIndex(e, index);
-            });
-        });
-    };
 
-    FormManager.prototype.updateInputIndex = function(input, index){
-        var name = input.getAttribute('name');
-        var id = input.getAttribute('id');
-        input.setAttribute('id', id.replace(this.replace_pattern, index));
-        input.setAttribute('name', name.replace(this.replace_pattern, index));
+    LangageManager.prototype.updateFormIndex = function(tag, index){
+        console.log("Updating FormIndex for Tag  and index %", index,tag);
+        if(tag.hasAttribute('id')){
+            console.log()
+            tag.setAttribute('id', tag.getAttribute('id').replace(this.replace_pattern, index));
+        }
+        
+        if(tag.hasAttribute('name')){
+            tag.setAttribute('name', tag.getAttribute('name').replace(this.replace_pattern, index));
+        }
+        if(tag.hasAttribute('for')){
+            tag.setAttribute('for', tag.getAttribute('for').replace(this.replace_pattern, index));
+        }
     }
 
 
-
-    
-
-    FormManager.prototype.incremente_management_form = function(){
+    LangageManager.prototype.incremente_management_form = function(){
         this.total_form = this.total_form + 1;
-        this.id_form_TOTAL_FORMS.val(this.total_form);
-        this.id_form_MIN_NUM_FORMS.val(this.total_form);
-        this.id_form_MAX_NUM_FORMS.val(this.total_form);
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
     };
 
-    FormManager.prototype.updateManagementForm = function(){
-        var self = this;
-        this.attrs_inputs.forEach(function (arr_input, index) {
-            arr_input.forEach(function(e, i){
-                self.updateInputIndex(e, index);
+    LangageManager.prototype.decremente_management_form = function(){
+        this.total_form = this.total_form - 1;
+        this.form_TOTAL_FORMS.value = this.total_form;
+        this.form_MIN_NUM_FORMS.value =this.total_form;
+        this.form_MAX_NUM_FORMS.value = this.total_form;
+    };
+
+    LangageManager.prototype.updateManagementFormIndex = function(){
+        let self = this;
+        console.log("Updating Management Form : size %s", this.wrappers.length);
+        this.wrappers.forEach(function (div, index) {
+            console.log("Updating Index for wrapper %s - index %s", div.id, index);
+            let managed_update = div.querySelectorAll('.managed-update');
+            managed_update.forEach(function(e, i){
+                console.log("Updating Index for wrapper %s", div.id);
+                self.updateFormIndex(e, index);
             });
+            self.updateFormIndex(div, index);
         });
     };
 
-    FormManager.prototype.decremente_management_form = function(){
-        this.total_form = this.total_form - 1;
-        this.id_form_TOTAL_FORMS.val(this.total_form);
-        this.id_form_MIN_NUM_FORMS.val(this.total_form);
-        this.id_form_MAX_NUM_FORMS.val(this.total_form);
-    };
-
-    return FormManager;
+    LangageManager.prototype.submit = function(){
+        let self = this;
+        let formData = new FormData(this.langage_form);
+        let url = "http://api.kemelang-local.com/create-langage/";
+        let option = {
+            type:'POST',
+            dataType: 'json',
+            processData: false,
+            contentType : false,
+            enctype : 'multipart/form-data',
+            crossDomain: true,
+            data: formData,
+            url : url
+        }
+        ajax_api.ajax(option).then(function(response){
+            if(response.success){
+                notify({'level': 'info', 'content': response.message})
+                self.clear();
+            }else{
+                notify({'level': 'warn', 'content': response.message});
+            }
+        }, function(reason){
+            console.error(reason);
+        });
+    }
+    return LangageManager;
 });

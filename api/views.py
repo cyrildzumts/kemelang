@@ -118,13 +118,12 @@ def country_langages(request, country_slug, country_uuid):
 @permission_classes([])
 @authentication_classes([])
 def create_langage(request):
-    logger.info(f"API: New langage creation request")
+    logger.info(f"API: New Langage creation request")
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        langage = dictionary_service.create_langage(utils.get_postdata(request))
-        result = {'success': True, 'langage': LangageSerializer(langage).data, 'url': langage.get_absolute_url(), 'message': f"Langage {langage.name}"}
+        result = dictionary_service.create_mass_langage(utils.get_postdata(request))
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)

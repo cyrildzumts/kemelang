@@ -1,0 +1,30 @@
+{% load i18n %} 
+
+
+<div class="grid">
+    <form id="langage-form" class="langage-form" name="langage" action="{% url 'dictionary:langage-create' %}" method="POST">{% csrf_token %}
+        <div id="langage-form-container" class="create-form grid">  
+        </div>
+        <div class="actions">
+            <a class="mat-button mat-button-outline js-cancel" href="{% url 'dictionary:dict-home' %}">{% trans "Cancel" %}</a>
+            <button id="add-langage-btn" class="mat-button mat-button-default" type="button"><span><i class="fas fa-plus"></i><span>{% trans "Add" %}</span></span></button>
+            <button class="mat-button mat-button-default create-langage-btn" type="submit">{% trans "Create" %}</button>
+        </div>
+    </form>
+    <div id="country-selector-dialog" class="modal full">
+        <div class="modal-container mat-box scrollable-m">
+            <div class="modal-header">
+                <span class="bold">{% translate "Countries" %}</span><span id="close-country-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="country-selector-dialog"><i class="fas fa-times-circle"></i></span>
+            </div>
+            <div class="modal-content">
+                <div class="grid">
+                {% for country in country_list %}
+                    <div class="country-select country-selection" data-id="{{country.pk}}" data-name="{{country.name}}" data-uuid="{{country.country_uuid}}"><span class="padding">{{country.name}}</span></div>
+                {% endfor %}
+                </div>
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+    </div>
+</div>
+

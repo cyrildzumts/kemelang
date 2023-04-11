@@ -38,6 +38,20 @@ def create_mass_country(data):
         result = {'success': False, 'message': formset.errors}
     return result
 
+def create_mass_langage(data):
+    CountryFormSet = modelformset_factory(Langage, form=LangageForm)
+    formset = CountryFormSet(data, prefix=Constants.LANGAGE_FORMSET_PREFIX)
+    result = {}
+    if formset.is_valid():
+        logger.info(f"Langage Formset is valid. Dataset : {formset.cleaned_data}")
+        langages = formset.save()
+        logger.info(f"Langage Formset created.")
+        result = {'success' : True, 'message': f'Created countries'}
+        #result = {'success' : True, 'message': f'Created {len(langages)} countries'}
+    else:
+        result = {'success': False, 'message': formset.errors}
+    return result
+
 def create_langage(data):
     return core_service.create_instance(Langage, data)
 

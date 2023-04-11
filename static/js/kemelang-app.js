@@ -7,10 +7,12 @@ requirejs.config({
     waitSeconds: 0
 });
 
-requirejs(['accounts','scroll','ajax_api', 'core','country_manager', 'commons', 'image_loader', 'editor_api', 'image_loader'], function(account, scroll_tools,ajax_api, core, CountryManager ){
+requirejs(['accounts','scroll','ajax_api', 'core','country_manager', 'langage_manager', 'commons', 'image_loader', 'editor_api', 'image_loader'], function(account, scroll_tools,ajax_api, core, CountryManager, LangageManager ){
     account.init();
     scroll_tools.init();
     let countryManager = new CountryManager();
     countryManager.init();
+    let langageManager = new LangageManager();
+    langageManager.init();
     console.log("JQuery version :", $().jquery);
 });

@@ -10,61 +10,112 @@ define(['tag_api'],function(tag_api) {
 
 
     LangageFormFactory.prototype.create_form = function(index, prefix, delete_callback){
-        var self = this;
-        form_index = index || 0;
-        form_prefix = prefix || 'form';
+        let self = this;
+        let form_index = index || 0;
+        let form_prefix = prefix || 'form';
         let create_api = tag_api.create_tag;
-        var id = `${form_prefix}-${form_index}`;
-        var delete_button = create_api({'element': 'button', 'options':{
-            'cls': 'mat-button mat-button-default managed-update',
-            'id': id + '-delete-btn',
-            'type': 'button',
-            'data-target': id,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-backspace icon'}}),create_api({'element': 'span', 'options':{'innerText': 'Delete'}})]
-        }});
-        let input_name = create_api({'element': 'input', 'options':{
-            'id': `id-${form_prefix}-${form_index}-name`,
+        let id = `${form_prefix}-${form_index}`;
+        let delete_button = create_api({'element': 'span', 'options':{
             'cls': 'managed-update',
+            'id': id + '-delete-btn',
+            'title': 'Delete this langage',
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
+        }});
+        let header_label = create_api({'element': 'div', 'options':{
+            'children': [create_api({'element': 'span', 'options':{'innerText': 'Langage', 'cls': 'bold'}})]
+        }});
+        let header_group = create_api({'element': 'div', 'options':{
+            'cls': 'header-group managed_update',
+            'id': id + '-delete-btn-header',
+            'children': [header_label, delete_button]
+        }});
+        let name = create_api({'element': 'input', 'options':{
+            'id': `id-${form_prefix}-${form_index}-name`,
             'name': `${form_prefix}-${form_index}-name`,
+            'cls': 'managed-update',
             'type':'text'
         }});
         let label_name = create_api({'element': 'label', 'options': {
             'innerText': 'Name',
-            'htmlFor': input_name.id
+            'cls': 'managed-update',
+            'htmlFor': name.id
         }});
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_name, input_name]
+            'children': [label_name, name]
         }});
-        let countries = create_api({'element': 'select', 'options':{
-            'id': `id-${form_prefix}-${form_index}-countries`,
-            'cls': 'managed-update',
-            'name': `${form_prefix}-${form_index}-countries`,
-            'multiple':true
+
+        let div_name_wrapper = create_api({'element': 'div', 'options': {
+            'id': `${form_prefix}-${form_index}-countries-wrapper`,
+            'cls' : "form-group-wrapper managed_update",
+            'children': [form_group_name]
         }});
-        let label_countries = create_api({'element': 'label', 'options': {
-            'innerText': 'Countries',
-            'htmlFor': countries.id
+
+
+        let add_country_btn = create_api({'element': 'span', 'options':{
+            'cls': 'add-country-btn js-open-modal',
+            'data-target': 'country-selector-dialog',
+            'data-name': `${form_prefix}-${form_index}-countries`,
+            'data-open': 'fas fa-plus',
+            'data-close': 'fas fa-times',
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Add Country'}})]
         }});
-        let form_group_countries = create_api({'element': 'div', 'options': {
-            'cls': 'form-group',
-            'children': [label_countries, countries]
+        let btn_group = create_api({'element': 'div', 'options':{
+            'cls': 'header-group',
+            'id': id + '-delete-btn-header',
+            'children': [add_country_btn]
         }});
+
+        add_country_btn.addEventListener('click', function(event){
+            event.preventDefault();
+            event.stopPropagation();
+            let open_modal_btn = document.getElementById('close-country-dialog');
+            if(open_modal_btn){
+                open_modal_btn.click();
+            }
+        });
+
+
+
+        let div_countries_group = create_api({'element': 'div', 'options': {
+            'id': `${form_prefix}-${form_index}-countries-actions`,
+            'cls' : "full managed_update",
+            'children': [btn_group]
+        }});
+
+        let div_countries_wrapper = create_api({'element': 'div', 'options': {
+            'id': `${form_prefix}-${form_index}-countries-wrapper`,
+            'cls' : "form-group-wrapper managed_update",
+            'children': [div_countries_group]
+        }});
+
         let description = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-description`,
-            'cls': 'managed-update',
             'name': `${form_prefix}-${form_index}-description`,
-            'type':'text'
+            'value': '',
+            'cls': 'managed-update',
+            'type':'hidden'
         }});
         let label_description = create_api({'element': 'label', 'options': {
             'innerText': 'Description',
+            'cls': 'managed-update',
             'htmlFor': description.id
+        }});
+        let editor = create_api({'element': 'div', 'options': {
+            'cls': 'editor editor-box',
+            'id': `editor-${form_prefix}-${form_index}-description`,
+            'data-target': `id-${form_prefix}-${form_index}-description`
+
         }});
         let form_group_description = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_description, description]
+            'children': [label_description, description, editor]
         }});
 
+        let div_description_wrapper = create_api({'element': 'div', 'options': {
+            'cls' : "form-group-wrapper",
+            'children': [form_group_description]
+        }});
         let added_by = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-added_by`,
             'cls': 'managed-update',
@@ -78,21 +129,31 @@ define(['tag_api'],function(tag_api) {
             'type':'hidden'
         }});
 
-        
-        var div = tag_api.create_tag({'element': 'div', 'options': {
-            'cls': 'mat-box flex flex-left full flex-wrap managed-update',
-            'id': id,
-            'children': [form_group_name, form_group_countries,form_group_description, added_by, input_form_id, delete_button]
+        let hidden_div = create_api({'element': 'div', 'options': {
+            'cls': 'hidden',
+            'children': [added_by, input_form_id]
         }});
-        this.form_attr_container.append(div);
-        self.attrs_inputs.push([input_name, input_display_name, input_value, select_value_type, input_primary, input_form_id]);
-        delete_button.addEventListener('click', function(){
+
+        
+        let div = create_api({'element': 'div', 'options': {
+            'cls': 'mat-box editor-box-wrapper',
+            'id': id,
+            'children': [hidden_div, header_group, div_name_wrapper, div_countries_wrapper, div_description_wrapper]
+        }});
+
+        
+
+        let form_inputs = [name, description, added_by, input_form_id];
+        delete_button.addEventListener('click', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            let tag_id = div.id;
             div.remove();
             if(delete_callback){
-                delete_callback();
+                delete_callback(tag_id);
             }
         });
-        return div;
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor};
     }
 
     return LangageFormFactory;
