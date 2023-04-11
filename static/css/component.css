@@ -3977,8 +3977,13 @@
   }
 
   .country-selection{
-	background-color: var(--secondary-color);
-	color: #ecf0f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 13.5em;
+	border-radius: 3em;
+	font-size: 0.8em;
+	margin: 0.2em;
   }
 
   

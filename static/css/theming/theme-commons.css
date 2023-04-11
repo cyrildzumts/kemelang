@@ -868,3 +868,22 @@ option:checked{
 .navbar .fas, .navbar .far{
     color: var(--secondary-color);
 }
+
+.country-selection{
+	background-color: var(--secondary-color);
+	color: #ecf0f1;
+
+  }
+
+  .country-selection.selected{
+	font-weight: bold;
+	background-color: #2ecc71;
+
+  }
+
+  .country-selection:hover{
+	color: #0a0a0a;
+	font-weight: bold;
+	background-color: #bdc3c7;
+
+  }

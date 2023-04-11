@@ -4440,8 +4440,13 @@ ul li{
 	padding: 0;
   }
   .country-selection{
-	background-color: var(--secondary-color);
-	color: #ecf0f1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-width: 13.5em;
+	border-radius: 3em;
+	font-size: 0.8em;
+	margin: 0.2em;
   }
   
   
@@ -5689,6 +5694,19 @@ option:checked{
 .navbar .fas, .navbar .far{
     color: var(--secondary-color);
 }
+.country-selection{
+	background-color: var(--secondary-color);
+	color: #ecf0f1;
+  }
+  .country-selection.selected{
+	font-weight: bold;
+	background-color: #2ecc71;
+  }
+  .country-selection:hover{
+	color: #0a0a0a;
+	font-weight: bold;
+	background-color: #bdc3c7;
+  }
 .container {
   width: 100%;
   display: flex !important;
