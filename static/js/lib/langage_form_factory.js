@@ -53,7 +53,8 @@ define(['tag_api'],function(tag_api) {
 
 
         let add_country_btn = create_api({'element': 'span', 'options':{
-            'cls': 'add-country-btn js-open-modal',
+            'cls': 'add-country-btn',
+            'data-container': id,
             'data-target': 'country-selector-dialog',
             'data-name': `${form_prefix}-${form_index}-countries`,
             'data-open': 'fas fa-plus',
@@ -154,7 +155,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback(tag_id);
             }
         });
-        return {'tag': div, 'inputs': form_inputs, 'editor': editor};
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn};
     }
 
     return LangageFormFactory;

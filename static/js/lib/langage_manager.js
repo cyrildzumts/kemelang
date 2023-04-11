@@ -6,6 +6,42 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
 
+    function register_modal(btn){
+        if(!btn){
+            return false;
+        }
+        btn.addEventListener('click', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            let modal = document.getElementById(btn.dataset.target);
+            let container = document.getElementById(btn.dataset.container);
+            let selected_countries = container.querySelectorAll(`input:not([name='${btn.dataset.name}'])`);
+            //let countries = modal.querySelectorAll('country-selection');
+            let countries = Array.from(modal.querySelectorAll('country-selection'));
+            let find = null;
+            selected_countries.forEach(function(input, index){
+                find = countries.find((c) => input.value == c.dataset.id);
+                if(find){
+                    find.classList.add('selected');
+                }
+            });
+            
+            modal.style.display = "flex";
+            if(window){
+                $(window).click(function(eventModal){
+                    if(eventModal.target == modal){
+                        modal.style.display = "none";
+                        let selected_list = modal.querySelectorAll('.selected');
+                        if(selected_list){
+                            selected_list.forEach((el) =>{
+                                el.classList.remove('selected');
+                            });
+                        }
+                    }
+                });
+            }
+        });
+    }
 
     function LangageManager(){
         
@@ -103,6 +139,12 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return;
         }
         this.wrappers.push(result.tag);
+        let registered_modal = register_modal(result['add-country-btn']);
+        if(!registered_modal){
+            console.warn("Could not find country source ...");
+            this.clear();
+            return;
+        }
         console.warn("Editor created for tag %s", result.editor.id);
         this.incremente_management_form();
         console.log("Added new langage form %s", result.tag.id);
