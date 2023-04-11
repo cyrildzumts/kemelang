@@ -49,7 +49,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.form = document.getElementById('langage-form');
         this.langage_form = document.getElementById('langage-form');
         this.form_container = document.getElementById('langage-form-container');
-        this.country_selection_list = Array.from(document.querySelectorAll('country-selection'));
+        this.country_selection_list = Array.from(document.querySelectorAll('.country-selection'));
         this.updatable_attrs = ['id','name','for','data-name','data-id'];
         this.active_langage = undefined;
         this.current_langage_container = undefined;
