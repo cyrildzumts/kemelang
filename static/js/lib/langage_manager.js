@@ -15,7 +15,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             event.preventDefault();
             let modal = document.getElementById(btn.dataset.target);
             let container = document.getElementById(btn.dataset.container);
-            let selected_countries = container.querySelectorAll(`input:not([name='${btn.dataset.name}'])`);
+            let selected_countries = container.querySelectorAll(`input([name='${btn.dataset.name}'])`);
             //let countries = modal.querySelectorAll('country-selection');
             let countries = Array.from(modal.querySelectorAll('.country-selection'));
             let find = null;
@@ -105,7 +105,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             event.preventDefault();
             let modal = document.getElementById(btn.dataset.target);
             let container = document.getElementById(btn.dataset.container);
-            let selected_countries = container.querySelectorAll(`input:not([name='${btn.dataset.name}'])`);
+            let selected_countries = container.querySelectorAll(`input[name='${btn.dataset.name}']`);
             let countries = Array.from(modal.querySelectorAll('.country-selection'));
             let find = null;
             selected_countries.forEach(function(input, index){
@@ -212,7 +212,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         let selected = country_tag.classList.countains('selected');
         if(selected){
             // remove country
-            let selected_country = document.querySelector(`input([name='${this.active_langage}'][value=${country_tag.dataset.id}])`);
+            let selected_country = document.querySelector(`input[name='${this.active_langage}'][value=${country_tag.dataset.id}]`);
             if(selected_country){
                 selected_country.remove();
             }
