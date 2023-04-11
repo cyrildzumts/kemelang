@@ -49,6 +49,10 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.form = document.getElementById('langage-form');
         this.langage_form = document.getElementById('langage-form');
         this.form_container = document.getElementById('langage-form-container');
+        this.country_selection_list = Array.from(document.querySelectorAll('country-selection'));
+        this.updatable_attrs = ['id','name','for','data-name','data-id'];
+        this.active_langage = undefined;
+        this.current_langage_container = undefined;
         this.wrappers = [];
         this.total_form = 0;
         this.input_max_length = 32;
@@ -81,8 +85,57 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 return false;
             });
         }
+        this.country_selection_list.forEach(function(c){
+            c.addEventListener('click', function(event){
+                event.stopPropagation();
+                self.on_country_selection_clicked(c);
+            });
+        });
         console.log("langage Manager initialised");
     };
+
+
+    LangageManager.prototype.register_modal = function(btn){
+        if(!btn){
+            return false;
+        }
+        let self = this;
+        btn.addEventListener('click', function(event){
+            event.stopPropagation();
+            event.preventDefault();
+            let modal = document.getElementById(btn.dataset.target);
+            let container = document.getElementById(btn.dataset.container);
+            let selected_countries = container.querySelectorAll(`input:not([name='${btn.dataset.name}'])`);
+            let countries = Array.from(modal.querySelectorAll('country-selection'));
+            let find = null;
+            selected_countries.forEach(function(input, index){
+                find = countries.find((c) => input.value == c.dataset.id);
+                if(find){
+                    find.classList.add('selected');
+                }
+            });
+            self.active_langage = btn.dataset.name;
+            self.current_langage_container = document.getElementById(btn.dataset.container);
+            modal.style.display = "flex";
+            if(window){
+                $(window).click(function(eventModal){
+                    if(eventModal.target == modal){
+                        modal.style.display = "none";
+                        self.active_langage = undefined;
+                        self.current_langage_container = undefined;
+                        let selected_list = modal.querySelectorAll('.selected');
+                        if(selected_list){
+                            selected_list.forEach((el) =>{
+                                el.classList.remove('selected');
+                                
+                            });
+                        }
+                    }
+                });
+            }
+        });
+        return true;
+    }
 
     LangageManager.prototype.create_managed_langage_form = function(prefix){
         const FORM_PREFIX = prefix || 'form';
@@ -140,7 +193,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return;
         }
         this.wrappers.push(result.tag);
-        let registered_modal = register_modal(result['add-country-btn']);
+        let registered_modal = this.register_modal(result['add-country-btn']);
         if(!registered_modal){
             console.warn("Could not find country source ...");
             this.clear();
@@ -150,6 +203,32 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.incremente_management_form();
         console.log("Added new langage form %s", result.tag.id);
     };
+
+
+    LangageManager.prototype.on_country_selection_clicked = function(country_tag){
+        if(!country_tag){
+            return;
+        }
+        let selected = country_tag.classList.countains('selected');
+        if(selected){
+            // remove country
+            let selected_country = document.querySelector(`input([name='${this.active_langage}'][value=${country_tag.dataset.id}])`);
+            if(selected_country){
+                selected_country.remove();
+            }
+            
+        }else{
+            // add country.
+            let input = tag_api.create_tag({'element': 'input', 'options': {
+                'name': this.active_langage,
+                'value': country_tag.dataset.id,
+                'type': 'hidden'
+            }});
+            this.current_langage_container.appendChild(input);
+        }
+        country_tag.classList.toggle('selected');
+
+    }
 
 
     LangageManager.prototype.remove_langage_form = function(element_id){
@@ -181,17 +260,11 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
     LangageManager.prototype.updateFormIndex = function(tag, index){
         console.log("Updating FormIndex for Tag  and index %", index,tag);
-        if(tag.hasAttribute('id')){
-            console.log()
-            tag.setAttribute('id', tag.getAttribute('id').replace(this.replace_pattern, index));
-        }
-        
-        if(tag.hasAttribute('name')){
-            tag.setAttribute('name', tag.getAttribute('name').replace(this.replace_pattern, index));
-        }
-        if(tag.hasAttribute('for')){
-            tag.setAttribute('for', tag.getAttribute('for').replace(this.replace_pattern, index));
-        }
+        this.updatable_attrs.forEach(function(attr){
+            if(tag.hasAttribute(attr)){
+                tag.setAttribute(attr, tag.getAttribute(attr).replace(this.replace_pattern, index));
+            }
+        });
     }
 
 
