@@ -50,10 +50,11 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.langage_form = document.getElementById('langage-form');
         this.form_container = document.getElementById('langage-form-container');
         this.country_selection_list = Array.from(document.querySelectorAll('.country-selection'));
-        this.updatable_attrs = ['id','name','for','data-name','data-id'];
+        this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.active_langage = undefined;
         this.current_langage_container = undefined;
         this.wrappers = [];
+        this.form_is_valid = false;
         this.total_form = 0;
         this.input_max_length = 32;
         this.replace_pattern = /\d+/g;
@@ -183,6 +184,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     }
 
     LangageManager.prototype.add_langage_form = function(prefix){
+        let self = this;
         let result = this.langageFormFactory.create_form(this.total_form, prefix, this.remove_langage_form.bind(this));
         
         this.form_container.appendChild(result.tag);
@@ -199,10 +201,44 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             this.clear();
             return;
         }
+        ['change','keyup'].forEach(function (e) {
+            result.name_input.addEventListener(e, function(event){
+                self.find_langage(result.name_input);
+            });
+        });
+        
         console.warn("Editor created for tag %s", result.editor.id);
         this.incremente_management_form();
         console.log("Added new langage form %s", result.tag.id);
     };
+
+    LangageManager.prototype.find_langage = function(tag){
+        
+        let self = this;
+        let url = `http://api.kemelang-local.com/find-langage/?langage=${tag.value}`;
+        let option = {
+            type:'GET',
+            dataType: 'json',
+            processData: false,
+            contentType : false,
+            crossDomain: true,
+            url : url
+        }
+        ajax_api.ajax(option).then(function(response){
+            if(response.success){
+                self.on_langage_exist(tag, response.found);
+            }
+        }, function(reason){
+            console.error(reason);
+        });
+    }
+
+    LangageManager.prototype.on_langage_exist = function(tag, lang_exist){
+        let target = document.getElementById(tag.dataset.error);
+        target.classList.toggle('hidden', !lang_exist);
+        tag.classList.toggle('warning', !lang_exist);
+        this.form_is_valid = !lang_exist;
+    }
 
 
     LangageManager.prototype.on_country_selection_clicked = function(country_tag){

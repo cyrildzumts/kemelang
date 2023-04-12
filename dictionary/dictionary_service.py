@@ -46,8 +46,7 @@ def create_mass_langage(data):
         logger.info(f"Langage Formset is valid. Dataset : {formset.cleaned_data}")
         langages = formset.save()
         logger.info(f"Langage Formset created.")
-        result = {'success' : True, 'message': f'Created countries'}
-        #result = {'success' : True, 'message': f'Created {len(langages)} countries'}
+        result = {'success' : True, 'message': f'Created {len(langages)} langages'}
     else:
         result = {'success': False, 'message': formset.errors}
     return result
@@ -110,6 +109,15 @@ def create_langages(country, data):
 def get_countries():
     return Country.objects.all()
 
+def find_country(name):
+    logger.info(f"Looking for country {name}")
+    country = None
+    try:
+        country = Country.objects.get(name__iexact=name) 
+    except ObjectDoesNotExist as e:
+        pass
+    return country
+
 def get_countries_by_langage(langage):
     if not isinstance(langage, Langage):
         return Country.objects.none()
@@ -119,6 +127,21 @@ def get_countries_by_langage(langage):
 
 def get_langages():
     return Langage.objects.all()
+
+
+def find_langage(name):
+    logger.info(f"Looking for langage {name}")
+    lang = None
+    try:
+        lang = Langage.objects.get(name__iexact=name) 
+    except ObjectDoesNotExist as e:
+        pass
+    return lang
+
+
+def find_words(word):
+    logger.info(f"Looking for word {word}")
+    return Word.objects.filter(word__iexact=word) 
 
 
 def get_langages_by_country(country):
@@ -177,6 +200,9 @@ def get_word_translations_for_langage(word, langage):
         return TranslationWord.objects.none()
     
     return word.translations.filter(source_langage=langage)
+
+
+
 
 
 

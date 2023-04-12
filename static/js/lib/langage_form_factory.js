@@ -32,6 +32,7 @@ define(['tag_api'],function(tag_api) {
         let name = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-name`,
             'name': `${form_prefix}-${form_index}-name`,
+            'data-error': `${id}-name-error`,
             'cls': 'managed-update',
             'type':'text'
         }});
@@ -40,9 +41,10 @@ define(['tag_api'],function(tag_api) {
             'cls': 'managed-update',
             'htmlFor': name.id
         }});
+        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update padding-h hidden','innerText': 'Add Country'}})
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_name, name]
+            'children': [label_name, name_error, name]
         }});
 
         let div_name_wrapper = create_api({'element': 'div', 'options': {
@@ -155,7 +157,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback(tag_id);
             }
         });
-        return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn};
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn, 'name_input': name};
     }
 
     return LangageFormFactory;
