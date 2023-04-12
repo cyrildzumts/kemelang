@@ -246,7 +246,10 @@ def find_country(request):
     try:
         search_query = utils.get_request_data(request).get('country')
         country = dictionary_service.find_country(search_query)
-        result = {'success': True, 'country': country.as_dict(True), 'query': search_query, 'found': country is not None}
+        if country:
+            result = {'success': True, 'country': country.as_dict(True), 'query': search_query, 'found': True}
+        else:
+            result = {'success': True, 'country': None, 'query': search_query, 'found': False}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Search Country request failed : {e}")
@@ -261,7 +264,10 @@ def find_langage(request):
     try:
         search_query = utils.get_request_data(request).get('langage')
         langage = dictionary_service.find_langage(search_query)
-        result = {'success': True, 'langage': langage.as_dict(True), 'query': search_query, 'found': langage is not None}
+        if langage:
+            result = {'success': True, 'langage': langage.as_dict(True), 'query': search_query, 'found': True}
+        else:
+            result = {'success': True, 'langage': None, 'query': search_query, 'found': False}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Search Langage request failed : {e}")
