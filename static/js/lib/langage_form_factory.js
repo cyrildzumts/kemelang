@@ -41,7 +41,7 @@ define(['tag_api'],function(tag_api) {
             'cls': 'managed-update',
             'htmlFor': name.id
         }});
-        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update padding-h hidden','innerText': 'Add Country'}})
+        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update padding-h hidden','innerText': 'Langage already exists'}})
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
             'children': [label_name, name_error, name]
