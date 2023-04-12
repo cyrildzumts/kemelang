@@ -213,7 +213,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     };
 
     LangageManager.prototype.find_langage = function(tag){
-        
+        if(!tag || !tag.value){
+            return;
+        }
         let self = this;
         let url = `http://api.kemelang-local.com/find-langage/?langage=${tag.value}`;
         let option = {
