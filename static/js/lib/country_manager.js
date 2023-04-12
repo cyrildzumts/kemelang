@@ -144,7 +144,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     };
 
     CountryManager.prototype.find_country = function(tag){
-        if(!tag || !tag.value){
+        if(!tag || !tag.value || !tag.value.trim().length){
             return;
         }
         let self = this;

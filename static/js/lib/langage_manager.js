@@ -213,7 +213,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     };
 
     LangageManager.prototype.find_langage = function(tag){
-        if(!tag || !tag.value){
+        if(!tag || !tag.value || !tag.value.trim().length){
             return;
         }
         let self = this;
