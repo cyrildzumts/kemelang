@@ -203,6 +203,10 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         }
         ['keyup'].forEach(function (e) {
             result.name_input.addEventListener(e, function(event){
+                if(!result.name_input || !result.name_input.value || !result.name_input.value.trim().length){
+                    result.name_input.value = "";
+                    return;
+                }
                 self.find_langage(result.name_input);
             });
         });
@@ -213,9 +217,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     };
 
     LangageManager.prototype.find_langage = function(tag){
-        if(!tag || !tag.value || !tag.value.trim().length){
-            return;
-        }
         let self = this;
         let url = `http://api.kemelang-local.com/find-langage/?langage=${tag.value}`;
         let option = {
