@@ -201,7 +201,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             this.clear();
             return;
         }
-        ['change','keyup'].forEach(function (e) {
+        ['keyup'].forEach(function (e) {
             result.name_input.addEventListener(e, function(event){
                 self.find_langage(result.name_input);
             });
@@ -236,6 +236,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     LangageManager.prototype.on_langage_exist = function(tag, lang_exist){
         let target = document.getElementById(tag.dataset.error);
         target.classList.toggle('hidden', !lang_exist);
+        target.classList.toggle('warning', lang_exist);
         tag.classList.toggle('warning', lang_exist);
         this.form_is_valid = !lang_exist;
     }
