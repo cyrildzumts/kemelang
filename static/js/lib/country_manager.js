@@ -12,7 +12,9 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         this.form = document.getElementById('country-form');
         this.country_form = document.getElementById('country-form');
         this.form_container = document.getElementById('country-form-container');
+        this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.wrappers = [];
+        this.form_is_valid = false;
         this.total_form = 0;
         this.input_max_length = 32;
         this.replace_pattern = /\d+/g;
@@ -104,6 +106,11 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         }
         this.wrappers.push(result.tag);
         console.warn("Editor created for tag %s", result.editor.id);
+        ['keyup'].forEach(function (e) {
+            result.name_input.addEventListener(e, function(event){
+                self.find_country(result.name_input);
+            });
+        });
         this.incremente_management_form();
         console.log("Added new country form %s", result.tag.id);
     };
@@ -134,6 +141,35 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
             this.form_container.removeChild(this.form_container.firstChild);
         }
     };
+
+    CountryManager.prototype.find_country = function(tag){
+        
+        let self = this;
+        let url = `http://api.kemelang-local.com/find-country/?country=${tag.value}`;
+        let option = {
+            type:'GET',
+            dataType: 'json',
+            processData: false,
+            contentType : false,
+            crossDomain: true,
+            url : url
+        }
+        ajax_api.ajax(option).then(function(response){
+            if(response.success){
+                self.on_country_exist(tag, response.found);
+            }
+        }, function(reason){
+            console.error(reason);
+        });
+    }
+
+    CountryManager.prototype.on_country_exist = function(tag, country_exist){
+        let target = document.getElementById(tag.dataset.error);
+        target.classList.toggle('hidden', !country_exist);
+        target.classList.toggle('warning', country_exist);
+        tag.classList.toggle('warning', country_exist);
+        this.form_is_valid = !country_exist;
+    }
 
 
     CountryManager.prototype.updateFormIndex = function(tag, index){
