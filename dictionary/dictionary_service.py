@@ -113,7 +113,7 @@ def find_country(name):
     logger.info(f"Looking for country {name}")
     country = None
     try:
-        country = Country.objects.get(name__iexact=name) 
+        country = Country.objects.get(Q(name__iexact=name)|Q(slug__iexact=name)) 
     except ObjectDoesNotExist as e:
         pass
     return country
@@ -133,7 +133,7 @@ def find_langage(name):
     logger.info(f"Looking for langage {name}")
     lang = None
     try:
-        lang = Langage.objects.get(name__iexact=name) 
+        lang = Langage.objects.get(Q(name__iexact=name)|Q(slug__iexact=name)) 
     except ObjectDoesNotExist as e:
         pass
     return lang
