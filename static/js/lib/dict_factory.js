@@ -251,7 +251,7 @@ define(['tag_api'],function(tag_api) {
     };
 
     DictFactory.prototype.create_word = function(container, word){
-        let word_div = create_api({'element': 'div', 'options': {
+        let word_div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'mat-box word-input-wrapper',
             'children': [render_content(word.description['blocks'])]
         }});
@@ -265,122 +265,122 @@ define(['tag_api'],function(tag_api) {
         let form_prefix = prefix || 'form';
         let create_api = tag_api.create_tag;
         let id = `${form_prefix}-${form_index}`;
-        let delete_button = create_api({'element': 'span', 'options':{
+        let delete_button = tag_api.create_tag({'element': 'span', 'options':{
             'cls': 'managed-update',
             'id': id + '-delete-btn',
             'title': 'Delete this word',
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
+            'children': [tag_api.create_tag({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
         }});
-        let header_label = create_api({'element': 'div', 'options':{
-            'children': [create_api({'element': 'span', 'options':{'innerText': 'Word', 'cls': 'bold'}})]
+        let header_label = tag_api.create_tag({'element': 'div', 'options':{
+            'children': [tag_api.create_tag({'element': 'span', 'options':{'innerText': 'Word', 'cls': 'bold'}})]
         }});
-        let header_group = create_api({'element': 'div', 'options':{
+        let header_group = tag_api.create_tag({'element': 'div', 'options':{
             'cls': 'header-group',
             'id': id + '-delete-btn-header',
             'children': [header_label, delete_button]
         }});
-        let word = create_api({'element': 'input', 'options':{
+        let word = tag_api.create_tag({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-word`,
             'name': `${form_prefix}-${form_index}-word`,
             'data-error': `${id}-word-error`,
             'cls': 'managed-update',
             'type':'text'
         }});
-        let word_error = create_api({'element': 'span', 'options':{'id': `${id}-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
-        let label_word = create_api({'element': 'label', 'options': {
+        let word_error = tag_api.create_tag({'element': 'span', 'options':{'id': `${id}-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
+        let label_word = tag_api.create_tag({'element': 'label', 'options': {
             'innerText': 'Word',
             'cls': 'managed-update',
             'htmlFor': word.id
         }});
-        let form_group_name = create_api({'element': 'div', 'options': {
+        let form_group_name = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'form-group',
             'children': [label_word, word_error, word]
         }});
 
-        let div_name_wrapper = create_api({'element': 'div', 'options': {
+        let div_name_wrapper = tag_api.create_tag({'element': 'div', 'options': {
             'cls' : "form-group-wrapper",
             'children': [form_group_name]
         }});
 
-        let langage = create_api({'element': 'input', 'options':{
+        let langage = tag_api.create_tag({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-langage`,
             'name': `${form_prefix}-${form_index}-langage`,
             'data-error': `${id}-word-error`,
             'cls': 'managed-update',
             'type':'hidden'
         }});
-        let add_langage_btn = create_api({'element': 'span', 'options':{
+        let add_langage_btn = tag_api.create_tag({'element': 'span', 'options':{
             'cls': 'add-langage-btn',
             'data-container': id,
             'data-target': 'langage-selector-dialog',
             'data-name': `${form_prefix}-${form_index}-langage`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Add Langage'}})]
+            'children': [tag_api.create_tag({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), tag_api.create_tag({'element': 'span', 'options':{'innerText': 'Add Langage'}})]
         }});
-        let btn_group = create_api({'element': 'div', 'options':{
+        let btn_group = tag_api.create_tag({'element': 'div', 'options':{
             'cls': 'header-group',
             'id': id + '-delete-btn-header',
             'children': [add_langage_btn]
         }});
-        let div_langage_group = create_api({'element': 'div', 'options': {
+        let div_langage_group = tag_api.create_tag({'element': 'div', 'options': {
             'id': `${form_prefix}-${form_index}-langage-actions`,
             'cls' : "full managed_update",
             'children': [btn_group]
         }});
 
-        let div_langage_wrapper = create_api({'element': 'div', 'options': {
+        let div_langage_wrapper = tag_api.create_tag({'element': 'div', 'options': {
             'id': `${form_prefix}-${form_index}-langage-wrapper`,
             'cls' : "form-group-wrapper managed_update",
             'children': [langage, div_langage_group]
         }});
-        let description = create_api({'element': 'input', 'options':{
+        let description = tag_api.create_tag({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-description`,
             'name': `${form_prefix}-${form_index}-description`,
             'value': '',
             'cls': 'managed-update',
             'type':'hidden'
         }});
-        let label_description = create_api({'element': 'label', 'options': {
+        let label_description = tag_api.create_tag({'element': 'label', 'options': {
             'innerText': 'Description',
             'cls': 'managed-update',
             'htmlFor': description.id
         }});
-        let editor = create_api({'element': 'div', 'options': {
+        let editor = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'editor editor-box',
             'id': `editor-${form_prefix}-${form_index}-description`,
             'data-target': `id-${form_prefix}-${form_index}-description`
 
         }});
-        let form_group_description = create_api({'element': 'div', 'options': {
+        let form_group_description = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'form-group',
             'children': [label_description, description, editor]
         }});
 
-        let div_description_wrapper = create_api({'element': 'div', 'options': {
+        let div_description_wrapper = tag_api.create_tag({'element': 'div', 'options': {
             'cls' : "form-group-wrapper",
             'children': [form_group_description]
         }});
-        let added_by = create_api({'element': 'input', 'options':{
+        let added_by = tag_api.create_tag({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-added_by`,
             'cls': 'managed-update',
             'name': `${form_prefix}-${form_index}-added_by`,
             'type':'hidden'
         }});
-        let input_form_id = create_api({'element': 'input', 'options':{
+        let input_form_id = tag_api.create_tag({'element': 'input', 'options':{
             'id':`id-${form_prefix}-${form_index}-id`,
             'cls': 'managed-update',
             'name': `${form_prefix}-${form_index}-id`,
             'type':'hidden'
         }});
 
-        let hidden_div = create_api({'element': 'div', 'options': {
+        let hidden_div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'hidden',
             'children': [added_by, input_form_id]
         }});
 
         
-        let div = create_api({'element': 'div', 'options': {
+        let div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'mat-box editor-box-wrapper',
             'id': id,
             'children': [hidden_div,header_group, div_name_wrapper, div_langage_wrapper, div_description_wrapper]
