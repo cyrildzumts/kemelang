@@ -5,6 +5,8 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     const MIN_NUM_FORMS = "MIN_NUM_FORMS";
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
+    const PREFIX = "langage";
+    const QUERY_DELAY = 800;
 
     function register_modal(btn){
         if(!btn){
@@ -56,6 +58,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.wrappers = [];
         this.form_is_valid = false;
         this.total_form = 0;
+        this.scheduled_query = undefined;
         this.input_max_length = 32;
         this.replace_pattern = /\d+/g;
     };
@@ -207,7 +210,11 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                     result.name_input.value = "";
                     return;
                 }
-                self.find_langage(result.name_input);
+                if(self.scheduled_query){
+                    clearTimeout(self.scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.find_langage.bind(self), QUERY_DELAY, result.name_input);
+                //self.find_langage(result.name_input);
             });
         });
         

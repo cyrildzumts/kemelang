@@ -5,6 +5,8 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     const MIN_NUM_FORMS = "MIN_NUM_FORMS";
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
+    const PREFIX = "country";
+    const QUERY_DELAY = 800;
 
 
     function CountryManager(){
@@ -17,6 +19,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         this.form_is_valid = false;
         this.total_form = 0;
         this.input_max_length = 32;
+        this.scheduled_query = undefined;
         this.replace_pattern = /\d+/g;
     };
     CountryManager.prototype.init = function(){
@@ -113,7 +116,11 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
                     result.name_input.value = "";
                     return;
                 }
-                self.find_country(result.name_input);
+                if(self.scheduled_query){
+                    clearTimeout(self.scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.find_country.bind(self), QUERY_DELAY, result.name_input);
+                //self.find_country(result.name_input);
             });
         });
         this.incremente_management_form();

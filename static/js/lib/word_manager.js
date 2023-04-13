@@ -6,6 +6,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
+    const QUERY_DELAY = 800;
 
 
     function WordManager(){
@@ -18,6 +19,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         this.wrappers = [];
         this.form_is_valid = false;
         this.total_form = 0;
+        this.scheduled_query = undefined;
         this.input_max_length = 32;
         this.replace_pattern = /\d+/g;
     };
@@ -166,7 +168,11 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                     result.word_input.value = "";
                     return;
                 }
-                self.find_word(result.word_input);
+                if(self.scheduled_query){
+                    clearTimeout(self.scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, result.word_input);
+                //self.find_word(result.word_input);
             });
         });
         
