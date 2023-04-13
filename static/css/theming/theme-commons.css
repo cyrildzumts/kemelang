@@ -875,7 +875,7 @@ option:checked{
 
   }
 
-  .country-selection.selected, .langage-selection.slected{
+  .country-selection.selected, .langage-selection.selected{
 	font-weight: bold;
 	background-color: #2ecc71;
 

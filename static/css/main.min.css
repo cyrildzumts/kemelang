@@ -5698,7 +5698,7 @@ option:checked{
 	background-color: var(--secondary-color);
 	color: #ecf0f1;
   }
-  .country-selection.selected, .langage-selection.slected{
+  .country-selection.selected, .langage-selection.selected{
 	font-weight: bold;
 	background-color: #2ecc71;
   }
