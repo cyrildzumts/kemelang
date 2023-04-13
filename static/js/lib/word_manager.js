@@ -14,7 +14,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         this.word_form = document.getElementById('word-form');
         this.form_container = document.getElementById('word-form-container');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
-        
+        this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
         this.wrappers = [];
         this.form_is_valid = false;
         this.total_form = 0;
@@ -48,6 +48,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                 return false;
             });
         }
+        this.langage_selection_list.forEach(function(langage){
+            langage.addEventListener('click', function(event){
+                event.stopPropagation();
+                self.on_langage_selection_clicked(langage);
+            });
+        });
         console.log("Word Manager initialised");
     };
 
@@ -163,6 +169,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                 self.find_word(result.word_input);
             });
         });
+        
         this.incremente_management_form();
         console.log("Added new country form %s", result.tag.id);
     };
