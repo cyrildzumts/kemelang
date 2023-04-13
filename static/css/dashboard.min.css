@@ -3146,7 +3146,7 @@ ul li{
 	  padding-top: 0.3125rem;
 	  padding-bottom: 0.3125rem;
 	  margin-right: 1rem;
-	  font-size: 1.25rem;
+	  font-size: 0.9rem;
 	  text-decoration: none;
 	  white-space: nowrap;
   }
@@ -5519,7 +5519,7 @@ main {
 }
 :root{
     --primary-color: #0A0A0A;
-    --secondary-color: #2C3E50;
+    --secondary-color: #16a085;
     --third-color : #FFFFFF;
     --fourth-color : #FFFFFF;
     --light-color : #FAFAFA;
@@ -5546,14 +5546,14 @@ main {
     --debug-color: #1e88e5;
     --on-demand-order : #f39c12;
     --standard-order : #2980b9;
-    --footer-content-wrapper:#2C3E50;
+    --footer-content-wrapper:#16a085;
     --footer-content-wrapper-color: #FAFAFA;
-    --footer-content: #2C3E50;
+    --footer-content: #16a085;
     --footer-content-color : #FAFAFA;
-    --footer-catelog: #2C3E50;
+    --footer-catelog: #16a085;
     --footer-catelog-color: #FAFAFA;
     --footer-catalog-link: #AAA;
-    --best-deals: #2C3E50;
+    --best-deals: #16a085;
     --best-deals-info: #B40900;
     --best-deals-color : #FAFAFA;
     --new-arrivals : #028E9B33;
@@ -5584,7 +5584,7 @@ main {
     --code-area: #bdc3c7;
     --code-header : #bdc3c7;
     --code-header-bg : #34495e;
-    --textarea: #2c3e50;
+    --textarea: #16a085;
     --textarea-bg: #fafafa;
     --status-delivered: #45A29E;
     --status-shipped : #1e88e5;
