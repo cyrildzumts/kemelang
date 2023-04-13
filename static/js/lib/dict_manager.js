@@ -31,9 +31,20 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         }
         this.dictFactory = new DictFactory();
         this.dictFactory.init();
+        ['keyup'].forEach(function (e) {
+            self.dict_text.addEventListener(e, function(event){
+                if(!self.dict_text || !self.dict_text.value || !self.dict_text.value.trim().length){
+                    self.dict_text.value = "";
+                    return;
+                }
+                self.find_word(self.dict_text);
+            });
+        });
+        
         console.log("Dict Manager initialised");
     };
 
+    
 
     DictManager.prototype.find_word = function(tag){
         let self = this;
