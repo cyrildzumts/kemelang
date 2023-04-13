@@ -246,7 +246,10 @@ def search_word(request):
         search_query = utils.get_request_data(request).get('word')
         query_list = dictionary_service.search_words(search_query)
         word_list = [w.as_dict() for w in query_list]
-        result = {'success': True, 'words': word_list, 'query': search_query}
+        if len(query_list) > 0 :
+            result = {'success': True, 'words': word_list, 'query': search_query, 'found': True}
+        else:
+            result = {'success': False, 'words': [], 'query': search_query, 'found': False}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Search Word request failed : {e}")
