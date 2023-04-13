@@ -40,7 +40,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     return;
                 }
                 if(self.scheduled_query){
-                    clearTimeout(scheduled_query);
+                    clearTimeout(self.scheduled_query);
                 }
                 self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.dict_text);
                 //self.find_word(self.dict_text);
