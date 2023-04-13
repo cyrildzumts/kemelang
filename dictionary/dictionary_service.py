@@ -62,7 +62,7 @@ def create_mass_word(data):
         logger.info(f"Word Formset created.")
         result = {'success' : True, 'message': f'Created {len(words)} words'}
     else:
-        logger.warn(f"Word not created : Errors : {formset.errors}")
+        logger.warn(f"Word not created : Errors : {formset.errors} - data : {data}")
         result = {'success': False, 'message': formset.errors}
     return result
 
