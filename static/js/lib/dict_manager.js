@@ -27,7 +27,6 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.replace_pattern = /\d+/g;
     };
     DictManager.prototype.init = function(){
-        var self = this;
         if(!this.dict_text){
             return;
         }
