@@ -12,6 +12,7 @@ api_patterns = [
     path('create-langage/', views.create_langage, name="langage-create"),
     path('search-langage/', views.search_langage, name="langage-search"),
     path('create-word/', views.create_word, name="word-create"),
+    path('search-word/', views.search_country, name="word-search"),
     path('search-country/', views.search_country, name="country-search"),
     path('detect-langage/', views.detect_langage, name="langage-detect"),
     path('find-country/', views.find_country, name="country-find"),

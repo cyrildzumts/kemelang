@@ -240,6 +240,22 @@ def search_country(request):
 @api_view(['GET'])
 @permission_classes([])
 @authentication_classes([])
+def search_word(request):
+    logger.info(f"API: Search Words request")
+    try:
+        search_query = utils.get_request_data(request).get('word')
+        query_list = dictionary_service.search_words(search_query)
+        word_list = [w.as_dict() for w in query_list]
+        result = {'success': True, 'words': word_list, 'query': search_query}
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Search Word request failed : {e}")
+    return Response(data=result, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([])
+@authentication_classes([])
 def find_country(request):
     logger.info(f"API: Find Country request")
     try:
