@@ -6,6 +6,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
+    const QUERY_DELAY = 800;
 
 
     function DictManager(){
@@ -22,6 +23,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.form_is_valid = false;
         this.total_form = 0;
         this.input_max_length = 32;
+        this.scheduled_query = undefined;
         this.replace_pattern = /\d+/g;
     };
     DictManager.prototype.init = function(){
@@ -29,6 +31,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         if(!this.dict_text){
             return;
         }
+        let self = this;
         this.dictFactory = new DictFactory();
         this.dictFactory.init();
         ['keyup'].forEach(function (e) {
@@ -37,7 +40,11 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     self.dict_text.value = "";
                     return;
                 }
-                self.find_word(self.dict_text);
+                if(self.scheduled_query){
+                    clearTimeout(scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.dict_text);
+                //self.find_word(self.dict_text);
             });
         });
         
@@ -68,9 +75,16 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.on_word_exist = function(tag, words){
         let self = this;
+        this.clear_definitions();
         words.forEach(function(word){
             self.dictFactory.create_word(self.dict_text_definitions, word);
         });
+    }
+
+    DictManager.prototype.clear_definitions = function(){
+        while(this.dict_text_definitions.firstChild){
+            this.dict_text_definitions.removeChild(this.dict_text_definitions.firstChild);
+        }
     }
 
 
