@@ -152,13 +152,12 @@ def update_langage(request,langage_slug, langage_uuid):
 @permission_classes([])
 @authentication_classes([])
 def create_word(request):
-    logger.info(f"API: New word creation request")
+    logger.info(f"API: New Word creation request")
     if request.method != 'POST':
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        word = dictionary_service.create_word(utils.get_postdata(request))
-        result = {'success': True, 'word': WordSerializer(word).data, 'url': word.get_absolute_url(), 'message': f"Word {word.word}"}
+        result = dictionary_service.create_mass_word(utils.get_postdata(request))
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)

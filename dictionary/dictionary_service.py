@@ -51,6 +51,23 @@ def create_mass_langage(data):
         result = {'success': False, 'message': formset.errors}
     return result
 
+
+def create_mass_word(data):
+    WordFormSet = modelformset_factory(Word, form=WordForm)
+    formset = WordFormSet(data, prefix=Constants.WORD_FORMSET_PREFIX)
+    result = {}
+    if formset.is_valid():
+        logger.info(f"Word Formset is valid. Dataset : {formset.cleaned_data}")
+        #words = formset.save()
+        logger.info(f"Word Formset created.")
+        #result = {'success' : True, 'message': f'Created {len(words)} words'}
+        result = {'success' : True, 'message': f'Created words'}
+    else:
+        result = {'success': False, 'message': formset.errors}
+    return result
+
+
+
 def create_langage(data):
     return core_service.create_instance(Langage, data)
 
