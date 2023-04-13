@@ -154,12 +154,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         }
         console.warn("Editor created for tag %s", result.editor.id);
         ['keyup'].forEach(function (e) {
-            result.name_input.addEventListener(e, function(event){
-                if(!result.name_input || !result.name_input.value || !result.name_input.value.trim().length){
-                    result.name_input.value = "";
+            result.word_input.addEventListener(e, function(event){
+                if(!result.word_input || !result.word_input.value || !result.word_input.value.trim().length){
+                    result.word_input.value = "";
                     return;
                 }
-                self.find_word(result.name_input);
+                self.find_word(result.word_input);
             });
         });
         this.incremente_management_form();
@@ -195,7 +195,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
 
     WordManager.prototype.find_word = function(tag){
         let self = this;
-        let url = `http://api.kemelang-local.com/find-words/?word=${tag.value}`;
+        let url = `http://api.kemelang-local.com/find-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
