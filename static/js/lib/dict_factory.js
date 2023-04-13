@@ -262,7 +262,7 @@ define(['tag_api'],function(tag_api) {
 
         }});
         let word_group = tag_api.create_tag({'element': 'div','options': {
-            'cls': 'flex space-between full',
+            'cls': 'flex space-between full padding',
             'children': [word_tag, langage_tag]
 
         }});
