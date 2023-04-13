@@ -225,7 +225,7 @@ def get_word_translations_for_langage(word, langage):
 
 def search_countries(search_query):
     
-    logger.info(f"Search word : {search_query}")
+    logger.info(f"Search Country : {search_query}")
     COUNTRY_VECTOR = SearchVector('name') + SearchVector('slug')
     DB_VECTOR = COUNTRY_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
