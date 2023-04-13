@@ -4439,7 +4439,7 @@ ul li{
 	width: 100%;
 	padding: 0;
   }
-  .country-selection,.langage-select{
+  .country-selection,.langage-selection{
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -5694,15 +5694,15 @@ option:checked{
 .navbar .fas, .navbar .far{
     color: var(--secondary-color);
 }
-.country-selection, .langage-select{
+.country-selection, .langage-selection{
 	background-color: var(--secondary-color);
 	color: #ecf0f1;
   }
-  .country-selection.selected, .langage-select.slected{
+  .country-selection.selected, .langage-selection.slected{
 	font-weight: bold;
 	background-color: #2ecc71;
   }
-  .country-selection:hover, .langage-select:hover{
+  .country-selection:hover, .langage-selection:hover{
 	color: #0a0a0a;
 	font-weight: bold;
 	background-color: #bdc3c7;
