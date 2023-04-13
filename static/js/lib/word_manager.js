@@ -5,6 +5,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
     const MIN_NUM_FORMS = "MIN_NUM_FORMS";
     const MAX_NUM_FORMS     = "MAX_NUM_FORMS";
     const MAX_SUBMITTED_FORMS = 100;
+    const PREFIX = "word";
 
 
     function WordManager(){
@@ -34,10 +35,10 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                 event.stopPropagation();
                 event.preventDefault();
                 console.log("Click on Add Word Form");
-                self.add_word_form('country');
+                self.add_word_form('word');
             });
         }
-        self.create_managed_word_form('word');
+        self.create_managed_word_form(PREFIX);
         if(this.word_form){
             this.word_form.addEventListener('submit', function(even){
                 event.stopPropagation();
@@ -136,7 +137,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
 
     WordManager.prototype.add_word_form = function(prefix){
         let self = this;
-        let result = this.wordFormFactory.create_form(this.total_form, prefix, this.remove_word_form.bind(this));
+        let result = this.wordFormFactory.create_form(this.total_form, PREFIX, this.remove_word_form.bind(this));
         
         this.form_container.appendChild(result.tag);
         let editor = new Editor_API.EditorWrapper(result.editor.id, {});
