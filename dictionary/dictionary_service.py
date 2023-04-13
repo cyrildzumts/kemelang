@@ -58,10 +58,9 @@ def create_mass_word(data):
     result = {}
     if formset.is_valid():
         logger.info(f"Word Formset is valid. Dataset : {formset.cleaned_data}")
-        #words = formset.save()
+        words = formset.save()
         logger.info(f"Word Formset created.")
-        #result = {'success' : True, 'message': f'Created {len(words)} words'}
-        result = {'success' : True, 'message': f'Created words'}
+        result = {'success' : True, 'message': f'Created {len(words)} words'}
     else:
         result = {'success': False, 'message': formset.errors}
     return result
