@@ -96,7 +96,7 @@ class Country(models.Model):
 class Word(models.Model):
     word = models.CharField(max_length=constants.WORD_MAX_LENGTH)
     audio = models.FileField(upload_to=upload_word_audio_to, blank=True, null=True)
-    synonyme = models.ForeignKey('self', on_delete=models.SET_NULL, related_name='synonymes', blank=True, null=True)
+    synonymes = models.ManyToManyField('self', blank=True, null=True)
     langage = models.ForeignKey(Langage, on_delete=models.CASCADE, related_name='words')
     description = models.JSONField(blank=True, null=True)
     view_count = models.IntegerField(default=0)

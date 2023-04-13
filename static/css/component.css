@@ -3976,7 +3976,7 @@
 	padding: 0;
   }
 
-  .country-selection{
+  .country-selection,.langage-select{
 	display: flex;
 	justify-content: center;
 	align-items: center;
