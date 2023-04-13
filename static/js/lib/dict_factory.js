@@ -253,7 +253,7 @@ define(['tag_api'],function(tag_api) {
     DictFactory.prototype.create_word = function(container, word){
         let word_div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'mat-box word-input-wrapper',
-            'children': [render_content(word.description['blocks'])]
+            'children': render_content(word.description['blocks'])
         }});
         container.appendChild(word_div);
         return word_div;
