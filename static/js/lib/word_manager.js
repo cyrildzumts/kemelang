@@ -238,7 +238,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         if(selected){
             // remove langage
             
-            if(selected_langage){
+            if(word_langage){
                 word_langage.value = "";
             }
             
