@@ -25,8 +25,8 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         if(!this.form_container){
             return;
         }
-        this.countryFormFactory = new WordFormFactory();
-        this.countryFormFactory.init();
+        this.wordFormFactory = new WordFormFactory();
+        this.wordFormFactory.init();
         let add_form_btn = document.getElementById('add-word-btn');
         let create_country_btn = document.getElementById('create-word-btn');
         if(add_form_btn){
