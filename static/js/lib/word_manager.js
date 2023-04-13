@@ -136,7 +136,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
 
     WordManager.prototype.add_word_form = function(prefix){
         let self = this;
-        let result = this.wordFormFactory.create_form(this.total_form, prefix, this.remove_country_form.bind(this));
+        let result = this.wordFormFactory.create_form(this.total_form, prefix, this.remove_word_form.bind(this));
         
         this.form_container.appendChild(result.tag);
         let editor = new Editor_API.EditorWrapper(result.editor.id, {});
