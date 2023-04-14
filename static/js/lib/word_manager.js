@@ -258,8 +258,10 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         }else{
             // add langage.
             word_langage.value = langage_tag.dataset.id;
-            this.span_selected_langage.innerText = langage_tag.dataset.name;
-            this.span_selected_langage.classList.remove('hidden');
+            if(this.span_selected_langage){
+                this.span_selected_langage.innerText = langage_tag.dataset.name;
+                this.span_selected_langage.classList.remove('hidden');
+            }
         }
         document.querySelectorAll('.langage-selection.selected').forEach((tag) =>{
             if(tag != langage_tag){
