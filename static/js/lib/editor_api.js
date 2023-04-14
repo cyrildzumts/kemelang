@@ -49,7 +49,7 @@ function(require, ajax_api, tag_api, EditorJS) {
     };
 
     function render_emoji(emoji){
-        console.log(emoji);
+        
         return emoji.data.text;
     }
 
@@ -392,7 +392,6 @@ function(require, ajax_api, tag_api, EditorJS) {
             console.log("Clearing editor content not implemented yet ");
         });
         */
-        console.log("Editor loaded", editor);
 
         return editor;
     }
@@ -421,7 +420,6 @@ function(require, ajax_api, tag_api, EditorJS) {
                 return;
             }
             this.create_editor();
-            console.log("Editor created with Target ", this.target);
             this.created = true;
         }
 
@@ -521,7 +519,7 @@ function(require, ajax_api, tag_api, EditorJS) {
             }else{
                 this.target.value = "";
             }
-            console.log("updated editor for target %s", this.target.id);
+            
         }
 
 
