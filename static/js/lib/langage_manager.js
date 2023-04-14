@@ -284,7 +284,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             }});
             lang['countries'].push(country_name);
             selection.appendChild(tag_api.create_tag({'element':'span','options':{
-                'cls': 'chips',
+                'cls': 'chips small',
                 'innerText': country_name,
                 'id': country_name
             }}));
