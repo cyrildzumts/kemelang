@@ -28,7 +28,7 @@
         <div class="grid align-baseline">
             <div class="col-m-12 col-5">
                 <div class="container">
-                    <div class="source-langage mat-box word-input-wrapper">
+                    <div class="source-langage word-input-wrapper">
                         <textarea name="text" id="dict-text" placeholder="{% translate 'Enter word' %}"></textarea>
                     </div>
                     <div id="word-definitions-container" class="padding-v full"></div>
@@ -36,23 +36,11 @@
             </div>
             <div class="col-m-12 col-5">
                 <div class="container">
-                    <div class="target-langage mat-box word-input-wrapper">
+                    <div class="target-langage word-input-wrapper">
                         <div class="target-placeholder">
                                 <span>{% translate "Translation" %}</span>
                         </div>
-                        <div class="full">
-                            <ul>
-                                {% for translation in translations %}
-                                <li>
-                                    <div>
-                                        <div class="flex flex-left"><span class="bold word-type">{{translation.word_type|dict_word_type}}</span></div>
-                                        <div class="flex space-between"><span>{{translation.word}}</span> <div class="flex">{% for synonyme in translation.synonymes %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
-                                    </div>
-
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </div>
+                        <div id="word-translations-container" class="padding-v full"></div>
                     </div>
                 </div>
             </div>

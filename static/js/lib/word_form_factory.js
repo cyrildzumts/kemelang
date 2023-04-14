@@ -77,7 +77,7 @@ define(['tag_api'],function(tag_api) {
         }});
         let btn_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
-            'id': id + '-delete-btn-header',
+            'id': id + '-add-langage-btn-header',
             'children': [add_langage_btn,selected_langage]
         }});
         let div_langage_group = create_api({'element': 'div', 'options': {

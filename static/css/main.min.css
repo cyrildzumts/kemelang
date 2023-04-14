@@ -4386,6 +4386,8 @@ ul li{
   .word-input-wrapper{
 	width: 100%;
 	min-height: 10.25em;
+	border-radius: 3px;
+	box-shadow: var(--box-shadow);
   }
   .word-input-wrapper.target-langage{
 	background-color: #eee;

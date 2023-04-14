@@ -54,6 +54,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.country_selection_list = Array.from(document.querySelectorAll('.country-selection'));
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.active_langage = undefined;
+        this.active_langages = [];
         this.current_langage_container = undefined;
         this.wrappers = [];
         this.form_is_valid = false;
@@ -102,6 +103,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return false;
         }
         let self = this;
+        this.
         btn.addEventListener('click', function(event){
             event.stopPropagation();
             event.preventDefault();
@@ -196,6 +198,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return;
         }
         this.wrappers.push(result.tag);
+        let current_langage = {
+            'form': ''
+        }
         let registered_modal = this.register_modal(result['add-country-btn']);
         if(!registered_modal){
             console.warn("Could not find country source ...");

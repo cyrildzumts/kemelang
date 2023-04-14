@@ -53,20 +53,27 @@ define(['tag_api'],function(tag_api) {
             'children': [form_group_name]
         }});
 
+        let selected_countries = tag_api.create_tag({'element': 'div','options': {
+            'id':`${form_prefix}-${form_index}-countries-selected`,
+            'cls': 'flex flex-wrap full bold hidden managed-update',
+        }});
+
+
 
         let add_country_btn = create_api({'element': 'span', 'options':{
             'cls': 'add-country-btn',
             'data-container': id,
             'data-target': 'country-selector-dialog',
             'data-name': `${form_prefix}-${form_index}-countries`,
+            'data-selected': `${form_prefix}-${form_index}-countries-selected`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Add Country'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Country'}})]
         }});
         let btn_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
-            'id': id + '-delete-btn-header',
-            'children': [add_country_btn]
+            'id': id + '-add-country-btn-header',
+            'children': [add_country_btn, selected_countries]
         }});
         /*
 
