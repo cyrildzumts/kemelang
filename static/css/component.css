@@ -3971,6 +3971,7 @@
 
   .selected-options{
 	display: flex;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
 	padding: 1em 0;
