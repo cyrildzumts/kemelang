@@ -111,20 +111,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             self.langage_index = btn.dataset.index;
             self.current_langage_container = document.getElementById(btn.dataset.container);
             let modal = document.getElementById(btn.dataset.target);
-            let container = document.getElementById(btn.dataset.container);
-            //let selected_countries = container.querySelectorAll(`input[name='${btn.dataset.name}']`);
+            
             let selection = self.active_langages[self.langage_index].countries;
-            //let countries = Array.from(modal.querySelectorAll('.country-selection'));
-            //self.country_selection_list.forEach((c) =>{
-            //    c.classList.remove('selected');
-            //});
-            let find = null;
-            // selected_countries.forEach(function(input, index){
-            //     find = countries.find((c) => input.value == c.dataset.id);
-            //     if(find){
-            //         find.classList.add('selected');
-            //     }
-            // });
+            
             self.country_selection_list.forEach((c) =>{
                 c.classList.toggle('selected', selection.includes(c.dataset.name));
             });
@@ -299,17 +288,18 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     }
 
 
-    LangageManager.prototype.remove_langage_form = function(element_id){
-        
-        let element_index = this.wrappers.findIndex((element) => element.id == element_id);
+    LangageManager.prototype.remove_langage_form = function(tag){
+        let index = tag['index'];
+        let element_index = this.wrappers.findIndex((element) => element.id == tag['id']);
         if(element_index > -1){
             
             this.wrappers.splice(element_index, 1);
+            delete this.active_langages[index];
             this.decremente_management_form();
             this.updateManagementFormIndex();
         
         }else{
-            console.log("Removed langage form wrapper  failed:  %s not found", element_id);
+            console.log("Removed langage form wrapper  failed:  %s not found", tag['id']);
         }
         
     };

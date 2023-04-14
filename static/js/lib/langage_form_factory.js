@@ -165,7 +165,7 @@ define(['tag_api'],function(tag_api) {
             let tag_id = div.id;
             div.remove();
             if(delete_callback){
-                delete_callback(tag_id);
+                delete_callback({'id':tag_id, 'index': `langage-index-${this.index}`});
             }
         });
         return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn, 'name_input': name,'selection': selected_countries, 'index': `langage-index-${this.index}`};
