@@ -3959,6 +3959,7 @@
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
+	flex-wrap: wrap;
 	padding : 1em 0;
   }
   .editor-box-wrapper .editor-box{
@@ -3966,6 +3967,13 @@
 	height: 10.25em;
 	width:100%;
 	overflow-y: auto;
+  }
+
+  .selected-options{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 1em 0;
   }
 
   .editor-box .codex-editor--narrow .ce-toolbar__actions{

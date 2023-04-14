@@ -56,7 +56,7 @@ define(['tag_api'],function(tag_api) {
 
         let selected_countries = tag_api.create_tag({'element': 'div','options': {
             'id':`${form_prefix}-${form_index}-countries-selected`,
-            'cls': 'flex flex-wrap full bold hidden managed-update',
+            'cls': 'selected-options managed-update',
         }});
 
 
