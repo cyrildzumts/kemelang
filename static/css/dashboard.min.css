@@ -4407,7 +4407,6 @@ ul li{
 	min-width: 21em;
 	word-break: keep-all;
 	overflow-wrap: break-word;
-	white-space: pre-wrap;
 	outline-offset: 2px;
   }
   .editor-box-wrapper{
