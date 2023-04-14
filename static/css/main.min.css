@@ -4388,16 +4388,11 @@ ul li{
 	min-height: 10.25em;
 	border-radius: 3px;
 	box-shadow: var(--box-shadow);
+	padding: 0.5em
   }
-  .word-input-wrapper.target-langage{
-	background-color: #eee;
-	color: var(--secondary-color);
-  }
-  .word-input-wrapper textarea{
+  .word-input-wrapper textarea, .word-input-wrapper .target-placeholder{
 	max-width: 100%;
 	padding: 0.5em;
-	background-color: var(--textarea-bg);
-	color: var(--textarea);
 	border: 0;
 	resize: none;
 	min-height: auto;
@@ -5716,6 +5711,15 @@ option:checked{
   .langage{
     color: var(--secondary-color);
     font-weight: bold;
+  }
+  .word-input-wrapper.target-langage{
+	background-color: #eee;
+	color: var(--secondary-color);
+  }
+  .word-input-wrapper textarea{
+	background-color: var(--textarea-bg);
+	color: var(--textarea);
+	caret-color: var(--secondary-color);
   }
 .container {
   width: 100%;

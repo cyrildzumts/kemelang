@@ -896,3 +896,13 @@ option:checked{
     color: var(--secondary-color);
     font-weight: bold;
   }
+  .word-input-wrapper.target-langage{
+	background-color: #eee;
+	color: var(--secondary-color);
+  }
+
+  .word-input-wrapper textarea{
+	background-color: var(--textarea-bg);
+	color: var(--textarea);
+	caret-color: var(--secondary-color);
+  }

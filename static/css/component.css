@@ -3918,17 +3918,13 @@
 	min-height: 10.25em;
 	border-radius: 3px;
 	box-shadow: var(--box-shadow);
-  }
-  .word-input-wrapper.target-langage{
-	background-color: #eee;
-	color: var(--secondary-color);
+	padding: 0.5em
   }
 
-  .word-input-wrapper textarea{
+
+  .word-input-wrapper textarea, .word-input-wrapper .target-placeholder{
 	max-width: 100%;
 	padding: 0.5em;
-	background-color: var(--textarea-bg);
-	color: var(--textarea);
 	border: 0;
 	resize: none;
 	min-height: auto;
