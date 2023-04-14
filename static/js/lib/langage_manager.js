@@ -271,7 +271,8 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 let list = lang['countries'];
                 let i = list.findIndex((c) => c == country_name);
                 list.splice(i, 1);
-                selection.removeChild(selection.getElementById(country_name));
+                selection.removeChild(document.getElementById(country_name));
+                
             }
             
         }else{
@@ -290,6 +291,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             this.current_langage_container.appendChild(input);
         }
         country_tag.classList.toggle('selected');
+        selection.classList.toggle('hidden', lang.countries.length == 0);
 
     }
 
