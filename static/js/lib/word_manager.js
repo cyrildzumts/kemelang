@@ -16,6 +16,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         this.form_container = document.getElementById('word-form-container');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
+        this.span_selected_langage = undefined;
         this.wrappers = [];
         this.form_is_valid = false;
         this.total_form = 0;
@@ -113,6 +114,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             event.stopPropagation();
             event.preventDefault();
             let modal = document.getElementById(btn.dataset.target);
+            self.span_selected_langage = document.getElementById(btn.dataset.selected);
             let container = document.getElementById(btn.dataset.container);
             let selected_langage = container.querySelector(`input[name='${btn.dataset.name}']`);
             let langages = Array.from(modal.querySelectorAll('.langage-selection'));
@@ -130,6 +132,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                         modal.style.display = "none";
                         self.active_word = undefined;
                         self.current_word_container = undefined;
+                        self.span_selected_langage = undefined;
                         let selected_list = modal.querySelectorAll('.selected');
                         if(selected_list){
                             selected_list.forEach((el) =>{
@@ -246,11 +249,17 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             
             if(word_langage){
                 word_langage.value = "";
+                if(this.span_selected_langage){
+                    this.span_selected_langage.innerText = "";
+                    this.span_selected_langage.classList.add('hidden');
+                }
             }
             
         }else{
             // add langage.
             word_langage.value = langage_tag.dataset.id;
+            this.span_selected_langage.innerText = langage_tag.dataset.name;
+            this.span_selected_langage.classList.remove('hidden');
         }
         document.querySelectorAll('.langage-selection.selected').forEach((tag) =>{
             if(tag != langage_tag){

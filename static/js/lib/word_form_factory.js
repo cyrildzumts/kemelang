@@ -59,14 +59,21 @@ define(['tag_api'],function(tag_api) {
             'cls': 'managed-update',
             'type':'hidden'
         }});
+        let selected_langage = tag_api.create_tag({'element': 'span','options': {
+            'id':`${form_prefix}-${form_index}-langage-selected`,
+            'cls': 'chips bold hidden managed-update langage',
+            'innerText': ''
+
+        }});
         let add_langage_btn = create_api({'element': 'span', 'options':{
             'cls': 'add-langage-btn',
             'data-container': id,
             'data-target': 'langage-selector-dialog',
+            'data-selected': `${form_prefix}-${form_index}-langage-selected`,
             'data-name': `${form_prefix}-${form_index}-langage`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Add Langage'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
         }});
         let btn_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
