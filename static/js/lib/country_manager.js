@@ -185,17 +185,12 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
     CountryManager.prototype.updateFormIndex = function(tag, index){
         console.log("Updating FormIndex for Tag  and index %", index,tag);
-        if(tag.hasAttribute('id')){
-            console.log()
-            tag.setAttribute('id', tag.getAttribute('id').replace(this.replace_pattern, index));
-        }
-        
-        if(tag.hasAttribute('name')){
-            tag.setAttribute('name', tag.getAttribute('name').replace(this.replace_pattern, index));
-        }
-        if(tag.hasAttribute('for')){
-            tag.setAttribute('for', tag.getAttribute('for').replace(this.replace_pattern, index));
-        }
+        let self = this;
+        this.updatable_attrs.forEach(function(attr){
+            if(tag.hasAttribute(attr)){
+                tag.setAttribute(attr, tag.getAttribute(attr).replace(self.replace_pattern, index));
+            }
+        });
     }
 
 

@@ -307,9 +307,10 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
     LangageManager.prototype.updateFormIndex = function(tag, index){
         console.log("Updating FormIndex for Tag  and index %", index,tag);
+        let self = this;
         this.updatable_attrs.forEach(function(attr){
             if(tag.hasAttribute(attr)){
-                tag.setAttribute(attr, tag.getAttribute(attr).replace(this.replace_pattern, index));
+                tag.setAttribute(attr, tag.getAttribute(attr).replace(self.replace_pattern, index));
             }
         });
     }
