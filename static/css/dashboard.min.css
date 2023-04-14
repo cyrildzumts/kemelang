@@ -4385,7 +4385,7 @@ ul li{
 	padding: 0.5em;
 	margin: 0.2em
   }
-  .word-input-wrapper textarea, .word-input-wrapper .target-placeholder{
+  .word-input-wrapper textarea{
 	max-width: 100%;
 	padding: 0.5em;
 	border: 0;
@@ -4397,6 +4397,18 @@ ul li{
 	white-space: pre-wrap;
 	outline-offset: 2px;
 	caret-color: var(--secondary-color);
+  }
+  .word-input-wrapper .target-placeholder{
+	max-width: 100%;
+	padding: 0.5em;
+	border: 0;
+	resize: none;
+	min-height: auto;
+	min-width: 21em;
+	word-break: keep-all;
+	overflow-wrap: break-word;
+	white-space: pre-wrap;
+	outline-offset: 2px;
   }
   .editor-box-wrapper{
 	max-width: 20em;
