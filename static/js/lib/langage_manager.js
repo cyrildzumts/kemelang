@@ -55,6 +55,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.active_langage = undefined;
         this.active_langages = [];
+        this.langage_index = undefined;
         this.current_langage_container = undefined;
         this.wrappers = [];
         this.form_is_valid = false;
@@ -103,7 +104,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return false;
         }
         let self = this;
-        this.
         btn.addEventListener('click', function(event){
             event.stopPropagation();
             event.preventDefault();
@@ -119,6 +119,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 }
             });
             self.active_langage = btn.dataset.name;
+            self.langage_index = btn-dataset.index;
             self.current_langage_container = document.getElementById(btn.dataset.container);
             modal.style.display = "flex";
             if(window){
@@ -127,6 +128,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                         modal.style.display = "none";
                         self.active_langage = undefined;
                         self.current_langage_container = undefined;
+                        self.langage_index = undefined;
                         let selected_list = modal.querySelectorAll('.selected');
                         if(selected_list){
                             selected_list.forEach((el) =>{
@@ -198,9 +200,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return;
         }
         this.wrappers.push(result.tag);
-        let current_langage = {
-            'form': ''
-        }
+        let lang = {};
+        lang[result.index] = {'countries': [], 'selection': result.selected};
+        this.active_langages.push(lang);
         let registered_modal = this.register_modal(result['add-country-btn']);
         if(!registered_modal){
             console.warn("Could not find country source ...");
@@ -258,11 +260,18 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             return;
         }
         let selected = country_tag.classList.contains('selected');
+        let lang = this.active_langages[this.langage_index];
+        let selection = lang['selection'];
+        let country_name = country_tag.dataset.name;
         if(selected){
             // remove country
             let selected_country = document.querySelector(`input[name='${this.active_langage}'][value='${country_tag.dataset.id}']`);
             if(selected_country){
                 selected_country.remove();
+                let list = lang['countries'];
+                let i = list.findIndex((c) => c == country_name);
+                list.splice(i, 1);
+                selection.removeChild(selection.getElementById(country_name));
             }
             
         }else{
@@ -272,6 +281,12 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 'value': country_tag.dataset.id,
                 'type': 'hidden'
             }});
+            lang['countries'].push(country_name);
+            selection.appendChild(tag_api.create_tag({'element':'span','options':{
+                'cls': 'chips',
+                'innerText': country_name,
+                'id': country_name
+            }}));
             this.current_langage_container.appendChild(input);
         }
         country_tag.classList.toggle('selected');

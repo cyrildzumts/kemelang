@@ -2,7 +2,7 @@ define(['tag_api'],function(tag_api) {
     'use strict';
 
     function LangageFormFactory(){
-        
+        this.index = -1;
     };
     LangageFormFactory.prototype.init = function(){
         console.log("Langage Form Factory initalised");
@@ -11,6 +11,7 @@ define(['tag_api'],function(tag_api) {
 
     LangageFormFactory.prototype.create_form = function(index, prefix, delete_callback){
         let self = this;
+        this.index ++;
         let form_index = index || 0;
         let form_prefix = prefix || 'form';
         let create_api = tag_api.create_tag;
@@ -68,6 +69,7 @@ define(['tag_api'],function(tag_api) {
             'data-selected': `${form_prefix}-${form_index}-countries-selected`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
+            'data-index': `langage-index-${this.index}`,
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Country'}})]
         }});
         let btn_group = create_api({'element': 'div', 'options':{
@@ -149,6 +151,8 @@ define(['tag_api'],function(tag_api) {
         let div = create_api({'element': 'div', 'options': {
             'cls': 'mat-box editor-box-wrapper',
             'id': id,
+            'data-selected': `langage-index-${this.index}-countries-selected`,
+            'data-index': `langage-index-${this.index}`,
             'children': [hidden_div, header_group, div_name_wrapper, div_countries_wrapper, div_description_wrapper]
         }});
 
@@ -164,7 +168,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback(tag_id);
             }
         });
-        return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn, 'name_input': name};
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor, 'add-country-btn': add_country_btn, 'name_input': name,'selection': selected_countries, 'index': `langage-index-${this.index}`};
     }
 
     return LangageFormFactory;
