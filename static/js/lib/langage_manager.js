@@ -119,7 +119,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 }
             });
             self.active_langage = btn.dataset.name;
-            self.langage_index = btn-dataset.index;
+            self.langage_index = btn.dataset.index;
             self.current_langage_container = document.getElementById(btn.dataset.container);
             modal.style.display = "flex";
             if(window){
