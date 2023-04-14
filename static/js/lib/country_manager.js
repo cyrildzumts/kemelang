@@ -35,7 +35,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
             add_form_btn.addEventListener('click', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Add Country Form");
+                
                 self.add_country_form('country');
             });
         }
@@ -44,12 +44,12 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
             this.country_form.addEventListener('submit', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Create Country Btn");
+                
                 self.submit();
                 return false;
             });
         }
-        console.log("Country Manager initialised");
+        
     };
 
     CountryManager.prototype.create_managed_country_form = function(prefix){
@@ -109,7 +109,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
             return;
         }
         this.wrappers.push(result.tag);
-        console.warn("Editor created for tag %s", result.editor.id);
+        
         ['keyup'].forEach(function (e) {
             result.name_input.addEventListener(e, function(event){
                 if(!result.name_input || !result.name_input.value || !result.name_input.value.trim().length){
@@ -124,7 +124,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
             });
         });
         this.incremente_management_form();
-        console.log("Added new country form %s", result.tag.id);
+        
     };
 
 
@@ -132,11 +132,11 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         
         let element_index = this.wrappers.findIndex((element) => element.id == element_id);
         if(element_index > -1){
-            console.log("Removing country form wrapper %s - Size %s", element_id, this.wrappers.length);
+            
             this.wrappers.splice(element_index, 1);
             this.decremente_management_form();
             this.updateManagementFormIndex();
-            console.log("Removed country form wrapper %s - Size %s", element_id, this.wrappers.length);
+            
         }else{
             console.log("Removed country form wrapper  failed:  %s not found", element_id);
         }
@@ -184,7 +184,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
 
     CountryManager.prototype.updateFormIndex = function(tag, index){
-        console.log("Updating FormIndex for Tag  and index %", index,tag);
+        
         let self = this;
         this.updatable_attrs.forEach(function(attr){
             if(tag.hasAttribute(attr)){
@@ -210,12 +210,12 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
     CountryManager.prototype.updateManagementFormIndex = function(){
         let self = this;
-        console.log("Updating Management Form : size %s", this.wrappers.length);
+        
         this.wrappers.forEach(function (div, index) {
-            console.log("Updating Index for wrapper %s - index %s", div.id, index);
+            
             let managed_update = div.querySelectorAll('.managed-update');
             managed_update.forEach(function(e, i){
-                console.log("Updating Index for wrapper %s", div.id);
+                
                 self.updateFormIndex(e, index);
             });
             self.updateFormIndex(div, index);

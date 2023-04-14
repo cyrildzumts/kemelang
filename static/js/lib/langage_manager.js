@@ -75,7 +75,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             add_form_btn.addEventListener('click', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Add langage Form");
                 self.add_langage_form('langage');
             });
         }
@@ -84,7 +83,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             this.langage_form.addEventListener('submit', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Create langage Btn");
                 self.submit();
                 return false;
             });
@@ -218,9 +216,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             });
         });
         
-        console.warn("Editor created for tag %s", result.editor.id);
         this.incremente_management_form();
-        console.log("Added new langage form %s", result.tag.id);
     };
 
     LangageManager.prototype.find_langage = function(tag){
@@ -282,11 +278,11 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         
         let element_index = this.wrappers.findIndex((element) => element.id == element_id);
         if(element_index > -1){
-            console.log("Removing langage form wrapper %s - Size %s", element_id, this.wrappers.length);
+            
             this.wrappers.splice(element_index, 1);
             this.decremente_management_form();
             this.updateManagementFormIndex();
-            console.log("Removed langage form wrapper %s - Size %s", element_id, this.wrappers.length);
+        
         }else{
             console.log("Removed langage form wrapper  failed:  %s not found", element_id);
         }
@@ -306,7 +302,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
 
     LangageManager.prototype.updateFormIndex = function(tag, index){
-        console.log("Updating FormIndex for Tag  and index %", index,tag);
         let self = this;
         this.updatable_attrs.forEach(function(attr){
             if(tag.hasAttribute(attr)){

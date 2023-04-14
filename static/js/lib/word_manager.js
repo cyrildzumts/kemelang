@@ -180,7 +180,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         });
         
         this.incremente_management_form();
-        console.log("Added new country form %s", result.tag.id);
+        
     };
 
 
@@ -188,11 +188,11 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         
         let element_index = this.wrappers.findIndex((element) => element.id == element_id);
         if(element_index > -1){
-            console.log("Removing word form wrapper %s - Size %s", element_id, this.wrappers.length);
+            
             this.wrappers.splice(element_index, 1);
             this.decremente_management_form();
             this.updateManagementFormIndex();
-            console.log("Removed word form wrapper %s - Size %s", element_id, this.wrappers.length);
+            
         }else{
             console.log("Removed word form wrapper  failed:  %s not found", element_id);
         }
@@ -274,7 +274,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
 
 
     WordManager.prototype.updateFormIndex = function(tag, index){
-        console.log("Updating FormIndex for Tag  and index %", index,tag);
+        
         let self = this;
         this.updatable_attrs.forEach(function(attr){
             if(tag.hasAttribute(attr)){
@@ -300,12 +300,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
 
     WordManager.prototype.updateManagementFormIndex = function(){
         let self = this;
-        console.log("Updating Management Form : size %s", this.wrappers.length);
+        
         this.wrappers.forEach(function (div, index) {
-            console.log("Updating Index for wrapper %s - index %s", div.id, index);
+            
             let managed_update = div.querySelectorAll('.managed-update');
             managed_update.forEach(function(e, i){
-                console.log("Updating Index for wrapper %s", div.id);
+                
                 self.updateFormIndex(e, index);
             });
             self.updateFormIndex(div, index);
