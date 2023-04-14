@@ -291,7 +291,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             this.current_langage_container.appendChild(input);
         }
         country_tag.classList.toggle('selected');
-        //selection.classList.toggle('hidden', lang.countries.length == 0);
+        selection.classList.toggle('hidden', lang.countries.length == 0);
 
     }
 
