@@ -4382,7 +4382,8 @@ ul li{
 	min-height: 10.25em;
 	border-radius: 3px;
 	box-shadow: var(--box-shadow);
-	padding: 0.5em
+	padding: 0.5em;
+	margin: 0.2em
   }
   .word-input-wrapper textarea, .word-input-wrapper .target-placeholder{
 	max-width: 100%;
