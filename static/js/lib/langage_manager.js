@@ -107,20 +107,27 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         btn.addEventListener('click', function(event){
             event.stopPropagation();
             event.preventDefault();
-            let modal = document.getElementById(btn.dataset.target);
-            let container = document.getElementById(btn.dataset.container);
-            let selected_countries = container.querySelectorAll(`input[name='${btn.dataset.name}']`);
-            let countries = Array.from(modal.querySelectorAll('.country-selection'));
-            let find = null;
-            selected_countries.forEach(function(input, index){
-                find = countries.find((c) => input.value == c.dataset.id);
-                if(find){
-                    find.classList.add('selected');
-                }
-            });
             self.active_langage = btn.dataset.name;
             self.langage_index = btn.dataset.index;
             self.current_langage_container = document.getElementById(btn.dataset.container);
+            let modal = document.getElementById(btn.dataset.target);
+            let container = document.getElementById(btn.dataset.container);
+            //let selected_countries = container.querySelectorAll(`input[name='${btn.dataset.name}']`);
+            let selection = self.active_langages[self.langage_index].countries;
+            //let countries = Array.from(modal.querySelectorAll('.country-selection'));
+            //self.country_selection_list.forEach((c) =>{
+            //    c.classList.remove('selected');
+            //});
+            let find = null;
+            // selected_countries.forEach(function(input, index){
+            //     find = countries.find((c) => input.value == c.dataset.id);
+            //     if(find){
+            //         find.classList.add('selected');
+            //     }
+            // });
+            self.country_selection_list.forEach((c) =>{
+                c.classList.toggle('selected', selection.includes(c.dataset.name));
+            });
             modal.style.display = "flex";
             if(window){
                 $(window).click(function(eventModal){
@@ -129,13 +136,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                         self.active_langage = undefined;
                         self.current_langage_container = undefined;
                         self.langage_index = undefined;
-                        let selected_list = modal.querySelectorAll('.selected');
-                        if(selected_list){
-                            selected_list.forEach((el) =>{
-                                el.classList.remove('selected');
-                                
-                            });
-                        }
+                        self.country_selection_list.forEach((c) =>{
+                            c.classList.remove('selected');
+                        });
                     }
                 });
             }
