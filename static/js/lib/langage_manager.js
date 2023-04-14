@@ -93,7 +93,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 self.on_country_selection_clicked(c);
             });
         });
-        console.log("langage Manager initialised");
+        
     };
 
 
@@ -327,12 +327,12 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
     LangageManager.prototype.updateManagementFormIndex = function(){
         let self = this;
-        console.log("Updating Management Form : size %s", this.wrappers.length);
+        
         this.wrappers.forEach(function (div, index) {
-            console.log("Updating Index for wrapper %s - index %s", div.id, index);
+            
             let managed_update = div.querySelectorAll('.managed-update');
             managed_update.forEach(function(e, i){
-                console.log("Updating Index for wrapper %s", div.id);
+                
                 self.updateFormIndex(e, index);
             });
             self.updateFormIndex(div, index);

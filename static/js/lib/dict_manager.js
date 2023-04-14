@@ -50,7 +50,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             });
         });
         
-        console.log("DictManager initialised");
+        
     };
 
     DictManager.prototype.find_word = function(tag){

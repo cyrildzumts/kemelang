@@ -37,7 +37,6 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             add_form_btn.addEventListener('click', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Add Word Form");
                 self.add_word_form('word');
             });
         }
@@ -46,7 +45,6 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             this.word_form.addEventListener('submit', function(even){
                 event.stopPropagation();
                 event.preventDefault();
-                console.log("Click on Create Word Btn");
                 self.submit();
                 return false;
             });
@@ -57,7 +55,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                 self.on_langage_selection_clicked(langage);
             });
         });
-        console.log("Word Manager initialised");
+        
     };
 
     WordManager.prototype.create_managed_word_form = function(prefix){
@@ -164,7 +162,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             this.clear();
             return;
         }
-        console.warn("Editor created for tag %s", result.editor.id);
+
         ['keyup'].forEach(function (e) {
             result.word_input.addEventListener(e, function(event){
                 if(!result.word_input || !result.word_input.value || !result.word_input.value.trim().length){
