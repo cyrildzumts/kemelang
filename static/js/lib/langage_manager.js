@@ -201,7 +201,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         }
         this.wrappers.push(result.tag);
         let lang = {};
-        lang[result.index] = {'countries': [], 'selection': result.selected};
+        lang[result.index] = {'countries': [], 'selection': result.selection};
         this.active_langages.push(lang);
         let registered_modal = this.register_modal(result['add-country-btn']);
         if(!registered_modal){
