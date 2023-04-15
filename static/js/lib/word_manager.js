@@ -164,7 +164,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             return;
         }
         this.wrappers.push(result.tag);
-        this.active_words[result.index] = {'langage': [], 'selection': result.selection};
+        this.active_words[result.index] = {'langages': [], 'selection': result.selection};
         let registered_modal = this.register_modal(result['add-langage-btn']);
         if(!registered_modal){
             console.warn("Could not find lanage source ...");
