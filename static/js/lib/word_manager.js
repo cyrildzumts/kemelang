@@ -274,8 +274,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             }}));
             selection.appendChild(input);
         }
-        
-        langage_tag.classList.toggle('selected');
+        this.langage_selection_list.forEach((c) =>{
+            if(c != langage_tag){
+                c.classList.remove('selected');
+            }
+        });
+        langage_tag.classList.toggle('selected', !selected);
 
     }
 
