@@ -279,8 +279,6 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             let child = document.getElementById(langage_name);
             if(child){
                 selection.removeChild(child);
-            }else{
-                console.log("selection remove child error : " , child);
             }
             
 
@@ -296,8 +294,8 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             word['langages'].push(langage_name);
             selection.appendChild(tag_api.create_tag({'element':'span','options':{
                 'cls': 'chips small',
-                'innerText': langage_tag,
-                'id': langage_tag
+                'innerText': langage_name,
+                'id': langage_name
             }}));
             this.current_word_container.appendChild(input);
         }
