@@ -51,7 +51,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             });
             search_filter.addEventListener(e, function(event){
                 if(search_filter.value.trim().length == 0){
-                    this.langage_selection_list.forEach(function(lang){
+                    self.langage_selection_list.forEach(function(lang){
                         lang.classList.remove('hidden');
                     });
                     return;
