@@ -7,11 +7,17 @@
 
 <div class="container flex-center">
     <div class="full padding">
-        <ul class="flex">
-            <li><a href="{% url 'dictionary:country-create' %}">{% translate "New Country" %}</a></li>
-            <li><a href="{% url 'dictionary:langage-create' %}">{% translate "New Langage" %}</a></li>
-            <li><a href="{% url 'dictionary:word-create' %}">{% translate "New Word" %}</a></li>
-        </ul>
+        <div class="collapsible">
+            <div><button class="collpase-toggle" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{% translate "Contribute" %}</span></span></button></div>
+            <div id="contribute-group" class="collapse">
+                <ul class="flex">
+                    <li><a href="{% url 'dictionary:country-create' %}">{% translate "New Country" %}</a></li>
+                    <li><a href="{% url 'dictionary:langage-create' %}">{% translate "New Langage" %}</a></li>
+                    <li><a href="{% url 'dictionary:word-create' %}">{% translate "New Word" %}</a></li>
+                </ul>
+            </div>
+        </div>
+        
       </div>
     <div class="col-m-12 col-8">
         {% include "tags/langage_selection_dialog.html" %}
