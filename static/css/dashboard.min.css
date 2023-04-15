@@ -4476,6 +4476,19 @@ ul li{
 	font-size: 0.8em;
 	margin-bottom: 0.2em;
   }
+  .langage-selection-container input{
+	border: none !important;
+	font-weight: bold;
+  }
+  .dict-langages-container{
+	margin: 1em 0;
+  }
+  .dict-search-langage-wrapper{
+	display: flex;
+	width: 100%;
+	align-items: center;
+	border-bottom: 1px solid #aaa;
+  }
   .dict-langage-selection.selected i{
 	display: unset;
   }
