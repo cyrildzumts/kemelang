@@ -83,7 +83,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 if(self.selection_type == SELECTION_TYPE_SOURCE){
                     self.source_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
                     self.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
-                        'cls': 'mat-button active',
+                        'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
                         'data-slug': lang.dataset.slug,
                         'data-id': lang.dataset.id
@@ -91,7 +91,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 }else if(self.selection_type){
                     self.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
                     self.recent_target_langages.appendChild(tag_api.create_tag({'element':'button','options':{
-                        'cls': 'mat-button active',
+                        'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
                         'data-slug': lang.dataset.slug,
                         'data-id': lang.dataset.id
@@ -102,7 +102,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.buttons.forEach(function(button){
             button.addEventListener('click', function(event){
                 self.selection_type = button.dataset.type;
-                button.classList.toggle('active', !button.classList.contains('active'));
+                button.classList.toggle('selected', !button.classList.contains('selected'));
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
                     
                 }else if(button.dataset.type == SELECTION_TYPE_SOURCE){
