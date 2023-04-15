@@ -1,0 +1,17 @@
+{% load i18n %}
+
+<div id="langage-selector-dialog" class="modal full">
+    <div class="modal-container mat-box scrollable-m">
+        <div class="modal-header">
+            <span class="bold">{% translate "Langages" %}</span><span id="close-langage-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="langage-selector-dialog"><i class="fas fa-times-circle"></i></span>
+        </div>
+        <div class="modal-content">
+            <div class="grid">
+            {% for langage in langage_list %}
+                <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
+            {% endfor %}
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+</div>
