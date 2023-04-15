@@ -8,6 +8,7 @@ from django.utils.translation import gettext as _
 from django.contrib.sitemaps import Sitemap
 from django.contrib.auth.forms import UserCreationForm
 from kemelang import settings
+from dictionary import dictionary_service
 from core.resources import ui_strings as CORE_UI_STRINGS
 from django.utils import timezone
 import datetime
@@ -53,7 +54,7 @@ def home(request):
     on the root template folder.
     """
     logger.info("Home page request")
-    template_name = "home.html"
+    template_name = "dictionary/dict.hmtl"
     page_title = CORE_UI_STRINGS.UI_HOME_PAGE
     context = {
         'page_title': page_title,
@@ -61,6 +62,8 @@ def home(request):
         'OG_TITLE' : page_title,
         'OG_DESCRIPTION': "",
         'OG_URL': request.build_absolute_uri(),
+        'countrie_list': dictionary_service.get_countries(),
+        'langage_list': dictionary_service.get_langages()
     }
     logger.info("Home page request ready")
     return render(request, template_name,context)
