@@ -102,7 +102,6 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.buttons.forEach(function(button){
             button.addEventListener('click', function(event){
                 event.preventDefault();
-                event.stopPropagation();
                 self.selection_type = button.dataset.type;
                 button.classList.toggle('active', !button.classList.contains('active'));
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
