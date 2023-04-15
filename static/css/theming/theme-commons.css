@@ -907,12 +907,6 @@ option:checked{
 	caret-color: var(--secondary-color);
   }
 
-  button:hover{
+  button:hover, .mat-button:hover, .btn:hover{
     background-color: #eee;
-  }
-
-  .btn:hover {
-    background-color: #eee;
-    padding: 1em;
-    border-radius: 3em;
   }
