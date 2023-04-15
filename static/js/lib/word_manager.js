@@ -279,9 +279,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             while(selection.firstChild){
                 selection.removeChild(selection.firstChild);
             }
-            while(this.current_word_container.firstChild){
-                this.current_word_container.removeChild(this.current_word_container.firstChild);
-            }
+            
             
 
             // if(this.span_selected_langage){
@@ -299,7 +297,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                 'innerText': langage_name,
                 'id': langage_name
             }}));
-            this.current_word_container.appendChild(input);
+            selection.appendChild(input);
         }
         
         langage_tag.classList.toggle('selected');
