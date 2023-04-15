@@ -16,7 +16,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.form_container = document.getElementById('dict-form-container');
         this.form_def_container = document.getElementById('dict-def-container');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
-        this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
+        this.langage_selection_list = Array.from(document.querySelectorAll('.dict-langage-selection'));
         this.dict_text = document.getElementById('dict-text');
         this.dict_text_definitions = document.getElementById('word-definitions-container');
         this.wrappers = [];
@@ -33,6 +33,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         let self = this;
         this.dictFactory = new DictFactory();
         this.dictFactory.init();
+        let search_filter = document.getElementById('search-langages');
         ['keyup'].forEach(function (e) {
             self.dict_text.addEventListener(e, function(event){
                 if(!self.dict_text || !self.dict_text.value || !self.dict_text.value.trim().length){
@@ -48,10 +49,30 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.dict_text);
                 //self.find_word(self.dict_text);
             });
+            search_filter.addEventListener(e, function(event){
+                if(search_filter.value.trim().length == 0){
+                    this.langage_selection_list.forEach(function(lang){
+                        lang.classList.remove('hidden');
+                    });
+                    return;
+                }
+                if(self.scheduled_query){
+                    clearTimeout(self.scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.filter_langage.bind(self), QUERY_DELAY, search_filter.value.trim());
+            });
         });
         
         
     };
+
+    DictManager.prototype.filter_langage = function(value){
+        let selft = this;
+        this.langage_selection_list.forEach(function(lang){
+            let contained = lang.dataset.slug.includes(value) || lang.dataset.name.includes(value);
+            lang.classList.toggle('hidden', !contained);
+        });
+    }
 
     DictManager.prototype.register_modal = function(btn){
         if(!btn){
