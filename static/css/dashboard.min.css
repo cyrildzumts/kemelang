@@ -4476,7 +4476,7 @@ ul li{
 	font-size: 0.8em;
 	margin-bottom: 0.2em;
   }
-  .langage-selection-container input{
+  .dict-search-langage-wrapper input{
 	border: none !important;
 	font-weight: bold;
   }
