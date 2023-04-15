@@ -6,9 +6,9 @@
 {% block MAIN %}
 
 <div class="container flex-center">
-    <div class="full padding">
+    <div class="flex full padding">
         <div class="collapsible">
-            <div><button class="collpase-toggle" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{% translate "Contribute" %}</span></span></button></div>
+            <button class="collapse-v2-toggle" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{% translate "Contribute" %}</span></span></button>
             <div id="contribute-group" class="collapse">
                 <ul class="flex">
                     <li><a href="{% url 'dictionary:country-create' %}">{% translate "New Country" %}</a></li>
