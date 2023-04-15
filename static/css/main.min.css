@@ -5748,7 +5748,7 @@ option:checked{
 	caret-color: var(--secondary-color);
   }
   button:hover, .btn:hover {
-    background-color: #aaa;
+    background-color: #eee;
   }
 .container {
   width: 100%;
