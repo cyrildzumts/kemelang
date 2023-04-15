@@ -17,7 +17,10 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
         this.span_selected_langage = undefined;
+        this.current_langage_container = undefined;
         this.wrappers = [];
+        this.active_words = {};
+        this.word_index = undefined;
         this.form_is_valid = false;
         this.total_form = 0;
         this.scheduled_query = undefined;
@@ -112,10 +115,17 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             event.stopPropagation();
             event.preventDefault();
             let modal = document.getElementById(btn.dataset.target);
+            self.word_index = btn.dataset.index;
             self.span_selected_langage = document.getElementById(btn.dataset.selected);
             let container = document.getElementById(btn.dataset.container);
             let selected_langage = container.querySelector(`input[name='${btn.dataset.name}']`);
             let langages = Array.from(modal.querySelectorAll('.langage-selection'));
+            self.current_word_container = document.getElementById(btn.dataset.container);
+            let selection = self.active_words[self.word_index].langages;
+            self.langage_selection_list.forEach((c) =>{
+                c.classList.toggle('selected', selection.includes(c.dataset.name));
+            });
+
             let find = null;
             find = langages.find((c) => selected_langage.value == c.dataset.id);
             if(find){
@@ -131,12 +141,10 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
                         self.active_word = undefined;
                         self.current_word_container = undefined;
                         self.span_selected_langage = undefined;
-                        let selected_list = modal.querySelectorAll('.selected');
-                        if(selected_list){
-                            selected_list.forEach((el) =>{
-                                el.classList.remove('selected');
-                            });
-                        }
+                        self.word_index = undefined;
+                        self.langage_selection_list.forEach((c) =>{
+                            c.classList.remove('selected');
+                        });
                     }
                 });
             }
@@ -156,6 +164,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             return;
         }
         this.wrappers.push(result.tag);
+        this.active_words[result.index] = {'langage': [], 'selection': result.selection};
         let registered_modal = this.register_modal(result['add-langage-btn']);
         if(!registered_modal){
             console.warn("Could not find lanage source ...");
@@ -182,17 +191,18 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
     };
 
 
-    WordManager.prototype.remove_word_form = function(element_id){
-        
-        let element_index = this.wrappers.findIndex((element) => element.id == element_id);
+    WordManager.prototype.remove_word_form = function(tag){
+        let index = tag['index'];
+        let element_index = this.wrappers.findIndex((element) => element.id == tag['id']);
         if(element_index > -1){
             
             this.wrappers.splice(element_index, 1);
+            delete this.active_words[index];
             this.decremente_management_form();
             this.updateManagementFormIndex();
             
         }else{
-            console.log("Removed word form wrapper  failed:  %s not found", element_id);
+            console.log("Removed word form wrapper  failed:  %s not found", tag['id']);
         }
         
     };
@@ -241,31 +251,51 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             return;
         }
         let selected = langage_tag.classList.contains('selected');
+        let word = this.active_words[this.word_index];
+        let selection = word['selection'];
+        let langage_name = langage_tag.dataset.name;
         let word_langage = document.querySelector(`input[name='${this.active_word}']`);
+        let selected_langage = document.querySelector(`input[name='${this.active_word}'][value='${langage_tag.dataset.id}']`);
         if(selected){
             // remove langage
-            
-            if(word_langage){
-                word_langage.value = "";
-                if(this.span_selected_langage){
-                    this.span_selected_langage.innerText = "";
-                    this.span_selected_langage.classList.add('hidden');
-                }
+            if(selected_langage){
+                selected_langage.value = "";
+                selected_langage.remove();
+                let list = word['langages'];
+                let i = list.findIndex((c) => c == langage_name);
+                list.splice(i, 1);
+                selection.removeChild(document.getElementById(langage_name));
+                // if(this.span_selected_langage){
+                //     this.span_selected_langage.innerText = "";
+                //     this.span_selected_langage.classList.add('hidden');
+                // }
             }
             
         }else{
             // add langage.
             word_langage.value = langage_tag.dataset.id;
-            if(this.span_selected_langage){
-                this.span_selected_langage.innerText = langage_tag.dataset.name;
-                this.span_selected_langage.classList.remove('hidden');
-            }
+            let list = word['langages'];
+            list.splice(0, 1);
+            selection.removeChild(document.getElementById(langage_name));
+
+            // if(this.span_selected_langage){
+            //     this.span_selected_langage.innerText = langage_tag.dataset.name;
+            //     this.span_selected_langage.classList.remove('hidden');
+            // }
+            let input = tag_api.create_tag({'element': 'input', 'options': {
+                'name': this.active_word,
+                'value': langage_tag.dataset.id,
+                'type': 'hidden'
+            }});
+            word['langages'].push(langage_name);
+            selection.appendChild(tag_api.create_tag({'element':'span','options':{
+                'cls': 'chips small',
+                'innerText': langage_tag,
+                'id': langage_tag
+            }}));
+            this.current_word_container.appendChild(input);
         }
-        document.querySelectorAll('.langage-selection.selected').forEach((tag) =>{
-            if(tag != langage_tag){
-                tag.classList.remove('selected');
-            }
-        });
+        
         langage_tag.classList.toggle('selected');
 
     }

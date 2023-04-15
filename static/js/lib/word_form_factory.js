@@ -2,7 +2,7 @@ define(['tag_api'],function(tag_api) {
     'use strict';
 
     function WordFormFactory(){
-        
+        this.index = -1;
     };
     WordFormFactory.prototype.init = function(){
         console.log("Word Form Factory initalised");
@@ -11,6 +11,7 @@ define(['tag_api'],function(tag_api) {
 
     WordFormFactory.prototype.create_form = function(index, prefix, delete_callback){
         let self = this;
+        this.index ++;
         let form_index = index || 0;
         let form_prefix = prefix || 'form';
         let create_api = tag_api.create_tag;
@@ -59,12 +60,18 @@ define(['tag_api'],function(tag_api) {
             'cls': 'managed-update',
             'type':'hidden'
         }});
+        let selected_langage = tag_api.create_tag({'element': 'div','options': {
+            'id':`${form_prefix}-${form_index}-langage-selected`,
+            'cls': 'selected-options managed-update',
+        }});
+        /*
         let selected_langage = tag_api.create_tag({'element': 'span','options': {
             'id':`${form_prefix}-${form_index}-langage-selected`,
             'cls': 'chips bold hidden managed-update langage',
             'innerText': ''
 
         }});
+        */
         let add_langage_btn = create_api({'element': 'span', 'options':{
             'cls': 'add-langage-btn',
             'data-container': id,
@@ -73,6 +80,7 @@ define(['tag_api'],function(tag_api) {
             'data-name': `${form_prefix}-${form_index}-langage`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
+            'data-index': `word-index-${this.index}`,
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
         }});
         let btn_group = create_api({'element': 'div', 'options':{
@@ -140,6 +148,8 @@ define(['tag_api'],function(tag_api) {
         let div = create_api({'element': 'div', 'options': {
             'cls': 'mat-box editor-box-wrapper',
             'id': id,
+            'data-selected': `word-index-${this.index}-countries-selected`,
+            'data-index': `word-index-${this.index}`,
             'children': [hidden_div,header_group, div_name_wrapper, div_langage_wrapper, div_description_wrapper]
         }});
 
@@ -152,10 +162,10 @@ define(['tag_api'],function(tag_api) {
             let tag_id = div.id;
             div.remove();
             if(delete_callback){
-                delete_callback(tag_id);
+                delete_callback({'id':tag_id, 'index': `langage-index-${this.index}`});
             }
         });
-        return {'tag': div, 'inputs': form_inputs, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word};
+        return {'tag': div, 'inputs': form_inputs, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
     }
 
     return WordFormFactory;
