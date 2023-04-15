@@ -6,14 +6,14 @@
 {% block MAIN %}
 
 <div class="container flex-center">
-    <div class="flex full padding">
-        <div class="collapsible">
+    <div class="flex flex-center full padding">
+        <div class="collapsible grid">
             <button class="collapse-v2-toggle" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{% translate "Contribute" %}</span></span></button>
-            <div id="contribute-group" class="collapse">
+            <div id="contribute-group" class="collapse full">
                 <ul class="flex">
-                    <li><a href="{% url 'dictionary:country-create' %}">{% translate "New Country" %}</a></li>
-                    <li><a href="{% url 'dictionary:langage-create' %}">{% translate "New Langage" %}</a></li>
-                    <li><a href="{% url 'dictionary:word-create' %}">{% translate "New Word" %}</a></li>
+                    <li class="btn"><a href="{% url 'dictionary:country-create' %}"><i class="fas fa-plus"></i><span>{% translate "Country" %}</span></a></li>
+                    <li class="btn"><a href="{% url 'dictionary:langage-create' %}"><i class="fas fa-plus"></i><span>{% translate "Langage" %}</span></a></li>
+                    <li class="btn"><a href="{% url 'dictionary:word-create' %}"><i class="fas fa-plus"></i><span>{% translate "Word" %}</span></a></li>
                 </ul>
             </div>
         </div>
