@@ -887,6 +887,25 @@ option:checked{
 	background-color: #bdc3c7;
 
   }
+
+  .dict-langage-selection.selected{
+	font-weight: bold;
+    color: var(--secondary-color);
+	background-color: #ecf0f1;
+
+  }
+
+  .dict-langage-selection.selected i{
+	font-weight: bold;
+    color: var(--secondary-color);
+  }
+
+  .dict-langage-selection:hover{
+	color: #0a0a0a;
+	font-weight: bold;
+	background-color: #eee;
+
+  }
   .word{
     color: var(--secondary-color);
     font-weight: bold;

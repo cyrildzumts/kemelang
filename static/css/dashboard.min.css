@@ -4465,6 +4465,21 @@ ul li{
 	font-size: 0.8em;
 	margin: 0.2em;
   }
+  .dict-langage-selection{
+	display: flex;
+	align-items: center;
+	min-width: 13.5em;
+	width: 13.5em;
+	border-radius: 0.2em;
+	font-size: 0.8em;
+	margin: 0.2em;
+  }
+  .dict-langage-selection.selected i{
+	display: unset;
+  }
+  .dict-langage-selection i{
+    display: none;
+  }
   
   
   @media only screen and (max-width:50em){
@@ -6333,6 +6348,20 @@ option:checked{
 	color: #0a0a0a;
 	font-weight: bold;
 	background-color: #bdc3c7;
+  }
+  .dict-langage-selection.selected{
+	font-weight: bold;
+    color: var(--secondary-color);
+	background-color: #ecf0f1;
+  }
+  .dict-langage-selection.selected i{
+	font-weight: bold;
+    color: var(--secondary-color);
+  }
+  .dict-langage-selection:hover{
+	color: #0a0a0a;
+	font-weight: bold;
+	background-color: #eee;
   }
   .word{
     color: var(--secondary-color);
