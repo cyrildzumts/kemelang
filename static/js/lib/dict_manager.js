@@ -86,7 +86,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
                         'data-slug': lang.dataset.slug,
-                        'data-id': lang.dataset.id
+                        'data-id': lang.dataset.id,
+                        'innerText': lang.dataset.name
                     }}));
                 }else if(self.selection_type){
                     self.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
@@ -94,7 +95,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
                         'data-slug': lang.dataset.slug,
-                        'data-id': lang.dataset.id
+                        'data-id': lang.dataset.id,
+                        'innerText': lang.dataset.name
                     }}));
                 }
             });
