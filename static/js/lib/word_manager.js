@@ -246,38 +246,21 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         let word = this.active_words[this.word_index];
         let selection = word['selection'];
         let langage_name = langage_tag.dataset.name;
-        let word_langage = document.querySelector(`input[name='${this.active_word}']`);
-        let selected_langage = document.querySelector(`input[name='${this.active_word}'][value='${langage_tag.dataset.id}']`);
+        
         if(selected){
             // remove langage
-            if(selected_langage){
-                selected_langage.value = "";
-                selected_langage.remove();
-                let list = word['langages'];
-                let i = list.findIndex((c) => c == langage_name);
-                list.splice(i, 1);
-                selection.removeChild(document.getElementById(langage_name));
-                // if(this.span_selected_langage){
-                //     this.span_selected_langage.innerText = "";
-                //     this.span_selected_langage.classList.add('hidden');
-                // }
-            }
+            let list = word['langages'];
+            let i = list.findIndex((c) => c == langage_name);
+            list.splice(i, 1);
+            selection.removeChild(document.getElementById(langage_name));
             
         }else{
             // add langage.
-            word_langage.value = langage_tag.dataset.id;
             let list = word['langages'];
             list.splice(0, 1);
             while(selection.firstChild){
                 selection.removeChild(selection.firstChild);
             }
-            
-            
-
-            // if(this.span_selected_langage){
-            //     this.span_selected_langage.innerText = langage_tag.dataset.name;
-            //     this.span_selected_langage.classList.remove('hidden');
-            // }
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'name': this.active_word,
                 'value': langage_tag.dataset.id,
