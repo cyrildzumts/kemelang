@@ -276,9 +276,11 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             word_langage.value = langage_tag.dataset.id;
             let list = word['langages'];
             list.splice(0, 1);
-            let child = document.getElementById(langage_name);
-            if(child){
-                selection.removeChild(child);
+            while(selection.firstChild){
+                selection.removeChild(selection.firstChild);
+            }
+            while(this.current_word_container.firstChild){
+                this.current_word_container.removeChild(this.current_word_container.firstChild);
             }
             
 
