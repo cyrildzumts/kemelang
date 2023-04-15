@@ -17,7 +17,8 @@ def dict_home(request):
     template_name = "dictionary/dict.html"
     context = {
         'page_title': "Dictionary Home",
-        'countrie_list': Country.objects.all()
+        'countrie_list': dictionary_service.get_countries(),
+        'langage_list': dictionary_service.get_langages()
     }
     return render(request, template_name, context)
 
@@ -26,7 +27,8 @@ def dict(request):
     template_name = "dictionary/dict.html"
     context = {
         'page_title': "Dictionary Home",
-        'countrie_list': Country.objects.all()
+        'countrie_list': dictionary_service.get_countries(),
+        'langage_list': dictionary_service.get_langages()
     }
     return render(request, template_name, context)
 
