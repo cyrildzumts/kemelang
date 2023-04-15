@@ -79,7 +79,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             found_any = found_any || contained;
             lang.classList.toggle('hidden', !contained);
         });
-        this.no_filter_results.classList.toggle('hidden', !found_any);
+        this.no_filter_results.classList.toggle('hidden', found_any);
         
     }
 
