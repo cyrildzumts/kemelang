@@ -6351,6 +6351,9 @@ option:checked{
 	color: var(--textarea);
 	caret-color: var(--secondary-color);
   }
+  button:hover, .btn:hover {
+    background-color: #aaa;
+  }
 .container {
   width: 100%;
   display: flex !important;
