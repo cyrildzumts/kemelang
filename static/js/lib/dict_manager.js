@@ -71,7 +71,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     DictManager.prototype.filter_langage = function(value){
         let selft = this;
         let found_any = false;
-        if(value || value.trim() == ''){
+        if(!value || value.trim() == ''){
             return;
         }
         this.langage_selection_list.forEach(function(lang){
