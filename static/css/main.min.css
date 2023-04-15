@@ -4471,7 +4471,7 @@ ul li{
 	font-size: 0.8em;
 	margin: 0.2em;
   }
-  .dict-langage-selection{
+  .dict-langage-selection, .dict-langage-selection-no-results{
 	display: flex;
 	align-items: center;
 	min-width: 13.5em;
