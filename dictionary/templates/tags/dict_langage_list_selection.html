@@ -9,5 +9,6 @@
     {% for langage in langage_list %}
         <div class="dict-langage-select dict-langage-selection" data-id="{{langage.pk}}" data-slug="{{langage.slug}}" data-name="{{langage.name}}" data-uuid="{{langage.langage_uuid}}"><i class="fas fa-check"></i><span>{{langage.name}}</span></div>
     {% endfor %}
+        <div id="no-results" class="dict-langage-selection flex hidden"><span>{% translate "No results" %}</span></div>
     </div>
 </div>

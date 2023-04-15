@@ -18,6 +18,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.langage_selection_list = Array.from(document.querySelectorAll('.dict-langage-selection'));
         this.dict_text = document.getElementById('dict-text');
+        this.no_filter_results = document.getElementById('no-results');
         this.dict_text_definitions = document.getElementById('word-definitions-container');
         this.wrappers = [];
         this.form_is_valid = false;
@@ -54,6 +55,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     self.langage_selection_list.forEach(function(lang){
                         lang.classList.remove('hidden');
                     });
+                    self.no_filter_results.classList.add('hidden');
                     return;
                 }
                 if(self.scheduled_query){
@@ -68,10 +70,14 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.filter_langage = function(value){
         let selft = this;
+        let found_any = false;
         this.langage_selection_list.forEach(function(lang){
             let contained = lang.dataset.slug.includes(value) || lang.dataset.name.includes(value);
+            found_any = found_any || contained;
             lang.classList.toggle('hidden', !contained);
         });
+        this.no_filter_results.classList.toggle('hidden', !found_any);
+        
     }
 
     DictManager.prototype.register_modal = function(btn){
