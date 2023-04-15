@@ -4475,6 +4475,7 @@ ul li{
 	border-radius: 0.2em;
 	font-size: 0.8em;
 	margin-bottom: 0.2em;
+	cursor: pointer;
   }
   .dict-search-langage-wrapper input{
 	border: none !important;
