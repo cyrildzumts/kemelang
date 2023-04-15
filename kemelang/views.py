@@ -54,7 +54,7 @@ def home(request):
     on the root template folder.
     """
     logger.info("Home page request")
-    template_name = "dictionary/dict.hmtl"
+    template_name = "dictionary/dict.html"
     page_title = CORE_UI_STRINGS.UI_HOME_PAGE
     context = {
         'page_title': page_title,
