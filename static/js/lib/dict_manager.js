@@ -208,7 +208,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         if(!this.source_langage || !this.target_langage){
             return;
         }
-        console.log(`translate text=${tag.value} from sl=${this.source_langage} to tl=${this.target_langage}`);
+        console.log(`translate text=${tag.value} from sl=${this.source_langage.name} to tl=${this.target_langage.name}`);
         this.last_search = tag.value;
         let url = `http://api.kemelang-local.com/translate/?sl=${this.source_langage.slug}&tl=${this.target_langage.slug}&word=${tag.value}`;
         let option = {
