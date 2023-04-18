@@ -24,6 +24,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.detect_source_langage = document.getElementById('select-detect-langage');
         this.select_source_langage = document.getElementById('select-source-langage');
         this.select_target_langage = document.getElementById('select-target-langage');
+        this.no_translation = document.getElementById('no-translation');
         this.swap_langage_btn = document.getElementById('swap-langage-btn');
         this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage];
         this.recent_sources_langages = document.getElementById('recent-source-langages');
@@ -224,6 +225,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 if(response.found){
                     self.on_translated(tag, response.translations);
+                }else{
+                    self.no_translation.classList.toggle('hidden', !response.found);
                 }
                 self.on_word_exist(tag,[response.word])
                 
