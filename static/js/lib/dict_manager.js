@@ -226,7 +226,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 if(response.found){
                     self.on_translated(tag, response.translations);
                 }else{
-                    self.no_translation.classList.toggle('hidden', !response.found);
+                    self.no_translation.classList.toggle('hidden', response.found);
                 }
                 self.on_word_exist(tag,[response.word])
                 
