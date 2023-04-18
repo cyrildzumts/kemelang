@@ -322,7 +322,7 @@ def translate(query, source_lang, target_lang):
     SOURCE_LANGAGE_FILTER = Q(source_langage__name__iexact=source_lang) | Q(source_langage__slug__iexact=source_lang)
     TARGET_LANGAGE_FILTER = Q(target_langage__name__iexact=target_lang) | Q(target_langage__slug__iexact=target_lang)
     SOURCE_WORD_FILTER = Q(source_word__word__iexact=query) 
-    WORD_FILTER = Q(word__iexact=query) & (Q(langage__name__ixeact=source_lang) | Q(langage__slug__ixeact=source_lang))
+    WORD_FILTER = Q(word__iexact=query) & (Q(langage__name__iexact=source_lang) | Q(langage__slug__iexact=source_lang))
     TRANSLATE_FILTER = SOURCE_WORD_FILTER & SOURCE_LANGAGE_FILTER & TARGET_LANGAGE_FILTER
     word = None
     result = None
