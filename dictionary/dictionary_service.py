@@ -221,8 +221,6 @@ def get_word_translations_for_langage(word, langage):
 
 
 
-
-
 def search_countries(search_query):
     
     logger.info(f"Search Country : {search_query}")
@@ -316,3 +314,33 @@ def slugify_models():
     slugify_country()
     slugify_langage()
     logger.info("Slugify Models done")
+    
+    
+    
+
+def translate(query, source_lang, target_lang):
+    SOURCE_LANGAGE_FILTER = Q(source_langage__name__iexact=source_lang) | Q(source_langage__slug__iexact=source_lang)
+    TARGET_LANGAGE_FILTER = Q(target_langage__name__iexact=target_lang) | Q(target_langage__slug__iexact=target_lang)
+    SOURCE_WORD_FILTER = Q(source_word__word__iexact=query) 
+    WORD_FILTER = Q(word__iexact=query) & (Q(langage__name__ixeact=source_lang) | Q(langage__slug__ixeact=source_lang))
+    TRANSLATE_FILTER = SOURCE_WORD_FILTER & SOURCE_LANGAGE_FILTER & TARGET_LANGAGE_FILTER
+    word = None
+    result = None
+    try:
+        word = Word.objects.get(WORD_FILTER)
+        translation_set = TranslationWord.objects.filter(TRANSLATE_FILTER)
+        result = {'success': True,'query':query, 'translations': [translation.as_dict() for translation in translation_set]}
+    
+    except Word.DoesNotExist as e:
+        logger.warning(f"translate : word {query} not found")
+        result = {'success': False, 'message': f"word {query} not found"}
+    
+    except TranslationWord.DoesNotExist as e:
+        logger.warning(f" translate: no translation found for word {query}")
+        result = {'success': False, 'message': f" no translation found for word {query}"}
+    
+    except Exception as e:
+        logger.warning(f"Error while translating word {query}")
+        result = {'success': False, 'message': f"Error while translating word {query}"}
+    
+    return result

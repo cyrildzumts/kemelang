@@ -322,3 +322,22 @@ def word_synonymes(request, word, word_uuid):
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Search Synonymes request failed : {e}")
     return Response(data=result, status=status.HTTP_200_OK)
+
+
+
+@api_view(['GET'])
+@permission_classes([])
+@authentication_classes([])
+def translate(request):
+    logger.info(f"API: Find word request")
+    result = None
+    try:
+        source_langage = utils.get_request_data(request).get('sl')
+        target_langage = utils.get_request_data(request).get('tl')
+        text = utils.get_request_data(request).get('word')
+        logger.info(f"Translate word={text} from sl={source_langage} to tl={target_langage}")
+        result = dictionary_service.translate(text, source_langage, target_langage)
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        logger.warn(f"API: Translate request failed : {e}")
+    return Response(data=result, status=status.HTTP_200_OK)
