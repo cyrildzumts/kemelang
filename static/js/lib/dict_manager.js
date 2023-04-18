@@ -221,7 +221,11 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
-                self.on_translated(tag, response.translations);
+                if(response.found){
+                    self.on_translated(tag, response.translations);
+                }
+                self.on_word_exist(tag,[response.word])
+                
             }else{
                 console.warn(`translation not found. ${response.message}`)
             }
