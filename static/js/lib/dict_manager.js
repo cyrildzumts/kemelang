@@ -196,7 +196,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 self.on_word_exist(tag, response.words);
             }else{
-
+                console.warn(`word not found. ${response.message}`)
             }
         }, function(reason){
             console.error(reason);
@@ -223,7 +223,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 self.on_translated(tag, response.translations);
             }else{
-
+                console.warn(`translation not found. ${response.message}`)
             }
         }, function(reason){
             console.error(reason);

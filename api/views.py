@@ -329,7 +329,7 @@ def word_synonymes(request, word, word_uuid):
 @permission_classes([])
 @authentication_classes([])
 def translate(request):
-    logger.info(f"API: Find word request")
+    logger.info(f"API: transalte word request")
     result = None
     try:
         source_langage = utils.get_request_data(request).get('sl')
