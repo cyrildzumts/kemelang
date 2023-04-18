@@ -205,7 +205,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.translate = function(tag){
         let self = this;
-        if(!this.source_langage || !this.target_langage){
+        
+        if(!tag || tag.value.trim().lenth == 0 ||!this.source_langage || !this.target_langage){
             return;
         }
         console.log(`translate text=${tag.value} from sl=${this.source_langage.name} to tl=${this.target_langage.name}`);
