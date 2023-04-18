@@ -340,7 +340,7 @@ def translate(query, source_lang, target_lang):
         result = {'success': False, 'message': f" no translation found for word {query}"}
     
     except Exception as e:
-        logger.warning(f"Error while translating word {query}")
+        logger.warning(f"Error while translating word {query}", e)
         result = {'success': False, 'message': f"Error while translating word {query}"}
     
     return result
