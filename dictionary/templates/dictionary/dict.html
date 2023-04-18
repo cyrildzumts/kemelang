@@ -57,13 +57,17 @@
             </div>
             <div class="col-m-12 col-5">
                 <div class="container">
-                    <div class="target-langage word-input-wrapper">
+                    <div id="translation-placeholder" class="target-langage word-input-wrapper">
                         <div class="target-placeholder hidden-m">
                             <span>{% translate "Translation" %}</span>
-                            <span id="no-translation" class="hidden">{% translate "No translations" %}</span>
                         </div>
-                        <div id="word-translations-container" class="padding-v full"></div>
                     </div>
+                    <div id="no-translation" class="word-input-wrapper hidden">
+                        <div class="target-placeholder">
+                            <span>{% translate "No translations" %}</span>
+                        </div>
+                    </div>
+                    <div id="word-translations-container" class="padding-v full"></div>
                 </div>
             </div>
         </div>

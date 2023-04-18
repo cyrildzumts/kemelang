@@ -24,6 +24,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.detect_source_langage = document.getElementById('select-detect-langage');
         this.select_source_langage = document.getElementById('select-source-langage');
         this.select_target_langage = document.getElementById('select-target-langage');
+        this.translation_placeholder = document.getElementById('translation-placeholder');
         this.no_translation = document.getElementById('no-translation');
         this.swap_langage_btn = document.getElementById('swap-langage-btn');
         this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage];
@@ -56,6 +57,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 if(!self.dict_text || !self.dict_text.value || !self.dict_text.value.trim().length){
                     self.dict_text.value = "";
                     self.last_search = "";
+                    self.translation_placeholder.classList.remove('hidden');
+                    self.no_translation.classList.add('hidden');
                     if(self.dict_text_definitions.firstChild){
                         self.clear_definitions();
                     }
@@ -208,6 +211,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         let self = this;
         
         if(!tag || tag.value.trim().lenth == 0 ||!this.source_langage || !this.target_langage){
+            self.translation_placeholder.classList.remove('hidden');
             return;
         }
         console.log(`translate text=${tag.value} from sl=${this.source_langage.name} to tl=${this.target_langage.name}`);
@@ -225,9 +229,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 if(response.found){
                     self.on_translated(tag, response.translations);
-                }else{
-                    self.no_translation.classList.toggle('hidden', response.found);
                 }
+                self.translation_placeholder.classList.add('hidden');
+                self.no_translation.classList.toggle('hidden', response.found);
                 self.on_word_exist(tag,[response.word])
                 
             }else{
