@@ -327,10 +327,15 @@ def translate(query, source_lang, target_lang):
     word = None
     result = None
     try:
-        word = Word.objects.get(WORD_FILTER)
+        word_set = Word.objects.filter(WORD_FILTER)
+        if not word_set.exists():
+            raise Word.DoesNotExist(f"Word {query} not found")
+        
+        words = [word.as_dict(True) for word in word_set]
+        word = words[0]
         translation_set = TranslationWord.objects.filter(TRANSLATE_FILTER)
         found = translation_set.exists()
-        result = {'success': True,'found':found, 'word': word.as_dict(True),'query':query, 'translations': [translation.as_dict() for translation in translation_set]}
+        result = {'success': True,'found':found, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
     except Word.DoesNotExist as e:
         logger.warning(f"translate : word {query} not found")
         result = {'success': True, 'found': False, 'word': None, 'query': query,'message': f"word {query} not found"}

@@ -229,9 +229,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 if(response.found){
                     self.on_translated(tag, response.translations);
-                    self.on_word_exist(tag,[response.word])
-                }else if (response.word){
-                    self.on_word_exist(tag,[response.word])
+                    self.on_word_exist(tag,response.words)
+                }else if (response.words){
+                    self.on_word_exist(tag,response.words)
                 }else{
                     self.clear_definitions();
                 }
