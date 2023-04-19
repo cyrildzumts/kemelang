@@ -53,6 +53,70 @@ define(['tag_api'],function(tag_api) {
             'children': [form_group_name]
         }});
 
+        /****** */
+        let audio = create_api({'element': 'input', 'options':{
+            'id': `id-${form_prefix}-${form_index}-audio`,
+            'name': `${form_prefix}-${form_index}-audio`,
+            'data-error': `${id}-word-error`,
+            'cls': 'managed-update hidden',
+            'type':'file'
+        }});
+        let audio_player = create_api({'element': 'audio', 'options':{
+            'id': `audio-player-${this.index}`,
+            'cls': 'hidden',
+        }});
+        let start_record_btn = create_api({'element': 'span', 'options':{
+            'cls': 'start-record-btn managed_update',
+            'id': `start-record-btn-${this.index}`,
+            'data-container': id,
+            'data-target': `id-${form_prefix}-${form_index}-audio`,
+            'data-name': `${form_prefix}-${form_index}-audio`,
+            'data-play': `play-record-btn-${this.index}`,
+            'data-close': 'fas fa-times',
+            'data-player': `audio-player-${this.index}`,
+            'data-index': `word-index-${this.index}`,
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-microphone'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
+        }});
+        let stop_record_btn = create_api({'element': 'span', 'options':{
+            'cls': 'stop-record-btn managed_update hidden',
+            'id': `stop-record-btn-${this.index}`,
+            'data-container': id,
+            'data-target': `id-${form_prefix}-${form_index}-audio`,
+            'data-name': `${form_prefix}-${form_index}-audio`,
+            'data-open': 'fas fa-plus',
+            'data-close': 'fas fa-times',
+            'data-index': `word-index-${this.index}`,
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-stop'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
+        }});
+        let play_record_btn = create_api({'element': 'span', 'options':{
+            'cls': 'play-record-btn hidden',
+            'id': `play-record-btn-${this.index}`,
+            'data-container': id,
+            'data-target': `audio-player-${this.index}`,
+            'data-player': `audio-player-${this.index}`,
+            'data-index': `word-index-${this.index}`,
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-play'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
+        }});
+        let audio_btn_group = create_api({'element': 'div', 'options':{
+            'cls': 'header-group',
+            'id': id + '-add-audio-btn-header',
+            'children': [start_record_btn,stop_record_btn, play_record_btn]
+        }});
+        let div_audio_group = create_api({'element': 'div', 'options': {
+            'id': `${form_prefix}-${form_index}-audio-actions`,
+            'cls' : "full managed_update",
+            'children': [audio, audio_player ,audio_btn_group]
+        }});
+
+        let div_audio_wrapper = create_api({'element': 'div', 'options': {
+            'id': `${form_prefix}-${form_index}-audio-wrapper`,
+            'cls' : "form-group-wrapper managed_update",
+            'children': [div_audio_group]
+        }});
+
+
+        /****** */
+
         let langage = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-langage`,
             'name': `${form_prefix}-${form_index}-langage`,
@@ -150,7 +214,7 @@ define(['tag_api'],function(tag_api) {
             'id': id,
             'data-selected': `word-index-${this.index}-countries-selected`,
             'data-index': `word-index-${this.index}`,
-            'children': [hidden_div,header_group, div_name_wrapper, div_langage_wrapper, div_description_wrapper]
+            'children': [hidden_div,header_group, div_name_wrapper, div_audio_wrapper, div_langage_wrapper, div_description_wrapper]
         }});
 
         
@@ -165,7 +229,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback({'id':tag_id, 'index': `langage-index-${this.index}`});
             }
         });
-        return {'tag': div, 'inputs': form_inputs, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
+        return {'tag': div, 'inputs': form_inputs,'audio':{'start_btn': start_record_btn,'stop_btn': stop_record_btn,'play_btn': play_record_btn ,'player': audio_player}, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
     }
 
     return WordFormFactory;

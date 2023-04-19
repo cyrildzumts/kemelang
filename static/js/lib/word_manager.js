@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_api, tag_api, WordFormFactory, Editor_API) {
+define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],function(ajax_api, tag_api, WordFormFactory, Editor_API,AudioRecorder) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -20,6 +20,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
         this.current_langage_container = undefined;
         this.wrappers = [];
         this.active_words = {};
+        this.audios = [];
         this.word_index = undefined;
         this.form_is_valid = false;
         this.total_form = 0;
@@ -163,6 +164,9 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api'],function(ajax_a
             this.clear();
             return;
         }
+        let audio_recorder = new AudioRecorder(result.audio);
+        this.audios.push(audio_recorder);
+        
 
         ['keyup'].forEach(function (e) {
             result.word_input.addEventListener(e, function(event){
