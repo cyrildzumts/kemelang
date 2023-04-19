@@ -91,7 +91,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             lang.addEventListener('click', function(event){
                 if(self.selection_type == SELECTION_TYPE_SOURCE){
                     self.source_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
-                    /*
+                    self.recent_sources_langages.removeChild(self.recent_sources_langages.firstChild);
                     self.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
                         'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
@@ -99,10 +99,10 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'data-id': lang.dataset.id,
                         'innerText': lang.dataset.name
                     }}));
-                    */
+                    
                 }else if(self.selection_type){
                     self.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
-                    /*
+                    self.recent_target_langages.removeChild(self.recent_target_langages.firstChild);
                     self.recent_target_langages.appendChild(tag_api.create_tag({'element':'button','options':{
                         'cls': 'mat-button selected',
                         'data-name': lang.dataset.name,
@@ -110,7 +110,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'data-id': lang.dataset.id,
                         'innerText': lang.dataset.name
                     }}));
-                    */
+                    
                 }
             });
         });
