@@ -6399,6 +6399,12 @@ option:checked{
   button:hover, .mat-button:hover, .btn:hover{
     background-color: #eee;
   }
+  .recording i{
+    color: var(--warning-color) !important;
+  }
+  .playing i{
+    color: var(--secondary-color) !important;
+  }
 .container {
   width: 100%;
   display: flex !important;
