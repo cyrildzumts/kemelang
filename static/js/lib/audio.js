@@ -39,32 +39,26 @@ define([], function(){
         if(!audio_initialized){
             return;
         }
-        this.start_record_btn.addEventListener('click', function(even){
+        this.start_record_btn.addEventListener('click', function(e){
+            e.stopPropagration();
             self.mediaRecorder.start();
-            self.stop_record_btn.classList.remove('hidden');
-            self.start_record_btn.classList.add('recording');
-            console.log("audio recorder started");
         });
         this.player.addEventListener('playing', function(e){
+            e.stopPropagration();
             self.play_record_btn.classList.add('playing');
         });
         this.player.addEventListener('ended', function(e){
+            e.stopPropagration();
             self.play_record_btn.classList.remove('playing');
         });
-        this.start_record_btn.addEventListener('click', function(even){
-            if(self.player){
-                self.play_record_btn.classList.add('playing');
-                console.log("audio is playing");
-            }else{
-                self.player;
-                self.play_record_btn.classList.remove('playing');
-                console.log("audio is playing");
-            }
-            
-        });
-        this.stop_record_btn.addEventListener('click', function(even){
+        
+        this.stop_record_btn.addEventListener('click', function(e){
+            e.stopPropagration();
             self.mediaRecorder.stop();
-            console.log("audio recorder stopped");
+        });
+        this.play_record_btn.addEventListener('click', function(e){
+            e.stopPropagration();
+            self.player.play();
         });
     }
 
@@ -80,6 +74,11 @@ define([], function(){
             self.mediaRecorder.ondataavailable = (e)=>{
                 self.bytestream.push(e.data);
             };
+            self.mediaRecorder.onstart = (e) =>{
+                self.start_record_btn.classList.add('recording');
+                self.stop_record_btn.classList.remove('hidden');
+                console.log("audio recorder started");
+            };
             self.mediaRecorder.onstop = (e) =>{
                 self.start_record_btn.classList.remove('recording');
                 self.stop_record_btn.classList.add('hidden');
@@ -89,6 +88,7 @@ define([], function(){
                 let audio_url = window.URL.createObjectURL(blob);
                 self.player.src = audio_url;
                 self.play_record_btn.classList.remove('hidden');
+                console.log("Audio Recoring stopped");
             };
         })
         .catch((err)=>{
