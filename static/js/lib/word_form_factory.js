@@ -68,7 +68,7 @@ define(['tag_api'],function(tag_api) {
             'cls': 'hidden',
         }});
         let start_record_btn = create_api({'element': 'span', 'options':{
-            'cls': 'start-record-btn managed_update',
+            'cls': 'start-record-btn mat-button managed_update',
             'id': `start-record-btn-${this.index}`,
             'data-container': id,
             'data-target': `id-${form_prefix}-${form_index}-audio`,
@@ -77,7 +77,7 @@ define(['tag_api'],function(tag_api) {
             'data-close': 'fas fa-times',
             'data-player': `audio-player-${this.index}`,
             'data-index': `word-index-${this.index}`,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-microphone'}}), create_api({'element': 'span', 'options':{'innerText': 'Add Audio'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-microphone'}}), create_api({'element': 'span', 'options':{'cls':'hidden','innerText': 'Record'}})]
         }});
         let stop_record_btn = create_api({'element': 'span', 'options':{
             'cls': 'stop-record-btn managed_update hidden',
@@ -88,7 +88,7 @@ define(['tag_api'],function(tag_api) {
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
             'data-index': `word-index-${this.index}`,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-stop'}}), create_api({'element': 'span', 'options':{'innerText': 'Stop Recording'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-stop'}}), create_api({'element': 'span', 'options':{'cls':'hidden','innerText': 'Stop'}})]
         }});
         let play_record_btn = create_api({'element': 'span', 'options':{
             'cls': 'play-record-btn hidden',
@@ -97,7 +97,7 @@ define(['tag_api'],function(tag_api) {
             'data-target': `audio-player-${this.index}`,
             'data-player': `audio-player-${this.index}`,
             'data-index': `word-index-${this.index}`,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-play'}}), create_api({'element': 'span', 'options':{'innerText': 'Play Recording'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fa-solid fa-play'}}), create_api({'element': 'span', 'options':{'innerText': 'Play'}})]
         }});
         let audio_btn_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
@@ -139,7 +139,7 @@ define(['tag_api'],function(tag_api) {
         }});
         */
         let add_langage_btn = create_api({'element': 'span', 'options':{
-            'cls': 'add-langage-btn',
+            'cls': 'add-langage-btn margin-bottom',
             'data-container': id,
             'data-target': 'langage-selector-dialog',
             'data-selected': `${form_prefix}-${form_index}-langage-selected`,

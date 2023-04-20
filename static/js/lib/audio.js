@@ -77,17 +77,18 @@ define([], function(){
             self.mediaRecorder.onstart = (e) =>{
                 self.start_record_btn.classList.add('recording');
                 self.stop_record_btn.classList.remove('hidden');
+                self.play_record_btn.classList.add('hidden');
                 console.log("audio recorder started");
             };
             self.mediaRecorder.onstop = (e) =>{
                 self.start_record_btn.classList.remove('recording');
                 self.stop_record_btn.classList.add('hidden');
+                self.play_record_btn.classList.remove('hidden');
                 self.recording = self.bytestream;
                 let blob = new Blob(self.bytestream, {'type': "audio/ogg; codecs=opus"});
                 this.bytestream = [];
                 let audio_url = window.URL.createObjectURL(blob);
                 self.player.src = audio_url;
-                self.play_record_btn.classList.remove('hidden');
                 console.log("Audio Recoring stopped");
             };
         })
