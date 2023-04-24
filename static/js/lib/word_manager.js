@@ -7,6 +7,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
     const QUERY_DELAY = 800;
+    const API_BASE_URL = "https://api.kemelang-local.com"
 
 
     function WordManager(){
@@ -217,7 +218,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
 
     WordManager.prototype.find_word = function(tag){
         let self = this;
-        let url = `http://api.kemelang-local.com/find-word/?word=${tag.value}`;
+        let url = `${API_BASE_URL}/find-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -331,7 +332,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
     WordManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.word_form);
-        let url = "http://api.kemelang-local.com/create-word/";
+        let url = `${API_BASE_URL}/create-word/`;
         let option = {
             type:'POST',
             dataType: 'json',

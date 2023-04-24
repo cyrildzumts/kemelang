@@ -10,6 +10,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     const SELECTION_TYPE_SOURCE = 0;
     const SELECTION_TYPE_TARGET = 1;
     const SELECTION_TYPE_AUTO = 2;
+    const API_BASE_URL = "https://api.kemelang-local.com"
 
 
     function DictManager(){
@@ -195,7 +196,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.find_word = function(tag){
         let self = this;
-        let url = `http://api.kemelang-local.com/search-word/?word=${tag.value}`;
+        let url = `${API_BASE_URL}/search-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -224,7 +225,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         }
         console.log(`translate text=${tag.value} from sl=${this.source_langage.name} to tl=${this.target_langage.name}`);
         this.last_search = tag.value;
-        let url = `http://api.kemelang-local.com/translate/?sl=${this.source_langage.slug}&tl=${this.target_langage.slug}&word=${tag.value}`;
+        let url = `${API_BASE_URL}/translate/?sl=${this.source_langage.slug}&tl=${this.target_langage.slug}&word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -281,7 +282,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     DictManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.word_form);
-        let url = "http://api.kemelang-local.com/create-word/";
+        let url = `${API_BASE_URL}/create-word/`;
         let option = {
             type:'POST',
             dataType: 'json',

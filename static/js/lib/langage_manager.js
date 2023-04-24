@@ -7,6 +7,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "langage";
     const QUERY_DELAY = 800;
+    const API_BASE_URL = "https://api.kemelang-local.com"
 
     function register_modal(btn){
         if(!btn){
@@ -220,7 +221,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
     LangageManager.prototype.find_langage = function(tag){
         let self = this;
-        let url = `http://api.kemelang-local.com/find-langage/?langage=${tag.value}`;
+        let url = `${API_BASE_URL}/find-langage/?langage=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -357,7 +358,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     LangageManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.langage_form);
-        let url = "http://api.kemelang-local.com/create-langage/";
+        let url = `${API_BASE_URL}/create-langage/`;
         let option = {
             type:'POST',
             dataType: 'json',
