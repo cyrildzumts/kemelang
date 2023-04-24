@@ -1,0 +1,27 @@
+.loader{
+    display: none;
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    z-index: 10;
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    animation: loader 1.2s linear infinite;
+}
+@keyframes loader {
+    0%, 20%, 80%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+}
+
+@keyframes recording {
+    0%, 20%, 80%, 100%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(1.5);
+    }
+}

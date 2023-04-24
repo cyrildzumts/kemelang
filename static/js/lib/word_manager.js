@@ -33,6 +33,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         if(!this.form_container){
             return;
         }
+        this.loader = document.getElementById('loader');
         this.wordFormFactory = new WordFormFactory();
         this.wordFormFactory.init();
         let add_form_btn = document.getElementById('add-word-btn');
@@ -339,7 +340,15 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
             enctype : 'multipart/form-data',
             crossDomain: true,
             data: formData,
-            url : url
+            url : url,
+            beforSend: function(xhr, status){
+                let loader = document.getElementById('loader');
+                loader.style.display = "";
+            },
+            complete: function(xhr, status){
+                let loader = document.getElementById('loader');
+                loader.style.display = "none";
+            }
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){

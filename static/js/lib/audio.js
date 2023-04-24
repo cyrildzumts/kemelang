@@ -12,6 +12,8 @@ define([], function(){
         this.stop_record_btn = undefined;
         this.play_record_btn = undefined;
         this.player = undefined;
+        this.audio_input = undefined;
+        this.loader = undefined;
         this.init(selectors);
     };
 
@@ -22,6 +24,7 @@ define([], function(){
             this.stop_record_btn = selectors.stop_btn;
             this.play_record_btn = selectors.play_btn;
             this.player = selectors.player;
+            this.audio_input = selectors.audio_input;
             
         }else{
             this.start_record_btn = document.getElementById(START_RECORD_ID);
@@ -31,6 +34,7 @@ define([], function(){
             }
             this.player = document.getElementById(this.start_record_btn.dataset.player);
             this.play_record_btn = document.getElementById(this.start_record_btn.dataset.play);
+            this.audio_input = document.getElementById(this.start_record_btn.dataset.input);
         }
         
         
@@ -39,6 +43,7 @@ define([], function(){
         if(!audio_initialized){
             return;
         }
+        this.loader = document.getElementById('loader');
         this.start_record_btn.addEventListener('click', function(e){
             e.stopPropagation();
             self.mediaRecorder.start();
@@ -88,6 +93,10 @@ define([], function(){
                 let blob = new Blob(self.bytestream, {'type': "audio/ogg; codecs=opus"});
                 this.bytestream = [];
                 let audio_url = window.URL.createObjectURL(blob);
+                let file = new File(blob);
+                let fileContainer = new DataTransfer();
+                fileContainer.items.add(file);
+                self.audio_input.files = fileContainer.files;
                 self.player.src = audio_url;
                 console.log("Audio Recoring stopped");
             };

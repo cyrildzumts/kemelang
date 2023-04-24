@@ -60,6 +60,7 @@ define(['tag_api'],function(tag_api) {
             'id': `id-${form_prefix}-${form_index}-audio`,
             'name': `${form_prefix}-${form_index}-audio`,
             'data-error': `${id}-word-error`,
+            'data-index': `word-index-${this.index}`,
             'cls': 'managed-update hidden',
             'type':'file'
         }});
@@ -231,7 +232,7 @@ define(['tag_api'],function(tag_api) {
                 delete_callback({'id':tag_id, 'index': `langage-index-${this.index}`});
             }
         });
-        return {'tag': div, 'inputs': form_inputs,'audio':{'start_btn': start_record_btn,'stop_btn': stop_record_btn,'play_btn': play_record_btn ,'player': audio_player}, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
+        return {'tag': div, 'inputs': form_inputs,'audio':{'start_btn': start_record_btn,'stop_btn': stop_record_btn,'play_btn': play_record_btn ,'player': audio_player, 'input': audio}, 'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
     }
 
     return WordFormFactory;
