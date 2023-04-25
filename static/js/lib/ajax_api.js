@@ -30,7 +30,7 @@ define(['lang'], function(Locale) {
         if(debug){
           console.debug("ajax_api options - ", options);
         }
-        options.beforSend = function(xhr, status){
+        options.beforeSend = function(xhr, status){
           let loader = document.getElementById('loader');
           loader.style.display = "";
           console.log("loader before Send activated");
