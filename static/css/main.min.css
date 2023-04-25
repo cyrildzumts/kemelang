@@ -5859,8 +5859,6 @@ option:checked{
     animation-delay: 0s;
 }
 .loader div {
-    display: none;
-    position: absolute;
     width: 6px;
     height: 6px;
     z-index: 10;
@@ -5872,11 +5870,11 @@ option:checked{
 @keyframes spinner {
     0%{
         opacity: 1;
-        transform: rotate(0deg);
+        
     }
     100%{
         opacity: 0;
-        transform: rotate(360deg);
+        
     }
 }
 @keyframes loader {
