@@ -33,10 +33,12 @@ define(['lang'], function(Locale) {
         options.beforSend = function(xhr, status){
           let loader = document.getElementById('loader');
           loader.style.display = "";
+          console.log("loader before Send activated");
         };
         options.complete = function(xhr, status){
           let loader = document.getElementById('loader');
           loader.style.display = "none";
+          console.log("loader on complete deactivated");
         };
         return new Promise(function(resolve, reject){
             $.ajax(options).done(resolve).fail(reject);
