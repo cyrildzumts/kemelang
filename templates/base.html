@@ -89,7 +89,7 @@
 {% csrf_token %}
 {% block SCRIPT_VAR %}
 {% endblock SCRIPT_VAR %}
-<div id="loader" class="loader"></div>
+{% include "tags/components/loader.html" %}
 <div class="page full">
 {% block NAV %}
 {% include "tags/nav-tag.html" %}

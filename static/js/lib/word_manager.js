@@ -279,6 +279,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
                 'id': langage_name
             }}));
             selection.appendChild(input);
+            //self.find_word()
         }
         this.langage_selection_list.forEach((c) =>{
             if(c != langage_tag){
