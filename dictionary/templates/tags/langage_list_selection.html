@@ -4,7 +4,7 @@
 <div class="mat-box full">
     <div class="grid">
     {% for langage in langage_list %}
-        <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
+        <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-slug="{{langage.slug}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
     {% endfor %}
     </div>
 </div>

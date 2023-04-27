@@ -172,6 +172,8 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
 
         ['keyup','change'].forEach(function (e) {
             result.word_input.addEventListener(e, function(event){
+                event.stopPropagation();
+                
                 if(!result.word_input || !result.word_input.value || !result.word_input.value.trim().length){
                     result.word_input.value = "";
                     return;
