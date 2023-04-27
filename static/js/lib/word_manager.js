@@ -173,7 +173,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         ['keyup','change'].forEach(function (e) {
             result.word_input.addEventListener(e, function(event){
                 event.stopPropagation();
-                
+
                 if(!result.word_input || !result.word_input.value || !result.word_input.value.trim().length){
                     result.word_input.value = "";
                     return;
@@ -292,23 +292,15 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
                 'innerText': langage_name,
                 'id': langage_name
             }}));
-            ['keyup', 'change'].forEach((e)=>{
-                input.addEventListener(e, function(event){
-                    if(!input.value || !input.value.trim()){
-                        return;
-                    }
-                    if(word.word_input.value.trim().length == 0 ){
-                        return;
-                    }
-                    if(self.scheduled_query){
-                        clearTimeout(self.scheduled_query);
-                    }
-                    self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, word.word_input, lang_slug);
-                    //self.find_word(result.word_input);
-                });
-            });
+            
             selection.appendChild(input);
-            //self.find_word()
+            if(word.word_input.value.trim().length > 0 ){
+                if(self.scheduled_query){
+                    clearTimeout(self.scheduled_query);
+                }
+                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, word.word_input, lang_slug);
+            }
+            
         }
         this.langage_selection_list.forEach((c) =>{
             if(c != langage_tag){
