@@ -32,7 +32,7 @@ define(['lang'], function(Locale) {
         }
         options.beforeSend = function(xhr, status){
           let loader = document.getElementById('loader');
-          loader.style.display = "";
+          loader.style.display = "block";
           console.log("loader before Send activated");
         };
         options.complete = function(xhr, status){
