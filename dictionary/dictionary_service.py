@@ -156,9 +156,9 @@ def find_langage(name):
     return lang
 
 
-def find_words(word):
+def find_words(word, lang):
     logger.info(f"Looking for word {word}")
-    return Word.objects.filter(word__iexact=word) 
+    return Word.objects.filter(word__iexact=word,langage__slug__iexact=lang) 
 
 
 def get_langages_by_country(country):

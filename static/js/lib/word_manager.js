@@ -159,7 +159,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
             return;
         }
         this.wrappers.push(result.tag);
-        this.active_words[result.index] = {'langages': [], 'selection': result.selection};
+        this.active_words[result.index] = {'langages': [], 'selection': result.selection, 'word_input': result.word_input};
         let registered_modal = this.register_modal(result['add-langage-btn']);
         if(!registered_modal){
             console.warn("Could not find lanage source ...");
@@ -170,18 +170,22 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         this.audios.push(audio_recorder);
         
 
-        ['keyup'].forEach(function (e) {
+        ['keyup','change'].forEach(function (e) {
             result.word_input.addEventListener(e, function(event){
                 if(!result.word_input || !result.word_input.value || !result.word_input.value.trim().length){
                     result.word_input.value = "";
                     return;
                 }
+                if(!result.word_input.dataset.lang){
+                    return;
+                }
                 if(self.scheduled_query){
                     clearTimeout(self.scheduled_query);
                 }
-                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, result.word_input);
+                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, result.word_input, result.word_input.dataset.lang);
                 //self.find_word(result.word_input);
             });
+            
         });
         
         this.incremente_management_form();
@@ -216,9 +220,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         }
     };
 
-    WordManager.prototype.find_word = function(tag){
+    WordManager.prototype.find_word = function(tag, lang){
+        if(!lang || !tag || !tag.value.trim()){
+            return;
+        }
         let self = this;
-        let url = `${API_BASE_URL}/find-word/?word=${tag.value}`;
+        let url = `${API_BASE_URL}/find-word/?word=${tag.value}&lang=${lang}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -248,10 +255,12 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         if(!langage_tag){
             return;
         }
+        let self = this;
         let selected = langage_tag.classList.contains('selected');
         let word = this.active_words[this.word_index];
         let selection = word['selection'];
         let langage_name = langage_tag.dataset.name;
+        let lang_slug = langage_tag.dataset.slug;
         
         if(selected){
             // remove langage
@@ -270,14 +279,32 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'name': this.active_word,
                 'value': langage_tag.dataset.id,
+                'data-name': langage_name,
+                'data-slug': lang_slug,
                 'type': 'hidden'
             }});
+            word.word_input.dataset.lang = lang_slug;
             word['langages'].push(langage_name);
             selection.appendChild(tag_api.create_tag({'element':'span','options':{
                 'cls': 'chips small',
                 'innerText': langage_name,
                 'id': langage_name
             }}));
+            ['keyup', 'change'].forEach((e)=>{
+                input.addEventListener(e, function(event){
+                    if(!input.value || !input.value.trim()){
+                        return;
+                    }
+                    if(word.word_input.value.trim().length == 0 ){
+                        return;
+                    }
+                    if(self.scheduled_query){
+                        clearTimeout(self.scheduled_query);
+                    }
+                    self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, word.word_input, lang_slug);
+                    //self.find_word(result.word_input);
+                });
+            });
             selection.appendChild(input);
             //self.find_word()
         }

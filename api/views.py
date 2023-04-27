@@ -299,9 +299,10 @@ def find_langage(request):
 def find_word(request):
     logger.info(f"API: Find word request")
     try:
-        search_query = utils.get_request_data(request).get('word')
-        words = dictionary_service.find_words(search_query)
-        result = {'success': True, 'words': [word.as_dict(True) for word in words], 'query': search_query, 'found': words.exists()}
+        searched_word = utils.get_request_data(request).get('word')
+        lang = utils.get_request_data(request).get('lang')
+        words = dictionary_service.find_words(searched_word, lang)
+        result = {'success': True, 'words': [word.as_dict(True) for word in words], 'query': {'word': searched_word, 'lang': lang}, 'found': words.exists()}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Search word request failed : {e}")
