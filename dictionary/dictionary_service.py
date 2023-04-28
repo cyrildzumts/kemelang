@@ -315,15 +315,27 @@ def slugify_models():
     slugify_langage()
     logger.info("Slugify Models done")
     
-    
+
+def build_translate_filter(query, source_lang, target_lang, auto_detect=False):
+    WORD_FILTER = None
+    TRANSLATE_FILTER = None
+    if auto_detect:
+        TARGET_LANGAGE_FILTER = Q(target_langage__slug__iexact=target_lang)
+        SOURCE_WORD_FILTER = Q(source_word__word__unaccent__iexact=query) 
+        WORD_FILTER = Q(word__unaccent__iexact=query)
+        TRANSLATE_FILTER = SOURCE_WORD_FILTER & TARGET_LANGAGE_FILTER
+    else:
+        SOURCE_LANGAGE_FILTER =  Q(source_langage__slug__iexact=source_lang)
+        TARGET_LANGAGE_FILTER =  Q(target_langage__slug__iexact=target_lang)
+        SOURCE_WORD_FILTER = Q(source_word__word__unaccent__iexact=query) 
+        WORD_FILTER = Q(word__unaccent__iexact=query) & Q(langage__slug__iexact=source_lang)
+        TRANSLATE_FILTER = SOURCE_WORD_FILTER & SOURCE_LANGAGE_FILTER & TARGET_LANGAGE_FILTER
+    return WORD_FILTER, TRANSLATE_FILTER
     
 
 def translate(query, source_lang, target_lang):
-    SOURCE_LANGAGE_FILTER = Q(source_langage__name__unaccent__iexact=source_lang) | Q(source_langage__slug__iexact=source_lang)
-    TARGET_LANGAGE_FILTER = Q(target_langage__name__unaccent__iexact=target_lang) | Q(target_langage__slug__iexact=target_lang)
-    SOURCE_WORD_FILTER = Q(source_word__word__unaccent__iexact=query) 
-    WORD_FILTER = Q(word__unaccent__iexact=query) & (Q(langage__name__unaccent__iexact=source_lang) | Q(langage__slug__iexact=source_lang))
-    TRANSLATE_FILTER = SOURCE_WORD_FILTER & SOURCE_LANGAGE_FILTER & TARGET_LANGAGE_FILTER
+    auto_detect = source_lang == Constants.TRANSLATE_AUTO_DETECT
+    WORD_FILTER, TRANSLATE_FILTER = build_translate_filter(query, source_lang, target_lang, source_lang == Constants.TRANSLATE_AUTO_DETECT)
     word = None
     result = None
     try:
@@ -335,13 +347,13 @@ def translate(query, source_lang, target_lang):
         word = words[0]
         translation_set = TranslationWord.objects.filter(TRANSLATE_FILTER)
         found = translation_set.exists()
-        result = {'success': True,'found':found, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
+        result = {'success': True,'found':found,'auto_detect': auto_detect, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
     except Word.DoesNotExist as e:
         logger.warning(f"translate : word {query} not found")
-        result = {'success': True, 'found': False, 'word': None, 'query': query,'message': f"word {query} not found"}
+        result = {'success': True, 'found': False, 'auto_detect': auto_detect, 'word': None, 'query': query,'message': f"word {query} not found"}
     
     except Exception as e:
         logger.warning(f"Error while translating word {query}", e)
-        result = {'success': False, 'message': f"Error while translating word {query}"}
+        result = {'success': False, 'auto_detect': auto_detect, 'message': f"Error while translating word {query}"}
     
     return result

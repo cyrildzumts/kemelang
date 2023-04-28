@@ -6405,6 +6405,10 @@ option:checked{
   .playing i{
     color: var(--secondary-color) !important;
   }
+  .recent-langages .selected{
+    border-radius: unset;
+    border-bottom: 2px solid var(--secondary-color);
+  }
 .container {
   width: 100%;
   display: flex !important;
