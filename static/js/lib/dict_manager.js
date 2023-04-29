@@ -132,6 +132,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 button.classList.toggle('selected', !button.classList.contains('selected'));
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
                     self.source_langage = undefined;
+                    self.update_recent_langages();
+                    //self.translate();
                 }else if(button.dataset.type == SELECTION_TYPE_SOURCE){
 
                 }else if(button.dataset.type == SELECTION_TYPE_TARGET){
@@ -158,20 +160,25 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.update_recent_langages = function(){
         this.clear_recent_langages();
-        this.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
-            'cls': 'mat-button selected',
-            'data-name': this.source_langage.name,
-            'data-slug': this.source_langage.slug,
-            'data-id': this.source_langage.id,
-            'innerText': this.source_langage.name
-        }}));
-        this.recent_target_langages.appendChild(tag_api.create_tag({'element':'button','options':{
-            'cls': 'mat-button selected',
-            'data-name': this.target_langage.name,
-            'data-slug': this.target_langage.slug,
-            'data-id': this.target_langage.id,
-            'innerText': this.target_langage.name
-        }}));
+        if(this.source_langage){
+            this.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
+                'cls': 'mat-button selected',
+                'data-name': this.source_langage.name,
+                'data-slug': this.source_langage.slug,
+                'data-id': this.source_langage.id,
+                'innerText': this.source_langage.name
+            }}));
+        }
+        if(this.target_langage){
+            this.recent_target_langages.appendChild(tag_api.create_tag({'element':'button','options':{
+                'cls': 'mat-button selected',
+                'data-name': this.target_langage.name,
+                'data-slug': this.target_langage.slug,
+                'data-id': this.target_langage.id,
+                'innerText': this.target_langage.name
+            }}));
+        }
+        
     }
 
     DictManager.prototype.clear_recent_langages = function(){
