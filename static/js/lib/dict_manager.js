@@ -27,7 +27,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.select_target_langage = document.getElementById('select-target-langage');
         this.translation_placeholder = document.getElementById('translation-placeholder');
         this.no_translation = document.getElementById('no-translation');
-        this.swap_langage_btn = document.querySelectorAll('.swap-langage-btn');
+        this.swap_langage_btn = document.getElementById('swap-langage-btn');
         this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage];
         this.recent_sources_langages = document.getElementById('recent-source-langages');
         this.recent_target_langages = document.getElementById('recent-target-langages');
@@ -152,18 +152,16 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             });
         });
 
-        this.swap_langage_btn.forEach(function(button){
-            button.addEventListener('click', function(event){
-                event.stopPropagation();
-                if(!self.source_langage || !self.target_langage){
-                    return;
-                }
-                let old_source_lang = {'id': self.source_langage.id, 'name': self.source_langage.name, 'slug': self.source_langage.slug}
-                self.source_langage = {'id': self.target_langage.id, 'name': self.target_langage.name, 'slug': self.target_langage.slug}
-                self.target_langage = {'id': old_source_lang.id, 'name': old_source_lang.name, 'slug': old_source_lang.slug}
-                self.update_recent_langages();
-                self.translate();
-            });
+        this.swap_langage_btn.addEventListener('click', function(event){
+            event.stopPropagation();
+            if(!self.source_langage || !self.target_langage){
+                return;
+            }
+            let old_source_lang = {'id': self.source_langage.id, 'name': self.source_langage.name, 'slug': self.source_langage.slug}
+            self.source_langage = {'id': self.target_langage.id, 'name': self.target_langage.name, 'slug': self.target_langage.slug}
+            self.target_langage = {'id': old_source_lang.id, 'name': old_source_lang.name, 'slug': old_source_lang.slug}
+            self.update_recent_langages();
+            self.translate();
         });
         
     };
