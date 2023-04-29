@@ -5801,7 +5801,7 @@ option:checked{
   .playing i{
     color: var(--secondary-color) !important;
   }
-  .recent-langages .selected{
+  .recent-langages .selected, button.selected, .mat-button.selected{
     border-radius: unset;
     border-bottom: 2px solid var(--secondary-color);
   }
