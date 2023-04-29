@@ -71,7 +71,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     clearTimeout(self.scheduled_query);
                 }
                 //self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.dict_text);
-                self.scheduled_query = setTimeout(self.translate.bind(self), QUERY_DELAY, self.dict_text);
+                self.scheduled_query = setTimeout(self.translate.bind(self), QUERY_DELAY);
                 
             });
             search_filter.addEventListener(e, function(event){
@@ -144,6 +144,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 self.source_langage = {'id': self.target_langage.id, 'name': self.target_langage.name, 'slug': self.target_langage.slug}
                 self.target_langage = {'id': old_source_lang.id, 'name': old_source_lang.name, 'slug': old_source_lang.slug}
                 self.update_recent_langages();
+                self.translate();
             });
         });
         
@@ -259,20 +260,20 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         });
     }
 
-    DictManager.prototype.translate = function(tag){
+    DictManager.prototype.translate = function(){
         let self = this;
         
-        if(!tag || tag.value.trim().length == 0 || !this.target_langage){
-            self.translation_placeholder.classList.remove('hidden');
+        if(!this.dict_text || this.dict_text.value.trim().length == 0 || !this.target_langage){
+            this.translation_placeholder.classList.remove('hidden');
             return;
         }
         let sl = "auto";
         if(this.source_langage){
             sl = this.source_langage.slug;
         }
-        console.log(`translate text=${tag.value} from sl=${sl} to tl=${this.target_langage.slug}`);
-        this.last_search = tag.value;
-        let url = `${API_BASE_URL}/translate/?sl=${sl}&tl=${this.target_langage.slug}&word=${tag.value}`;
+        console.log(`translate text=${this.dict_text.value} from sl=${sl} to tl=${this.target_langage.slug}`);
+        this.last_search = this.dict_text.value;
+        let url = `${API_BASE_URL}/translate/?sl=${sl}&tl=${this.target_langage.slug}&word=${this.dict_text.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
