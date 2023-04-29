@@ -5772,13 +5772,13 @@ input.error{
     border: 2px solid var(--primary-color);
     color: var(--primary-color);
 }
-.mat-button:disabled  {
+.mat-button:disabled, .mat-button[disabled=disabled] {
 	color: #ccc ;
 	font-weight: 700 !important;
     border: 2px solid #ccc ;
     cursor: not-allowed;
 }
-button:disabled {
+button:disabled, button[disabled=disabled] {
 	color: #ccc ;
 	font-weight: 700 !important;
     cursor: not-allowed;
