@@ -122,6 +122,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     // we should never get here.
                     console.error("Something that should never happend just happended !");
                 }
+                self.swap_langage_btn.disabled = (self.source_langage && self.target_langage) == undefined;
+                self.translate();
+                
             });
         });
         this.buttons.forEach(function(button){
@@ -129,15 +132,22 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 event.stopPropagation();
                 event.preventDefault();
                 self.selection_type = button.dataset.type;
-                button.classList.toggle('selected', !button.classList.contains('selected'));
+                
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
+                    let selected = button.classList.contains('selected');
+                    button.classList.toggle('selected', !selected);
                     self.source_langage = undefined;
+                    self.swap_langage_btn.disabled = (self.source_langage && self.target_langage) == undefined;
                     self.update_recent_langages();
-                    //self.translate();
+                    if(!selected){
+                        self.translate();
+                    }
+                    
                 }else if(button.dataset.type == SELECTION_TYPE_SOURCE){
+                    self.detect_source_langage.classList.remove('selected');
 
                 }else if(button.dataset.type == SELECTION_TYPE_TARGET){
-                    
+                    self.detect_source_langage.classList.remove('selected');
                 }
             });
         });
@@ -277,6 +287,10 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         let self = this;
         
         if(!this.dict_text || this.dict_text.value.trim().length == 0 || !this.target_langage){
+            this.translation_placeholder.classList.remove('hidden');
+            return;
+        }
+        if(this.source_langage == undefined && this.selection_type != SELECTION_TYPE_AUTO){
             this.translation_placeholder.classList.remove('hidden');
             return;
         }
