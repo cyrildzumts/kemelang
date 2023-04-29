@@ -103,8 +103,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'data-id': lang.dataset.id,
                         'innerText': lang.dataset.name
                     }}));
+                    self.detect_source_langage.classList.remove('selected');
                     
-                }else if(self.selection_type){
+                }else if(self.selection_type == SELECTION_TYPE_TARGET){
                     self.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
                     if(self.recent_target_langages.firstChild){
                         self.recent_target_langages.removeChild(self.recent_target_langages.firstChild);
@@ -117,6 +118,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'innerText': lang.dataset.name
                     }}));
                     
+                }else{
+                    // we should never get here.
+                    console.error("Something that should never happend just happended !");
                 }
             });
         });
@@ -127,7 +131,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                 self.selection_type = button.dataset.type;
                 button.classList.toggle('selected', !button.classList.contains('selected'));
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
-                    
+                    self.source_langage = undefined;
                 }else if(button.dataset.type == SELECTION_TYPE_SOURCE){
 
                 }else if(button.dataset.type == SELECTION_TYPE_TARGET){
