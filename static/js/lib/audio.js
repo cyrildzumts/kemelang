@@ -24,7 +24,7 @@ define([], function(){
             this.stop_record_btn = selectors.stop_btn;
             this.play_record_btn = selectors.play_btn;
             this.player = selectors.player;
-            this.audio_input = selectors.audio_input;
+            this.audio_input = selectors.input;
             
         }else{
             this.start_record_btn = document.getElementById(START_RECORD_ID);
