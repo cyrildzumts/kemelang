@@ -449,11 +449,11 @@ ul li{
 .padding-r{
   padding-right: 1rem !important;
 }
-.padding-top{
+.padding-top, .padding-t{
   padding-top: 1em !important;
 }
 
-.padding-bottom{
+.padding-bottom, .padding-b{
   padding-bottom: 1em !important;
 }
 
@@ -488,10 +488,10 @@ ul li{
   margin-bottom: 1rem !important;
 }
 
-.margin-top{
+.margin-top, .margin-t{
   margin-top: 1em;
 }
-.margin-bottom{
+.margin-bottom, .margin-b{
   margin-bottom: 1em;
 }
 

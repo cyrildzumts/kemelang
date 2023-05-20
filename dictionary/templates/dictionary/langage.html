@@ -17,11 +17,11 @@
                 </div>
             </div>
             <div class="full">
-                <div class="flex flex-left full"><span class="padding-h">{% translate "Countries" %} <span class="lowercase">{{countrie_list.count}}</span></span></div>
-                <div class="mat-box full">
+                <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} : <span class="lowercase">{{countrie_list.count}}</span></span></div>
+                <div class="mat-box">
                     <ul>
                         {% for country in country_list %}
-                        <li>
+                        <li class="margin-b">
                             <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>
                         </li>
                         {% endfor %}

@@ -6,21 +6,29 @@
 {% block MAIN %}
 <div class="container flex-center">
     <div class="col-m-12 col-8">
-        <div class="mat-box">
-            <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span></div>
-            <div class="flex flex-left">
-                {% render_tag country.description %}
+        <div class="grid">
+            <div class="full">
+                <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span><a href="{% url 'dictionary:country-update' country.slug country.country_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a></div>
             </div>
-            <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} <span class="lowercase">{{langage_list.count}}</span></span></div>
-            <div class="mat-box full">
-                <ul>
-                    {% for langage in langage_list %}
-                    <li>
-                        <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
-                    </li>
-                    {% endfor %}
-                </ul>
+            
+            <div class="full">
+                <div class="flex flex-left">
+                    {% render_tag country.description %}
+                </div>
             </div>
+            <div class="full">
+                <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} <span class="lowercase bold">({{langage_list.count}})</span></span></div>
+                <div class="mat-box">
+                    <ul>
+                        {% for langage in langage_list %}
+                        <li class="margin-b">
+                            <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
