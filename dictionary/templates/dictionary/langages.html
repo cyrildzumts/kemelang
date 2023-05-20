@@ -6,15 +6,15 @@
 {% block MAIN %}
 <div class="container flex-center">
     <div class="col-m-12 col-8">
-        <div class="grid">
-            <div class="full">
+        <div class="grid margin">
+            <div class="margin full">
                 {% if country %}
                 <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span></div>
                 {% endif %}
                 <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} (<span class="lowercase bold">{{langage_list.count}}</span>)</span></div>
             </div>
             
-            <div class="full">
+            <div class="margin full">
                 <ul>
                     {% for langage in langage_list %}
                     <li class="margin-b">
