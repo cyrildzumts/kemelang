@@ -157,7 +157,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
     CountryManager.prototype.find_country = function(tag){
         let self = this;
-        let url = `http://api.kemelang-local.com/find-country/?country=${tag.value}`;
+        let url = `https://api.kemelang-local.com/find-country/?country=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
