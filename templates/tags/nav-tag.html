@@ -47,9 +47,9 @@
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:countries' %}" title="{% trans 'Countires' %}"><i class="fas fa-globe-africa"></i><span class="hidden-m">{% trans "Countries" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langages' %}" title="{% trans 'Langages' %}"><i class="fas fa-language"></i><span class="hidden-m">{% trans "Langages" %}</span></a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
-                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'blog:create-post' %}"><i class="fas fa-edit icon"></i>{{UI_STRINGS_CONTEXT.UI_NEW_BLOG_POST}}</a></li>{% endcomment %}
-                    {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user icon"></i>{% translate "Notifications" %}</a></li>{% endcomment %}
+                    {% comment %}
+                        <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
+                    {% endcomment %}
                     
                     <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i><span>{% trans 'Logout' %}</span></a></li>
                     {% else %}
