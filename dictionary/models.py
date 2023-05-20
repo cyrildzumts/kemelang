@@ -18,7 +18,7 @@ def upload_definition_audio_to(instance, filename):
 class Langage(models.Model):
     name = models.CharField(max_length=constants.NAME_MAX_LENGTH)
     description = models.JSONField(blank=True, null=True)
-    countries = models.ManyToManyField('Country', related_name='langages', null=True, blank=True)
+    countries = models.ManyToManyField('Country', related_name='langages', blank=True)
     slug = models.SlugField(max_length=constants.NAME_MAX_LENGTH, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='added_langages', blank=True, null=True)
     changed_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='changed_langages', blank=True, null=True)
@@ -96,7 +96,7 @@ class Country(models.Model):
 class Word(models.Model):
     word = models.CharField(max_length=constants.WORD_MAX_LENGTH)
     audio = models.FileField(upload_to=upload_word_audio_to, blank=True, null=True)
-    synonymes = models.ManyToManyField('self', blank=True, null=True)
+    synonymes = models.ManyToManyField('self', blank=True)
     langage = models.ForeignKey(Langage, on_delete=models.CASCADE, related_name='words')
     description = models.JSONField(blank=True, null=True)
     view_count = models.IntegerField(default=0)
