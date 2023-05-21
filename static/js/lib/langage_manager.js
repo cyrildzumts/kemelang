@@ -67,6 +67,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     };
     LangageManager.prototype.init = function(){
         var self = this;
+        if(this.init_for_update()){
+            return;
+        }
         if(!this.form_container){
             return;
         }
@@ -98,6 +101,29 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         });
         
     };
+
+    LangageManager.prototype.init_for_update = function(){
+        var self = this;
+        let update_form = document.getElementById("update-langage-form");
+
+        if(!update_form){
+            return false;
+        }
+        let description = document.getElementById("description");
+        
+        try {
+            let init_data = description.value.length > 0 ? JSON.parse(description.value) : {};
+            let editor = new Editor_API.EditorWrapper('editor', init_data);
+            editor.init()
+            if(!editor.created){
+                console.warn("Editor not created for Langage update");
+            }
+        } catch (error) {
+            console.warn("error on parsing json data from description value : %s", description.value);
+            console.error(error);
+        }
+        return true;
+    }
 
 
     LangageManager.prototype.register_modal = function(btn){
