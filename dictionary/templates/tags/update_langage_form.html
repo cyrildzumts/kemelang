@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="update-langage-form" class="form" name="update-langage-form" action="{% url LANGAGE_UPDATE_URL %}" method="POST">{% csrf_token %}
+    <form id="update-langage-form" class="form" name="update-langage-form" action="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" method="POST">{% csrf_token %}
         <div class="mat-box full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
@@ -26,7 +26,7 @@
                 </div>
 
                 <div class="actions flex-right">
-                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url LANGAGE_URL langage.slug %}">{% trans "Cancel" %}</a>
                     <button class="mat-button mat-button-default" type="submit">{% trans "Update" %}</button>
                 </div>
         </div>
