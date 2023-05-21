@@ -17,8 +17,8 @@
                     <div class="form-group">
                         <label for="langage">{% trans "Langage" %}</label>
                         <select id="langage" name="langage">
-                            {% for lang in langages %}
-                            <option value="{{lang.id}}" {% if word.lang == lang %}selected{% endif %}>{{langage.name}}</option>
+                            {% for lang in langage_list %}
+                            <option value="{{lang.id}}" {% if word.lang == lang %}selected{% endif %}>{{lang.name}}</option>
                             {% endfor %}
                         </select>
                     </div>

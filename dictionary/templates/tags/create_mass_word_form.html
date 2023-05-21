@@ -6,7 +6,7 @@
         <div id="word-form-container" class="create-form grid">  
         </div>
         <div class="actions">
-            <a class="mat-button mat-button-outline js-cancel" href="{% url 'dictionary:dict-home' %}">{% trans "Cancel" %}</a>
+            <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
             <button id="add-word-btn" class="mat-button mat-button-default" type="button"><span><i class="fas fa-plus"></i><span>{% trans "Add" %}</span></span></button>
             <button class="mat-button mat-button-default create-word-btn" type="submit">{% trans "Create" %}</button>
         </div>

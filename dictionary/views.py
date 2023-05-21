@@ -165,6 +165,7 @@ def update_word(request, word, word_uuid):
     context = {
         'page_title': "Update Word",
         'langage': word,
+        'langage_list': dictionary_service.get_langages()
     }
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)

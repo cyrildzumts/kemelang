@@ -15,7 +15,8 @@ def site_context(request):
         'redirect_to' : '/',
         'dev_mode' : settings.DEV_MODE,
         'next_url' : request.path,
-        'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT
+        'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT,
+        'DICTIONARY_HOME_URL': constants.DICTIONARY_HOME_URL
     }
     context.update(constants.DICTIONARY_URL_TRANSLATION_CONTEXT)
     return context
