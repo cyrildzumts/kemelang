@@ -124,7 +124,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
             }
             
         } catch (error) {
-            console.warn("error on parsing json data from description value : %s", description.value);
+            console.warn("error on parsing json data from description value : %s", value);
             console.error(error);
         }
         return true;
