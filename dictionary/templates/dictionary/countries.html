@@ -7,11 +7,11 @@
 <div class="container flex-center">
     <div class="col-m-12 col-8">
         <div class="grid">
-            <div class="margin full">
-                <div class="flex flex-left"><span class="padding-h">{% translate "Countries" %} (<span class="lowercase bold">{{country_list.count}}</span>)</span></div>
+            <div class="margin-v full">
+                <div class="flex flex-left"><span>{% translate "Countries" %} (<span class="lowercase bold padding-h">{{country_list.count}}</span>)</span></div>
             </div>
             
-            <div class="margin full">
+            <div class="margin-v full">
                 <ul>
                     {% for country in country_list %}
                     <li class="margin-b">

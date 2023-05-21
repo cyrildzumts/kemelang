@@ -342,8 +342,6 @@ p{
 }
 ul li{
   width: fit-content;
-  padding: 0 0.5em;
-  margin: 0 0.5em;
   border-radius: 1em;
 }
 #lang-form{

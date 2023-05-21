@@ -9,12 +9,12 @@
         <div class="grid">
             <div class="margin full">
                 {% if country %}
-                <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span></div>
+                <div class="flex flex-left"><span class="padding-v"><span class="capitalyze">{{country}}</span></span></div>
                 {% endif %}
-                <div class="flex flex-left"><span class="padding-h">{% translate "Langages" %} (<span class="lowercase bold">{{langage_list.count}}</span>)</span></div>
+                <div class="flex flex-left"><span>{% translate "Langages" %} (<span class="lowercase bold padding-h">{{langage_list.count}}</span>)</span></div>
             </div>
             
-            <div class="margin full">
+            <div class="margin-v full">
                 <ul>
                     {% for langage in langage_list %}
                     <li class="margin-b">
