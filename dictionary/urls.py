@@ -15,9 +15,9 @@ dictionary_patterns = [
     path('update-word/<str:word>/<uuid:word_uuid>/', views.update_word, name="word-update"),
     path('update-country/<slug:country_slug>/<uuid:country_uuid>/', views.update_country, name="country-update"),
     path('update-langage/<slug:langage_slug>/<uuid:langage_uuid>/', views.update_langage, name="langage-update"),
-    path('countries/<slug:country_slug>/', views.country_detail, name="country-detail"),
-    path('langages/<slug:langage_slug>/', views.langage_details, name="langage-detail"),
-    path('word/<str:word>/<uuid:word_uuid>/', views.word_details, name="word-detail"),
+    path('countries/<slug:country_slug>/', views.country_detail, name="country"),
+    path('langages/<slug:langage_slug>/', views.langage_details, name="langage"),
+    path('word/<str:word>/<uuid:word_uuid>/', views.word_details, name="word"),
     
 ]
 

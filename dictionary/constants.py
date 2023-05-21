@@ -33,3 +33,32 @@ FORM_MANAGEMENT_TYPE_MAPPING = {
     'definition': 'Definition',
     
 }
+
+DICTIONARY_URL_PREFIX = "dictionary"
+
+DICTIONARY_URL_COUNTRY_CONTEXT = {
+    'COUNTRIES_URL'               : f"{DICTIONARY_URL_PREFIX}:countries",
+    'COUNTRY_URL'                : f"{DICTIONARY_URL_PREFIX}:country",
+    'COUNTRY_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:country-update",
+    'COUNTRY_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:country-delete",
+    'COUNTRIES_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:countries-delete",
+    'COUNTRY_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:country-create"
+}
+
+DICTIONARY_URL_LANGAGE_CONTEXT = {
+    'LANGAGES_URL'               : f"{DICTIONARY_URL_PREFIX}:langages",
+    'LANGAGE_URL'                : f"{DICTIONARY_URL_PREFIX}:langage",
+    'LANGAGE_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:langage-update",
+    'LANGAGE_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:langage-delete",
+    'LANGAGES_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:langages-delete",
+    'LANGAGE_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:langage-create"
+}
+
+DICTIONARY_URL_WORD_CONTEXT = {
+    'WORDS_URL'               : f"{DICTIONARY_URL_PREFIX}:words",
+    'WORD_URL'                : f"{DICTIONARY_URL_PREFIX}:word",
+    'WORD_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-update",
+    'WORD_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-delete",
+    'WORDS_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:words-delete",
+    'WORD_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-create"
+}

@@ -113,6 +113,7 @@ def update_country(request, country_slug, country_uuid):
             logger.warn(msg)
     else:
         pass
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
     return render(request, template_name, context)
 
 def update_langage(request, langage_slug, langage_uuid):
@@ -133,6 +134,7 @@ def update_langage(request, langage_slug, langage_uuid):
             logger.warn(msg)
     else:
         pass
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     return render(request, template_name, context)
 
 
@@ -154,6 +156,9 @@ def update_word(request, word, word_uuid):
             logger.warn(msg)
     else:
         pass
+    
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
+    
     return render(request, template_name, context)
 
 

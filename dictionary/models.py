@@ -43,7 +43,7 @@ class Langage(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse("dictionary:langage-detail", kwargs={"langage_slug": self.slug})
+        return reverse("dictionary:langage", kwargs={"langage_slug": self.slug})
     
     def get_update_url(self):
         return reverse("dictionary:langage-update", kwargs={"langage_slug": self.slug, 'langage_uuid': self.langage_uuid})
@@ -81,7 +81,7 @@ class Country(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse("dictionary:country-detail", kwargs={"country_slug": self.slug})
+        return reverse("dictionary:country", kwargs={"country_slug": self.slug})
     
     def get_update_url(self):
         return reverse("dictionary:country-update", kwargs={"country_slug": self.slug, 'country_uuid': self.country_uuid})
@@ -115,7 +115,7 @@ class Word(models.Model):
         return self.word
     
     def get_absolute_url(self):
-        return reverse("dictionary:word-detail", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
+        return reverse("dictionary:word", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
     
     def get_update_url(self):
         return reverse("dictionary:word-update", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
