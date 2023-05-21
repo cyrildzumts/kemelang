@@ -178,6 +178,7 @@ def langages(request):
         'page_title': f"Langages",
         'langage_list': dictionary_service.get_langages(),
     }
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     return render(request, template_name, context)
 
 
@@ -190,6 +191,8 @@ def country_detail(request, country_slug):
         'country': country,
         'langage_list': langage_list,
     }
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     return render(request, template_name, context)
 
 
@@ -202,6 +205,8 @@ def langage_details(request,langage_slug):
         'langage': langage,
         'country_list': country_list,
     }
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
     return render(request, template_name, context)
 
 
@@ -216,4 +221,5 @@ def word_details(request,word, word_uuid):
         'comment_list': word.comments.all(),
         'phrase_list': word.phrases.all()
     }
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     return render(request, template_name, context)
