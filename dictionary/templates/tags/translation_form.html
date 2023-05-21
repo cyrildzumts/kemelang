@@ -21,7 +21,7 @@
                     <div class="form-group">
                         <label for="source_langage">{% trans "Source Langage" %}</label>
                         <select id="source_langage" name="source_langage">
-                            {% for lang in langages %}
+                            {% for lang in langage_list %}
                             <option value="{{lang.id}}">{{langage.name}}</option>
                             {% endfor %}
                         </select>
@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label for="target_langage">{% trans "Target Langage" %}</label>
                         <select id="target_langage" name="target_langage">
-                            {% for lang in langages %}
+                            {% for lang in langage_list %}
                             <option value="{{lang.id}}">{{langage.name}}</option>
                             {% endfor %}
                         </select>
