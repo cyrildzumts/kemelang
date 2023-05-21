@@ -123,6 +123,7 @@ def update_langage(request, langage_slug, langage_uuid):
         'page_title': "Update Langage",
         'langage': langage,
     }
+    logger.info(f"langage update : {langage} - Description : {langage.description}")
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
