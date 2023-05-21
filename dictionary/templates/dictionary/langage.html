@@ -20,7 +20,7 @@
             <div class="margin-v full">
                 <div class="flex flex-left"><span class="padding-v">{% translate "Countries" %} (<span class="lowercase">{{country_list.count}}</span>): </span></div>
                 <div class="">
-                    <ul>
+                    <ul class="grid-list">
                         {% for country in country_list %}
                         <li class="margin-b">
                             <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>

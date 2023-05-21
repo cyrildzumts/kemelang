@@ -6511,6 +6511,11 @@ option:checked{
   align-items: center;
   justify-content: center;
 }
+.grid-list{
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: auto;
+}
 .listview{
   display: flex;
   min-width: 100%;
