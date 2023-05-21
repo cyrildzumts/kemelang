@@ -6514,14 +6514,6 @@ option:checked{
   align-items: center;
   justify-content: center;
 }
-.grid-list{
-  
-  grid-auto-flow: column;
-  grid-template-rows:repeat(10, 1fr);
-  grid-template-columns: repeat(6,1fr);
-  column-gap: 2px;
-  column-count: 6;
-}
 .listview{
   display: flex;
   min-width: 100%;
@@ -6614,4 +6606,12 @@ option:checked{
 .no-padding-xl{padding: 0;}
 .margin-xl{margin: 0.5em;}
 .no-margin-xl{margin: 0;}
+.grid-list{
+    
+    grid-auto-flow: column;
+    grid-template-rows:repeat(10, 1fr);
+    grid-template-columns: repeat(6,1fr);
+    column-gap: 2px;
+    column-count: 6;
+  }
 }
