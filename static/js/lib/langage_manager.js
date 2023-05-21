@@ -112,15 +112,16 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         let description = document.getElementById("description");
         
         try {
-            if(description){
+            if(description && description.value){
                 console.log("langage description : ", description.value);
+                let init_data = JSON.parse(description.value);
+                let editor = new Editor_API.EditorWrapper('editor', init_data);
+                editor.init()
+                if(!editor.created){
+                    console.warn("Editor not created for Langage update");
+                }
             }
-            let init_data = description.value.length > 0 ? JSON.parse(description.value) : {};
-            let editor = new Editor_API.EditorWrapper('editor', init_data);
-            editor.init()
-            if(!editor.created){
-                console.warn("Editor not created for Langage update");
-            }
+            
         } catch (error) {
             console.warn("error on parsing json data from description value : %s", description.value);
             console.error(error);
