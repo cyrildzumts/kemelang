@@ -47,6 +47,7 @@
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:countries' %}" title="{% trans 'Countires' %}"><i class="fas fa-globe-africa"></i><span class="hidden-m">{% trans "Countries" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langages' %}" title="{% trans 'Langages' %}"><i class="fas fa-language"></i><span class="hidden-m">{% trans "Langages" %}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url TRANSLATION_CREATE_URL %}" title="{% trans 'Add Translation' %}"><i class="fas fa-language"></i><span class="hidden-m">{% trans "Add Translation" %}</span></a></li>
                     {% comment %}
                         <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
                     {% endcomment %}

@@ -74,6 +74,9 @@ def create_langage(data):
 def create_word(data):
     return core_service.create_instance(Word, data)
 
+def create_translation(data):
+    return core_service.create_instance(TranslationWord, data)
+
 def create_definition(data):
     return core_service.create_instance(Definition, data)
 

@@ -1,5 +1,6 @@
 from kemelang import settings
 from django.contrib.auth.models import User
+from dictionary import constants
 
 import logging
 
@@ -14,6 +15,7 @@ def site_context(request):
         'redirect_to' : '/',
         'dev_mode' : settings.DEV_MODE,
         'next_url' : request.path,
-        'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT,
+        'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT
     }
+    context.update(constants.DICTIONARY_URL_TRANSLATION_CONTEXT)
     return context

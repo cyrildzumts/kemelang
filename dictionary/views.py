@@ -94,6 +94,26 @@ def create_word(request):
     return render(request, template_name, context)
 
 
+def create_translation(request):
+    template_name = "dictionary/add_translation.html"
+    context = {
+        'page_title': "New Translation",
+        'langage_list': dictionary_service.get_langages()
+    }
+    if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
+        data = utils.get_postdata(request)
+        try:
+            word = dictionary_service.create_translation(data)
+            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+        except Exception as e:
+            msg = f"Error on translating Word : {e}"
+            messages.warning(request, msg)
+            logger.warn(msg)
+    else:
+        pass
+    return render(request, template_name, context)
+
+
 
 def update_country(request, country_slug, country_uuid):
     template_name = "dictionary/update_country.html"

@@ -62,3 +62,13 @@ DICTIONARY_URL_WORD_CONTEXT = {
     'WORDS_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:words-delete",
     'WORD_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-create"
 }
+
+DICTIONARY_URL_TRANSLATION_CONTEXT = {
+    'TRANSLATION_CREATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-create",
+    'TRANSLATION_UPDATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-update",
+    'TRANSLATION_URL'               : f"{DICTIONARY_URL_PREFIX}:translation",
+    'TRANSLATION_DELETE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-delete",
+    'TRANSLATIONS_DELETE_URL'               : f"{DICTIONARY_URL_PREFIX}:translations-delete",
+    'TRANSLATIONS_URL'               : f"{DICTIONARY_URL_PREFIX}:translations",
+    
+}
