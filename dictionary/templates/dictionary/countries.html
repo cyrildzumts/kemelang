@@ -14,7 +14,7 @@
             <div class="margin-v full">
                 <ul class="grid-list">
                     {% for country in country_list %}
-                    <li class="margin-b padding">
+                    <li class="margin-b padding dict-list-entry">
                         <a href="{{SITE_HOST}}{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
                     </li>
                     {% endfor %}

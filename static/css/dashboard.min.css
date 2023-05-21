@@ -6371,16 +6371,16 @@ option:checked{
 	font-weight: bold;
 	background-color: #bdc3c7;
   }
-  .dict-langage-selection.selected{
+  .dict-langage-selection.selected, .dict-list-entry.selected{
 	font-weight: bold;
     color: var(--secondary-color);
 	background-color: #ecf0f1;
   }
-  .dict-langage-selection.selected i{
+  .dict-langage-selection.selected i, .dict-list-entry.selected i{
 	font-weight: bold;
     color: var(--secondary-color);
   }
-  .dict-langage-selection:hover{
+  .dict-langage-selection:hover, .dict-list-entry:hover{
 	color: #0a0a0a;
 	font-weight: bold;
 	background-color: #eee;
