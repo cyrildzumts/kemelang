@@ -114,7 +114,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         try {
             if(description && description.value){
                 console.log("langage description : ", description.value);
-                let value = description.value.replace(/&quot;/ig,'"');
+                let value = description.value.replace(/'/g,'"');
                 let init_data = JSON.parse(value);
                 let editor = new Editor_API.EditorWrapper('editor', init_data);
                 editor.init()
