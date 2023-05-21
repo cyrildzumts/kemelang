@@ -4471,11 +4471,10 @@ ul li{
 	align-items: center;
 	min-width: 13.5em;
 	width: 13.5em;
-	height: 3em;
 	border: 1px solid transparent;
 	border-radius: 0.2em;
 	font-size: 0.8em;
-	margin-bottom: 0.2em;
+	margin-bottom: 0.5em;
 	cursor: pointer;
   }
   .dict-search-langage-wrapper input{
@@ -4809,6 +4808,10 @@ ul li{
   
   
   @media only screen and (min-width:50em){
+	.dict-langages-container{
+		column-gap: 2px;
+		column-count: 6;
+	  }
 	  .navbar-expand .navbar-nav {
 		  flex-direction: row;
 	  }
