@@ -112,6 +112,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         let description = document.getElementById("description");
         
         try {
+            if(description){
+                console.log("langage description : ", description.value);
+            }
             let init_data = description.value.length > 0 ? JSON.parse(description.value) : {};
             let editor = new Editor_API.EditorWrapper('editor', init_data);
             editor.init()
