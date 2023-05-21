@@ -8,15 +8,15 @@
 <div class="container flex-center">
     <div class="col-m-12 col-8">
         <div class="grid">
-            <div class="full">
+            <div class="margin full">
                 <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{langage}}</span></span><a href="{% url 'dictionary:langage-update' langage.slug langage.langage_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a></div>
             </div>
-            <div class="full">
+            <div class="margin full">
                 <div class="flex flex-left">
                     {% render_tag langage.description %}
                 </div>
             </div>
-            <div class="full">
+            <div class="margin full">
                 <div class="flex flex-left margin-b"><span class="padding-h">{% translate "Countries" %} : <span class="lowercase">{{countrie_list.count}}</span></span></div>
                 <div class="">
                     <ul>
