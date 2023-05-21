@@ -9,16 +9,16 @@
         <div class="grid">
             <div class="margin full">
                 {% if country %}
-                <div class="flex flex-left"><span class="padding-v"><span class="capitalyze">{{country}}</span></span></div>
+                <div class="flex flex-left"><span class="padding-v bold"><span class="capitalyze">{{country}}</span></span></div>
                 {% endif %}
-                <div class="flex flex-left"><span>{% translate "Langages" %} (<span class="lowercase bold padding-h">{{langage_list.count}}</span>)</span></div>
+                <div class="flex flex-left"><span>{% translate "Langages" %} (<span class="padding-h">{{langage_list.count}}</span>)</span></div>
             </div>
             
             <div class="margin-v full">
                 <ul>
                     {% for langage in langage_list %}
                     <li class="margin-b">
-                        <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
+                        <a href="{{langage.get_absolute_url}}"><span class="word-type">{{langage}}</span></a>
                     </li>
                     {% endfor %}
                 </ul>
