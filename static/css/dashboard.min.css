@@ -6515,11 +6515,12 @@ option:checked{
   justify-content: center;
 }
 .grid-list{
-  display: grid;
+  
   grid-auto-flow: column;
   grid-template-rows:repeat(10, 1fr);
   grid-template-columns: repeat(6,1fr);
   column-gap: 2px;
+  column-count: 6;
 }
 .listview{
   display: flex;
