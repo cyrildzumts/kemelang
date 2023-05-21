@@ -7,11 +7,11 @@
 <div class="container flex-center">
     <div class="col-m-12 col-8">
         <div class="grid">
-            <div class="margin full">
+            <div class="margin-v full">
                 {% if country %}
                 <div class="flex flex-left"><span class="padding-v bold"><span class="capitalyze">{{country}}</span></span></div>
                 {% endif %}
-                <div class="flex flex-left"><span>{% translate "Langages" %} (<span class="padding-h">{{langage_list.count}}</span>)</span></div>
+                <div class="flex flex-left"><span class="padding-v bold">{% translate "Langages" %} (<span class="padding-h">{{langage_list.count}}</span>)</span></div>
             </div>
             
             <div class="margin-v full">
