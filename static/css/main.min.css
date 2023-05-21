@@ -4500,6 +4500,9 @@ ul li{
   .dict-langage-selection i{
     display: none;
   }
+  .word-type, .word{
+	white-space: nowrap;
+  }
   
   
   @media only screen and (max-width:50em){
