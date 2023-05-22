@@ -1,7 +1,7 @@
 ({
     baseUrl: "lib",
     paths: {
-        vendor : "../vendors",
+        vendor: "../vendors",
         jquery: "../vendors/jquery-3.6.0.min",
         //editor: "../vendors/editor",
         editor: "empty:",
