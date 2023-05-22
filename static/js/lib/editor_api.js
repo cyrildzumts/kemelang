@@ -1,4 +1,4 @@
-define(['require','ajax_api', 'tag_api', /*'editor/editor',*/ editor/editorjs.umd.min,
+define(['require','ajax_api', 'tag_api', /*'editor/editor',*/ 'editor/editorjs.umd',
 'editor/plugins/header.min','editor/plugins/list.min', 'editor/plugins/link.min',
 'editor/plugins/checklist.min', 'editor/plugins/quote.min', 'editor/plugins/table.min',
 'editor/plugins/inline-image','editor/plugins/editor-emoji.min',
