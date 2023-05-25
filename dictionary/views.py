@@ -95,7 +95,7 @@ def create_word(request):
 
 
 def create_translation(request):
-    template_name = "dictionary/add_translation.html"
+    template_name = "dictionary/create_translation.html"
     context = {
         'page_title': "New Translation",
         'langage_list': dictionary_service.get_langages()
@@ -103,7 +103,7 @@ def create_translation(request):
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
-            word = dictionary_service.create_translation(data)
+            translation = dictionary_service.create_translation(data)
             return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
         except Exception as e:
             msg = f"Error on translating Word : {e}"

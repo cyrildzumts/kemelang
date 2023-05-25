@@ -1,0 +1,16 @@
+{% load i18n %} 
+
+
+<div class="grid">
+    <form id="translation-form" class="translation-form" name="translation" action="{% url 'dictionary:translation-create' %}" method="POST">{% csrf_token %}
+        <div id="translation-form-container" class="create-form grid">  
+        </div>
+        <div class="actions">
+            <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
+            <button id="add-btn" class="mat-button mat-button-default" type="button"><span><i class="fas fa-plus"></i><span>{% trans "Add" %}</span></span></button>
+            <button class="mat-button mat-button-default create-btn" type="submit">{% trans "Create" %}</button>
+        </div>
+    </form>
+    {% include "tags/langage_selection_dialog.html" %}
+</div>
+
