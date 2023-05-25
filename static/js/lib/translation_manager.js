@@ -166,7 +166,12 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         this.active_translations[result.index] = translation;
         translation['langages-btn'].forEach(this.register_modal.bind(this));
         let words = [translation['source'].word, translation['target'].word];
-
+        let remove_warnin_on_word = (word) =>{
+            let error_target = document.getElementById(word.dataset.error);
+            error_target.classList.add('hidden');
+            error_target.classList.remove('warning');
+            word.classList.remove('warning');
+        }
         ['keyup','change'].forEach(function (e) {
             words.forEach(function(word){
                 word.addEventListener(e, function(event){
@@ -174,9 +179,11 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
     
                     if(!word.value.trim().length){
                         word.value = "";
+                        remove_warnin_on_word(word);
                         return;
                     }
                     if(!word.dataset.lang){
+                        remove_warnin_on_word(word);
                         return;
                     }
                     if(self.scheduled_query){
