@@ -3969,14 +3969,10 @@
   .selected-options{
 	display: flex;
 	width: 100%;
-	min-height: 8em;
 	max-height: 8em;
-	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	padding: 1em 0;
 	border-radius: 8px;
-	box-shadow: var(--box-shadow);
 	overflow-y: auto;
   }
 
