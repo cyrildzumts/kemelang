@@ -41,12 +41,14 @@ define(['tag_api'],function(tag_api) {
             'id': `source-langage-internal-${this.index}`,
             'name': `${form_prefix}-${form_index}-source_langage`,
             'cls': 'managed-update',
+            'data-lang': '',
             'type':'hidden',
 
         }});
         let target_langage_internal = create_api({'element': 'input', 'options':{
             'id': `target-langage-internal-${this.index}`,
             'name': `${form_prefix}-${form_index}-target_langage`,
+            'data-lang': '',
             'cls': 'managed-update',
             'type':'hidden',
 
@@ -169,8 +171,9 @@ define(['tag_api'],function(tag_api) {
             'data-name': `${form_prefix}-${form_index}-source_langage`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
-            'data-index': `source-langage-index-${this.index}`,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Langage'}})]
+            'data-index': `translation-index-${this.index}`,
+            'data-destination': 'source-langage',
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Source Langage'}})]
         }});
         let source_langage_btn_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
@@ -211,7 +214,8 @@ define(['tag_api'],function(tag_api) {
             'data-name': `${form_prefix}-${form_index}-target_langage`,
             'data-open': 'fas fa-plus',
             'data-close': 'fas fa-times',
-            'data-index': `target-langage-index-${this.index}`,
+            'data-index': `translation-index-${this.index}`,
+            'data-destination': 'target-langage',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Target Langage'}})]
         }});
         let target_langage_btn_group = create_api({'element': 'div', 'options':{
@@ -298,7 +302,9 @@ define(['tag_api'],function(tag_api) {
             'translation': {
                 'langages-btn': [add_source_langage_btn, add_target_langage_btn], 
                 'source-word': source_word,
-                'target-word': target_word, 
+                'target-word': target_word,
+                'source-langage' : source_langage,
+                'target-langage' : target_langage,
                 'source-langage-selection': selected_source_langage, 
                 'target-langage-selection': selected_target_langage
             }

@@ -19,9 +19,12 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
         this.translationFormFactory;
         this.span_selected_langage = undefined;
+        this.span_selected_source_langage = undefined;
+        this.span_selected_target_langage = undefined;
         this.current_langage_container = undefined;
         this.wrappers = [];
         this.active_translations = {};
+        this.active_translation = {};
         this._index = undefined;
         this.form_is_valid = false;
         this.total_form = 0;
@@ -119,22 +122,24 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             event.preventDefault();
             let modal = document.getElementById(btn.dataset.target);
             self._index = btn.dataset.index;
+            
             self.span_selected_langage = document.getElementById(btn.dataset.selected);
-            self.current_word_container = document.getElementById(btn.dataset.container);
+            self.current_translation_container = document.getElementById(btn.dataset.container);
             let selection = self.active_translations[self._index].langages;
+            let destination = self.active_translations[btn.dataset.index]['translation'][btn.dataset.destination];
             self.langage_selection_list.forEach((c) =>{
-                c.classList.toggle('selected', selection.includes(c.dataset.name));
+                c.classList.toggle('selected', destination.dataset.lang == c.dataset.name );
             });
 
-            self.active_word = btn.dataset.name;
-            self.current_word_container = document.getElementById(btn.dataset.container);
+            //self.active_word = btn.dataset.name;
+            //self.current_translation_container = document.getElementById(btn.dataset.container);
             modal.style.display = "flex";
             if(window){
                 $(window).click(function(eventModal){
                     if(eventModal.target == modal){
                         modal.style.display = "none";
-                        self.active_word = undefined;
-                        self.current_word_container = undefined;
+                        //self.active_word = undefined;
+                        self.current_translation_container = undefined;
                         self.span_selected_langage = undefined;
                         self._index = undefined;
                         self.langage_selection_list.forEach((c) =>{
