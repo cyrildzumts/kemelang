@@ -62,6 +62,7 @@ define(['tag_api'],function(tag_api) {
         }});
         let source_word = create_api({'element': 'input', 'options':{
             'id': `source-word-${this.index}`,
+            'cls':'full',
             'data-error': `${id}-source-word-error`,
             'data-target': `source-word-internal-${this.index}`,
             'data-lang': "",
@@ -72,6 +73,7 @@ define(['tag_api'],function(tag_api) {
         
         let target_word = create_api({'element': 'input', 'options':{
             'id': `target-word-${this.index}`,
+            'cls':'full',
             'data-error': `${id}-target-word-error`,
             'data-target': `target-word-internal-${this.index}`,
             'data-lang': "",
@@ -102,12 +104,12 @@ define(['tag_api'],function(tag_api) {
         
         let label_source_word = create_api({'element': 'label', 'options': {
             'innerText': 'Source Word',
-            'cls': 'managed-update force-hidden',
+            'cls': 'managed-update',
             'htmlFor': `source-word-${this.index}`
         }});
         let label_target_word = create_api({'element': 'label', 'options': {
-            'innerText': 'Target Word',
-            'cls': 'managed-update force-hidden',
+            'innerText': 'Destination Word',
+            'cls': 'managed-update',
             'htmlFor': `target-word-${this.index}`
         }});
 
@@ -117,7 +119,7 @@ define(['tag_api'],function(tag_api) {
             'htmlFor': `source-langage-${this.index}`
         }});
         let label_target_langage = create_api({'element': 'label', 'options': {
-            'innerText': 'Target Langage',
+            'innerText': 'Destination Langage',
             'cls': 'managed-update force-hidden',
             'htmlFor': `target-langage-${this.index}`
         }});

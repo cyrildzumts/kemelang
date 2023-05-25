@@ -243,19 +243,25 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
-                self.on_word_exist(tag, response.found);
+                self.on_word_exist(tag,response.words, response.found);
             }
         }, function(reason){
             console.error(reason);
         });
     }
 
-    TranslationManager.prototype.on_word_exist = function(tag, word_exist){
+    TranslationManager.prototype.on_word_exist = function(tag, word_list, word_exist){
         let target = document.getElementById(tag.dataset.error);
         target.classList.toggle('hidden', word_exist);
         target.classList.toggle('warning', !word_exist);
         tag.classList.toggle('warning', !word_exist);
         this.form_is_valid = word_exist;
+        if(word_exist){
+            console.log("found %s word for query %", word_list.length, tag.value);
+            console.log("found words : ", word_list);
+            let word = document.getElementById(tag.dataset.target);
+            word.value = word_list[0].id;
+        }
     }
 
     TranslationManager.prototype.on_langage_selection_clicked = function(langage_tag){
