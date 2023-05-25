@@ -226,9 +226,11 @@ def langage_details(request,langage_slug):
         'page_title': f"Langage {langage.name}",
         'langage': langage,
         'country_list': country_list,
+        'word_list': dictionary_service.get_words_for_langage(langage)
     }
     context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     return render(request, template_name, context)
 
 

@@ -163,6 +163,8 @@ def find_words(word, lang):
     logger.info(f"Looking for word {word}")
     return Word.objects.filter(word__iexact=word,langage__slug__iexact=lang) 
 
+def get_words_for_langage(langage):
+    return langage.words.all()
 
 def get_langages_by_country(country):
     if not isinstance(country, Country):

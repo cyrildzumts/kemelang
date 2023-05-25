@@ -29,6 +29,19 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="margin-v full">
+                <div class="flex flex-left"><span class="padding-v">{% translate "Vocabulars" %} (<span class="lowercase">{{word_list.count}}</span>): </span></div>
+                <div class="margin-v">
+                    <ul class="grid-list">
+                        {% for word in word_list %}
+                        <li class="margin-b padding dict-list-entry">
+                            <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
             
         </div>
     </div>
