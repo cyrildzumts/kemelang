@@ -126,7 +126,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             self.span_selected_langage = document.getElementById(btn.dataset.selected);
             self.current_translation_container = document.getElementById(btn.dataset.container);
             //let selection = self.active_translations[self._index].langages;
-            let destination = self.active_translations[btn.dataset.index]['translation'][btn.dataset.destination];
+            let destination = self.active_translations[btn.dataset.index][btn.dataset.destination];
             self.langage_selection_list.forEach((c) =>{
                 c.classList.toggle('selected', destination.dataset.lang == c.dataset.name );
             });
