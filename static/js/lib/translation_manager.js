@@ -372,5 +372,5 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             console.error(reason);
         });
     }
-    return WordManager;
+    return TranslationManager;
 });
