@@ -97,8 +97,8 @@ define(['tag_api'],function(tag_api) {
             'placeholer': 'Enter Target word'
 
         }});
-        let source_word_error = create_api({'element': 'span', 'options':{'id': `${id}-source-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
-        let target_word_error = create_api({'element': 'span', 'options':{'id': `${id}-target-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
+        let source_word_error = create_api({'element': 'span', 'options':{'id': `${id}-source-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word not found'}})
+        let target_word_error = create_api({'element': 'span', 'options':{'id': `${id}-target-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word not found'}})
         
         let label_source_word = create_api({'element': 'label', 'options': {
             'innerText': 'Source Word',

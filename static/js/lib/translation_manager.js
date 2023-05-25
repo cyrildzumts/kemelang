@@ -245,10 +245,10 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
 
     TranslationManager.prototype.on_word_exist = function(tag, word_exist){
         let target = document.getElementById(tag.dataset.error);
-        target.classList.toggle('hidden', !word_exist);
-        target.classList.toggle('warning', word_exist);
-        tag.classList.toggle('warning', word_exist);
-        this.form_is_valid = !word_exist;
+        target.classList.toggle('hidden', word_exist);
+        target.classList.toggle('warning', !word_exist);
+        tag.classList.toggle('warning', !word_exist);
+        this.form_is_valid = word_exist;
     }
 
     TranslationManager.prototype.on_langage_selection_clicked = function(langage_tag){
