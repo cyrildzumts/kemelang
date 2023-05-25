@@ -155,7 +155,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         this.wrappers.push(result.tag);
         this.active_translations[result.index] = translation;
         translation['langages-btn'].forEach(this.register_modal.bind(this));
-        let words = [translation['source-word'], translation['target-word']]
+        let words = [translation['source-word'], translation['target-word']];
 
         ['keyup','change'].forEach(function (e) {
             words.forEach(function(word){
