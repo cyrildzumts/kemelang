@@ -265,6 +265,8 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         if(selected){
             // remove langage
             self.current_target.langage.value = "";
+            self.current_target.langage.dataset.lang = "";
+            self.current_target.word.dataset.lang = "";
             selection.removeChild(document.getElementById(langage_name));
             
         }else{
@@ -282,6 +284,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             */
             self.current_target.langage.value = langage_tag.dataset.id;
             self.current_target.langage.dataset.lang = lang_slug;
+            self.current_target.word.dataset.lang = lang_slug;
             selection.appendChild(tag_api.create_tag({'element':'span','options':{
                 'cls': 'chips small',
                 'innerText': langage_name,
