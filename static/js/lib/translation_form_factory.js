@@ -173,6 +173,7 @@ define(['tag_api'],function(tag_api) {
             'data-close': 'fas fa-times',
             'data-index': `translation-index-${this.index}`,
             'data-destination': 'source-langage',
+            'data-selector': 'source',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Source Langage'}})]
         }});
         let source_langage_btn_group = create_api({'element': 'div', 'options':{
@@ -216,6 +217,7 @@ define(['tag_api'],function(tag_api) {
             'data-close': 'fas fa-times',
             'data-index': `translation-index-${this.index}`,
             'data-destination': 'target-langage',
+            'data-selector': 'target',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-plus icon'}}), create_api({'element': 'span', 'options':{'innerText': 'Select Target Langage'}})]
         }});
         let target_langage_btn_group = create_api({'element': 'div', 'options':{
@@ -301,10 +303,12 @@ define(['tag_api'],function(tag_api) {
             'tag': div, 'inputs': form_inputs, 'index': `translation-index-${this.index}`,
             'translation': {
                 'langages-btn': [add_source_langage_btn, add_target_langage_btn], 
-                'source-word': source_word,
-                'target-word': target_word,
-                'source-langage' : source_langage,
-                'target-langage' : target_langage,
+                'source': {'word': source_word,'langage': source_langage, 'selection': selected_source_langage},
+                'target': {'word': target_word,'langage': target_langage, 'selection': selected_target_langage},
+                'source-word': {'word': source_word, 'selection': selected_source_langage},
+                'target-word': {'word': target_word, 'selection': selected_target_langage},
+                'source-langage' : {'langage': source_langage_internal, 'selection': selected_source_langage },
+                'target-langage' : {'langage': target_langage_internal, 'selection': selected_target_langage },
                 'source-langage-selection': selected_source_langage, 
                 'target-langage-selection': selected_target_langage
             }

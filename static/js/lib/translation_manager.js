@@ -22,6 +22,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         this.span_selected_source_langage = undefined;
         this.span_selected_target_langage = undefined;
         this.current_langage_container = undefined;
+        this.current_target = undefined;
         this.wrappers = [];
         this.active_translations = {};
         this.active_translation = {};
@@ -126,9 +127,11 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             self.span_selected_langage = document.getElementById(btn.dataset.selected);
             self.current_translation_container = document.getElementById(btn.dataset.container);
             //let selection = self.active_translations[self._index].langages;
-            let destination = self.active_translations[btn.dataset.index][btn.dataset.destination];
+            self.active_translation = self.active_translations[btn.dataset.index];
+            let translation = self.active_translation[btn.dataset.selector];
+            self.current_target = translation;
             self.langage_selection_list.forEach((c) =>{
-                c.classList.toggle('selected', destination.dataset.lang == c.dataset.name );
+                c.classList.toggle('selected', translation.langage.dataset.lang == c.dataset.name );
             });
 
             //self.active_word = btn.dataset.name;
@@ -141,7 +144,9 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
                         //self.active_word = undefined;
                         self.current_translation_container = undefined;
                         self.span_selected_langage = undefined;
+                        self.active_translation = undefined;
                         self._index = undefined;
+                        self.current_target = undefined;
                         self.langage_selection_list.forEach((c) =>{
                             c.classList.remove('selected');
                         });
@@ -253,24 +258,20 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         let self = this;
         let selected = langage_tag.classList.contains('selected');
         let translation = this.active_translations[this._index];
-        let selection = translation['selection'];
+        let selection = this.current_target['selection'];
         let langage_name = langage_tag.dataset.name;
         let lang_slug = langage_tag.dataset.slug;
         
         if(selected){
             // remove langage
-            let list = word['langages'];
-            let i = list.findIndex((c) => c == langage_name);
-            list.splice(i, 1);
+            self.current_target.langage.value = "";
             selection.removeChild(document.getElementById(langage_name));
             
         }else{
-            // add langage.
-            let list = word['langages'];
-            list.splice(0, 1);
             while(selection.firstChild){
                 selection.removeChild(selection.firstChild);
             }
+            /*
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'name': this.active_word,
                 'value': langage_tag.dataset.id,
@@ -278,20 +279,20 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
                 'data-slug': lang_slug,
                 'type': 'hidden'
             }});
-            word.word_input.dataset.lang = lang_slug;
-            word['langages'].push(langage_name);
+            */
+            self.current_target.langage.value = langage_tag.dataset.id;
+            self.current_target.langage.dataset.lang = lang_slug;
             selection.appendChild(tag_api.create_tag({'element':'span','options':{
                 'cls': 'chips small',
                 'innerText': langage_name,
                 'id': langage_name
             }}));
             
-            selection.appendChild(input);
-            if(word.word_input.value.trim().length > 0 ){
+            if(self.current_target.word.value.trim().length > 0 ){
                 if(self.scheduled_query){
                     clearTimeout(self.scheduled_query);
                 }
-                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, word.word_input, lang_slug);
+                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.current_target.word, lang_slug);
             }
             
         }
