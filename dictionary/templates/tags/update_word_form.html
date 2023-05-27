@@ -27,7 +27,7 @@
                     <div class="form-group full description">
                         <input id="description" type="hidden" name="description" value="{{word.description_to_json|default:''}}">
                         <span class="padding-bottom">{% trans "Description" %}</span>
-                        <div id="editor" class="editor padding bordered" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
+                        <div id="editor" class="editor" data-target="description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
                     </div>
                 </div>
 
