@@ -1,7 +1,9 @@
+import json
 import uuid
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
+from django.core.serializers.json import DjangoJSONEncoder
 from dictionary import constants
 
 # Create your models here.
@@ -17,7 +19,7 @@ def upload_definition_audio_to(instance, filename):
 
 class Langage(models.Model):
     name = models.CharField(max_length=constants.NAME_MAX_LENGTH)
-    description = models.JSONField(blank=True, null=True)
+    description = models.JSONField(encoder=DjangoJSONEncoder,blank=True, null=True)
     countries = models.ManyToManyField('Country', related_name='langages', blank=True)
     slug = models.SlugField(max_length=constants.NAME_MAX_LENGTH, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='added_langages', blank=True, null=True)
@@ -41,6 +43,12 @@ class Langage(models.Model):
     
     def __str__(self) -> str:
         return self.name
+    
+    @property
+    def description_to_json(self):
+        if self.description is None:
+            return ''
+        return json.dumps(self.description)
     
     def get_absolute_url(self):
         return reverse("dictionary:langage", kwargs={"langage_slug": self.slug})
@@ -80,6 +88,12 @@ class Country(models.Model):
     def __str__(self) -> str:
         return self.name
     
+    @property
+    def description_to_json(self):
+        if self.description is None:
+            return ''
+        return json.dumps(self.description)
+    
     def get_absolute_url(self):
         return reverse("dictionary:country", kwargs={"country_slug": self.slug})
     
@@ -114,6 +128,12 @@ class Word(models.Model):
     def __str__(self) -> str:
         return self.word
     
+    @property
+    def description_to_json(self):
+        if self.description is None:
+            return ''
+        return json.dumps(self.description)
+    
     def get_absolute_url(self):
         return reverse("dictionary:word", kwargs={"word": self.word, 'word_uuid': self.word_uuid})
     
@@ -142,6 +162,12 @@ class Definition(models.Model):
     def __str__(self) -> str:
         return self.word
     
+    @property
+    def description_to_json(self):
+        if self.description is None:
+            return ''
+        return json.dumps(self.description)
+    
     def as_dict(self, filter_foreign_key=False):
         return {'id': self.pk, 'type': 'Definition', 'word': self.word.as_dict(),'description': self.description,'definition_uuid': self.definition_uuid}
     
@@ -164,6 +190,11 @@ class Comment(models.Model):
     def __str__(self) -> str:
         return self.word
     
+    @property
+    def comment_to_json(self):
+        if self.comment is None:
+            return ''
+        return json.dumps(self.comment)
     
     def as_dict(self, filter_foreign_key=False):
         return {'id': self.pk, 'type': 'Comment', 'word': self.word.as_dict(),'comment': self.comment,'comment_uuid': self.comment_uuid}
@@ -188,6 +219,12 @@ class Phrase(models.Model):
     
     def __str__(self) -> str:
         return self.word
+    
+    @property
+    def description_to_json(self):
+        if self.description is None:
+            return ''
+        return json.dumps(self.description)
     
     def as_dict(self, filter_foreign_key=False):
         return {'id': self.pk, 'type': 'Phrase', 'word': self.word.as_dict(),'content': self.content, 'description': self.description,'phrase_uuid': self.phrase_uuid}
