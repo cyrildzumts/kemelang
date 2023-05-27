@@ -53,6 +53,32 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         
     };
 
+    CountryManager.prototype.init_for_update = function(){
+        var self = this;
+        let update_form = document.getElementById("update-form");
+
+        if(!update_form){
+            return false;
+        }
+        let description = document.getElementById("description");
+        try {
+            if(description && description.value){
+        
+                let init_data = JSON.parse(description.value);
+                let editor = new Editor_API.EditorWrapper('editor', init_data);
+                editor.init()
+                if(!editor.created){
+                    console.warn("Editor not created for Langage update");
+                }
+            }
+            
+        } catch (error) {
+            console.warn("error on parsing json data from description value : %s", value);
+            console.error(error);
+        }
+        return true;
+    }
+
     CountryManager.prototype.create_managed_country_form = function(prefix){
         const FORM_PREFIX = prefix || 'form';
         let create_tag = tag_api.create_tag;

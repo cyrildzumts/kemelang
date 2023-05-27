@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="update-country-form" class="form" name="update-country-form" action="{% url COUNTRY_UPDATE_URL  country.slug country.country_uuid %}" method="POST">{% csrf_token %}
+    <form id="update-form" class="form" name="update-country-form" action="{% url COUNTRY_UPDATE_URL  country.slug country.country_uuid %}" method="POST">{% csrf_token %}
         <div class="mat-box full create-form">
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
                 <div class="form-group-wrapper">

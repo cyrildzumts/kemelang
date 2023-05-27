@@ -104,7 +104,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
 
     LangageManager.prototype.init_for_update = function(){
         var self = this;
-        let update_form = document.getElementById("update-langage-form");
+        let update_form = document.getElementById("update-form");
 
         if(!update_form){
             return false;

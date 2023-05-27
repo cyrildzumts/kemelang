@@ -68,6 +68,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         
     };
 
+
     TranslationManager.prototype.create_managed_form = function(prefix){
         const FORM_PREFIX = prefix || 'form';
         let create_tag = tag_api.create_tag;
