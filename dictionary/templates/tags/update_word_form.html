@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="update-form" class="form" name="add-brand" action="{% url WORD_UPDATE_URL word.word word.word_uuid %}" method="POST">{% csrf_token %}
+    <form id="update-word-form" class="form" name="add-brand" action="{% url WORD_UPDATE_URL word.word word.word_uuid %}" method="POST">{% csrf_token %}
         <div class="mat-box full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">

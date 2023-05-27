@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="update-form" class="form" name="update-langage-form" action="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" method="POST">{% csrf_token %}
+    <form id="update-langage-form" class="form" name="update-langage-form" action="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" method="POST">{% csrf_token %}
         <div class="mat-box full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">

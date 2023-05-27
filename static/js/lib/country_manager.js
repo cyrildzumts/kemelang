@@ -55,7 +55,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
     CountryManager.prototype.init_for_update = function(){
         var self = this;
-        let update_form = document.getElementById("update-form");
+        let update_form = document.getElementById("update-country-form");
 
         if(!update_form){
             return false;

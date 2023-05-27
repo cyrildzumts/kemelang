@@ -66,7 +66,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
 
     WordManager.prototype.init_for_update = function(){
         var self = this;
-        let update_form = document.getElementById("update-form");
+        let update_form = document.getElementById("update-word-form");
 
         if(!update_form){
             return false;
@@ -84,7 +84,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
             }
             
         } catch (error) {
-            console.warn("error on parsing json data from description value : %s", value);
+            console.warn("error on parsing json data from description value : %s", description.value);
             console.error(error);
         }
         return true;
