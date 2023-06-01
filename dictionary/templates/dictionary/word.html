@@ -9,7 +9,7 @@
         <div class="grid padding">
             <div class="flex full"><span class="big bold padding"><span class="lowercase">{{word}}</span> {% if word.audio %}<span class="audio"><i class="fa-solid fa-play"></i> <audio src="{{SITE_HOST}}{{word.audio.url}}"></audio></span> {% endif %}</span></div>
             <div class="flex">
-                <div id="tabs flex flex-center" class="tabs" data-current="1">
+                <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="1" data-target="word-definitions"><span>{% translate "Definition" %}</span></div></div>
                     <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="2" data-target="word-synonymes"><span>{% translate "Synonymes" %}</span></div></div>
                     <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="3" data-target="word-examples"><span>{% translate "Examples" %}</span></div></div>
