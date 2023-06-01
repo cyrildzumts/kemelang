@@ -227,9 +227,7 @@ function(ajax_api, Filter) {
             });
         }
         tabs.forEach((tab) =>{
-            if(tab.dataset.index == 1){
-                document.getElementById(tab.dataset.target).style.display = "";
-            }
+            
             tab.addEventListener('click', (event)=>{
                 if(tab.classList.contains('active')){
                     return;

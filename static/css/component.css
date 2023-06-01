@@ -745,10 +745,13 @@
   }
   
   .tab-content{
-	display: none;
 	padding: 0;
 	justify-content: start;
 	margin-top: 1rem;
+  }
+
+  .tab-content:not(:first-child){
+	display: none;
   }
   
   .tab-content .mat-box{
@@ -767,6 +770,7 @@
 	font-weight: 700;
 	text-align: center;
 	margin: 0 0.5em;
+	cursor: pointer;
   }
   
   /* SLIDER */
