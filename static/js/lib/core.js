@@ -233,7 +233,8 @@ function(ajax_api, Filter) {
                     return;
                 }
                 removeClass(tabs, 'active');
-                document.getElementById(tab.dataset.target).style.display = "";
+                tab.classList.add('active');
+                document.getElementById(tab.dataset.target).style.display = "block";
             });
         });
     }
