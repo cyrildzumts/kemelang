@@ -7,39 +7,59 @@
 <div class="container">
     <div class="col-m-12 col-8">
         <div class="grid padding">
-            <div class="margin-v full">
+            <div class="flex"><span class="bold"><span class="lowercase">{{word}}</span> {% if word.audio %}<span class="audio"><i class="fa-solid fa-play"></i> <audio src="{{SITE_HOST}}{{word.audio.url}}"></audio></span> {% endif %}</span></div>
+            <div class="flex">
+                <div id="tabs" class="tabs" data-current="1">
+                    <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="1" data-target="word-definitions"><span>{% translate "Definition" %}</span></div></div>
+                    <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="2" data-target="word-synonymes"><span>{% translate "Synonymes" %}</span></div></div>
+                    <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="3" data-target="word-examples"><span>{% translate "Examples" %}</span></div></div>
+                    <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="4" data-target="word-examples"><span>{% translate "Translations" %}</span></div></div>
+                </div>
+            </div>
+            <div id="word-definitions" class="tab-content margin-v full">
                 <div class="flex flex-left">
-                    <span class=""><span class="lowercase">{{word}}</span> : </span>
-                    {% comment %}
-                        <span class="btn-back"><i class="fas fa-arrow-left"></i></span><span class="padding-h"><span class="lowercase">{{word}}</span></span>
-                    {% endcomment %}
-                    {% if word.audio %}<span class="audio"><i class="fa-solid fa-play"></i> <audio src="{{SITE_HOST}}{{word.audio.url}}"></audio></span> {% endif %}
+                    <span class=""><span class="lowercase">{{word}}</span></span>
                 </div>
                 <div class="margin-v full">
                     {% render_tag word.description %}
                 </div>
-            </div>
-            <div class="margin-v full">
-                <div class="flex flex-left"><span class="padding-h">{% translate "Definition of " %} <span class="lowercase">{{word}}</span></span></div>
-                <div class="mat-box-full">
-                    <ul>
-                        {% for def in definitions %}
-                        <li>
-                            <div>
-                                <div class="flex flex-left"><span class="bold word-type">{{def.word_type|dict_word_type}}</span></div>
+                {% if definitions %}
+                <div class="margin-v full">
+                    <div class="mat-box full">
+                        <ul>
+                            {% for def in definitions %}
+                            <li>
                                 <div>
-                                    {% render_tag def.description %}
+                                    <div class="flex flex-left"><span class="bold word-type">{{def.word_type|dict_word_type}}</span></div>
+                                    <div>
+                                        {% render_tag def.description %}
+                                    </div>
                                 </div>
-                            </div>
-            
+                
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+            <div id="word-synonymes" class="tab-content margin-v full">
+                <div class="mat-box full">
+                    <ul>
+                        {% for synonyme in word.synonymes.all %}
+                        <li>
+                            <div class="flex flex-left"><span class="bold word-type">{{synonyme.word}}</span></div>
+                        </li>
+                        {% empty %}
+                        <li>
+                            <div class="flex flex-left"><span class="bold word-type">{% translate "No synonymes" %}</span></div>
                         </li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
-            <div class="margin-v full">
-                <div class="flex flex-left"><span class="padding-h">{% translate "Example of " %} <span class="lowercase">{{word}}</span></span></div>
-                <div class="mat-box-full">
+            <div id="word-examples" class="tab-content margin-v full">
+                <div class="mat-box full">
                     <ul>
                         {% for phrase in phrases %}
                         <li>
@@ -49,13 +69,17 @@
                             </div>
             
                         </li>
+                        {% empty %}
+                        <li>
+                            <div class="flex flex-left"><span class="bold word-type">{% translate "No examples" %}</span></div>
+                        </li>
                         {% endfor %}
                     </ul>
                 </div>
             </div>
-            <div class="margin-v full">
+            <div id="word-translations" class="tab-content margin-v full">
                 <div class="flex flex-left"><span class="padding-h">{% translate "Translation of " %} <span class="lowercase">{{word}}</span></span></div>
-                <div class="mat-box-full">
+                <div class="mat-box full">
                     <ul>
                         {% for translation in translations %}
                         <li>
@@ -66,17 +90,12 @@
 
                         </li>
                         {% endfor %}
+                        {% empty %}
+                        <li>
+                            <div class="flex flex-left"><span class="bold word-type">{% translate "No translations" %}</span></div>
+                        </li>
                     </ul>
                 </div>
-            </div>
-            <div class="margin-v full">
-                
-            </div>
-            <div class="margin-v full">
-                
-            </div>
-            <div class="margin-v full">
-                
             </div>
         </div>
     </div>
