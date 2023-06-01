@@ -82,16 +82,16 @@ def create_definition(data):
 
 
 def update_country(country, data):
-    return core_service.update_instance(country, data)
+    return core_service.update_instance(Country,country, data)
 
 def update_langage(langage, data):
-    return core_service.update_instance(langage, data)
+    return core_service.update_instance(Langage,langage, data)
 
 def update_word(word, data):
-    return core_service.update_instance(word, data)
+    return core_service.update_instance(Word, word, data)
 
 def update_definition(definition, data):
-    return core_service.update_instance(definition, data)
+    return core_service.update_instance(Definition, definition, data)
 
 
 def create_country_langages(data):
