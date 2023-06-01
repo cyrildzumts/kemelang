@@ -1297,6 +1297,7 @@ ul li{
   }
   
   .tab-content{
+	display: none;
 	padding: 0;
 	justify-content: start;
 	margin-top: 1rem;
