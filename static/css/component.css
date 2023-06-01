@@ -745,10 +745,12 @@
   }
   
   .tab-content{
-	display: none;
 	padding: 0;
 	justify-content: start;
 	margin-top: 1rem;
+  }
+  .tab-content:not(:first-of-type){
+	display: none;
   }
   
   .tab-content .mat-box{
