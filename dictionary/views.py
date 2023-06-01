@@ -164,7 +164,7 @@ def update_word(request, word, word_uuid):
     w = get_object_or_404(Word, word_uuid=word_uuid)
     context = {
         'page_title': "Update Word",
-        'langage': word,
+        'word': word,
         'langage_list': dictionary_service.get_langages()
     }
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
