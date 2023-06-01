@@ -26,9 +26,12 @@ body {
   padding: 0;
 }
 p{
-  padding: 1em;
   text-decoration: none;
   text-align: left;
+  letter-spacing: 0.5em;
+  white-space: normal;
+  word-spacing: normal;
+  line-height: 1em;
 }
 .strong, .bold, .em{
   font-weight: bold !important;
@@ -1272,8 +1275,8 @@ ul li{
   
   
   .tabs{
-	padding: 1em 0;
-	margin : 1em 0;
+	padding: 0.5em 0;
+	margin : 0.5em 0;
 	font-size: smaller;
   }
   .tab-bar{
@@ -1282,7 +1285,7 @@ ul li{
 	justify-content: center;
 	align-items: center;
 	
-	padding: 0 1em;
+	padding: 0 0.5em;
   
   }
   
@@ -1293,15 +1296,15 @@ ul li{
   .tab-content{
 	padding: 0;
 	justify-content: start;
-	margin-top: 1rem;
+	margin-top: 0.5rem;
   }
   .tab-content:not(:first-child){
 	display: none;
   }
   
   .tab-content .mat-box{
-	  margin-top: 1rem;
-	  margin-bottom: 1rem;
+	  margin-top: 0.5rem;
+	  margin-bottom: 0.5rem;
   }
   
   .tab-content ul li{

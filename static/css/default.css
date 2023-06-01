@@ -33,9 +33,12 @@ h1,h2,h3,h4{
 }
 */
 p{
-  padding: 1em;
   text-decoration: none;
   text-align: left;
+  letter-spacing: 0.5em;
+  white-space: normal;
+  word-spacing: normal;
+  line-height: 1em;
 }
 
 .strong, .bold, .em{
