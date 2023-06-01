@@ -749,7 +749,7 @@
 	justify-content: start;
 	margin-top: 1rem;
   }
-  .tab-content:not(:first-of-type){
+  .tabs .tab-content:not():first-of-type{
 	display: none;
   }
   
