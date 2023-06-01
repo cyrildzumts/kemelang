@@ -1295,9 +1295,6 @@ ul li{
 	justify-content: start;
 	margin-top: 1rem;
   }
-  .tabs .tab-content:not():first-of-type{
-	display: none;
-  }
   
   .tab-content .mat-box{
 	  margin-top: 1rem;

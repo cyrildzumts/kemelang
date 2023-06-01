@@ -155,54 +155,7 @@ var TableFilter = (function(){
     return TableFilter;
 })();
 
-var Tabs = (function(){
-    function Tabs(){
-        this.currentTab     = 0;
-        this.tabCount       = 0;
-        this.tabs           = {};
-        this.tab            = {};
-        this.tabsCount      = 0;
-        
-    };
 
-    Tabs.prototype.init = function(){
-        this.tabsCount = $(".tabs").length;
-        this.tabs = $(".tab-content");
-        this.tab = $(".tab");
-        this.tabCount = this.tab.length;
-        if(this.tabCount == 0){
-            return;
-        }
-        
-        $('div.tab-container').each(function(){
-            $(this).find('div.tab-content:eq(0)').nextAll().hide();
-        });
-        //this.tabs.hide();
-        $('div.tab-bar .tab').click(function(){
-            var current = $(this);
-            
-            if(!current.hasClass('active')){
-                current.addClass('active').siblings().removeClass('active');
-                $(current.data('toggle')).show().siblings('div.tab-content').hide();
-            }
-        });
-    };
-    Tabs.prototype.onTabClicked = function(event){
-        var tab = parseInt($(event.target).data("index"));
-        if(tab != this.currentTab){
-            this.currentTab = tab;
-                this.update();
-        }
-    };
-    Tabs.prototype.update = function(){
-        this.tab.removeClass("active");
-        $(this.tab[this.currentTab]).addClass("active");
-        var that = this;
-        this.tabs.hide();
-        $(this.tabs[this.currentTab]).show();
-    };
-    return Tabs;
-})();
 
 var Slider = (function(){
     function Slider(){
