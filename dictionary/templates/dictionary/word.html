@@ -7,7 +7,7 @@
 <div class="grid">
     <div class="col-m-12 col-8">
         <div class="grid padding">
-            <div class="flex full"><span class="big bold padding"><span class="lowercase">{{word}}</span> {% if word.audio %}<span class="audio"><i class="fa-solid fa-play"></i> <audio src="{{SITE_HOST}}{{word.audio.url}}"></audio></span> {% endif %}</span></div>
+            <div class="flex full"><span class="extra-large bold"><span class="capitalize">{{word}}</span> {% if word.audio %}<span class="audio"><i class="fa-solid fa-play"></i> <audio src="{{SITE_HOST}}{{word.audio.url}}"></audio></span> {% endif %}</span></div>
             <div class="flex">
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="col-m-3 col-3"><div class="tab" data-parent="tabs" data-index="1" data-target="word-definitions"><span>{% translate "Definition" %}</span></div></div>
@@ -18,7 +18,7 @@
             </div>
             <div id="word-definitions" class="tab-content margin-v full">
                 <div class="flex flex-left">
-                    <span class=""><span class="lowercase">{{word}}</span></span>
+                    <span class="bold"><span class="lowercase">{{word}}</span></span>
                 </div>
                 <div class="margin-v full">
                     {% render_tag word.description %}

@@ -415,6 +415,9 @@ ul li{
 .big {
   font-size: large;
 }
+.extra-large{
+  font-size: xx-large;
+}
 .upper-case{
   text-transform: uppercase;
 }
@@ -1270,7 +1273,7 @@ ul li{
   
   .tabs{
 	padding: 1em 0;
-	margin : 2em 0;
+	margin : 1em 0;
   }
   .tab-bar{
 	position: relative;

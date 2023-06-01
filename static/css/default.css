@@ -514,6 +514,10 @@ ul li{
   font-size: large;
 }
 
+.extra-large{
+  font-size: xx-large;
+}
+
 .upper-case{
   text-transform: uppercase;
 }
