@@ -186,7 +186,7 @@ def update_langage(request, langage_slug, langage_uuid):
     context = {
         'page_title': "Update Langage",
         'langage': langage,
-        'country_list': dictionary_service.get_countries(),
+        'country_list': dictionary_service.get_countries().exclude(langages__pk=langage.pk),
     }
     logger.info(f"langage update : {langage} - Description : {langage.description}")
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
