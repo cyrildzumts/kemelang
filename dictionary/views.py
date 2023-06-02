@@ -94,7 +94,7 @@ def create_word(request):
     return render(request, template_name, context)
 
 def create_phrase(request, word_uuid):
-    template_name = "dictionary/create_word.html"
+    template_name = "dictionary/create_phrase.html"
     word = get_object_or_404(Word, word_uuid=word_uuid)
     context = {
         'page_title': "New Phrase",
