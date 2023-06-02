@@ -4135,7 +4135,7 @@ ul li{
   .create-form{
 	width: 100%;
     text-align: left;
-	padding : 1em;
+	padding : 1em 0.5em;
 	margin: 0.2em;
 }
   
@@ -5830,6 +5830,8 @@ option:checked{
 .editor{
     background-color: var(--editor);
     color: var(--editor-color);
+    border-radius: 1em;
+    margin: 1em 0;
 }
 .editor-header{
     background-color: var(--editor-header);

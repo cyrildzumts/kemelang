@@ -959,6 +959,8 @@ option:checked{
 .editor{
     background-color: var(--editor);
     color: var(--editor-color);
+    border-radius: 1em;
+    margin: 1em 0;
 }
 
 .editor-header{
