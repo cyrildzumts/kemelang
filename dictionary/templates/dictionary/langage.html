@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div id="langage-countries" class="tab-content margin-v full">
-                    <div class="mat-box full">
+                    <div class="padding-v full">
                         <ul class="grid-list">
                             {% for country in country_list %}
                             <li class="margin-b padding dict-list-entry">
@@ -43,11 +43,18 @@
                     </div>
                 </div>
                 <div id="langage-vocabulary" class="tab-content margin-v full">
-                    <div class="mat-box full">
+                    <div class="flex flex-left">
+                        <span class="bold"><span class="capitalize">{% translate "Countries" %}</span></span>
+                    </div>
+                    <div class="padding-v full">
                         <ul class="grid-list">
                             {% for word in word_list %}
                             <li class="margin-b padding dict-list-entry">
                                 <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
+                            </li>
+                            {% empty %}
+                            <li class="margin-b padding dict-list-entry">
+                                <span class="word-type">{% translate "No words" %}</span>
                             </li>
                             {% endfor %}
                         </ul>
