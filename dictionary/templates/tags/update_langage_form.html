@@ -20,7 +20,6 @@
                 <div class="form-group-wrapper">
                     <div class="form-group full">
                         <label for="countries">{% trans "Countries" %}</label>
-                        <input id="countries" type="text"  name="countries" value="{{langage.slug}}">
                         <select name="countries" id="countries" multiple>
                             {% for country in langage.countries.all %} <option value="{{country.pk}}" selected>{{country}}</option> {% endfor %}
                             {% for country in country_list %} <option value="{{country.pk}}">{{country}}</option> {% endfor %}
