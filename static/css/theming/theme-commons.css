@@ -950,3 +950,18 @@ option:checked{
   .tab.active{
     border-bottom: 2px solid var(--secondary-color);
   }
+
+.editor-wrapper{
+    background-color: var(--editor);
+    color: #0A0A0A;
+}
+
+.editor{
+    background-color: var(--editor);
+    color: var(--editor-color);
+}
+
+.editor-header{
+    background-color: var(--editor-header);
+    color: var(--editor-header-color);
+}
