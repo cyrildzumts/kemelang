@@ -65,6 +65,24 @@ DICTIONARY_URL_WORD_CONTEXT = {
     'WORD_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-create"
 }
 
+DICTIONARY_URL_DEFINTION_CONTEXT = {
+    'DEFINTIONS_URL'               : f"{DICTIONARY_URL_PREFIX}:definitions",
+    'DEFINTION_URL'                : f"{DICTIONARY_URL_PREFIX}:definition",
+    'DEFINTION_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:definition-update",
+    'DEFINTION_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:definition-delete",
+    'DEFINTIONS_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:definitions-delete",
+    'DEFINTION_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:definition-create"
+}
+
+DICTIONARY_URL_PHRASE_CONTEXT = {
+    'PHRASES_URL'               : f"{DICTIONARY_URL_PREFIX}:phrases",
+    'PHRASE_URL'                : f"{DICTIONARY_URL_PREFIX}:phrase",
+    'PHRASE_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:phrase-update",
+    'PHRASE_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:phrase-delete",
+    'PHRASES_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:phrases-delete",
+    'PHRASE_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:phrase-create"
+}
+
 DICTIONARY_URL_TRANSLATION_CONTEXT = {
     'TRANSLATION_CREATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-create",
     'TRANSLATION_UPDATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-update",

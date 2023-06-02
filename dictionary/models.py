@@ -221,6 +221,12 @@ class Phrase(models.Model):
         return self.word
     
     @property
+    def content_to_json(self):
+        if self.content is None:
+            return ''
+        return json.dumps(self.content)
+    
+    @property
     def description_to_json(self):
         if self.description is None:
             return ''

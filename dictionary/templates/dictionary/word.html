@@ -71,14 +71,17 @@
                             {% for phrase in phrases %}
                             <li>
                                 <div>
-                                    <span class="bold phrase-start"></span>
+                                    <div class="flex-flex-left"><a href="{% url PRASE_UPDATE_URL phrase.phrase_uuid %}" class="margin-l"><i class="fas fa-edit"></i><span class="bold phrase-start">{% translate "Update this example" %}</span></a></div>
                                     <div>{% render_tag phrase.content %}</div>
                                 </div>
                 
                             </li>
                             {% empty %}
                             <li>
-                                <div class="flex flex-left"><span class="bold word-type">{% translate "No examples" %}</span></div>
+                                <div class="flex flex-left">
+                                    <span class="bold word-type">{% translate "No examples" %}</span>
+                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span>{% translate "Contribute by adding an example" %}</span></a>
+                                </div>
                             </li>
                             {% endfor %}
                         </ul>

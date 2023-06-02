@@ -93,6 +93,26 @@ def create_word(request):
         pass
     return render(request, template_name, context)
 
+def create_phrase(request, word_uuid):
+    template_name = "dictionary/create_word.html"
+    word = get_object_or_404(Word, word_uuid=word_uuid)
+    context = {
+        'page_title': "New Phrase",
+        'word': word,
+        'langage': word.langage
+    }
+    if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
+        data = utils.get_postdata(request)
+        try:
+            word = dictionary_service.create_phrase(data)
+            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+        except Exception as e:
+            msg = f"Error on creating Word : {e}"
+            messages.warning(request, msg)
+            logger.warn(msg)
+    else:
+        pass
+    return render(request, template_name, context)
 
 def create_translation(request):
     template_name = "dictionary/create_translation.html"
@@ -129,6 +149,27 @@ def update_country(request, country_slug, country_uuid):
             return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
         except Exception as e:
             msg = f"Error on updating Country {country.name} : {e}"
+            messages.warning(request, msg)
+            logger.warn(msg)
+    else:
+        pass
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
+    return render(request, template_name, context)
+
+def update_phrase(request, phrase_uuid):
+    template_name = "dictionary/update_phrase.html"
+    phrase = get_object_or_404(Phrase, phrase_uuid=phrase_uuid)
+    context = {
+        'page_title': "Update Phrase",
+        'phrase': phrase,
+    }
+    if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
+        data = utils.get_postdata(request)
+        try:
+            phrase = dictionary_service.update_phrase(phrase, data)
+            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+        except Exception as e:
+            msg = f"Error on updating Phrase for word{phrase.word} : {e}"
             messages.warning(request, msg)
             logger.warn(msg)
     else:
@@ -246,4 +287,6 @@ def word_details(request,word, word_uuid):
         'phrase_list': word.phrases.all()
     }
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_DEFINTION_CONTEXT)
     return render(request, template_name, context)

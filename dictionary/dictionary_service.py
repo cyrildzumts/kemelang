@@ -7,7 +7,7 @@ from django.db import transaction
 from django.db.models import Q, Count, F
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity
 from django.utils import timezone
-from dictionary.models import Country, Langage,Word, TranslationWord, Definition, Comment
+from dictionary.models import Country, Langage, Phrase,Word, TranslationWord, Definition, Comment
 from dictionary.forms import CountryForm, LangageForm, WordForm, DefinitionForm, CommentForm, PhraseForm, TranslationWordForm
 from dictionary import constants as Constants
 from core.resources import ui_strings as CORE_UI_STRINGS
@@ -21,6 +21,11 @@ logger = logging.getLogger(__name__)
 
 def create_country(data):
     country = core_service.create_instance(Country, data)
+    return country
+
+
+def create_phrase(data):
+    country = core_service.create_instance(Phrase, data)
     return country
 
 
@@ -92,6 +97,9 @@ def update_word(word, data):
 
 def update_definition(definition, data):
     return core_service.update_instance(Definition, definition, data)
+
+def update_phrase(phrase, data):
+    return core_service.update_instance(Phrase,phrase, data)
 
 
 def create_country_langages(data):
