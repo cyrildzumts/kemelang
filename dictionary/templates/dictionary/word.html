@@ -52,24 +52,25 @@
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
                     <div class="padding-v full">
+                        {% if word.synonymes.all %}
                         <ul class="grid-list">
                             {% for synonyme in word.synonymes.all %}
                             <li>
                                 <div class="flex flex-left"><span class="bold word-type">{{synonyme.word}}</span></div>
                             </li>
-                            {% empty %}
-                            <li>
-                                <div class="flex flex-left">
-                                    <span class="bold word-type">{% translate "No synonymes" %}.</span>
-                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding synonymes" %}</span></a>
-                                </div>
-                            </li>
                             {% endfor %}
                         </ul>
+                        {% else %}
+                        <div class="flex flex-left">
+                            <span class="bold word-type">{% translate "No synonymes" %}.</span>
+                            <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding synonymes" %}</span></a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div id="word-examples" class="tab-content margin-v full">
                     <div class="padding-v full">
+                        {% if phrases %}
                         <ul>
                             {% for phrase in phrases %}
                             <li>
@@ -79,15 +80,14 @@
                                 </div>
                 
                             </li>
-                            {% empty %}
-                            <li>
-                                <div class="flex flex-left">
-                                    <span class="bold word-type">{% translate "No examples" %}.</span>
-                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding an example" %}</span></a>
-                                </div>
-                            </li>
                             {% endfor %}
                         </ul>
+                        {% else %}
+                        <div class="flex flex-left">
+                            <span class="bold word-type">{% translate "No examples" %}.</span>
+                            <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding an example" %}</span></a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
