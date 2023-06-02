@@ -6424,6 +6424,9 @@ option:checked{
     border-radius: unset;
     border-bottom: 2px solid var(--secondary-color);
   }
+  .tab.active{
+    border-bottom: 2px solid var(--secondary-color);
+  }
 .container {
   width: 100%;
   display: flex !important;
