@@ -38,7 +38,6 @@ p{
   letter-spacing: 0.1em;
   white-space: normal;
   word-spacing: normal;
-  line-height: 1em;
 }
 
 .strong, .bold, .em{
@@ -684,3 +683,8 @@ ul li{
 }
 
 
+@media only screen and (max-width:50em){
+  *{
+    line-height: 1.3em;
+  }
+}
