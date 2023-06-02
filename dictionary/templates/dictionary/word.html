@@ -92,6 +92,7 @@
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
                     <div class="padding-v full">
+                        {% if translations %}
                         <ul class="grid-list">
                             {% for translation in translations %}
                             <li>
@@ -101,14 +102,13 @@
                                 </div>
 
                             </li>
-                            {% empty %}
-                            <li>
-                                <div class="flex flex-left">
-                                    <div class="bold word-type">{% translate "No translations" %}.</div><a href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
-                                </div>
-                            </li>
                             {% endfor %}
                         </ul>
+                        {% else %}
+                        <div class="flex flex-left">
+                            <div class="bold word-type">{% translate "No translations" %}.</div><a href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
