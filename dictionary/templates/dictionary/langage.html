@@ -8,13 +8,13 @@
 <div class="grid">
     <div class="col-m-12 col-8">
         <div class="grid padding">
-            <div class="flex flex-left">
+            <div class="flex flex-left full">
                 <span class="padding-v bold">
                     <span class="capitalyze">{{langage}}</span>
                 </span>
                 <a href="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
-            <div class="flex">
+            <div class="flex full">
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="1" data-target="langage-description"><span>{% translate "Description" %}</span></div></div>
                     <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{% translate "Countries" %}</span></div></div>
