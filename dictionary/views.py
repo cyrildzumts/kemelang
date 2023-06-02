@@ -112,6 +112,8 @@ def create_phrase(request, word_uuid):
             logger.warn(msg)
     else:
         pass
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     return render(request, template_name, context)
 
 def create_translation(request):
@@ -174,7 +176,8 @@ def update_phrase(request, phrase_uuid):
             logger.warn(msg)
     else:
         pass
-    context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     return render(request, template_name, context)
 
 def update_langage(request, langage_slug, langage_uuid):
