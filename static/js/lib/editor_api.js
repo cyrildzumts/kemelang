@@ -419,6 +419,14 @@ function(require, ajax_api, tag_api, EditorJS) {
                 console.warn("EditorWrapper called but no target could be found.");
                 return;
             }
+            if(!this.initial_data && this.target.value.trim().length > 0 ){
+                try {
+                    this.initial_data = JSON.parse(this.target.value);
+                } catch (error) {
+                    console.error(error);
+                }
+                
+            }
             this.create_editor();
             this.created = true;
         }

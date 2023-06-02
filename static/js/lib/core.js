@@ -1,5 +1,5 @@
-define(['ajax_api', 'filters'], 
-function(ajax_api, Filter) {
+define(['ajax_api', 'filters', 'editor_api'], 
+function(ajax_api, Filter, Editor_API) {
     'use strict';
     let messages;
     let notification_wrapper;
@@ -618,6 +618,11 @@ function(ajax_api, Filter) {
         init_collapsible();
         init_tabs();
         send_mail_listeners();
+        let editor = new Editor_API.EditorWrapper('editor', null);
+        editor.init()
+        if(!editor.created){
+            console.warn("Editor not created for Langage update");
+        }
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         notify_init(notification_wrapper, messages);
