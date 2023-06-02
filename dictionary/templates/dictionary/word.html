@@ -52,7 +52,7 @@
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
                     <div class="mat-box full">
-                        <ul>
+                        <ul class="grid-list">
                             {% for synonyme in word.synonymes.all %}
                             <li>
                                 <div class="flex flex-left"><span class="bold word-type">{{synonyme.word}}</span></div>
@@ -86,7 +86,7 @@
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
                     <div class="mat-box full">
-                        <ul>
+                        <ul class="grid-list">
                             {% for translation in translations %}
                             <li>
                                 <div>
