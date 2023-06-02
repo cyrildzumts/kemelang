@@ -14,38 +14,46 @@
                 </span>
                 <a href="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
-            <div class="margin-v full">
-                <div class="full"><span class="bold">{% translate "Description" %}</span></div>
-                <div class="flex flex-left">
-                    {% render_tag langage.description %}
+            <div class="flex">
+                <div id="tabs" class="tabs flex flex-center" data-current="1">
+                    <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="1" data-target="langage-description"><span>{% translate "Description" %}</span></div></div>
+                    <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{% translate "Countries" %}</span></div></div>
+                    <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="3" data-target="langage-vocabulary"><span>{% translate "Vocabulary" %}</span></div></div>
+                    
                 </div>
             </div>
-            <div class="margin-v full">
-                <div class="flex flex-left"><span class="padding-v">{% translate "Countries" %} (<span class="lowercase">{{country_list.count}}</span>): </span></div>
-                <div class="">
-                    <ul class="grid-list">
-                        {% for country in country_list %}
-                        <li class="margin-b padding dict-list-entry">
-                            <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>
-                        </li>
-                        {% endfor %}
-                    </ul>
+            <div class="tab-container full">
+                <div id="langage-description" class="tab-content margin-v full">
+                    <div class="flex flex-left">
+                        <span class="bold"><span class="lowercase">{{langage}}</span></span>
+                    </div>
+                    <div class="margin-v full">
+                        {% render_tag langage.description %}
+                    </div>
+                </div>
+                <div id="langage-countries" class="tab-content margin-v full">
+                    <div class="mat-box full">
+                        <ul class="grid-list">
+                            {% for country in country_list %}
+                            <li class="margin-b padding dict-list-entry">
+                                <a href="{{country.get_absolute_url}}"><span class="bold word-type">{{country}}</span></a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div id="langage-vocabulary" class="tab-content margin-v full">
+                    <div class="mat-box full">
+                        <ul class="grid-list">
+                            {% for word in word_list %}
+                            <li class="margin-b padding dict-list-entry">
+                                <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-
-            <div class="margin-v full">
-                <div class="flex flex-left"><span class="padding-v">{% translate "Vocabulars" %} (<span class="lowercase">{{word_list.count}}</span>): </span></div>
-                <div class="margin-v">
-                    <ul class="grid-list">
-                        {% for word in word_list %}
-                        <li class="margin-b padding dict-list-entry">
-                            <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
-                        </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-            
         </div>
     </div>
 </div>
