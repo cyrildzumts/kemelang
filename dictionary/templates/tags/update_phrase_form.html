@@ -10,6 +10,11 @@
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
                 <input type="hidden" name="word" value="{{word.pk}}">
                 <input type="hidden" name="langage" value="{{langage.pk}}">
+                <div class="margin-v flex full">
+                    <span class="extra-large bold">
+                        <span class="capitalize">{% translate "Update for Example usage for word" %}</span><span class="margin-l">{{word}}</span>
+                    </span>
+                </div>
                 <div class="form-group-wrapper">
                     <div class="form-group full">
                         <label for="word">{% trans "Word" %}</label>

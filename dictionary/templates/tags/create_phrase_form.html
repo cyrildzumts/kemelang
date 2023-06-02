@@ -5,6 +5,11 @@
         
     <form class="form" name="add-brand" action="{% url PHRASE_CREATE_URL word.word_uuid%}" method="POST">{% csrf_token %}
         <div class="create-form">
+                <div class="margin-v flex full">
+                    <span class="extra-large bold">
+                        <span class="capitalize">{% translate "Example usage for word" %}</span><span class="margin-l">{{word}}</span>
+                    </span>
+                </div>
     
                 {% if request.user.is_authenticated %}
                 <input type="hidden" name="added_by" value="{{request.user.pk}}">
