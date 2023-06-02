@@ -104,7 +104,7 @@
                             {% empty %}
                             <li>
                                 <div class="flex flex-left">
-                                    <span class="bold word-type">{% translate "No translations" %}.</span><a href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                                    <div class="bold word-type">{% translate "No translations" %}.</div><a href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
                                 </div>
                             </li>
                             {% endfor %}
