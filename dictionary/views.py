@@ -116,10 +116,14 @@ def create_phrase(request, word_uuid):
     context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     return render(request, template_name, context)
 
-def create_translation(request):
+def create_translation(request, word_uuid=None):
     template_name = "dictionary/create_translation.html"
+    word = None
+    if word_uuid:
+        word = get_object_or_404(Word, word_uuid=word_uuid)
     context = {
         'page_title': "New Translation",
+        'source_word': word,
         'langage_list': dictionary_service.get_langages()
     }
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:

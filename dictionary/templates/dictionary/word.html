@@ -59,7 +59,10 @@
                             </li>
                             {% empty %}
                             <li>
-                                <div class="flex flex-left"><span class="bold word-type">{% translate "No synonymes" %}</span></div>
+                                <div class="flex flex-left">
+                                    <span class="bold word-type">{% translate "No synonymes" %}.</span>
+                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding synonymes" %}</span></a>
+                                </div>
                             </li>
                             {% endfor %}
                         </ul>
@@ -79,8 +82,8 @@
                             {% empty %}
                             <li>
                                 <div class="flex flex-left">
-                                    <span class="bold word-type">{% translate "No examples" %}</span>
-                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span>{% translate "Contribute by adding an example" %}</span></a>
+                                    <span class="bold word-type">{% translate "No examples" %}.</span>
+                                    <a href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding an example" %}</span></a>
                                 </div>
                             </li>
                             {% endfor %}
@@ -100,7 +103,10 @@
                             </li>
                             {% empty %}
                             <li>
-                                <div class="flex flex-left"><span class="bold word-type">{% translate "No translations" %}</span></div>
+                                <div class="flex flex-left">
+                                    <span class="bold word-type">{% translate "No translations" %}.</span>
+                                    <a href="{% url TRANSLATION_CREATE_URL %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                                </div>
                             </li>
                             {% endfor %}
                         </ul>
