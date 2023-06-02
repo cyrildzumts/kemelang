@@ -38,8 +38,12 @@
                     <div class="padding-v full">
                         <ul class="grid-list">
                             {% for country in country_list %}
-                            <li class="margin-b padding dict-list-entry">
+                            <li class="margin-b dict-list-entry">
                                 <a href="{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
+                            </li>
+                            {% empty %}
+                            <li class="margin-b dict-list-entry">
+                                <span class="word-type">{% translate "No Countries" %}</span>
                             </li>
                             {% endfor %}
                         </ul>
@@ -52,11 +56,11 @@
                     <div class="padding-v full">
                         <ul class="grid-list">
                             {% for word in word_list %}
-                            <li class="margin-b padding dict-list-entry">
+                            <li class="margin-b dict-list-entry">
                                 <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
                             </li>
                             {% empty %}
-                            <li class="margin-b padding dict-list-entry">
+                            <li class="margin-b dict-list-entry">
                                 <span class="word-type">{% translate "No words" %}</span>
                             </li>
                             {% endfor %}

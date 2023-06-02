@@ -35,11 +35,11 @@
                     <div class="padding-v full">
                         <ul class="grid-list">
                             {% for langage in langage_list %}
-                            <li class="margin-b">
+                            <li class="margin-b dict-list-entry">
                                 <a href="{{langage.get_absolute_url}}"><span class="word-type">{{langage}}</span></a>
                             </li>
                             {% empty %}
-                            <li class="margin-b padding dict-list-entry">
+                            <li class="margin-b dict-list-entry">
                                 <span class="word-type">{% translate "No langages" %}</span>
                             </li>
                             {% endfor %}
