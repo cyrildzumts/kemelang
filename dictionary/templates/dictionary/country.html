@@ -4,31 +4,45 @@
 
 
 {% block MAIN %}
-<div class="container flex-center">
+<div class="grid">
     <div class="col-m-12 col-8">
-        <div class="grid">
-            <div class="margin full">
-                <div class="flex flex-left"><span class="padding-h"><span class="capitalyze">{{country}}</span></span><a href="{% url 'dictionary:country-update' country.slug country.country_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a></div>
+        <div class="grid padding">
+            <div class="flex full">
+                <span class="extra-large bold">
+                    <span class="capitalyze">{{country}}</span>
+                </span>
+                <a href="{% url COUNTRY_UPDATE_URL country.slug country.country_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
-            
-            <div class="margin full">
-                <div class="flex flex-left">
-                    {% render_tag country.description %}
+            <div class="flex full">
+                <div id="tabs" class="tabs flex flex-center" data-current="1">
+                    <div class="col-m-6 col-6"><div class="tab" data-parent="tabs" data-index="1" data-target="country-description"><span>{% translate "Description" %}</span></div></div>
+                    <div class="col-m-6 col-6"><div class="tab" data-parent="tabs" data-index="2" data-target="country-langages"><span>{% translate "Langages" %}</span></div></div>
                 </div>
             </div>
-            <div class="margin full">
-                <div class="flex flex-left margin-b"><span class="padding-h">{% translate "Langages" %} <span class="lowercase bold">({{langage_list.count}})</span></span></div>
-                <div class="">
-                    <ul>
-                        {% for langage in langage_list %}
-                        <li class="margin-b">
-                            <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
-                        </li>
-                        {% endfor %}
-                    </ul>
+            <div class="tab-container full">
+                <div id="country-description" class="tab-content margin-v full">
+                    <div class="flex flex-left">
+                        <span class="bold"><span class="capitalize">{% translate "Description" %}</span></span>
+                    </div>
+                    <div class="margin-v full">
+                        {% render_tag country.description %}
+                    </div>
+                </div>
+                <div id="country-langages" class="tab-content margin-v full">
+                    <div class="flex flex-left">
+                        <span class="bold"><span class="capitalize">{% translate "Langages" %}</span></span>
+                    </div>
+                    <div class="mat-box full">
+                        <ul>
+                            {% for langage in langage_list %}
+                            <li class="margin-b">
+                                <a href="{{langage.get_absolute_url}}"><span class="bold word-type">{{langage}}</span></a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
                 </div>
             </div>
-            
         </div>
     </div>
 </div>
