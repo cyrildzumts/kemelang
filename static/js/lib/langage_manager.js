@@ -67,9 +67,6 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
     };
     LangageManager.prototype.init = function(){
         var self = this;
-        if(this.init_for_update()){
-            return;
-        }
         if(!this.form_container){
             return;
         }

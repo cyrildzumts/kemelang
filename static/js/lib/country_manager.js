@@ -25,9 +25,6 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     };
     CountryManager.prototype.init = function(){
         var self = this;
-        if(this.init_for_update()){
-            return;
-        }
         if(!this.form_container){
             return;
         }
