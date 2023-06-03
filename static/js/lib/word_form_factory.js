@@ -1,4 +1,4 @@
-define(['tag_api'],function(tag_api) {
+define(['tag_api','keyboard'],function(tag_api, Keyboard) {
     'use strict';
 
     function WordFormFactory(){
@@ -22,13 +22,22 @@ define(['tag_api'],function(tag_api) {
             'title': 'Delete this word',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
         }});
+        let virtual_keyboard_button = create_api({'element': 'span', 'options':{
+            'cls': 'managed-update keybaord-btn',
+            'id': id + '-keyboard-btn',
+            'title': 'Open the virtual keyboard',
+            'data-keyboard': "keyboard",
+            'data-target': `id-${form_prefix}-${form_index}-word`,
+            'children': [create_api({'element': 'i', 'options':{'cls': 'far fa-keyboard icon'}})]
+        }});
+        Keyboard.register_keyboard(virtual_keyboard_button);
         let header_label = create_api({'element': 'div', 'options':{
             'children': [create_api({'element': 'span', 'options':{'innerText': 'Word', 'cls': 'bold'}})]
         }});
         let header_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
             'id': id + '-delete-btn-header',
-            'children': [header_label, delete_button]
+            'children': [header_label,virtual_keyboard_button, delete_button]
         }});
         let word = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-word`,
