@@ -4086,6 +4086,7 @@
 }
 
 .keyboard-row{
+	display: flex;
     margin:5px ;
     user-select: none;
 }

@@ -4543,6 +4543,7 @@ ul li{
 	margin: 0 0.5em;
 }
 .keyboard-row{
+	display: flex;
     margin:5px ;
     user-select: none;
 }
