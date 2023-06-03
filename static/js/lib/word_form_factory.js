@@ -23,12 +23,16 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]
         }});
         let virtual_keyboard_button = create_api({'element': 'span', 'options':{
-            'cls': 'managed-update keybaord-btn',
+            'cls': 'managed-update keyboard-btn',
             'id': id + '-keyboard-btn',
             'title': 'Open the virtual keyboard',
             'data-keyboard': "keyboard",
             'data-target': `id-${form_prefix}-${form_index}-word`,
-            'children': [create_api({'element': 'i', 'options':{'cls': 'far fa-keyboard icon'}})]
+            'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-keyboard icon'}})]
+        }});
+        let header_btn_group = create_api({'element': 'div', 'options':{
+            'cls': 'flex',
+            'children': [virtual_keyboard_button, delete_button]
         }});
         Keyboard.register_keyboard(virtual_keyboard_button);
         let header_label = create_api({'element': 'div', 'options':{
@@ -37,7 +41,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
         let header_group = create_api({'element': 'div', 'options':{
             'cls': 'header-group',
             'id': id + '-delete-btn-header',
-            'children': [header_label,virtual_keyboard_button, delete_button]
+            'children': [header_label,header_btn_group]
         }});
         let word = create_api({'element': 'input', 'options':{
             'id': `id-${form_prefix}-${form_index}-word`,
