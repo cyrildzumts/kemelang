@@ -4525,7 +4525,7 @@ ul li{
 	border-radius: 0.5em;
   }
 #ip{
-    width: 500px;
+    width: 60%;
     min-height: 30px;
     box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
     text-align: center;
@@ -4541,7 +4541,7 @@ ul li{
 }
 .keyboard{
     box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
-    width: 680px;
+    width: 100%;
     margin:200px auto 50px;
     display: flex;
     flex-direction: column;
@@ -4558,8 +4558,10 @@ ul li{
     user-select: none;
 }
 .keyboard button{
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
+	min-width: none !important;
+	min-height: none !important;
     font-weight: bold;
     margin: 0 4px;
     border: none;
@@ -4571,7 +4573,7 @@ ul li{
 }
 .keyboard button:hover{
 	background-color: transparent;
-    color:white;
+    color:var(--secondary-color);
 }
 .row4 , .backspace , .space{
     display: flex;
@@ -4579,7 +4581,7 @@ ul li{
     justify-content: center;
 }
 .keyboard .backspace , .space{
-    color: white;
+    color:var(--secondary-color);
     font-weight: bold;
     cursor: pointer;
 	margin: 0.5em 1em;
@@ -4590,12 +4592,12 @@ ul li{
     box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
 }
 .keyboard .space{
-    width: 300px;
-    height: 50px;
+    width: 200px;
+    height: 30px;
 }
 .keyboard .backspace {
     width: 100px;
-    height: 50px;
+    height: 30px;
     margin-left: 15px;
 }
 .keyboard .active{
