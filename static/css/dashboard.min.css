@@ -4513,10 +4513,15 @@ ul li{
 	z-index: 10;
   }
   .virtual-keyboard{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 	position: relative;
 	background-color: rgb(26, 26, 26);
     font-family: sans-serif;
 	border-radius: 0.5em;
+	padding-bottom: 1em;
   }
 #ip{
     width: 60%;
@@ -4528,23 +4533,26 @@ ul li{
     position: absolute;
     top: 165px;
     left: 50%;
-    margin: -50px auto;
+    margin: 1em auto;
     transform:translateX(-50%) ;
     font-size: 18px;
     text-transform: capitalize;
 }
 .keyboard{
     box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
-    width: 100%;
-    margin:200px auto 50px;
+    width: 95%;
+    margin:100px 0 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding:20px 20px;
+    padding:10px 20px;
     border-radius: 10px;
 }
 .keyboard-btn{
 	margin: 0 0.5em;
+}
+.keyboard-btn.active{
+	color: var(--secondary-color);
 }
 .keyboard-row{
 	display: flex;
@@ -4554,8 +4562,8 @@ ul li{
 .keyboard button{
     width: 30px;
     height: 30px;
-	min-width: none !important;
-	min-height: none !important;
+	min-width: 0 !important;
+	min-height: 0 !important;
     font-weight: bold;
     margin: 0 4px;
     border: none;
