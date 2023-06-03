@@ -25,8 +25,68 @@ function init_keyboard(tag){
         keyboard.classList.toggle('hidden');
         if(tag.classList.contains('active')){
             keyboard.dataset.target = tag.dataset.target;
+        }else{
+            keyboard.dataset.target = "";
         }
     });
+    let keys = document.querySelectorAll(".keyboard button");
+    let content = document.getElementById("ip");
+    let space = document.getElementById("space");
+    let backspace = document.getElementById("backspace");
+    keys.forEach(k =>{
+        // KEY Pressed
+        k.addEventListener('mousedown', function (e) {
+            k.classList.add("active");
+            content.innerText += k.innerText;
+        });
+        k.addEventListener('mouseup', function (e) {
+            k.classList.remove("active");
+        });
+
+        // TOUCH Event
+        k.addEventListener('touchstart', function (e) {
+            k.classList.add("active");
+            //content.innerText += k.innerText;
+        });
+        k.addEventListener('touchend', function (e) {
+            k.classList.remove("active");
+        });
+        
+    });
+    // SPACE 
+    space.addEventListener('mousedown', function(){
+        space.classList.add("active");
+        content.innerText += " ";
+    });
+    space.addEventListener('mouseup', function(){
+        space.classList.remove("active");
+    });
+    // TOUCH Event
+    space.addEventListener('touchstart', function (e) {
+        space.classList.add("active");
+        //content.innerText += k.innerText;
+    });
+    space.addEventListener('touchend', function (e) {
+        space.classList.remove("active");
+    });
+    // BACKSPACE
+    backspace.addEventListener('mousedown', function(){
+        backspace.classList.add("active");
+        content.innerText = content.innerText.slice(0, -1);
+    });
+    backspace.addEventListener('mouseup', function(){
+        backspace.classList.remove("active");
+    });
+    // TOUCH Event
+    backspace.addEventListener('touchstart', function (e) {
+        backspace.classList.add("active");
+        //content.innerText += k.innerText;
+    });
+    backspace.addEventListener('touchend', function (e) {
+        backspace.classList.remove("active");
+    });
+
+
 }
 return {
     "register_keyboard": init_keyboard
