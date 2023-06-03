@@ -4513,6 +4513,7 @@ ul li{
 	position: relative;
 	background-color: rgb(26, 26, 26);
     font-family: sans-serif;
+	border-radius: 0.5em;
   }
 #ip{
     width: 500px;
@@ -4572,7 +4573,7 @@ ul li{
     color: white;
     font-weight: bold;
     cursor: pointer;
-	margin: 0 0.5em;
+	margin: 0.5em 1em;
     
 }
 .backspace , .space{

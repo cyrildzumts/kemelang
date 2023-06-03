@@ -4051,6 +4051,7 @@
 	position: relative;
 	background-color: rgb(26, 26, 26);
     font-family: sans-serif;
+	border-radius: 0.5em;
   }
 
 
@@ -4116,7 +4117,7 @@
     color: white;
     font-weight: bold;
     cursor: pointer;
-	margin: 0 0.5em;
+	margin: 0.5em 1em;
     /* user-select: none; */
 }
 .backspace , .space{
