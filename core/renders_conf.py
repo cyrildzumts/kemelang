@@ -34,6 +34,10 @@ def render_image(image, template_name="editor/image.html"):
 BLOCK_MAPPING = {
     'header': render_header,
     'paragraph': render_paragraph,
+    'table': render_table,
     'list': render_list,
+    'linkTool': render_linktool,
     'checklist': render_checklist,
+    'quote': render_quote,
+    'image': render_image,
 }

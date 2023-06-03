@@ -20,6 +20,7 @@ def upload_definition_audio_to(instance, filename):
 class Langage(models.Model):
     name = models.CharField(max_length=constants.NAME_MAX_LENGTH)
     description = models.JSONField(encoder=DjangoJSONEncoder,blank=True, null=True)
+    alphabet = models.JSONField(encoder=DjangoJSONEncoder,blank=True, null=True)
     countries = models.ManyToManyField('Country', related_name='langages', blank=True)
     slug = models.SlugField(max_length=constants.NAME_MAX_LENGTH, blank=True, null=True)
     added_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='added_langages', blank=True, null=True)
@@ -27,7 +28,7 @@ class Langage(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     langage_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['name', 'description', 'countries', 'added_by', 'changed_by']
+    FORM_FIELDS = ['name', 'description','alphabet', 'countries', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['name']
     FORM_MAANAGEMENT_FIELDS = {
         'fields' : [
@@ -45,10 +46,18 @@ class Langage(models.Model):
         return self.name
     
     @property
+    def alphabet_to_json(self):
+        if self.alphabet is None:
+            return ''
+        return json.dumps(self.alphabet)
+    
+    @property
     def description_to_json(self):
         if self.description is None:
             return ''
         return json.dumps(self.description)
+        
+    
     
     def get_absolute_url(self):
         return reverse("dictionary:langage", kwargs={"langage_slug": self.slug})
