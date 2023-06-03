@@ -56,7 +56,7 @@ function init_keyboard(tag){
     // SPACE 
     space.addEventListener('mousedown', function(){
         space.classList.add("active");
-        content.innerText += " ";
+        content.innerText += "\xa0";
     });
     space.addEventListener('mouseup', function(){
         space.classList.remove("active");
