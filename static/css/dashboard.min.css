@@ -4566,6 +4566,7 @@ ul li{
     color: white;
     font-weight: bold;
     cursor: pointer;
+	margin: 0 0.5em;
     
 }
 .backspace , .space{
