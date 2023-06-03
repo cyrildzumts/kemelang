@@ -4047,6 +4047,15 @@
 	white-space: nowrap;
   }
   
+  .keyboard-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+  }
   .virtual-keyboard{
 	position: relative;
 	background-color: rgb(26, 26, 26);
