@@ -38,6 +38,9 @@ function init_keyboard(tag){
         k.addEventListener('mousedown', function (e) {
             k.classList.add("active");
             content.innerText += k.innerText;
+            if(keyboard.dataset.target){
+                document.getElementById(keyboard.dataset.target).value = content.innerText;
+            }
         });
         k.addEventListener('mouseup', function (e) {
             k.classList.remove("active");
@@ -57,6 +60,9 @@ function init_keyboard(tag){
     space.addEventListener('mousedown', function(){
         space.classList.add("active");
         content.innerText += "\xa0";
+        if(keyboard.dataset.target){
+            document.getElementById(keyboard.dataset.target).value = content.innerText;
+        }
     });
     space.addEventListener('mouseup', function(){
         space.classList.remove("active");
@@ -73,6 +79,9 @@ function init_keyboard(tag){
     backspace.addEventListener('mousedown', function(){
         backspace.classList.add("active");
         content.innerText = content.innerText.slice(0, -1);
+        if(keyboard.dataset.target){
+            document.getElementById(keyboard.dataset.target).value = content.innerText;
+        }
     });
     backspace.addEventListener('mouseup', function(){
         backspace.classList.remove("active");
