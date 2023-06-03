@@ -4082,6 +4082,7 @@
     transform:translateX(-50%) ;
     font-size: 18px;
     text-transform: capitalize;
+	overflow-x: auto;
 }
 
 
