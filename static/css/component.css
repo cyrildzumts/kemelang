@@ -3952,7 +3952,6 @@
   }
 
   .editor-box-wrapper{
-	max-width: 20em;
 	width: 20em;
 	padding: 1em;
   }
@@ -4163,6 +4162,9 @@ inset 2px 2px 4px black;
 
   
   @media only screen and (max-width:50em){
+	.virtual-keyboard{
+		width: 100%;
+	  }
 
 	  .cart-footer, .product-footer{
 		  margin-bottom: 76px;
