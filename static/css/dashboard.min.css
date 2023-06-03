@@ -4541,7 +4541,7 @@ ul li{
     margin:5px ;
     user-select: none;
 }
- .keyboard button{
+.keyboard button{
     width: 50px;
     height: 50px;
     font-weight: bold;
@@ -4552,6 +4552,10 @@ ul li{
     box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
     border-radius: 5px;
     cursor: pointer;
+}
+.keyboard button:hover{
+	background-color: transparent;
+    color:white;
 }
 .row4 , .backspace , .space{
     display: flex;
