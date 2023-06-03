@@ -4511,6 +4511,8 @@ ul li{
   
   .virtual-keyboard{
 	position: relative;
+	background-color: rgb(26, 26, 26);
+    font-family: sans-serif;
   }
 #ip{
     width: 500px;
