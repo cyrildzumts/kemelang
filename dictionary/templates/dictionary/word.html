@@ -96,9 +96,24 @@
                         <ul class="grid-list">
                             {% for translation in translations %}
                             <li>
-                                <div>
-                                    <div class="flex flex-left"><span class="bold word-type">{{translation.target_word}}</span></div>
-                                    <div class="flex space-between"><span>{{translation.target_word.word}}</span> <div class="flex">{% for synonyme in translation.target_word.synonymes.all %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
+                                <div class="grid">
+                                    <div class="flex flex-left full">
+                                        <span class="bold word-type margin-r">{{translation.target_word}}</span>
+                                        <span>{{translation.target_word.langage}}</span>
+                                    </div>
+                                    <div class="margin-v full">
+                                        {% render_tag translation.target_word.description %}
+                                    </div>
+                                    <div class="flex flex-left full">
+                                        <div class="margin-v full">
+                                            <span>{% translate "Synonymes" %}</span> 
+                                        </div>
+                                        <div class="margin-v flex">
+                                            {% for synonyme in translation.target_word.synonymes.all %}
+                                            <span class="chips">{{synonyme}}</span>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
                                 </div>
 
                             </li>
