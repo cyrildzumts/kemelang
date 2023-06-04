@@ -4135,14 +4135,14 @@
     align-items: center;
     justify-content: center;
 }
-.keyboard .backspace , .space{
+.keyboard .backspace , .space, .cap-lock{
     color:var(--secondary-color);
     font-weight: bold;
     cursor: pointer;
 	margin: 0.5em 1em;
     /* user-select: none; */
 }
-.backspace , .space{
+.backspace , .space, .cap-lock{
     border-radius: 5px;
     box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
 }
@@ -4155,7 +4155,11 @@
     height: 30px;
     margin-left: 15px;
 }
-
+.keyboard .cap-lock {
+    width: 100px;
+    height: 30px;
+    margin-left: 15px;
+}
 
 .keyboard .active{
     box-shadow:inset -2px -2px 4px rgb(63, 63, 63) ,
