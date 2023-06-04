@@ -96,8 +96,8 @@ function init_keyboard(tag){
     });
     // React to physical keyboard Event
     document.addEventListener('keydown', function(event){
-        event.preventDefault();
-        event.stopPropagation();
+        //event.preventDefault();
+        //event.stopPropagation();
         keys.forEach(function(key){
             if(key.innerText == event.key.toUpperCase()){
                 key.classList.add('active');
@@ -111,9 +111,11 @@ function init_keyboard(tag){
         }else{
             content.innerText += event.key;
         }
+        /*
         if(keyboard.dataset.target){
             document.getElementById(keyboard.dataset.target).value = content.innerText;
         }
+        */
     });
     document.addEventListener('keyup', function(event){
         keys.forEach(function(key){
