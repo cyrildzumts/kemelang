@@ -24,7 +24,7 @@
                         <label for="langage">{% trans "Langage" %}</label>
                         <select id="langage" name="langage">
                             {% for lang in langage_list %}
-                            <option value="{{lang.id}}" {% if word.lang == lang %}selected{% endif %}>{{lang.name}}</option>
+                            <option value="{{lang.id}}" {% if word.langage == lang %}selected{% endif %}>{{lang.name}}</option>
                             {% endfor %}
                         </select>
                     </div>
