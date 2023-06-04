@@ -1,5 +1,5 @@
-define(['ajax_api','tag_api'], 
-    function(ajax_api,TAG_API){
+define(['ajax_api','tag_api','alphabet'], 
+    function(ajax_api,TAG_API, ALPHABET){
 const QUERY_DELAY = 800;
 const KEYBOARD_ID = "african-keyboard";
 const KEYS_CONTAINER_ID = "keys";
@@ -17,6 +17,7 @@ const AFRICAN_ALPHABET = [
     //	Δ, Θ, Λ, Π, Σ, Φ, Ψ, Ω
     ['\u0394','\u0398', '\u039B','\u03A0', '\u03A3', '\u03A6','\u03A8','\u03A9'],
 ]
+let AFRICAN_ALPHABET_LIST = ALPHABET.LOWERCASE_LETTERS;
 $('.js-user-search').on('keyup', function(event){
     event.stopPropagation();
     query = $(this).val().trim();
@@ -39,7 +40,7 @@ function fill_keyboard(already_filled){
     if(!keys_container){
         return;
     }
-    AFRICAN_ALPHABET.forEach(function(row, index){
+    AFRICAN_ALPHABET_LIST.forEach(function(row, index){
         let row_keys = [];
         row.forEach(function(key){
             let button = TAG_API.create_tag({'element': 'button', 'options': {
