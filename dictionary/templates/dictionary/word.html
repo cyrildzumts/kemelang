@@ -16,8 +16,7 @@
             </div>
             <div class="flex full">
                 <i class="fas fa-language"></i>{% if word.transliteration %}<span class="small bold margin-r">[{{word.transliteration}}]</span>{% endif %}
-                <span class="small bold">{{word.langage}}</span>
-                <a class="link small" href="{{word.langage.get_absolute_url}}"><span class="small word-type">{{word.langage}}</span></a>
+                <a class="link small" href="{{word.langage.get_absolute_url}}"><span class="small bold">{{word.langage}}</span></a>
             </div>
             <div class="flex full">
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
