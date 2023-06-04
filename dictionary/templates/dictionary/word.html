@@ -98,7 +98,7 @@
                             <li>
                                 <div>
                                     <div class="flex flex-left"><span class="bold word-type">{{translation.target_word}}</span></div>
-                                    <div class="flex space-between"><span>{{translation.target_word.word}}</span> <div class="flex">{% for synonyme in translation.target_word.synonymes %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
+                                    <div class="flex space-between"><span>{{translation.target_word.word}}</span> <div class="flex">{% for synonyme in translation.target_word.synonymes.all %}<span class="chips">{{synonyme}}</span>{% endfor %}</div></div>
                                 </div>
 
                             </li>
