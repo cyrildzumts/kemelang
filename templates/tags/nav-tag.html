@@ -47,6 +47,9 @@
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:countries' %}" title="{% trans 'Countires' %}"><i class="fas fa-globe-africa"></i><span class="hidden-m">{% trans "Countries" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langages' %}" title="{% trans 'Langages' %}"><i class="fas fa-language"></i><span class="hidden-m">{% trans "Langages" %}</span></a></li>
+                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Country" %}</span></a></li>
+                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{% translate "Langage" %}</span></a></li>
+                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:word-create' %}" title="{% translate 'Add a new word for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Word" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url TRANSLATION_CREATE_URL %}" title="{% trans 'Add Translation' %}"><i class="fas fa-language"></i><span class="hidden-m">{% trans "Add Translation" %}</span></a></li>
                     {% comment %}
                         <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
