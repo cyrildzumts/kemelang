@@ -94,6 +94,28 @@ function init_keyboard(tag){
     backspace.addEventListener('touchend', function (e) {
         backspace.classList.remove("active");
     });
+    // React to physical keyboard Event
+    document.addEventListener('keydown', function(event){
+        keys.forEach(function(key){
+            if(key.innerText == event.key.toUpperCase()){
+                key.classList.add('active');
+            }
+        });
+        content.innerText += event.key;
+        if(event.key == 'Backspace'){
+            content.innerText = content.innerText.slice(0, -1);
+        }
+        if(keyboard.dataset.target){
+            document.getElementById(keyboard.dataset.target).value = content.innerText;
+        }
+    });
+    document.addEventListener('keyup', function(event){
+        keys.forEach(function(key){
+            if(key.innerText == event.key.toUpperCase()){
+                key.classList.remove('active');
+            }
+        });
+    });
 
 
 }
