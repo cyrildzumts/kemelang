@@ -15,7 +15,7 @@
                 <a href="{% url WORD_UPDATE_URL word.word word.word_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
             <div class="flex full">
-                <i class="fas fa-language"></i>{% if word.transliteration %}<span class="small bold margin-r">[{{word.transliteration}}]</span>{% endif %}
+                <i class="fas fa-language"></i>{% if word.transliteration %}<span class="small bold">[{{word.transliteration}}]</span>{% endif %}
                 <a class="bold small padding-05" href="{{word.langage.get_absolute_url}}"><span class="small bold">{{word.langage}}</span></a>
             </div>
             <div class="flex full">
