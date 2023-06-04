@@ -14,6 +14,7 @@
                 </span>
                 <a href="{% url WORD_UPDATE_URL word.word word.word_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
+            <div class="flex full"><span class="small bold">{{word.langage}}</span></div>
             <div class="flex full">
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="col-m-3 col-3"><div class="tab active" data-parent="tabs" data-index="1" data-target="word-definitions"><span>{% translate "Definition" %}</span></div></div>
@@ -93,13 +94,16 @@
                 <div id="word-translations" class="tab-content margin-v full">
                     <div class="padding-v full">
                         {% if translations %}
-                        <ul class="grid-list">
+                        <ul class="">
                             {% for translation in translations %}
                             <li>
                                 <div class="grid">
                                     <div class="flex flex-left full">
-                                        <span class="bold word-type margin-r">{{translation.target_word}}</span>
+                                        <span class="bold word-type margin-r">{{translation.target_word}},</span>
                                         <span>{{translation.target_word.langage}}</span>
+                                    </div>
+                                    <div class="flex flex-left full">
+                                        <span class="bold word-type">{% translate "Description" %}</span>
                                     </div>
                                     <div class="margin-v full">
                                         {% render_tag translation.target_word.description %}
@@ -113,6 +117,9 @@
                                             <span class="chips">{{synonyme}}</span>
                                             {% endfor %}
                                         </div>
+                                    </div>
+                                    <div class="margin-v full">
+                                        <a href="{{SITE_HOST}}{{translation.target_word.get_absolute_url}}"><span class="word-type">{% translate "Details" %}</span></a>
                                     </div>
                                 </div>
 
