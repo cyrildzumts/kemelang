@@ -6626,6 +6626,9 @@ option:checked{
     background-color: var(--editor-header);
     color: var(--editor-header-color);
 }
+.editor-box-wrapper{
+    background-color: #F5F5F5;
+}
 .container {
   width: 100%;
   display: flex !important;
