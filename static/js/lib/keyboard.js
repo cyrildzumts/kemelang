@@ -51,8 +51,6 @@ function init_keyboard(tag){
             }
         });
         k.addEventListener('mouseup', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
             k.classList.remove("active");
         });
 
@@ -64,16 +62,12 @@ function init_keyboard(tag){
             //content.innerText += k.innerText;
         });
         k.addEventListener('touchend', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
             k.classList.remove("active");
         });
         
     });
     // SPACE 
     space.addEventListener('mousedown', function(e){
-        e.preventDefault();
-        e.stopPropagation();
         space.classList.add("active");
         content.innerText += "\xa0";
         if(keyboard.dataset.target){
@@ -81,26 +75,18 @@ function init_keyboard(tag){
         }
     });
     space.addEventListener('mouseup', function(e){
-        e.preventDefault();
-        e.stopPropagation();
         space.classList.remove("active");
     });
     // TOUCH Event
     space.addEventListener('touchstart', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
         space.classList.add("active");
         //content.innerText += k.innerText;
     });
     space.addEventListener('touchend', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
         space.classList.remove("active");
     });
     // BACKSPACE
     backspace.addEventListener('mousedown', function(e){
-        e.preventDefault();
-        e.stopPropagation();
         backspace.classList.add("active");
         content.innerText = content.innerText.slice(0, -1);
         if(keyboard.dataset.target){
@@ -108,26 +94,18 @@ function init_keyboard(tag){
         }
     });
     backspace.addEventListener('mouseup', function(e){
-        e.preventDefault();
-        e.stopPropagation();
         backspace.classList.remove("active");
     });
     // TOUCH Event
     backspace.addEventListener('touchstart', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
         backspace.classList.add("active");
         //content.innerText += k.innerText;
     });
     backspace.addEventListener('touchend', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
         backspace.classList.remove("active");
     });
     // React to physical keyboard Event
     document.addEventListener('keydown', function(event){
-        //event.preventDefault();
-        //event.stopPropagation();
         keys.forEach(function(key){
             if(key.innerText == event.key.toUpperCase()){
                 key.classList.add('active');
