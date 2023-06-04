@@ -4649,7 +4649,10 @@ ul li{
     align-items: center;
     justify-content: center;
 }
-.keyboard .backspace , .space, .cap-lock{
+.keyboard .backspace , .keyboard  .space, .keyboard  .cap-lock{
+	display: flex;
+	justify-content: center;
+	align-items: center;
     color:var(--secondary-color);
     font-weight: bold;
     cursor: pointer;
@@ -4672,6 +4675,7 @@ ul li{
 .keyboard .cap-lock {
     width: 100px;
     height: 30px;
+	text-align: center;
     margin-left: 15px;
 }
 .keyboard .active{
