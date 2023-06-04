@@ -292,7 +292,8 @@ def word_details(request,word, word_uuid):
         'word': word,
         'definition_list': word.definitions.all(),
         'comment_list': word.comments.all(),
-        'phrase_list': word.phrases.all()
+        'phrase_list': word.phrases.all(),
+        'translations': word.translations.all()
     }
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
