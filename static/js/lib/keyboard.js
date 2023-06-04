@@ -57,6 +57,46 @@ function fill_keyboard(already_filled){
     return keys;
 }
 
+function make_keyboard_draggable(){
+    document.querySelectorAll('.draggable').forEach(drag_element);
+}
+
+function drag_element(tag){
+    let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    let header = document.getElementById(tag.dataset.header);
+    if(header){
+        header.addEventListener('mousedown', drag_mouse_down);
+    }else{
+        tag.addEventListener('mousedown', drag_mouse_down);
+    }
+
+    function drag_mouse_down(e){
+        e = e || window.event;
+        e.preventDefault();
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        document.onmouseup = close_drag_element;
+        document.onmousemove = element_drag;
+    }
+
+    function element_drag(e) {
+        e = e || window.event;
+        e.preventDefault();
+        pos1 = pos3 - e.clientX;
+        pos2 = pos4 - e.clientY;
+        pos3 = e.clientX;
+        pos4 = e.clientY;
+        tag.style.top = (tag.offsetTop - pos2) + 'px';
+        tag.style.left = (tag.offsetLeft - pos1) + 'px';
+    }
+
+    function close_drag_element(e) {
+        document.onmouseup = null;
+        document.onmousemove = null;
+    }
+
+}
+
 function init_keyboard(tag){
     if(!tag){
         return;
@@ -86,7 +126,7 @@ function init_keyboard(tag){
     if(event_registered){
         return;
     }
-    
+    make_keyboard_draggable();
     keys.forEach(k =>{
         // KEY Pressed
         k.addEventListener('mousedown', function (e) {
