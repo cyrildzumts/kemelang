@@ -102,12 +102,13 @@
                                         <span class="bold word-type margin-r">{{translation.target_word}},</span>
                                         <span>{{translation.target_word.langage}}</span>
                                     </div>
-                                    <div class="flex flex-left full">
+                                    <div class="margin-v full">
                                         <span class="bold word-type">{% translate "Description" %}</span>
                                     </div>
                                     <div class="margin-v full">
                                         {% render_tag translation.target_word.description %}
                                     </div>
+                                    {% if translation.target_word.synonymes.exists %}
                                     <div class="flex flex-left full">
                                         <div class="margin-v full">
                                             <span>{% translate "Synonymes" %}</span> 
@@ -118,8 +119,9 @@
                                             {% endfor %}
                                         </div>
                                     </div>
+                                    {% endif %}
                                     <div class="margin-v full">
-                                        <a href="{{SITE_HOST}}{{translation.target_word.get_absolute_url}}"><span class="word-type">{% translate "Details" %}</span></a>
+                                        <a class="link" href="{{SITE_HOST}}{{translation.target_word.get_absolute_url}}"><span class="word-type">{% translate "Details" %}</span></a>
                                     </div>
                                 </div>
 
