@@ -101,9 +101,13 @@ function init_keyboard(tag){
                 key.classList.add('active');
             }
         });
-        content.innerText += event.key;
+        
         if(event.key == 'Backspace'){
             content.innerText = content.innerText.slice(0, -1);
+        }else if(event.key == ' '){
+            content.innerText += "\xa0";
+        }else{
+            content.innerText += event.key;
         }
         if(keyboard.dataset.target){
             document.getElementById(keyboard.dataset.target).value = content.innerText;
