@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],function(ajax_api, tag_api, WordFormFactory, Editor_API,AudioRecorder) {
+define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboard'],function(ajax_api, tag_api, WordFormFactory, Editor_API,AudioRecorder, Keyboard) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -178,6 +178,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio'],functio
         let result = this.wordFormFactory.create_form(this.total_form, PREFIX, this.remove_word_form.bind(this));
         
         this.form_container.appendChild(result.tag);
+        Keyboard.register_keyboard(result['keyboard-btn']);
         let editor = new Editor_API.EditorWrapper(result.editor.id, {});
         editor.init()
         if(!editor.created){
