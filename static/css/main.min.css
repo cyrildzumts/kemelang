@@ -4627,6 +4627,8 @@ ul li{
 }
 .keyboard-row{
 	display: flex;
+	justify-content: center;
+	align-items: center;
     margin:5px ;
     user-select: none;
 }
