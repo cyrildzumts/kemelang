@@ -72,7 +72,7 @@ def create_mass_word(data):
     return result
 
 def create_mass_translation(data):
-    TranslationFormSet = modelformset_factory(TranslationWord, form=WordForm)
+    TranslationFormSet = modelformset_factory(TranslationWord, form=TranslationWordForm)
     formset = TranslationFormSet(data, prefix=Constants.TRANSLATION_FORMSET_PREFIX)
     result = {}
     if formset.is_valid():
