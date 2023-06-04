@@ -79,9 +79,14 @@ function init_keyboard(tag){
             content.innerText = "";
         }
     });
+    let target = document.getElementById(tag.dataset.target);
+    target.addEventListener('keyup', function(e){
+        content.innerText = target.value;
+    });
     if(event_registered){
         return;
     }
+    
     keys.forEach(k =>{
         // KEY Pressed
         k.addEventListener('mousedown', function (e) {
@@ -162,10 +167,11 @@ function init_keyboard(tag){
         }else{
             content.innerText += event.key;
         }*/
-        
+        /*
         if(keyboard.dataset.target){
             content.innerText = document.getElementById(keyboard.dataset.target).value;
         }
+        */
     });
     document.addEventListener('keyup', function(event){
         keys.forEach(function(key){
