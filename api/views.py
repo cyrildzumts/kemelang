@@ -60,7 +60,7 @@ def create_country(request):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        result = dictionary_service.create_mass_country(utils.get_postdata(request))
+        result = dictionary_service.create_mass_country(request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)
@@ -76,7 +76,7 @@ def update_country(request,country_slug, country_uuid):
     result = None
     try:
         country = Country.objects.get(country_uuid=country_uuid)
-        country = dictionary_service.update_country(country, utils.get_postdata(request))
+        country = dictionary_service.update_country(country, request.data)
         result = {'success': True, 'country': LangageSerializer(country).data, 'url': country.get_absolute_url(), 'message': f"Word {country}"}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
@@ -123,7 +123,21 @@ def create_langage(request):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        result = dictionary_service.create_mass_langage(utils.get_postdata(request))
+        result = dictionary_service.create_mass_langage(request.data)
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+    return Response(data=result, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
+def create_translation(request):
+    logger.info(f"API: New Translation creation request")
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    result = None
+    try:
+        result = dictionary_service.create_mass_translation(request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)
@@ -139,7 +153,7 @@ def update_langage(request,langage_slug, langage_uuid):
     result = None
     try:
         langage = Langage.objects.get(langage_uuid=langage_uuid)
-        langage = dictionary_service.update_langage(langage, utils.get_postdata(request))
+        langage = dictionary_service.update_langage(langage, request.data)
         result = {'success': True, 'langage': LangageSerializer(langage).data, 'url': langage.get_absolute_url(), 'message': f"Word {langage}"}
     except Exception as e:
         result = {'success': False, 'message': str(e)}
@@ -157,7 +171,7 @@ def create_word(request):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        result = dictionary_service.create_mass_word(utils.get_postdata(request))
+        result = dictionary_service.create_mass_word(request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
     return Response(data=result, status=status.HTTP_200_OK)
@@ -177,7 +191,7 @@ def update_word(request, word, word_uuid):
     result = None
     try:
         w = Word.objects.get(word_uuid=word_uuid)
-        w = dictionary_service.update_word(w, utils.get_postdata(request))
+        w = dictionary_service.update_word(w, request.data)
         result = {'success': True, 'word': WordSerializer(w).data, 'url': w.get_absolute_url(), 'message': f"Word {w.word}"}
     except Exception as e:
         result = {'success': False, 'message': str(e)}

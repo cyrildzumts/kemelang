@@ -71,6 +71,20 @@ def create_mass_word(data):
         result = {'success': False, 'message': formset.errors}
     return result
 
+def create_mass_translation(data):
+    TranslationFormSet = modelformset_factory(TranslationWord, form=WordForm)
+    formset = TranslationFormSet(data, prefix=Constants.TRANSLATION_FORMSET_PREFIX)
+    result = {}
+    if formset.is_valid():
+        logger.info(f"Translation Formset is valid. Dataset : {formset.cleaned_data}")
+        translations = formset.save()
+        logger.info(f"Word Formset created.")
+        result = {'success' : True, 'message': f'Translated {len(translations)} words'}
+    else:
+        logger.warn(f"Translation not created : Errors : {formset.errors} - data : {data}")
+        result = {'success': False, 'message': formset.errors}
+    return result
+
 
 
 def create_langage(data):
