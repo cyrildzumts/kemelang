@@ -154,19 +154,18 @@ function init_keyboard(tag){
                 key.classList.add('active');
             }
         });
-        
+        /*
         if(event.key == 'Backspace'){
             content.innerText = content.innerText.slice(0, -1);
         }else if(event.key == ' '){
             content.innerText += "\xa0";
         }else{
             content.innerText += event.key;
-        }
-        /*
+        }*/
+        
         if(keyboard.dataset.target){
-            document.getElementById(keyboard.dataset.target).value = content.innerText;
+            content.innerText = document.getElementById(keyboard.dataset.target).value;
         }
-        */
     });
     document.addEventListener('keyup', function(event){
         keys.forEach(function(key){
