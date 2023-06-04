@@ -34,7 +34,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'cls': 'flex',
             'children': [virtual_keyboard_button, delete_button]
         }});
-        Keyboard.register_keyboard(virtual_keyboard_button);
+        
         let header_label = create_api({'element': 'div', 'options':{
             'children': [create_api({'element': 'span', 'options':{'innerText': 'Word', 'cls': 'bold'}})]
         }});
@@ -248,6 +248,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
                 delete_callback({'id':tag_id, 'index': `langage-index-${this.index}`});
             }
         });
+        Keyboard.register_keyboard(virtual_keyboard_button);
         return {'tag': div, 'inputs': form_inputs,'audio':{'start_btn': start_record_btn,'stop_btn': stop_record_btn,'play_btn': play_record_btn ,'player': audio_player, 'input': audio},'editor': editor,'add-langage-btn': add_langage_btn, 'word_input': word, 'selection': selected_langage, 'index': `word-index-${this.index}`};
     }
 
