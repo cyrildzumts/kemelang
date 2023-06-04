@@ -118,7 +118,7 @@ class Country(models.Model):
 
 class Word(models.Model):
     word = models.CharField(max_length=constants.WORD_MAX_LENGTH)
-    transliteration = models.CharField(max_length=constants.WORD_MAX_LENGTH)
+    transliteration = models.CharField(max_length=constants.WORD_MAX_LENGTH, blank=True, null=True)
     audio = models.FileField(upload_to=upload_word_audio_to, blank=True, null=True)
     synonymes = models.ManyToManyField('self', blank=True)
     langage = models.ForeignKey(Langage, on_delete=models.CASCADE, related_name='words')
