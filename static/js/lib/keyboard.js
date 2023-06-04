@@ -96,6 +96,8 @@ function init_keyboard(tag){
     });
     // React to physical keyboard Event
     document.addEventListener('keydown', function(event){
+        event.preventDefault();
+        event.stopPropagation();
         keys.forEach(function(key){
             if(key.innerText == event.key.toUpperCase()){
                 key.classList.add('active');
