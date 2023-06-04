@@ -101,6 +101,7 @@
 {% endif %}
 {% endblock SEARCH_BAR %}
 {% block CATEGORY_OVERLAY_MENU %}
+{% if root_category_list %}
 {% cache TEMPLATE_CACHE_TIMEOUT overlay_menu LANGUAGE_CODE %}
 <div class="catalog-overlay-wrapper">
         <input type="checkbox" id="catalog-overlay-toggle" class="hidden">
@@ -137,6 +138,7 @@
         </div>  
 </div>
 {% endcache %}
+{% endif %}
 {% endblock CATEGORY_OVERLAY_MENU %}  
 {% block NEWS %}
 {% if news %}
