@@ -118,6 +118,7 @@ class Country(models.Model):
 
 class Word(models.Model):
     word = models.CharField(max_length=constants.WORD_MAX_LENGTH)
+    transliteration = models.CharField(max_length=constants.WORD_MAX_LENGTH)
     audio = models.FileField(upload_to=upload_word_audio_to, blank=True, null=True)
     synonymes = models.ManyToManyField('self', blank=True)
     langage = models.ForeignKey(Langage, on_delete=models.CASCADE, related_name='words')
@@ -128,7 +129,7 @@ class Word(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     word_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['word','audio', 'description','synonymes', 'langage', 'added_by', 'changed_by']
+    FORM_FIELDS = ['word','audio', 'description','synonymes','transliteration', 'langage', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['word', 'description']
     
     class Meta:

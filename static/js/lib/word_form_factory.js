@@ -50,7 +50,17 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'data-lang': '',
             'cls': 'managed-update',
             'type':'text',
-            'placeholer': 'Enter word'
+            'placeholder': 'Enter word'
+
+        }});
+        let transliteration = create_api({'element': 'input', 'options':{
+            'id': `id-${form_prefix}-${form_index}-transliteration`,
+            'name': `${form_prefix}-${form_index}-transliteration`,
+            'data-error': `${id}-transliteration-error`,
+            'data-lang': '',
+            'cls': 'managed-update',
+            'type':'text',
+            'placeholder': 'Enter transliteration'
 
         }});
         let word_error = create_api({'element': 'span', 'options':{'id': `${id}-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
@@ -59,9 +69,14 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'cls': 'managed-update force-hidden',
             'htmlFor': word.id
         }});
+        let label_transliteration = create_api({'element': 'label', 'options': {
+            'innerText': 'Transliteration',
+            'cls': 'managed-update force-hidden',
+            'htmlFor': transliteration.id
+        }});
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_word, word_error, word]
+            'children': [label_word, word_error, word, label_transliteration, transliteration]
         }});
 
         let div_name_wrapper = create_api({'element': 'div', 'options': {
