@@ -1,8 +1,22 @@
 define(['ajax_api','tag_api'], 
-    function(ajax_api,TAG_API, Editor_API){
+    function(ajax_api,TAG_API){
 const QUERY_DELAY = 800;
+const KEYBOARD_ID = "african-keyboard";
+const KEYS_CONTAINER_ID = "keys";
 let scheduled_query = false;
 let event_registered = false;
+// KEYBOARD 3 ROWS
+// 1st ROW : 10 Chars
+// 2nd ROW : 9 Chars
+// 3rd ROW : 7 Chars
+const AFRICAN_ALPHABET = [
+    // Ā, Ă, Ǻ, ɐ,ɑ, Ċ, Ē, Ė, Ɛ, Ŋ
+    ['\u0100','\u0102', '\u01FA', '\u0250', '\u0251','\u010A','\u0112','\u0116', '\u0190','\u014A'],
+    // Ō,Ɔ, ɔ,  Ū, Ƨ, Ʒ, ǝ, Ǣ, ɩ
+    [,'\u014C', '\u0186', '\u0254', '\u016A','\u01A7', '\u01B7', '\u01DD', '\u01E2','\u0269'],
+    //	Δ, Θ, Λ, Π, Σ, Φ, Ψ, Ω
+    ['\u0394','\u0398', '\u039B','\u03A0', '\u03A3', '\u03A6','\u03A8','\u03A9'],
+]
 $('.js-user-search').on('keyup', function(event){
     event.stopPropagation();
     query = $(this).val().trim();
@@ -16,11 +30,40 @@ $('.js-user-search').on('keyup', function(event){
     scheduled_query = setTimeout(userSearch, query_delay, search_options);
 });
 
+function fill_keyboard(already_filled){
+    if(already_filled){
+        return;
+    }
+    let keys = [];
+    let keys_container = document.getElementById(KEYS_CONTAINER_ID);
+    if(!keys_container){
+        return;
+    }
+    AFRICAN_ALPHABET.forEach(function(row, index){
+        let row_keys = [];
+        row.forEach(function(key){
+            let button = TAG_API.create_tag({'element': 'button', 'options': {
+                'innerText': key
+            }})
+            row_keys.push(button);
+            keys.push(button);
+        });
+        let div = TAG_API.create_tag({'element': 'div', 'options': {
+            'cls': `keyboard-row row${index + 1}`,
+            'children': row_keys
+        }});
+        keys_container.appendChild(div);
+    });
+    return keys;
+}
+
 function init_keyboard(tag){
     if(!tag){
         return;
     }
-    let keys = document.querySelectorAll(".keyboard button");
+    //let keys = document.querySelectorAll(".keyboard button");
+
+    let keys = fill_keyboard(event_registered);
     let content = document.getElementById("ip");
     let space = document.getElementById("space");
     let backspace = document.getElementById("backspace");
