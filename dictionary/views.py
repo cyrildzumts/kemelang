@@ -230,8 +230,8 @@ def update_word(request, word, word_uuid):
         'word': w,
         'langage_list': dictionary_service.get_langages(),
         'WORD_TYPES': DICT_CONSTANTS.WORD_TYPES,
-        'WORD_TYPES_DICT': dict(DICT_CONSTANTS.WORD_TYPES),
-        'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
+        #'WORD_TYPES_DICT': dict(DICT_CONSTANTS.WORD_TYPES),
+        #'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
     }
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     
