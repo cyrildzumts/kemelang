@@ -224,8 +224,6 @@ def update_word(request, word, word_uuid):
             msg = f"Error on updating Word {word} : {e}"
             messages.warning(request, msg)
             logger.warn(msg)
-    else:
-        pass
     
     context = {
         'page_title': "Update Word",

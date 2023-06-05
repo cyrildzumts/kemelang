@@ -43,12 +43,12 @@ WORD_TYPE_ADJECTIVE = 4
 WORD_TYPE_PREPOSITION = 5
 
 WORD_TYPES = (
-    (WORD_TYPE_NOUN,_('Noun')),
-    (WORD_TYPE_VERB,_('Verb')),
-    (WORD_TYPE_PRONOUN,_('Pronoun')),
-    (WORD_TYPE_ADVERB,_('Adverb')),
-    (WORD_TYPE_ADJECTIVE,_('Adjective')),
-    (WORD_TYPE_PREPOSITION,_('Preposition')),
+    (WORD_TYPE_NOUN, _('Noun')),
+    (WORD_TYPE_VERB, _('Verb')),
+    (WORD_TYPE_PRONOUN, _('Pronoun')),
+    (WORD_TYPE_ADVERB, _('Adverb')),
+    (WORD_TYPE_ADJECTIVE, _('Adjective')),
+    (WORD_TYPE_PREPOSITION, _('Preposition')),
 )
 
 
