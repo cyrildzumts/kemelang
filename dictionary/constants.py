@@ -48,7 +48,7 @@ WORD_TYPES = (
     (WORD_TYPE_PRONOUN, _('Pronoun')),
     (WORD_TYPE_ADVERB, _('Adverb')),
     (WORD_TYPE_ADJECTIVE, _('Adjective')),
-    (WORD_TYPE_PREPOSITION, _('Preposition')),
+    (WORD_TYPE_PREPOSITION, _('Preposition'))
 )
 
 
