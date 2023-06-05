@@ -236,7 +236,7 @@ def update_word(request, word, word_uuid):
         #'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
     }
     except Exception as e:
-        logger.warning(f"Error on building context object: {e}", e)
+        logger.warning(f"Error on building context object from Tuple :{DICT_CONSTANTS.WORD_TYPES} {e}", e)
         raise e
     
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
