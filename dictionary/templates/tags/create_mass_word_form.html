@@ -3,7 +3,7 @@
 
 <div class="grid">
     <form id="word-form" class="word-form" name="word" action="{% url 'dictionary:word-create' %}" method="POST">{% csrf_token %}
-        <div id="word-form-container" class="create-form grid">  
+        <div id="word-form-container" class="create-form grid" data-types="{{WORD_TYPES_JSON}}">  
         </div>
         <div class="actions">
             <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>

@@ -3,11 +3,15 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
 
     function WordFormFactory(){
         this.index = -1;
-    };
-    WordFormFactory.prototype.init = function(){
-        console.log("Word Form Factory initalised");
+        this.WORD_TYPES = null;
     };
 
+    WordFormFactory.prototype.init = function(){
+        console.log("Word Form Factory initalised with WORD TYPE : ", this.WORD_TYPES);
+    };
+    WordFormFactory.prototype.set_word_types = function(wt){
+        this.WORD_TYPES = wt;
+    };
 
     WordFormFactory.prototype.create_form = function(index, prefix, delete_callback){
         let self = this;
@@ -74,14 +78,44 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'cls': 'managed-update force-hidden',
             'htmlFor': transliteration.id
         }});
+        
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
             'children': [label_word, word_error, word, label_transliteration, transliteration]
         }});
+        let label_word_type = create_api({'element': 'span', 'options': {
+            'innerText': 'Word Type :',
+            'cls': 'margin-r',
+        }});
+
+        let word_types = [label_word_type];
+        for(const [key,value] of Object.entries(this.WORD_TYPES)){
+            let label = create_api({'element': 'span', 'options': {
+                'innerText': value,
+                'cls': 'margin-r',
+            }});
+            let input = tag_api.create_api({'element': 'input','options': {
+                'type': 'radio',
+                'value': key,
+                'checked': key == 0
+            }})
+            word_types.push(tag_api.create_api({'element': 'div','options': {
+                'cls': 'margin-h',
+                'children': [label, input]
+            }}));
+        }
+        let word_type_inputs = create_api({'element': 'div', 'options': {
+            'cls': 'form-group',
+            'children': word_types
+        }});
+        let form_group_type = create_api({'element': 'div', 'options': {
+            'cls': 'form-group',
+            'children': [word_type_inputs]
+        }});
 
         let div_name_wrapper = create_api({'element': 'div', 'options': {
             'cls' : "form-group-wrapper",
-            'children': [form_group_name]
+            'children': [form_group_name, form_group_type]
         }});
 
         /****** */

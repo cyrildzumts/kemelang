@@ -1,5 +1,5 @@
 
-
+from django.utils.translation import gettext_lazy as _
 
 TRANSLATION_COMMENT_MAX_LENGTH = 300
 NAME_MAX_LENGTH = 128
@@ -34,6 +34,23 @@ FORM_MANAGEMENT_TYPE_MAPPING = {
     'definition': 'Definition',
     
 }
+
+WORD_TYPE_NOUN = 0
+WORD_TYPE_VERB = 1
+WORD_TYPE_PRONOUN = 2
+WORD_TYPE_ADVERB = 3
+WORD_TYPE_ADJECTIVE = 4
+WORD_TYPE_PREPOSITION = 5
+
+WORD_TYPES = (
+    (WORD_TYPE_NOUN,_('Noun')),
+    (WORD_TYPE_VERB,_('Verb')),
+    (WORD_TYPE_PRONOUN,_('Pronoun')),
+    (WORD_TYPE_ADVERB,_('Adverb')),
+    (WORD_TYPE_ADJECTIVE,_('Adjective')),
+    (WORD_TYPE_PREPOSITION,_('Preposition')),
+)
+
 
 DICTIONARY_URL_PREFIX = "dictionary"
 

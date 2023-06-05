@@ -7,7 +7,7 @@ from dictionary import dictionary_service
 from core import renderers
 from django.contrib import messages
 import logging
-
+import json
 
 logger = logging.getLogger(__name__)
 # Create your views here.
@@ -75,11 +75,7 @@ def create_langage(request):
 
 
 def create_word(request):
-    template_name = "dictionary/create_word.html"
-    context = {
-        'page_title': "New Word",
-        'langage_list': dictionary_service.get_langages()
-    }
+    
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
@@ -91,6 +87,13 @@ def create_word(request):
             logger.warn(msg)
     else:
         pass
+    template_name = "dictionary/create_word.html"
+    context = {
+        'page_title': "New Word",
+        'langage_list': dictionary_service.get_langages(),
+        'WORD_TYPES': DICT_CONSTANTS.WORD_TYPES,
+        'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
+    }
     return render(request, template_name, context)
 
 def create_phrase(request, word_uuid):
@@ -211,11 +214,7 @@ def update_langage(request, langage_slug, langage_uuid):
 def update_word(request, word, word_uuid):
     template_name = "dictionary/update_word.html"
     w = get_object_or_404(Word, word_uuid=word_uuid)
-    context = {
-        'page_title': "Update Word",
-        'word': w,
-        'langage_list': dictionary_service.get_langages()
-    }
+    
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
@@ -228,6 +227,13 @@ def update_word(request, word, word_uuid):
     else:
         pass
     
+    context = {
+        'page_title': "Update Word",
+        'word': w,
+        'langage_list': dictionary_service.get_langages(),
+        'WORD_TYPES': DICT_CONSTANTS.WORD_TYPES,
+        'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
+    }
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     
     return render(request, template_name, context)

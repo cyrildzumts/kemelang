@@ -35,7 +35,8 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
             return;
         }
         this.loader = document.getElementById('loader');
-        this.wordFormFactory = new WordFormFactory();
+        this.wordFormFactory = new WordFormFactory(JSON.parse(this.form_container.dataset.types));
+        this.wordFormFactory.set_word_types()
         this.wordFormFactory.init();
         let add_form_btn = document.getElementById('add-word-btn');
         let create_country_btn = document.getElementById('create-word-btn');

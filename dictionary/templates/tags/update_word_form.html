@@ -21,6 +21,15 @@
                 </div>
                 <div class="form-group-wrapper">
                     <div class="form-group full">
+                        <label for="word_type">{% trans "Word Type" %}</label>
+                        <input id="word_type" type="text"  name="word_type" value="{{word.transliteration|default:''}}">
+                        <select name="word_type" id="word_type">
+                            {% for k,v in WORD_TYPES %} <option value="{k}" {% if word.word_type == k %}{% endif %} >{{v}}</option> {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group-wrapper">
+                    <div class="form-group full">
                         <label for="langage">{% trans "Langage" %}</label>
                         <select id="langage" name="langage">
                             {% for lang in langage_list %}
