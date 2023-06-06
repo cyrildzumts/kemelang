@@ -103,12 +103,12 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
                 'checked': key == 0
             }})
             word_types.push(create_tag({'element': 'div','options': {
-                'cls': 'margin-h',
+                'cls': 'margin-h flex flex-left',
                 'children': [label, input]
             }}));
         }
         let word_type_inputs = create_tag({'element': 'div', 'options': {
-            'cls': 'form-group',
+            'cls': 'form-group small',
             'children': word_types
         }});
         let form_group_type = create_tag({'element': 'div', 'options': {
