@@ -37,24 +37,25 @@
                 <ul class="navbar-nav secondary">
                     {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>{% endcomment %}
                     
-                    {% if request.user.is_authenticated %}
+                    
                     {% if is_dashboard_allowed %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
                     {% endif %}
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user icon"></i><span>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}</span></a></li>
+                    
                     {% if is_translator %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'translators:home' %}" title="{% trans 'Translator' %}"><i class="fas fa-handshake icon"></i><span class="hidden-m">{% trans "Vendor Panel" %}</span></a></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:countries' %}" title="{% trans 'Countires' %}"><i class="fas fa-globe-africa"></i><span>{% trans "Countries" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langages' %}" title="{% trans 'Langages' %}"><i class="fas fa-language"></i><span>{% trans "Langages" %}</span></a></li>
-                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Add Country" %}</span></a></li>
-                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{% translate "Add Langage" %}</span></a></li>
-                    <li><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:word-create' %}" title="{% translate 'Add a new word for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Add Word" %}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Add Country" %}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{% translate "Add Langage" %}</span></a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:word-create' %}" title="{% translate 'Add a new word for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Add Word" %}</span></a></li>
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url TRANSLATION_CREATE_URL %}" title="{% trans 'Add Translation' %}"><i class="fas fa-plus"></i><span>{% trans "Add Translation" %}</span></a></li>
                     {% comment %}
                         <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
                     {% endcomment %}
-                    
+                    {% if request.user.is_authenticated %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{% trans 'My Account' %}"><i class="fas fa-user icon"></i><span>{{UI_STRINGS_CONTEXT.UI_USER_ACCOUNT|default:_('My Account')}}</span></a></li>
                     <li class="nav-item"><a class="signout-btn nav-link signout" href="{{SITE_HOST}}{% url 'accounts:logout' %}" title="{% trans 'Logout' %}"><i class="fas fa-sign-out-alt icon"></i><span>{% trans 'Logout' %}</span></a></li>
                     {% else %}
                         <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{% trans 'Login' %}"><i class="fas fa-sign-in-alt icon"></i><span>{% trans 'Login' %}</span></a></li>
