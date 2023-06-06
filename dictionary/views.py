@@ -88,11 +88,12 @@ def create_word(request):
     else:
         pass
     template_name = "dictionary/create_word.html"
+    WORD_TYPES_DICT = {k:str(v) for k,v in DICT_CONSTANTS.WORD_TYPES}
     context = {
         'page_title': "New Word",
         'langage_list': dictionary_service.get_langages(),
         'WORD_TYPES': DICT_CONSTANTS.WORD_TYPES,
-        'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
+        'WORD_TYPES_JSON': json.dumps(WORD_TYPES_DICT)
     }
     return render(request, template_name, context)
 
