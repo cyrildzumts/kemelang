@@ -45,7 +45,6 @@ def filter_conf(context,field, key=None):
 
 
 
-
 @register.filter
 def account_type_key(value):
     k,v = utils.find_element_by_value_in_tuples(value, ACCOUNT_CONSTANTS.ACCOUNT_TYPE)

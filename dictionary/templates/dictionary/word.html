@@ -1,5 +1,6 @@
 {% extends "dictionary_base.html" %}
 {% load i18n %} 
+{% load core_tags %}
 {% load dictionary_tags %}
 
 
@@ -30,6 +31,9 @@
                 <div id="word-definitions" class="tab-content margin-v full">
                     <div class="flex flex-left">
                         <span class="bold"><span class="lowercase">{{word}}</span></span>
+                        {% if word.word_type not None %}
+                        <span class="small bold margin-h">[{{word.word_type|word_type}}]</span>
+                        {% endif %}
                         {% if word.transliteration %}
                         <span class="small bold margin-h">[{{word.transliteration}}]</span>
                         {% endif %}

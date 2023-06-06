@@ -1,7 +1,8 @@
 from django import template
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from kemelang import utils
+from dictionary import constants as DICT_CONSTANTS
 from accounts import constants as ACCOUNT_CONSTANTS
 from core import renderers
 import logging
@@ -43,7 +44,12 @@ def filter_conf(context,field, key=None):
     return value
 
 
-
+@register.filter
+def word_type(key):
+    k,v = utils.find_element_by_key_in_tuples(key, DICT_CONSTANTS.WORD_TYPES)
+    if v is None:
+        return key
+    return v
 
 @register.filter
 def account_type_key(value):
@@ -83,7 +89,7 @@ def json_ld(context, structured_data):
 
 @register.filter
 def dict_word_type(key):
-    k,v = utils.find_element_by_key_in_tuples(key, ())
+    k,v = utils.find_element_by_key_in_tuples(key, DICT_CONSTANTS.WORD_TYPES)
     if v is None:
         return key
     return v
