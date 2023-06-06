@@ -32,10 +32,10 @@
                     <div class="flex flex-left">
                         <span class="bold"><span class="lowercase">{{word}}</span></span>
                         {% if word.word_type is not None %}
-                        <span class="small bold margin-h">, [{{word.word_type|word_type}}]</span>
+                        <span class="small bold">, [{{word.word_type|word_type}}]</span>
                         {% endif %}
                         {% if word.transliteration %}
-                        <span class="small bold margin-h">, [{{word.transliteration}}]</span>
+                        <span class="small bold">, [{{word.transliteration}}]</span>
                         {% endif %}
                     </div>
                     <div class="margin-v full">
