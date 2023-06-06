@@ -93,10 +93,10 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             let label = create_tag({'element': 'label', 'options': {
                 'innerText': value,
                 'cls': 'margin-r',
-                'htmlFor': `id-${form_prefix}-${form_index}-word_type`
+                'htmlFor': `${key}-${form_prefix}-${form_index}-word_type`
             }});
             let input = create_tag({'element': 'input','options': {
-                'id': `id-${form_prefix}-${form_index}-word_type`,
+                'id': `${key}-${form_prefix}-${form_index}-word_type`,
                 'name': `${form_prefix}-${form_index}-word_type`,
                 'type': 'radio',
                 'value': key,
