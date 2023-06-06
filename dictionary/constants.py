@@ -1,5 +1,5 @@
 
-from django.utils.translation import gettext_lazy as _
+from django.utils.translation import gettext as _
 
 TRANSLATION_COMMENT_MAX_LENGTH = 300
 NAME_MAX_LENGTH = 128

@@ -226,14 +226,14 @@ def update_word(request, word, word_uuid):
             logger.warn(msg)
     
     try:
-        WORD_TYPES_DICT =  dict(DICT_CONSTANTS.WORD_TYPES)
+        
         context = {
         'page_title': "Update Word",
         'word': w,
         'langage_list': dictionary_service.get_langages(),
         'WORD_TYPES': DICT_CONSTANTS.WORD_TYPES,
-        #'WORD_TYPES_DICT': dict(DICT_CONSTANTS.WORD_TYPES),
-        #'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
+        'WORD_TYPES_DICT': dict(DICT_CONSTANTS.WORD_TYPES),
+        'WORD_TYPES_JSON': json.dumps(dict(DICT_CONSTANTS.WORD_TYPES))
     }
     except Exception as e:
         logger.warning(f"Error on building context object from Tuple :{DICT_CONSTANTS.WORD_TYPES} {e}", e)
