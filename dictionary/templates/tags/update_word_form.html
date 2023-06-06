@@ -23,7 +23,7 @@
                     <div class="form-group full">
                         <span class="bold">{% trans "Word Type" %}</span>
                         <div class="flex flex-left full" id="word_type">
-                            {% for k,v in WORD_TYPES %} <div class="margin-r"><input name="word_type" type="radio" value="{{k}}" {% if word.word_type == k %}checked{% endif %} ><span>{{v}}</span></div>{% endfor %}
+                            {% for k,v in WORD_TYPES %} <div class="margin-r"><input id="word-type-{{k}}" name="word_type" type="radio" value="{{k}}" {% if word.word_type == k %}checked{% endif %} ><label for="word-type-{{k}}">{{v}}</label></div>{% endfor %}
                         </div>
                     </div>
                 </div>
