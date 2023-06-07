@@ -72,9 +72,12 @@
                             {% endfor %}
                         </ul>
                         {% else %}
-                        <div class="flex flex-left">
-                            <span class="bold word-type">{% translate "No synonymes" %}.</span>
-                            <a class="link" href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding synonymes" %}</span></a>
+                        <div class="flex flex-left flex-wrap">
+                            <div class="bold word-type margin-b">{% translate "No synonymes" %}.</div>
+                            <div class="link flex js-open-modal padding-h mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
+                            {% comment %}
+                                <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                            {% endcomment %}
                         </div>
                         {% endif %}
                     </div>
@@ -94,9 +97,12 @@
                             {% endfor %}
                         </ul>
                         {% else %}
-                        <div class="flex flex-left">
-                            <span class="bold word-type">{% translate "No examples" %}.</span>
-                            <a class="link" href="{% url PHRASE_CREATE_URL word.word_uuid%}"><span class="margin-l">{% translate "Contribute by adding an example" %}</span></a>
+                        <div class="flex flex-left flex-wrap">
+                            <div class="bold word-type margin-b">{% translate "No examples" %}.</div>
+                            <div class="link flex js-open-modal padding-h mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
+                            {% comment %}
+                                <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                            {% endcomment %}
                         </div>
                         {% endif %}
                     </div>
