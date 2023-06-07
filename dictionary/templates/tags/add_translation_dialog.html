@@ -8,12 +8,14 @@
                 <span id="translation-keyboard-btn" 
                       class="keyboard-btn" 
                       title="{% translate 'Open the virtual keyboard' %}" 
-                      data-keyboard="keyboard" data-target="search-word"><i class="fas fa-keyboard"></i></span>
+                      data-keyboard="translation-keyboard" data-target="search-word"><i class="fas fa-keyboard"></i></span>
                 <span id="close-translation-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="new-translation-dialog"><i class="fas fa-times-circle"></i></span>
             </div>
             <div class="modal-content">
                 {% include "tags/add_translations_form.html" with CLOSE_TARGET="close-translation-dialog" %}
             </div>
-            <div class="modal-footer"></div>
+            <div class="modal-footer">
+                {% include "keyboard/african-keyboard.html" with KEYBOARD_ID="translation-keyboard" DRAGGABLE="draggable"%}
+            </div>
         </div>
 </div>

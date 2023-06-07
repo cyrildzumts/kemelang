@@ -1410,6 +1410,11 @@ ul li{
 	padding: 16px 16px;
   
   }
+  .draggable{
+	position: absolute;
+	top: 50%;
+	z-index: 10;
+  }
   .dialogs,.modals{
 	position: relative;
 	width: 100%;
@@ -2075,6 +2080,7 @@ ul li{
   
   .modal-footer{
 	  display: flex;
+	  position: relative;
 	  align-items: center;
 	  justify-content: flex-end;
 	  padding: 1em;
@@ -4585,9 +4591,6 @@ ul li{
 	justify-content: center;
 	align-items: center;
 	width: 100%;
-	position: absolute;
-	top: 50%;
-	z-index: 10;
   }
   .virtual-keyboard{
 	display: flex;

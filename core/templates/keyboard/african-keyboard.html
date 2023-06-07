@@ -1,5 +1,5 @@
 {% load i18n %}
-<div id="keyboard" class="keyboard-container draggable hidden">
+<div id="{{KEYBOARD_ID|default:'keyboard'}}" class="keyboard-container hidden {{DRAGGABLE|default:''}}">
     <div class="virtual-keyboard">
         <p id="ip"></p>
         <div id="african-keyboard" class="keyboard">
