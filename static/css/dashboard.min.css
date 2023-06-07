@@ -4622,6 +4622,7 @@ ul li{
     align-items: center;
     padding:10px 20px;
     border-radius: 10px;
+	overflow: auto;
 }
 .keyboard-btn{
 	margin: 0 0.5em;
@@ -4631,6 +4632,7 @@ ul li{
 }
 .keyboard-row{
 	display: flex;
+	width: 100%;
 	justify-content: center;
 	align-items: center;
     margin:5px ;
