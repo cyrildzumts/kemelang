@@ -118,9 +118,10 @@ function init_keyboard(tag){
     let cap_lock = document.getElementById("cap-lock");
     let space = document.getElementById("space");
     let backspace = document.getElementById("backspace");
+    let keyboard = document.getElementById(tag.dataset.keyboard);
     tag.addEventListener('click', function(event){
         tag.classList.toggle('active');
-        let keyboard = document.getElementById(tag.dataset.keyboard);
+        
         keyboard.classList.toggle('hidden');
         if(tag.classList.contains('active')){
             keyboard.dataset.target = tag.dataset.target;
