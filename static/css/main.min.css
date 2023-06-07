@@ -1410,7 +1410,9 @@ ul li{
 	padding: 16px 16px;
   
   }
-  
+  .dialogs,.modals{
+	position: relative;
+  }
   .dialog{
 	display: none;
 	position: fixed;
