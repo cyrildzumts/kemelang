@@ -438,7 +438,9 @@
 	  color: #5a5a5a;
 	  
   }
-  
+  .js-open-modal{
+	cursor: pointer;
+  }
   input{
 	  /*height: 32px;*/
 	  border: var(--input-border);

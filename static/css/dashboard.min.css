@@ -1055,7 +1055,9 @@ ul li{
 	  color: #5a5a5a;
 	  
   }
-  
+  .js-open-modal{
+	cursor: pointer;
+  }
   input{
 	  
 	  border: var(--input-border);
