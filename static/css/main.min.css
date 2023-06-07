@@ -1412,6 +1412,7 @@ ul li{
   }
   .dialogs,.modals{
 	position: relative;
+	width: 100%;
   }
   .dialog{
 	display: none;
