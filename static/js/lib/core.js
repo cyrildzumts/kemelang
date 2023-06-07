@@ -1,5 +1,5 @@
-define(['ajax_api', 'filters', 'editor_api'], 
-function(ajax_api, Filter, Editor_API) {
+define(['ajax_api', 'filters', 'editor_api', 'word_tools'], 
+function(ajax_api, Filter, Editor_API, WordTools) {
     'use strict';
     let messages;
     let notification_wrapper;
@@ -630,6 +630,11 @@ function(ajax_api, Filter, Editor_API) {
         
     }
    
+    function init_word_tools(){
+        let word_tools = new WordTools();
+        word_tools.init();
+    }
+
     $(document).ready(function(){
         if(window){
             window.notify = notify;
@@ -640,6 +645,7 @@ function(ajax_api, Filter, Editor_API) {
         init_tabs();
         send_mail_listeners();
         init_editor()
+        init_word_tools();
         notification_wrapper = $('#notifications-wrapper');
         messages = $('#messages', notification_wrapper);
         notify_init(notification_wrapper, messages);

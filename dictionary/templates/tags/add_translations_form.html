@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form class="form" name="translation-form" action="{% url TRANSLATION_CREATE_URL  %}" method="POST">{% csrf_token %}
+    <form id="word-form-translation" class="form" name="translation-form" action="{% url TRANSLATION_CREATE_URL  %}" method="POST">{% csrf_token %}
         <div class="full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
@@ -11,8 +11,9 @@
                 <div class="form-group-wrapper">
                     <div class="form-group">
                         <label for="source_word">{% trans "Translation Word" %}</label>
-                        <input id="translation-word" data-target="results" type="text" placeholder="Enter word ...">
+                        <input id="search-word" data-target="results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="Enter word ...">
                     </div>
+                    <div id="search-translation-word-error" class="margin-t error hidden"><span>{% trans "Not found" %}</span></div>
                 </div>
                 <div id="results" class="form-group-wrapper">
                     
