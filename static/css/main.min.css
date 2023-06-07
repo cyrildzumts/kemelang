@@ -1389,6 +1389,7 @@ ul li{
   }
   
   .tab{
+	width: max-content;
 	font-weight: 700;
 	text-align: center;
 	margin: 0 0.5em;

@@ -141,12 +141,16 @@
                         {% else %}
                         <div class="flex flex-left">
                             <div class="bold word-type">{% translate "No translations" %}.</div>
-                            <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                            <div class="link js-open-modal margin-h mat-button mat-button-outline cta-btn full" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
+                            {% comment %}
+                                <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
+                            {% endcomment %}
                         </div>
                         {% endif %}
                     </div>
                 </div>
             </div>
+            {% include 'tags/add_translation_dialog.html' %}
         </div>
     </div>
     

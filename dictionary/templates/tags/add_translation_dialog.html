@@ -1,0 +1,14 @@
+{% load i18n %} 
+
+
+<div id="new-translation-dialog" class="new-translation-dialog modal full">
+        <div class="modal-container mat-box scrollable-m">
+            <div class="modal-header">
+                <span class="bold">{% translate "Translation" %}</span><span id="close-translation-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="new-translation-dialog"><i class="fas fa-times-circle"></i></span>
+            </div>
+            <div class="modal-content">
+                {% include "tags/add_translations_form.html" with CLOSE_TARGET="close-translation-dialog" %}
+            </div>
+            <div class="modal-footer"></div>
+        </div>
+</div>
