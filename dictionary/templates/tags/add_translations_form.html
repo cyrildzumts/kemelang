@@ -4,7 +4,7 @@
 <div class="container">
         
     <form class="form" name="translation-form" action="{% url TRANSLATION_CREATE_URL  %}" method="POST">{% csrf_token %}
-        <div class="mat-box full create-form">
+        <div class="full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
                 <input id="word" type="hidden" name="word" value="{{word.pk}}">
