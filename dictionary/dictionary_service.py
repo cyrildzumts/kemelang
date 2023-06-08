@@ -281,7 +281,7 @@ def search_words(search_query):
     queryset = Word.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY).filter(SEARCH_FILTER).order_by(*ORDER_BY)
     for p in queryset:
         found_words.add(p)
-        logger.info(f"Search Result : {p}")
+        logger.info(f"Search Result : {p} - Similiraty : {p.similarity} - Rank : {p.rank}")
     return list(found_words)
 
 
