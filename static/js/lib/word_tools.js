@@ -141,7 +141,8 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         console.log(`Found word for ${tag.value}`,response.words);
         response.words.forEach(word =>{
             let span_word = tag_api.create_tag({'element': 'span', 'options': {
-                'innerText': word.word
+                'cls':'bold',
+                'innerText': `${word.word} [${word.langage.name}]`
             }});
             let description = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'full',
