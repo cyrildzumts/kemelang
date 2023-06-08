@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard) {
+define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_api, Keyboard, Editor_API) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -9,6 +9,14 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
     const QUERY_DELAY = 800;
     const API_BASE_URL = "https://api.kemelang-local.com"
 
+    function remove_children(tag){
+        if(!tag){
+            return;
+        }
+        while(tag.firstChild){
+            tag.removeChild(tag.firstChild);
+        }
+    }
 
     function WordTools(){
         
@@ -17,7 +25,6 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
         this.form_container = document.getElementById('word-form-container');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.wrappers = [];
-
         this.word_index = undefined;
         this.form_is_valid = false;
         this.total_form = 0;
@@ -118,15 +125,35 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
         });
     }
 
+
+
     WordTools.prototype.on_word_exist = function(tag, word_exist, response){
-        let target = document.getElementById(tag.dataset.error);
-        target.classList.toggle('hidden', !word_exist);
-        target.classList.toggle('warning', word_exist);
-        tag.classList.toggle('warning', word_exist);
+        let error = document.getElementById(tag.dataset.error);
+        error.classList.toggle('hidden', !word_exist);
+        error.classList.toggle('warning', !word_exist);
+        tag.classList.toggle('warning', !word_exist);
         this.form_is_valid = !word_exist;
-        if(response.success && response.found){
-            console.log(`Found word for ${tag.value}`,response.words);
+        if(!(response.success && word_exist)){
+            return;
         }
+        let result_container = document.getElementById(tag.dataset.target);
+        remove_children(result_container);
+        console.log(`Found word for ${tag.value}`,response.words);
+        response.words.forEach(word =>{
+            let span_word = tag_api.create_tag({'element': 'span', 'options': {
+                'innerText': word.word
+            }});
+            let description = tag_api.create_tag({'element': 'div', 'options': {
+                'cls': 'full',
+                'children': Editor_API.render(word.description)
+            }});
+            let div = tag_api.create_tag({'element': 'div', 'options': {
+                'cls': 'full',
+                'children': [span_word, description]
+            }});
+            result_container.appendChild(div);
+
+        });
     }
 
     

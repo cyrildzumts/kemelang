@@ -529,6 +529,9 @@ function(require, ajax_api, tag_api, EditorJS) {
             
         }
 
+        EditorWrapper.prototype.render_content = function(content){
+            return render_content(content.blocks);
+        }
 
         return EditorWrapper;
     })();
@@ -547,6 +550,7 @@ function(require, ajax_api, tag_api, EditorJS) {
         editor_init();
     }
     return {
+        'render': render_content,
         'create_editor': create_editor,
         'EditorWrapper': EditorWrapper
     }

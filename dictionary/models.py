@@ -68,7 +68,7 @@ class Langage(models.Model):
     def as_dict(self, filter_foreign_key=False):
         if filter_foreign_key:
             return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'description': self.description,'langage_uuid': self.langage_uuid}
-        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'description': self.description, 'countries': [c.as_dict(True) for c in self.countries.all()], 'langage_uuid': self.langage_uuid}
+        return {'id': self.pk, 'type': 'Langage', 'name': self.name, 'slug': self.slug, 'description': self.description_to_json, 'countries': [c.as_dict(True) for c in self.countries.all()], 'langage_uuid': self.langage_uuid}
     
 
 
@@ -154,7 +154,16 @@ class Word(models.Model):
     
     
     def as_dict(self, filter_foreign_key=False):
-        return {'id': self.pk, 'type': 'Word', 'word': self.word,'description': self.description, 'langage': self.langage.as_dict(True), 'word_uuid': self.word_uuid}
+        return {
+            'id': self.pk, 
+            'type': 'Word', 
+            'word_type': self.word_type,
+            'word': self.word,
+            'transliteration': self.transliteration,
+            'description': self.description, 
+            'langage': self.langage.as_dict(True), 
+            'word_uuid': self.word_uuid
+        }
 
 
 class Definition(models.Model):
