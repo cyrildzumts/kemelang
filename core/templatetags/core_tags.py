@@ -1,6 +1,6 @@
 from django import template
 from django.utils.safestring import mark_safe
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from kemelang import utils
 from dictionary.models import Country, Langage
 from accounts import constants as ACCOUNT_CONSTANTS
