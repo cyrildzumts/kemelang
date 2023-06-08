@@ -273,8 +273,8 @@ def search_words(search_query):
     DB_VECTOR = WORD_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
     TRIGRAM_SIMILARITY = TrigramSimilarity('word',search_query)
-    RANK_FILTER = Q(rank__gte=Constants.SEARCH_RANK_FILTER)
-    TRIGRAM_FILTER = Q(similarity__gte=Constants.SEARCH_SIMILARITY_FILTER)
+    RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
+    TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
     SEARCH_FILTER = RANK_FILTER & TRIGRAM_FILTER
     ORDER_BY = ['-similarity','-rank']
     found_words = set()
