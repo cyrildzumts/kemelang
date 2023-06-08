@@ -60,8 +60,8 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
                 if(self.scheduled_query){
                     clearTimeout(self.scheduled_query);
                 }
-                self.scheduled_query = setTimeout(self.find_word.bind(self), QUERY_DELAY, self.word_input);
-                //self.find_word(result.word_input);
+                self.scheduled_query = setTimeout(self.search_word.bind(self), QUERY_DELAY, self.word_input);
+                //self.search_word(result.word_input);
             });
             
         });
@@ -95,12 +95,12 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
     }
 
 
-    WordTools.prototype.find_word = function(tag){
-        if(!lang || !tag || !tag.value.trim()){
+    WordTools.prototype.search_word = function(tag){
+        if(!tag || !tag.value.trim()){
             return;
         }
         let self = this;
-        let url = `${API_BASE_URL}/find-word/?word=${tag.value}`;
+        let url = `${API_BASE_URL}/search-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -124,6 +124,9 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
         target.classList.toggle('warning', word_exist);
         tag.classList.toggle('warning', word_exist);
         this.form_is_valid = !word_exist;
+        if(response.success && response.found){
+            console.log(`Found word for ${tag.value}`,response.words);
+        }
     }
 
     
