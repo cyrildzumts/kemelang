@@ -269,7 +269,7 @@ def search_countries(search_query):
 def search_words(search_query):
     
     logger.info(f"Search word : {search_query}")
-    WORD_VECTOR = SearchVector('word', weight='A') + SearchVector('description',weight='A')
+    WORD_VECTOR = SearchVector('word', weight='B') + SearchVector('description',weight='A')
     DB_VECTOR = WORD_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
     TRIGRAM_SIMILARITY = TrigramSimilarity('word',search_query)
