@@ -54,7 +54,7 @@ define(["ajax_api", 'tag_api', 'keyboard'],function(ajax_api, tag_api, Keyboard)
                     self.word_input.value = "";
                     return;
                 }
-                if(!self.word_input.dataset.results){
+                if(!self.word_input.dataset.target){
                     return;
                 }
                 if(self.scheduled_query){
