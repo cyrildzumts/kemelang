@@ -275,7 +275,7 @@ def search_words(search_query):
     TRIGRAM_SIMILARITY = TrigramSimilarity('word',search_query)
     RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
-    SEARCH_FILTER = RANK_FILTER & TRIGRAM_FILTER
+    SEARCH_FILTER = RANK_FILTER | TRIGRAM_FILTER
     ORDER_BY = ['-similarity','-rank']
     found_words = set()
     queryset = Word.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY).filter(SEARCH_FILTER).order_by(*ORDER_BY)
