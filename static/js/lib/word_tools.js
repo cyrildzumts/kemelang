@@ -129,7 +129,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
     WordTools.prototype.on_word_exist = function(tag, word_exist, response){
         let error = document.getElementById(tag.dataset.error);
-        error.classList.toggle('hidden', !word_exist);
+        error.classList.toggle('hidden', word_exist);
         error.classList.toggle('warning', !word_exist);
         tag.classList.toggle('warning', !word_exist);
         this.form_is_valid = !word_exist;
@@ -145,7 +145,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             }});
             let description = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'full',
-                'children': Editor_API.render(word.description)
+                'children': Editor_API.render(word.description.blocks)
             }});
             let div = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'full',
