@@ -279,12 +279,12 @@ def search_words(search_query):
     TRIGRAM_FIELD_WORD_SIMILARITY = TrigramSimilarity('word', search_query)
     #TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity('description', search_query)
     #####
-    TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
-    TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, 'description')
+    #TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
+    #TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, 'description')
     #####
-    TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
-    TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance('description', search_query)
-    TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
+    #TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
+    #TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance('description', search_query)
+    #TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
     #TRIGRAM_DISTANCE = TrigramWordDistance(search_query, 'word')
     RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
