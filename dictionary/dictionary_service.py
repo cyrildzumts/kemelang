@@ -5,7 +5,7 @@ from django.forms import formset_factory, modelformset_factory, inlineformset_fa
 from django.forms import ValidationError
 from django.db import transaction
 from django.db.models import Q, Count, F
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity, TrigramDistance, TrigramWordSimilarity
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity, TrigramDistance, TrigramWordSimilarity, TrigramWordDistance
 from django.utils import timezone
 from dictionary.models import Country, Langage, Phrase,Word, TranslationWord, Definition, Comment
 from dictionary.forms import CountryForm, LangageForm, WordForm, DefinitionForm, CommentForm, PhraseForm, TranslationWordForm
@@ -273,8 +273,9 @@ def search_words(search_query):
     DB_VECTOR = WORD_VECTOR 
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
     #TRIGRAM_SIMILARITY = TrigramSimilarity('word', search_query)
-    TRIGRAM_SIMILARITY = TrigramWordSimilarity('word', search_query)
+    TRIGRAM_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
     TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
+    #TRIGRAM_DISTANCE = TrigramWordDistance(search_query, 'word')
     RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
     TRIGRAM_DISTANCE_FILTER = Q(distance__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
