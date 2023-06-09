@@ -304,7 +304,8 @@ def search_words(search_query):
         distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
         distance_description=TRIGRAM_FIELD_DESCRIPTION_DISTANCE
         #).filter(SEARCH_FILTER).order_by(*ORDER_BY)
-        ).order_by(*ORDER_BY)
+        #).order_by(*ORDER_BY)
+         ).all()
     for p in queryset:
         found_words.add(p)
         logger.info(f"Search Result for {p} :")
