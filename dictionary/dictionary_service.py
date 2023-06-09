@@ -290,7 +290,7 @@ def search_words(search_query):
     TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
     TRIGRAM_DISTANCE_FILTER = Q(distance__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
     SEARCH_FILTER = RANK_FILTER | TRIGRAM_FILTER | TRIGRAM_DISTANCE_FILTER 
-    ORDER_BY = ['-similarity','-rank']
+    ORDER_BY = ['-rank']
     found_words = set()
     #queryset = Word.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY, distance=TRIGRAM_DISTANCE).order_by(*ORDER_BY)
     queryset = Word.objects.annotate(
