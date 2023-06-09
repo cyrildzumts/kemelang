@@ -272,7 +272,7 @@ def search_words(search_query):
     logger.info(f"Search word : {search_query}")
     CAST_DEFINITION = Cast('description', output_field=TextField())
     WORD_VECTOR = SearchVector('word', weight='A')
-    DESCRIPTION_VECTOR = SearchVector('description', weight='A')
+    DESCRIPTION_VECTOR = SearchVector(CAST_DEFINITION, weight='A')
     DB_VECTOR = WORD_VECTOR + DESCRIPTION_VECTOR
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
     #TRIGRAM_SIMILARITY = TrigramSimilarity('word', search_query)
@@ -281,13 +281,14 @@ def search_words(search_query):
     TRIGRAM_FIELD_WORD_SIMILARITY = TrigramSimilarity('word', search_query)
     TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity(CAST_DEFINITION, search_query)
     #####
-    #TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
-    #TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, 'description')
+    TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
+    TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, CAST_DEFINITION)
     #####
-    #TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
-    #TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance('description', search_query)
-    #TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
-    #TRIGRAM_DISTANCE = TrigramWordDistance(search_query, 'word')
+    TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
+    TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance(CAST_DEFINITION, search_query)
+    TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
+    TRIGRAMWORD_FIELD_WORD_DISTANCE = TrigramWordDistance(search_query, 'word')
+    TRIGRAMWORD_FIELD_DESCRIPTION_DISTANCE = TrigramWordDistance(search_query, CAST_DEFINITION)
     RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
     TRIGRAM_FILTER = Q(similarity__gt=Constants.SEARCH_SIMILARITY_FILTER)
     TRIGRAM_DISTANCE_FILTER = Q(distance__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
@@ -296,25 +297,29 @@ def search_words(search_query):
     found_words = set()
     #queryset = Word.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY, distance=TRIGRAM_DISTANCE).order_by(*ORDER_BY)
     queryset = Word.objects.annotate(
-        #rank=SearchRank(DB_VECTOR, DB_QUERY),
-        #rank_word=SearchRank(WORD_VECTOR, DB_QUERY),
-        #rank_descr=SearchRank(DESCRIPTION_VECTOR, DB_QUERY), 
-        #similarity=TRIGRAM_FIELD_WORD_SIMILARITY
-        similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY
-        #word_similarity_word=TRIGRAMWORD_FIELD_WORD_SIMILARITY,
-        #word_similarity_description=TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY,
-        #distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
-        #distance_description=TRIGRAM_FIELD_DESCRIPTION_DISTANCE
+        rank=SearchRank(DB_VECTOR, DB_QUERY),
+        rank_word=SearchRank(WORD_VECTOR, DB_QUERY),
+        rank_descr=SearchRank(DESCRIPTION_VECTOR, DB_QUERY), 
+        similarity_word=TRIGRAM_FIELD_WORD_SIMILARITY,
+        similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY,
+        word_similarity_word=TRIGRAMWORD_FIELD_WORD_SIMILARITY,
+        word_similarity_description=TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY,
+        distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
+        distance_description=TRIGRAM_FIELD_DESCRIPTION_DISTANCE,
+        word_distance_word=TRIGRAMWORD_FIELD_WORD_DISTANCE,
+        word_distance_description=TRIGRAMWORD_FIELD_WORD_DISTANCE
         #).filter(SEARCH_FILTER).order_by(*ORDER_BY)
-        #).order_by(*ORDER_BY)
-         ).all()
+        ).order_by(*ORDER_BY).all()
+
     for p in queryset:
         found_words.add(p)
         logger.info(f"Search Result for {p} :")
-        logger.info(f"Similiraty Description : {p.similarity_description}")
-        #logger.info(f"WordSimiliraty Word : {p.word_similarity_word} - - WordSimiliraty Description : {p.word_similarity_description}")
-        #logger.info(f"Rank Word : {p.rank_word} - Rank Description : {p.rank_descr} - Rank : {p.rank}")
-        #logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
+        logger.info(f"Similiraty Word : {p.similarity_word} - Similiraty Description : {p.similarity_description}")
+        logger.info(f"WordSimiliraty Word : {p.word_similarity_word} - - WordSimiliraty Description : {p.word_similarity_description}")
+        logger.info(f"Rank Word : {p.rank_word} - Rank Description : {p.rank_descr} - Rank : {p.rank}")
+        logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
+        logger.info(f"WordDistance Word : {p.word_distance_word} - WordDistance Description : {p.word_distance_description}")
+        
     return list(found_words)
 
 
