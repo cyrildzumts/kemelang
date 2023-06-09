@@ -298,7 +298,7 @@ def search_words(search_query):
         #rank_word=SearchRank(WORD_VECTOR, DB_QUERY),
         #rank_descr=SearchRank(DESCRIPTION_VECTOR, DB_QUERY), 
         similarity=TRIGRAM_FIELD_WORD_SIMILARITY,
-        similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY,
+        similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY
         #word_similarity_word=TRIGRAMWORD_FIELD_WORD_SIMILARITY,
         #word_similarity_description=TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY,
         #distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
