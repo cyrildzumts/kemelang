@@ -277,7 +277,7 @@ def search_words(search_query):
     TRIGRAM_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
     #####
     TRIGRAM_FIELD_WORD_SIMILARITY = TrigramSimilarity('word', search_query)
-    TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity('description', search_query)
+    #TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity('description', search_query)
     #####
     TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
     TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, 'description')
@@ -297,8 +297,8 @@ def search_words(search_query):
         #rank=SearchRank(DB_VECTOR, DB_QUERY),
         #rank_word=SearchRank(WORD_VECTOR, DB_QUERY),
         #rank_descr=SearchRank(DESCRIPTION_VECTOR, DB_QUERY), 
-        similarity=TRIGRAM_FIELD_WORD_SIMILARITY,
-        similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY
+        similarity=TRIGRAM_FIELD_WORD_SIMILARITY
+        #similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY
         #word_similarity_word=TRIGRAMWORD_FIELD_WORD_SIMILARITY,
         #word_similarity_description=TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY,
         #distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
@@ -309,7 +309,7 @@ def search_words(search_query):
     for p in queryset:
         found_words.add(p)
         logger.info(f"Search Result for {p} :")
-        logger.info(f"Similiraty Word : {p.similarity} - Similiraty Description : {p.similarity_description}")
+        logger.info(f"Similiraty Word : {p.similarity} ")
         #logger.info(f"WordSimiliraty Word : {p.word_similarity_word} - - WordSimiliraty Description : {p.word_similarity_description}")
         #logger.info(f"Rank Word : {p.rank_word} - Rank Description : {p.rank_descr} - Rank : {p.rank}")
         #logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
