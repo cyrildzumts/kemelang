@@ -2069,7 +2069,7 @@ ul li{
 	  align-items: flex-start;
 	  justify-content: space-between;
 	  padding: 1em;
-	  background-color: var(--secondary-color);
+	  background-color: #efefef;
   }
   
   .modal-body{
