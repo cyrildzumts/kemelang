@@ -267,6 +267,14 @@ def search_countries(search_query):
     return list(found_words)
 
 
+def log_word_full_search(p):
+    logger.info(f"Search Result for {p} :")
+    logger.info(f"Similiraty Word : {p.similarity_word} - Similiraty Description : {p.similarity_description}")
+    logger.info(f"WordSimiliraty Word : {p.word_similarity_word} - - WordSimiliraty Description : {p.word_similarity_description}")
+    logger.info(f"Rank Word : {p.rank_word} - Rank Description : {p.rank_descr} - Rank : {p.rank}")
+    logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
+    logger.info(f"WordDistance Word : {p.word_distance_word} - WordDistance Description : {p.word_distance_description}")
+
 def search_words(search_query):
     
     logger.info(f"Search word : {search_query}")
@@ -316,17 +324,9 @@ def search_words(search_query):
         word_distance_word=TRIGRAMWORD_FIELD_WORD_DISTANCE,
         word_distance_description=TRIGRAMWORD_FIELD_DESCRIPTION_DISTANCE
     ).filter(SEARCH_FILTER).order_by(*ORDER_BY)
-        #).order_by(*ORDER_BY).all()
 
     for p in queryset:
         found_words.add(p)
-        logger.info(f"Search Result for {p} :")
-        logger.info(f"Similiraty Word : {p.similarity_word} - Similiraty Description : {p.similarity_description}")
-        logger.info(f"WordSimiliraty Word : {p.word_similarity_word} - - WordSimiliraty Description : {p.word_similarity_description}")
-        logger.info(f"Rank Word : {p.rank_word} - Rank Description : {p.rank_descr} - Rank : {p.rank}")
-        logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
-        logger.info(f"WordDistance Word : {p.word_distance_word} - WordDistance Description : {p.word_distance_description}")
-        
     return list(found_words)
 
 
