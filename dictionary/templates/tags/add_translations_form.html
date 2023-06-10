@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="word-form-translation" class="form" name="translation-form" data-word="{word.word_uuid}" action="{% url TRANSLATION_CREATE_URL  %}" method="POST">{% csrf_token %}
+    <form id="word-form-translation" class="form" name="translation-form" data-word="{{word.word_uuid}}" action="{% url TRANSLATION_CREATE_URL  %}" method="POST">{% csrf_token %}
         <div class="full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk}}">
