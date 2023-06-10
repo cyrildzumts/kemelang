@@ -1415,12 +1415,13 @@
 	  justify-content: center;
 	  align-items: center;
 	  overflow: auto;
-	  background-color: var(--modal);
+	  background-color: #efefef;
   }
   
   .modal-container{
 	  position: absolute;
 	  box-shadow: var(--box-shadow);
+	  background-color: var(--modal);
   }
   
   .modal-container .mat-list{

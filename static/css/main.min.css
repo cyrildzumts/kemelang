@@ -2016,12 +2016,13 @@ ul li{
 	  justify-content: center;
 	  align-items: center;
 	  overflow: auto;
-	  background-color: var(--modal);
+	  background-color: #efefef;
   }
   
   .modal-container{
 	  position: absolute;
 	  box-shadow: var(--box-shadow);
+	  background-color: var(--modal);
   }
   
   .modal-container .mat-list{
@@ -5209,7 +5210,8 @@ inset 2px 2px 4px black;
     --nav-menu-bg : #0A0A0A;
     --nav-menu-color: #16a085;
     --label-color : #777;
-    --body-bg : #FAFAFA;
+    
+    --body-bg : #AFC4BF;
     --body-color: #2C3E50;
     --notification-bg : #2C3E50;
     --notification-color : #FAFAFA;
