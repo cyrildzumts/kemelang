@@ -98,7 +98,8 @@
     --quote-footer: #fafafa;
     --activity-bg: #efefef;
     --activity-hover-bg: #eee;
-    --modal: #AFC4BF;
+    --modal: #AFC4BFAA;
+    --modal-container: #AFC4BF;
     --modal-header: #AFC4BF3F;
     --search-result: #AFC4BF3F;
     --search-result-odd: #AFC4BF1F;
