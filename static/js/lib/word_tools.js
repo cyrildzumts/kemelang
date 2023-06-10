@@ -147,21 +147,26 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     
         response.words.forEach(word =>{
             let input = tag_api.create_tag({'element': 'input', 'options': {
+                'id': `word-${word.id}`,
                 'type': 'checkbox',
                 'name': 'translations',
                 'value': word.id,
             }});
-            let span_word = tag_api.create_tag({'element': 'span', 'options': {
+            let label = tag_api.create_tag({'element': 'label', 'options': {
                 'cls':'bold',
                 'innerText': `${word.word} [${word.langage.name}]`,
-                'children': [input]
+                'htmlFor': `word-${word.id}`
+            }});
+            let span_word = tag_api.create_tag({'element': 'div', 'options': {
+                'cls':'flex flex-left margin-b bold',
+                'children': [label,input]
             }});
             let description = tag_api.create_tag({'element': 'div', 'options': {
-                'cls': 'full',
+                'cls': 'margin-b full',
                 'children': Editor_API.render(word.description.blocks)
             }});
             let div = tag_api.create_tag({'element': 'div', 'options': {
-                'cls': 'full',
+                'cls': 'margin-b full',
                 'children': [span_word, description]
             }});
             result_container.appendChild(div);
