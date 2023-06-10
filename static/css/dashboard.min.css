@@ -2050,7 +2050,6 @@ ul li{
 	  flex-direction: column;
 	  width: 100%;
 	  pointer-events: auto;
-	  background-color: #fff;
 	  background-clip: padding-box;
 	  background-color: #fefefe;
 	  
@@ -2060,9 +2059,11 @@ ul li{
   
   .modal-header{
 	  display: flex;
+	  width: 100%;
 	  align-items: flex-start;
 	  justify-content: space-between;
 	  padding: 1em;
+	  background-color: var(--secondary-color);
   }
   
   .modal-body{

@@ -1455,7 +1455,6 @@
 	  flex-direction: column;
 	  width: 100%;
 	  pointer-events: auto;
-	  background-color: #fff;
 	  background-clip: padding-box;
 	  background-color: #fefefe;
 	  /*border: 1px solid rgba(0, 0, 0, 0.2);*/
@@ -1465,9 +1464,11 @@
   
   .modal-header{
 	  display: flex;
+	  width: 100%;
 	  align-items: flex-start;
 	  justify-content: space-between;
 	  padding: 1em;
+	  background-color: var(--secondary-color);
   }
   
   .modal-body{
@@ -4203,7 +4204,7 @@ inset 2px 2px 4px black;
 .search-result .result-content{
 	width: 100%;
 	margin-bottom: 0.5em;
-	
+
 	overflow: hidden;
 }
 
