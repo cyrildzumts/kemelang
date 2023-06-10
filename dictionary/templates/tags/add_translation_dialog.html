@@ -17,7 +17,7 @@
                 {% include "tags/add_translations_form.html" with CLOSE_TARGET="close-translation-dialog" %}
             </div>
             <div class="modal-footer">
-                {% include "keyboard/african-keyboard.html" with KEYBOARD_ID="translation-keyboard" %}
+                {% include "keyboard/african-keyboard.html" with KEYBOARD_ID="translation-keyboard" DRAGGABLE="draggable" %}
                 <div class="actions flex-right">
                     <button class="mat-button mat-button-default" type="button">{% trans "Add" %}</button>
                 </div>
