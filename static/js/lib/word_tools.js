@@ -59,9 +59,11 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
                 if(!self.word_input || !self.word_input.value || !self.word_input.value.trim().length){
                     self.word_input.value = "";
+                    remove_children(document.getElementById(self.word_input.dataset.target));
                     return;
                 }
                 if(!self.word_input.dataset.target){
+                    remove_children(document.getElementById(self.word_input.dataset.target));
                     return;
                 }
                 if(self.scheduled_query){
@@ -144,9 +146,15 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         }
     
         response.words.forEach(word =>{
+            let input = tag_api.create_tag({'element': 'input', 'options': {
+                'type': 'checkbox',
+                'name': 'translations',
+                'value': word.id,
+            }});
             let span_word = tag_api.create_tag({'element': 'span', 'options': {
                 'cls':'bold',
-                'innerText': `${word.word} [${word.langage.name}]`
+                'innerText': `${word.word} [${word.langage.name}]`,
+                'children': [input]
             }});
             let description = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'full',
