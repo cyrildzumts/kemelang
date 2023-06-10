@@ -127,6 +127,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
     WordTools.prototype.on_word_exist = function(tag, word_exist, response){
         let error = document.getElementById(tag.dataset.error);
+        let result_container = document.getElementById(tag.dataset.target);
         error.classList.toggle('hidden', word_exist);
         error.classList.toggle('warning', !word_exist);
         tag.classList.toggle('warning', !word_exist);
@@ -144,7 +145,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             result_container.appendChild(div);
             return;
         }
-        let result_container = document.getElementById(tag.dataset.target);
+        
         
         console.log(`Found word for ${tag.value}`,response.words);
         response.words.forEach(word =>{
