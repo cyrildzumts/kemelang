@@ -6,7 +6,7 @@ from django.forms import ValidationError
 from django.db import transaction
 from django.db.models import Q, Count, F, TextField
 from django.db.models.functions import Cast
-from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity, TrigramDistance, TrigramWordSimilarity, TrigramWordDistance
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity, TrigramDistance, TrigramStrictWordSimilarity, TrigramWordSimilarity, TrigramWordDistance
 from django.utils import timezone
 from dictionary.models import Country, Langage, Phrase,Word, TranslationWord, Definition, Comment
 from dictionary.forms import CountryForm, LangageForm, WordForm, DefinitionForm, CommentForm, PhraseForm, TranslationWordForm
@@ -281,8 +281,11 @@ def search_words(search_query):
     TRIGRAM_FIELD_WORD_SIMILARITY = TrigramSimilarity('word', search_query)
     TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity(CAST_DEFINITION, search_query)
     #####
-    TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
-    TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, CAST_DEFINITION)
+    #TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
+    #TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, CAST_DEFINITION)
+    
+    TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramStrictWordSimilarity(search_query, 'word')
+    TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramStrictWordSimilarity(search_query, CAST_DEFINITION)
     #####
     TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
     TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance(CAST_DEFINITION, search_query)
