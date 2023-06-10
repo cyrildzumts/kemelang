@@ -126,17 +126,14 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
 
     WordTools.prototype.on_word_exist = function(tag, word_exist, response){
-        let error = document.getElementById(tag.dataset.error);
         let result_container = document.getElementById(tag.dataset.target);
-        error.classList.toggle('hidden', word_exist);
-        error.classList.toggle('warning', !word_exist);
         tag.classList.toggle('warning', !word_exist);
         this.form_is_valid = !word_exist;
         remove_children(result_container);
         if(!(response.success && word_exist)){
             let span_word = tag_api.create_tag({'element': 'span', 'options': {
                 'cls':'bold',
-                'innerText': `No word found for query ${response.query}`
+                'innerText': `No word found for query \"${response.query}\"`
             }});
             let div = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'full',
@@ -145,9 +142,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             result_container.appendChild(div);
             return;
         }
-        
-        
-        console.log(`Found word for ${tag.value}`,response.words);
+    
         response.words.forEach(word =>{
             let span_word = tag_api.create_tag({'element': 'span', 'options': {
                 'cls':'bold',
