@@ -117,9 +117,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             url : url
         }
         ajax_api.ajax(option).then(function(response){
-            if(response.success){
-                self.on_word_exist(tag, response.found, response);
-            }
+            self.on_word_exist(tag, response.found, response);
         }, function(reason){
             console.error(reason);
         });
