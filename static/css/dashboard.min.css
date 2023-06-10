@@ -4691,6 +4691,29 @@ ul li{
 inset 2px 2px 4px black;
     color: yellow;
 }
+.search-word-results .search-result{
+	max-height: 10em;
+	height: 10em;
+	width: 100%;
+	margin-bottom: 0.5em;
+}
+.search-result:hover{
+	cursor: pointer;
+	background-color: #fefefe;
+}
+.search-result .result-header{
+	display: flex;
+	justify-content: start;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 0.5em;
+	background-color: #efefef;
+}
+.search-result .result-content{
+	width: 100%;
+	margin-bottom: 0.5em;
+	overflow: hidden;
+}
   
   @media only screen and (max-width:50em){
 	.virtual-keyboard{

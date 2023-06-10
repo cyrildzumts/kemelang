@@ -163,15 +163,15 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
                 'htmlFor': `word-${word.id}`
             }});
             let span_word = tag_api.create_tag({'element': 'div', 'options': {
-                'cls':'flex flex-left margin-b bold',
+                'cls':'result-header',
                 'children': [label,input]
             }});
             let description = tag_api.create_tag({'element': 'div', 'options': {
-                'cls': 'margin-b full',
+                'cls': 'result-content',
                 'children': Editor_API.render(word.description.blocks)
             }});
             let div = tag_api.create_tag({'element': 'div', 'options': {
-                'cls': 'margin-b full',
+                'cls': 'search-result',
                 'children': [span_word, description]
             }});
             result_container.appendChild(div);
