@@ -115,14 +115,14 @@
                             <li>
                                 <div class="grid">
                                     <div class="flex flex-left full">
-                                        <span class="bold word-type margin-r">{{translation}}</span>
+                                        <span class="bold word-type">{{translation}}</span>
                                         {% if translation.word_type is not None %}
                                         <span class="small bold">, [{{translation.word_type|word_type}}]</span>
                                         {% endif %}
                                         {% if translation.transliteration %}
                                         <span class="small bold">, [{{translation.transliteration}}]</span>
                                         {% endif %}
-                                        <span><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
+                                        <span class="margin-l"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
                                     </div>
                                     <div class="margin-t full">
                                         <span class="bold word-type">{% translate "Description" %}</span>
