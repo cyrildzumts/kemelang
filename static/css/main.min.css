@@ -4704,10 +4704,11 @@ inset 2px 2px 4px black;
 	height: 10em;
 	width: 100%;
 	margin-bottom: 0.5em;
+	background-color: var(--secondary-color);
 }
 .search-result:hover{
 	cursor: pointer;
-	background-color: #fefefe;
+	background-color: var(--secondary-color);
 }
 .search-result .result-header{
 	display: flex;
@@ -4719,6 +4720,7 @@ inset 2px 2px 4px black;
 }
 .search-result .result-content{
 	width: 100%;
+	padding: 0.5em;
 	margin-bottom: 0.5em;
 	overflow: hidden;
 }
