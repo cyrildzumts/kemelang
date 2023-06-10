@@ -2010,8 +2010,7 @@ ul li{
 	  justify-content: center;
 	  align-items: center;
 	  overflow: auto;
-	  background-color: rgb(0, 0, 0);
-	  background-color: rgba(0, 0, 0, 0.4);
+	  background-color: var(--modal);
   }
   
   .modal-container{
@@ -2063,7 +2062,7 @@ ul li{
 	  align-items: flex-start;
 	  justify-content: space-between;
 	  padding: 1em;
-	  background-color: #efefef;
+	  background-color: var(--modal-header);
   }
   
   .modal-body{
@@ -4698,7 +4697,10 @@ inset 2px 2px 4px black;
 	height: 10em;
 	width: 100%;
 	margin-bottom: 0.5em;
-	background-color: var(--secondary-color);
+	background-color: var(--search-result);
+}
+.search-word-results .search-result:nth-child(2n+1){
+	background-color: var(--search-result-odd);
 }
 .search-result:hover{
 	cursor: pointer;
@@ -4711,6 +4713,8 @@ inset 2px 2px 4px black;
 	width: 100%;
 	margin-bottom: 0.5em;
 	background-color: #efefef;
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
 }
 .search-result .result-content{
 	width: 100%;
@@ -5892,6 +5896,10 @@ main {
     --quote-footer: #fafafa;
     --activity-bg: #efefef;
     --activity-hover-bg: #eee;
+    --modal: #AFC4BF;
+    --modal-header: #AFC4BF3F;
+    --search-result: #AFC4BF3F;
+    --search-result-odd: #AFC4BF1F;
 }
 body{
     background-color: var(--body-bg);
