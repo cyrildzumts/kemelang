@@ -113,6 +113,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             return;
         }
         let self = this;
+        this.preview_value = tag.value.trim();
         let url = `${API_BASE_URL}/search-word/?word=${tag.value}`;
         let option = {
             type:'GET',
