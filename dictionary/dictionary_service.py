@@ -94,7 +94,7 @@ def add_translations(word_uuid, data):
     if form.is_valid():
         logger.info(f"Translation Form is valid. Dataset : {form.cleaned_data}")
         translations = form.cleaned_data.get('translations')
-        word.translations.add(translations)
+        word.translations.add(*translations)
         logger.info(f"Translations added created.")
         result = {'success' : True, 'message': f'Translated {len(translations)} words'}
     else:
