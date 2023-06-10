@@ -140,6 +140,7 @@ def create_translation(request):
         result = dictionary_service.create_mass_translation(request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
+        logger.error(f"Error while creating translations {e}")
     return Response(data=result, status=status.HTTP_200_OK)
 
 
@@ -155,6 +156,7 @@ def add_translations(request, word_uuid=None):
         result = dictionary_service.add_translations(word_uuid, request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
+        logger.error(f"Error while adding translations {e}")
     return Response(data=result, status=status.HTTP_200_OK)
 
 
