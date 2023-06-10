@@ -25,6 +25,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         this.form_container = document.getElementById('word-form-container');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.wrappers = [];
+        this.preview_value = undefined;
         this.word_index = undefined;
         this.form_is_valid = false;
         this.total_form = 0;
@@ -106,6 +107,9 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
     WordTools.prototype.search_word = function(tag){
         if(!tag || !tag.value.trim()){
+            return;
+        }
+        if(tag.value.trim() == this.preview_value){
             return;
         }
         let self = this;
