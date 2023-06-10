@@ -4702,7 +4702,7 @@ inset 2px 2px 4px black;
 }
 .search-result:hover{
 	cursor: pointer;
-	background-color: var(--secondary-color);
+	background-color: #fafafa;
 }
 .search-result .result-header{
 	display: flex;
