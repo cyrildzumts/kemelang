@@ -87,6 +87,22 @@ def create_mass_translation(data):
     return result
 
 
+def add_translations(word_uuid, data):
+    word = Word.objects.get(word_uuid=word_uuid)
+    form = WordForm(data, instance=word)
+    result = {}
+    if form.is_valid():
+        logger.info(f"Translation Form is valid. Dataset : {form.cleaned_data}")
+        translations = form.cleaned_data.get('translations')
+        word.translations.add(translations)
+        logger.info(f"Translations added created.")
+        result = {'success' : True, 'message': f'Translated {len(translations)} words'}
+    else:
+        logger.warn(f"Translation not created : Errors : {form.errors} - data : {data}")
+        result = {'success': False, 'message': form.errors.as_json()}
+    return result
+
+
 
 def create_langage(data):
     return core_service.create_instance(Langage, data)
@@ -305,12 +321,8 @@ def search_words(search_query):
     TRIGRAM_WORD_SIMILARITY_FILTER = Q(word_similarity_word__gt=Constants.SEARCH_SIMILARITY_FILTER) | Q(word_similarity_description__gt=Constants.SEARCH_SIMILARITY_FILTER)
     TRIGRAM_DISTANCE_FILTER = Q(word_distance_word__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER) | Q(word_distance_description__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
     SEARCH_FILTER = RANK_FILTER | TRIGRAM_WORD_SIMILARITY_FILTER | TRIGRAM_DISTANCE_FILTER 
-    #SEARCH_FILTER = RANK_FILTER | TRIGRAM_WORD_SIMILARITY_FILTER | TRIGRAM_DISTANCE_FILTER 
-    #SEARCH_FILTER = RANK_FILTER | TRIGRAM_SIMILARITY_FILTER | TRIGRAM_DISTANCE_FILTER 
-    #SEARCH_FILTER = TRIGRAM_SIMILARITY_FILTER 
     ORDER_BY = ['-rank']
     found_words = set()
-    #queryset = Word.objects.annotate(rank=SearchRank(DB_VECTOR, DB_QUERY), similarity=TRIGRAM_SIMILARITY, distance=TRIGRAM_DISTANCE).order_by(*ORDER_BY)
     queryset = Word.objects.annotate(
         rank=SearchRank(DB_VECTOR, DB_QUERY),
         rank_word=SearchRank(WORD_VECTOR, DB_QUERY),

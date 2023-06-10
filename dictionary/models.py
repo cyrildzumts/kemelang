@@ -146,7 +146,7 @@ class Word(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     word_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
-    FORM_FIELDS = ['word','audio', 'description','synonymes','transliteration','word_type', 'langage', 'added_by', 'changed_by']
+    FORM_FIELDS = ['word','audio', 'description','synonymes','translations','transliteration','word_type', 'langage', 'added_by', 'changed_by']
     SEARCH_FIELDS = ['word', 'description']
     
     class Meta:

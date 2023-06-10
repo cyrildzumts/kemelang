@@ -20,9 +20,8 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
 
     function WordTools(){
         
-        this.form = document.getElementById('word-form');
-        this.word_form = document.getElementById('word-form');
-        this.form_container = document.getElementById('word-form-container');
+        this.form = document.getElementById('word-form-translation');
+        this.word_form = document.getElementById('word-form-translation');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.wrappers = [];
         this.preview_value = undefined;
@@ -178,13 +177,17 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         });
     }
 
-    
+    WordTools.prototype.clear = function(){
+        let result_container = document.getElementById(this.word_input.dataset.target);
+        remove_children(result_container);
+        this.word_input.value = "";
+    }
 
 
     WordTools.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.word_form);
-        let url = `${API_BASE_URL}/add-translations/`;
+        let url = `${API_BASE_URL}/add-translations/${this.word_form.dataset.word}`;
         let option = {
             type:'POST',
             dataType: 'json',
@@ -193,15 +196,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             enctype : 'multipart/form-data',
             crossDomain: true,
             data: formData,
-            url : url,
-            beforSend: function(xhr, status){
-                let loader = document.getElementById('loader');
-                loader.style.display = "";
-            },
-            complete: function(xhr, status){
-                let loader = document.getElementById('loader');
-                loader.style.display = "none";
-            }
+            url : url
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
