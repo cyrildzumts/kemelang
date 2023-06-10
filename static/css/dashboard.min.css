@@ -4684,6 +4684,7 @@ ul li{
 .keyboard .cap-lock {
     width: 100px;
     height: 30px;
+	font-size: 2em;
 	text-align: center;
     margin-left: 15px;
 }
