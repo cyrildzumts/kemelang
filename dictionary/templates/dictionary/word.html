@@ -69,7 +69,7 @@
                             {% for synonyme in word.synonymes.all %}
                             <li>
                                 <div class="margin-b full">
-                                    <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}">
+                                    <a class="link" href="{{SITE_HOST}}{{synonyme.get_absolute_url}}">
                                         <div class="flex flex-left">
                                             <span class="bold word-type">{{synonyme.word}}</span>
                                             {% if synonyme.word_type is not None %}
