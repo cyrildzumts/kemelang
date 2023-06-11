@@ -277,6 +277,7 @@ def update_word(request, word, word_uuid):
         raise e
     
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_SYNONYME_CONTEXT)
     
     return render(request, template_name, context)
 
@@ -346,4 +347,5 @@ def word_details(request,word, word_uuid):
     context.update(DICT_CONSTANTS.DICTIONARY_URL_WORD_CONTEXT)
     context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     context.update(DICT_CONSTANTS.DICTIONARY_URL_DEFINTION_CONTEXT)
+    context.update(DICT_CONSTANTS.DICTIONARY_URL_SYNONYME_CONTEXT)
     return render(request, template_name, context)
