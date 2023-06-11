@@ -62,6 +62,7 @@
                     {% endif %}
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
+                    <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
                     <div class="padding-v full">
                         {% if word.synonymes.all %}
                         <ul class="grid-list">
@@ -74,7 +75,6 @@
                         {% else %}
                         <div class="flex flex-left flex-wrap">
                             <div class="bold word-type margin-b full">{% translate "No synonymes" %}.</div>
-                            <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
                             {% comment %}
                                 <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
                             {% endcomment %}
@@ -84,6 +84,7 @@
                 </div>
                 <div id="word-examples" class="tab-content margin-v full">
                     <div class="padding-v full">
+                        <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
                         {% if phrases %}
                         <ul>
                             {% for phrase in phrases %}
@@ -99,7 +100,7 @@
                         {% else %}
                         <div class="flex flex-left flex-wrap">
                             <div class="bold word-type margin-b full">{% translate "No examples" %}.</div>
-                            <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
+                            
                             {% comment %}
                                 <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
                             {% endcomment %}
@@ -109,6 +110,7 @@
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
                     <div class="padding-v full">
+                        <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
                         {% if translations %}
                         <ul class="">
                             {% for translation in translations %}
@@ -153,7 +155,7 @@
                         {% else %}
                         <div class="flex flex-left flex-wrap">
                             <div class="bold word-type margin-b full">{% translate "No translations" %}.</div>
-                            <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
+                            
                             {% comment %}
                                 <a class="link" href="{% url TRANSLATION_CREATE_URL word.word_uuid %}"><span class="margin-l">{% translate "Contribute by adding translations." %}</span></a>
                             {% endcomment %}
