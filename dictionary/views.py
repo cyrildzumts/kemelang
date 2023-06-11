@@ -1,5 +1,7 @@
 from django.forms.models import inlineformset_factory
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
+from django.http import HttpResponseNotAllowed
+from django.core.exceptions import PermissionDenied, SuspiciousOperation, ObjectDoesNotExist
 from kemelang import utils
 from dictionary.models import Comment, Country, Definition, Langage, Word, TranslationWord, Phrase
 from dictionary import constants as DICT_CONSTANTS
@@ -143,6 +145,40 @@ def create_translation(request, word_uuid=None):
         pass
     return render(request, template_name, context)
 
+
+
+def add_translations(request, word_uuid=None):
+    logger.info(f"API: New Translation creation request")
+    word = get_object_or_404(Word, word_uuid=word_uuid)
+    if request.method != 'POST':
+        return HttpResponseNotAllowed('Bad request. Use POST instead')
+    result = None
+    try:
+        
+        result = dictionary_service.add_translations(word_uuid, request.data)
+        messages.success(request, message=result.get('message'))
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        messages.error(request, message=result.get('message'))
+        logger.error(f"Error while adding translations {e}")
+    return redirect(word)
+
+
+
+def add_synonymes(request, word_uuid=None):
+    logger.info(f"API: New Synonymes creation request")
+    word = get_object_or_404(Word, word_uuid=word_uuid)
+    if request.method != 'POST':
+        return HttpResponseNotAllowed('Bad request. Use POST instead')
+    result = None
+    try:
+        result = dictionary_service.add_sysnonymes(word_uuid, request.data)
+        messages.success(request, message=result.get('message'))
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        messages.error(request, message=result.get('message'))
+        logger.error(f"Error while adding synonymes {e}")
+    return redirect(word)
 
 
 def update_country(request, country_slug, country_uuid):

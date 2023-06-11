@@ -1,0 +1,23 @@
+{% load i18n %} 
+
+
+<div id="new-synonyme-dialog" class="new-synonyme-dialog modal full">
+        <div class="modal-container mat-box no-padding scrollable-m">
+            <div class="modal-header">
+                <span class="bold">{% translate "synonyme" %}</span>
+                <div class="flex">
+                    <span id="synonyme-keyboard-btn" 
+                        class="keyboard-btn" 
+                        title="{% translate 'Open the virtual keyboard' %}" 
+                        data-keyboard="synonyme-keyboard" data-target="search-word"><i class="fas fa-keyboard"></i></span>
+                    <span id="close-synonyme-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="new-synonyme-dialog"><i class="fas fa-times-circle"></i></span>
+                </div>
+            </div>
+            <div class="modal-content">
+                {% include "tags/add_synonymes_form.html" with CLOSE_TARGET="close-synonyme-dialog" %}
+            </div>
+            <div class="modal-footer">
+                {% include "keyboard/african-keyboard.html" with KEYBOARD_ID="synonyme-keyboard" DRAGGABLE="draggable" %}
+            </div>
+        </div>
+</div>

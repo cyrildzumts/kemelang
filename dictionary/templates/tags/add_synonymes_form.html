@@ -1,0 +1,27 @@
+{% load i18n %} 
+
+
+<div class="container">
+        
+    <form id="word-form-synonymes" class="form update-form" name="synonymes-form" data-word="{{word.word_uuid}}" action="{% url SYNONYME_CREATE_URL word.word_uuid  %}" method="POST">{% csrf_token %}
+        <div class="full create-form">
+    
+                <input type="hidden" name="changed_by" value="{{request.user.pk|default:''}}">
+                <input id="synonymes-form-word" type="hidden" name="word" value="{{word.pk}}">
+                <input id="synonymes-langage" type="hidden" name="langage" value="{{word.langage.pk}}">
+                <div class="form-group-wrapper">
+                    <div class="form-group">
+                        <label for="synonymes-source_word">{% trans "Word" %}</label>
+                        <input id="synonymes-search-word" class="search-word" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="Enter word ...">
+                    </div>
+                </div>
+                <div id="synonymes-search-word-results" class="search-word-results form-group-wrapper scrollable">
+                    
+                </div>
+
+                <div class="actions flex-right">
+                    <button class="mat-button mat-button-default">{% trans "Add" %}</button>
+                </div>
+        </div>
+    </form>
+</div>          

@@ -84,6 +84,15 @@ DICTIONARY_URL_WORD_CONTEXT = {
     'WORD_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:word-create"
 }
 
+DICTIONARY_URL_SYNONYME_CONTEXT = {
+    'SYNONYMES_URL'               : f"{DICTIONARY_URL_PREFIX}:synonymes",
+    'SYNONYME_URL'                : f"{DICTIONARY_URL_PREFIX}:synonyme",
+    'SYNONYME_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-update",
+    'SYNONYME_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-delete",
+    'SYNONYMES_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:synonymes-delete",
+    'SYNONYME_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-create"
+}
+
 DICTIONARY_URL_DEFINTION_CONTEXT = {
     'DEFINTIONS_URL'               : f"{DICTIONARY_URL_PREFIX}:definitions",
     'DEFINTION_URL'                : f"{DICTIONARY_URL_PREFIX}:definition",

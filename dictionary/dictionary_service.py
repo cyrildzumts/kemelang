@@ -103,6 +103,22 @@ def add_translations(word_uuid, data):
     return result
 
 
+def add_synonymes(word_uuid, data):
+    word = Word.objects.get(word_uuid=word_uuid)
+    form = WordForm(data, instance=word)
+    result = {}
+    if form.is_valid():
+        logger.info(f"Synonymes Form is valid. Dataset : {form.cleaned_data}")
+        synonymes = form.cleaned_data.get('synonymes')
+        word.synonymes.add(*synonymes)
+        logger.info(f"Synonymes added created.")
+        result = {'success' : True, 'message': f'Added {len(synonymes)} Synonyme(s)'}
+    else:
+        logger.warn(f"Synonymes not added : Errors : {form.errors} - data : {data}")
+        result = {'success': False, 'message': form.errors.as_json()}
+    return result
+
+
 
 def create_langage(data):
     return core_service.create_instance(Langage, data)

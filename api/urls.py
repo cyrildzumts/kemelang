@@ -12,6 +12,7 @@ api_patterns = [
     path('create-langage/', views.create_langage, name="langage-create"),
     path('create-translation/', views.create_translation, name="translation-create"),
     path('add-translations/<uuid:word_uuid>/', views.add_translations, name="translation-add"),
+    path('add-synonymes/<uuid:word_uuid>/', views.add_synonymes, name="synonyme-add"),
     path('search-langage/', views.search_langage, name="langage-search"),
     path('create-word/', views.create_word, name="word-create"),
     path('search-word/', views.search_word, name="word-search"),

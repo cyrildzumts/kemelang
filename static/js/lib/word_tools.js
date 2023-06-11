@@ -34,25 +34,64 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     };
     WordTools.prototype.init = function(){
         var self = this;
-        this.word_input = document.getElementById('search-word');
-        if(! this.word_input){
+        this.word_inputs = document.querySelectorAll('.search-word');
+        if(this.word_inputs.length == 0){
             return;
         }
+        this.word_input = document.getElementById('search-word');
+        this.word_inputs.forEach(input =>{
+            if(input.dataset.keyboard_btn){
+                Keyboard.register_keyboard(document.getElementById(input.dataset.keyboard_btn));
+            }
+        });
+        /*
         if(this.word_input.dataset.keyboard_btn){
             this.keyboard_btn = document.getElementById(this.word_input.dataset.keyboard_btn);
             Keyboard.register_keyboard(this.keyboard_btn);
         }
+        */
         
-        this.loader = document.getElementById('loader');
-
+        let forms = document.querySelectorAll('.update-form');
+        forms.forEach(function(form){
+            form.addEventListener('submit', function(event){
+                event.stopPropagation();
+                event.preventDefault();
+                self.submit(form);
+                return false;
+            });
+        });
+        /*
         if(this.word_form){
-            this.word_form.addEventListener('submit', function(even){
+            this.word_form.addEventListener('submit', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.submit();
                 return false;
             });
-        }
+        }*/
+        ['keyup','change'].forEach(function (e) {
+            self.word_inputs.forEach(function(input){
+                input.addEventListener(e, function(event){
+                    event.stopPropagation();
+    
+                    if(!input || !input.value || !input.value.trim().length){
+                        input.value = "";
+                        remove_children(document.getElementById(input.dataset.target));
+                        return;
+                    }
+                    if(!input.dataset.target){
+                        remove_children(document.getElementById(input.dataset.target));
+                        return;
+                    }
+                    if(self.scheduled_query){
+                        clearTimeout(self.scheduled_query);
+                    }
+                    self.scheduled_query = setTimeout(self.search_word.bind(self), QUERY_DELAY, input);
+                    //self.search_word(result.word_input);
+                });
+            });
+        });
+        /*
         ['keyup','change'].forEach(function (e) {
             self.word_input.addEventListener(e, function(event){
                 event.stopPropagation();
@@ -74,34 +113,10 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             });
             
         });
+        */
         console.log("WordTools ready");
     };
 
-    WordTools.prototype.init_for_update = function(){
-        var self = this;
-        let update_form = document.getElementById("update-word-form");
-
-        if(!update_form){
-            return false;
-        }
-        let description = document.getElementById("description");
-        try {
-            if(description && description.value){
-        
-                let init_data = JSON.parse(description.value);
-                let editor = new Editor_API.EditorWrapper('editor', init_data);
-                editor.init()
-                if(!editor.created){
-                    console.warn("Editor not created for Langage update");
-                }
-            }
-            
-        } catch (error) {
-            console.warn("error on parsing json data from description value : %s", description.value);
-            console.error(error);
-        }
-        return true;
-    }
 
 
     WordTools.prototype.search_word = function(tag){
@@ -153,7 +168,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'id': `word-${word.id}`,
                 'type': 'checkbox',
-                'name': 'translations',
+                'name': tag.dataset.field,
                 'value': word.id,
             }});
             let label = tag_api.create_tag({'element': 'label', 'options': {
@@ -178,16 +193,17 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     }
 
     WordTools.prototype.clear = function(){
-        let result_container = document.getElementById(this.word_input.dataset.target);
-        remove_children(result_container);
-        this.word_input.value = "";
+        this.word_inputs.forEach(input =>{
+            remove_children(document.getElementById(input.dataset.target));
+            input.value = "";
+        });
     }
 
 
-    WordTools.prototype.submit = function(){
+    WordTools.prototype.submit = function(form){
         let self = this;
-        let formData = new FormData(this.word_form);
-        let url = `${API_BASE_URL}/add-translations/${this.word_form.dataset.word}/`;
+        let formData = new FormData(form);
+        let url = `${API_BASE_URL}${form.action}`;
         let option = {
             type:'POST',
             dataType: 'json',
@@ -200,8 +216,8 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
+                self.clear(tag);
                 notify({'level': 'info', 'content': response.message})
-                self.clear();
             }else{
                 notify({'level': 'warn', 'content': response.message});
             }

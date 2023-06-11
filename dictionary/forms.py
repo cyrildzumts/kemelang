@@ -26,6 +26,13 @@ class WordForm(forms.ModelForm):
         model = Word
         fields = Word.FORM_FIELDS
         
+
+class UpdateWordForm(forms.ModelForm):
+    
+    class Meta:
+        model = Word
+        fields = Word.FORM_FIELDS
+        
         
 class CommentForm(forms.ModelForm):
     

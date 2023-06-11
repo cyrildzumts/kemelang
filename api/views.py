@@ -163,6 +163,22 @@ def add_translations(request, word_uuid=None):
 @api_view(['POST'])
 @permission_classes([])
 @authentication_classes([])
+def add_synonymes(request, word_uuid=None):
+    logger.info(f"API: New Synonymes creation request")
+    if request.method != 'POST':
+        return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    result = None
+    try:
+        result = dictionary_service.add_sysnonymes(word_uuid, request.data)
+    except Exception as e:
+        result = {'success': False, 'message': str(e)}
+        logger.error(f"Error while adding synonymes {e}")
+    return Response(data=result, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
 def update_langage(request,langage_slug, langage_uuid):
     logger.info(f"API: Update Langage {langage_slug}-{langage_uuid} request")
     if request.method != 'POST':
