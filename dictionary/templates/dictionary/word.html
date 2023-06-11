@@ -62,7 +62,7 @@
                     {% endif %}
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
-                    <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
+                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
                     <div class="padding-v full">
                         {% if word.synonymes.all %}
                         <ul class="grid-list">
@@ -83,8 +83,8 @@
                     </div>
                 </div>
                 <div id="word-examples" class="tab-content margin-v full">
+                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
                     <div class="padding-v full">
-                        <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
                         {% if phrases %}
                         <ul>
                             {% for phrase in phrases %}
@@ -109,8 +109,8 @@
                     </div>
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
+                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
                     <div class="padding-v full">
-                        <div class="link flex js-open-modal padding-05 mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
                         {% if translations %}
                         <ul class="">
                             {% for translation in translations %}
