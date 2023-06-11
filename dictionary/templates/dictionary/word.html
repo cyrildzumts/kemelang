@@ -62,14 +62,14 @@
                     {% endif %}
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
-                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
+                    <div class="flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
                     <div class="padding-v full">
                         {% if word.synonymes.all %}
                         <ul class="grid-list">
                             {% for synonyme in word.synonymes.all %}
                             <li>
                                 <div class="margin-b full">
-                                    <a class="link" href="{{SITE_HOST}}{{synonyme.get_absolute_url}}">
+                                    <a class="bold" href="{{SITE_HOST}}{{synonyme.get_absolute_url}}">
                                         <div class="flex flex-left">
                                             <span class="bold word-type">{{synonyme.word}}</span>
                                             {% if synonyme.word_type is not None %}
