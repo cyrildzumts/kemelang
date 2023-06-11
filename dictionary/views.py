@@ -172,7 +172,7 @@ def add_synonymes(request, word_uuid=None):
         return HttpResponseNotAllowed('Bad request. Use POST instead')
     result = None
     try:
-        result = dictionary_service.add_sysnonymes(word_uuid, request.data)
+        result = dictionary_service.add_synonymes(word_uuid, request.data)
         messages.success(request, message=result.get('message'))
     except Exception as e:
         result = {'success': False, 'message': str(e)}

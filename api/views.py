@@ -169,7 +169,7 @@ def add_synonymes(request, word_uuid=None):
         return Response({'status': False, 'errror': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     result = None
     try:
-        result = dictionary_service.add_sysnonymes(word_uuid, request.data)
+        result = dictionary_service.add_synonymes(word_uuid, request.data)
     except Exception as e:
         result = {'success': False, 'message': str(e)}
         logger.error(f"Error while adding synonymes {e}")
