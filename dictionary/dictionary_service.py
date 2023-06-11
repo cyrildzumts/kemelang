@@ -9,7 +9,7 @@ from django.db.models.functions import Cast
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank, TrigramSimilarity, TrigramDistance, TrigramStrictWordSimilarity, TrigramWordSimilarity, TrigramWordDistance
 from django.utils import timezone
 from dictionary.models import Country, Langage, Phrase,Word, TranslationWord, Definition, Comment
-from dictionary.forms import CountryForm, LangageForm, WordForm, DefinitionForm, CommentForm, PhraseForm, TranslationWordForm
+from dictionary.forms import CountryForm, LangageForm, WordForm, DefinitionForm, CommentForm, PhraseForm, TranslationWordForm, UpdateAudioForm, UpdateWordForm, UpdateTranslationForm
 from dictionary import constants as Constants
 from core.resources import ui_strings as CORE_UI_STRINGS
 from core import service as core_service
@@ -87,9 +87,11 @@ def create_mass_translation(data):
     return result
 
 
+
+
 def add_translations(word_uuid, data):
     word = Word.objects.get(word_uuid=word_uuid)
-    form = WordForm(data, instance=word)
+    form = UpdateTranslationForm(data, instance=word)
     result = {}
     if form.is_valid():
         logger.info(f"Translation Form is valid. Dataset : {form.cleaned_data}")
@@ -105,7 +107,7 @@ def add_translations(word_uuid, data):
 
 def add_synonymes(word_uuid, data):
     word = Word.objects.get(word_uuid=word_uuid)
-    form = WordForm(data, instance=word)
+    form = UpdateTranslationForm(data, instance=word)
     result = {}
     if form.is_valid():
         logger.info(f"Synonymes Form is valid. Dataset : {form.cleaned_data}")
@@ -139,8 +141,19 @@ def update_country(country, data):
 def update_langage(langage, data):
     return core_service.update_instance(Langage,langage, data)
 
+#def update_word(word, data):
+#   return core_service.update_instance(Word, word, data)
+
 def update_word(word, data):
-    return core_service.update_instance(Word, word, data)
+    form = UpdateWordForm(data, instance=word)
+    if form.is_valid():
+        logger.info(f"Word Form is valid. Dataset : {form.cleaned_data}")
+        word = form.save()
+        logger.info(f"Word updated.")
+        return word
+    else:
+        logger.warn(f"Word UpdateFowrm not updated:  Errors : {form.errors} - data : {data}")
+        raise ValidationError(message=form.non_field_errors())
 
 def update_definition(definition, data):
     return core_service.update_instance(Definition, definition, data)

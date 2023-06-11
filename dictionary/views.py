@@ -192,7 +192,7 @@ def update_country(request, country_slug, country_uuid):
         data = utils.get_postdata(request)
         try:
             country = dictionary_service.update_country(country, data)
-            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+            return redirect(country)
         except Exception as e:
             msg = f"Error on updating Country {country.name} : {e}"
             messages.warning(request, msg)
@@ -213,7 +213,7 @@ def update_phrase(request, phrase_uuid):
         data = utils.get_postdata(request)
         try:
             phrase = dictionary_service.update_phrase(phrase, data)
-            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+            return redirect(phrase.word)
         except Exception as e:
             msg = f"Error on updating Phrase for word{phrase.word} : {e}"
             messages.warning(request, msg)
@@ -237,7 +237,7 @@ def update_langage(request, langage_slug, langage_uuid):
         data = utils.get_postdata(request)
         try:
             langage = dictionary_service.update_langage(langage, data)
-            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+            return redirect(langage)
         except Exception as e:
             msg = f"Error on updating Langage {langage.name} : {e}"
             messages.warning(request, msg)
@@ -256,7 +256,7 @@ def update_word(request, word, word_uuid):
         data = utils.get_postdata(request)
         try:
             w = dictionary_service.update_word(w, data)
-            return redirect(DICT_CONSTANTS.RESOLVE_DICT_HOME)
+            return redirect(w)
         except Exception as e:
             msg = f"Error on updating Word {word} : {e}"
             messages.warning(request, msg)

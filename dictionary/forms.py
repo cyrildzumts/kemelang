@@ -31,7 +31,21 @@ class UpdateWordForm(forms.ModelForm):
     
     class Meta:
         model = Word
-        fields = Word.FORM_FIELDS
+        fields = Word.UPDATE_FORM_FIELDS
+        
+
+class UpdateAudioForm(forms.ModelForm):
+    
+    class Meta:
+        model = Word
+        fields = ['audio', 'changed_by']
+
+
+class UpdateTranslationForm(forms.ModelForm):
+    
+    class Meta:
+        model = Word
+        fields = ['synonymes', 'translations']
         
         
 class CommentForm(forms.ModelForm):
