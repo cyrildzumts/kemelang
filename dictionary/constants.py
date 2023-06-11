@@ -90,7 +90,8 @@ DICTIONARY_URL_SYNONYME_CONTEXT = {
     'SYNONYME_UPDATE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-update",
     'SYNONYME_DELETE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-delete",
     'SYNONYMES_DELETE_URL'        : f"{DICTIONARY_URL_PREFIX}:synonymes-delete",
-    'SYNONYME_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-create"
+    'SYNONYME_CREATE_URL'         : f"{DICTIONARY_URL_PREFIX}:synonyme-create",
+    'SYNONYME_ADD_URL'            : f"{DICTIONARY_URL_PREFIX}:synonyme-add"
 }
 
 DICTIONARY_URL_DEFINTION_CONTEXT = {
@@ -112,6 +113,7 @@ DICTIONARY_URL_PHRASE_CONTEXT = {
 }
 
 DICTIONARY_URL_TRANSLATION_CONTEXT = {
+    'TRANSLATION_ADD_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-add",
     'TRANSLATION_CREATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-create",
     'TRANSLATION_UPDATE_URL'               : f"{DICTIONARY_URL_PREFIX}:translation-update",
     'TRANSLATION_URL'               : f"{DICTIONARY_URL_PREFIX}:translation",

@@ -3,7 +3,7 @@
 
 <div class="container">
         
-    <form id="word-form-synonymes" class="form update-form" name="synonymes-form" data-word="{{word.word_uuid}}" action="{% url SYNONYME_CREATE_URL word.word_uuid  %}" method="POST">{% csrf_token %}
+    <form id="word-form-synonymes" class="form update-form" name="synonymes-form" data-word="{{word.word_uuid}}" action="{% url SYNONYME_ADD_URL word.word_uuid  %}" method="POST">{% csrf_token %}
         <div class="full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk|default:''}}">
