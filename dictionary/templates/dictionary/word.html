@@ -68,7 +68,20 @@
                         <ul class="grid-list">
                             {% for synonyme in word.synonymes.all %}
                             <li>
-                                <div class="flex flex-left"><span class="bold word-type">{{synonyme.word}}</span></div>
+                                <div class="margin-b full">
+                                    <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}">
+                                        <div class="flex flex-left">
+                                            <span class="bold word-type">{{synonyme.word}}</span>
+                                            {% if synonyme.word_type is not None %}
+                                            <span class="small bold">, [{{synonyme.word_type|word_type}}]</span>
+                                            {% endif %}
+                                            {% if synonyme.transliteration %}
+                                            <span class="small bold">, [{{synonyme.transliteration}}]</span>
+                                            {% endif %}
+                                        </div>
+                                    </a>
+                                    
+                                </div>
                             </li>
                             {% endfor %}
                         </ul>
