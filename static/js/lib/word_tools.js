@@ -128,7 +128,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         }
         let self = this;
         this.preview_value = tag.value.trim();
-        let url = `${API_BASE_URL}/search-word/?word=${tag.value}/`;
+        let url = `${API_BASE_URL}/search-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -203,7 +203,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     WordTools.prototype.submit = function(form){
         let self = this;
         let formData = new FormData(form);
-        let url = `${API_BASE_URL}${form.action}`;
+        let url = `${API_BASE_URL}${form.dataset.endpoint}`;
         let option = {
             type:'POST',
             dataType: 'json',
