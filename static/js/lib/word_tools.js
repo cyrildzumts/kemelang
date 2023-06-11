@@ -216,7 +216,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
-                self.clear(tag);
+                self.clear();
                 notify({'level': 'info', 'content': response.message})
             }else{
                 notify({'level': 'warn', 'content': response.message});
