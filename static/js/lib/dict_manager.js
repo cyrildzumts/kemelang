@@ -23,7 +23,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.langage_selection_list = Array.from(document.querySelectorAll('.dict-langage-selection'));
         this.dict_text = document.getElementById('dict-text');
         this.detect_source_langage = document.getElementById('select-detect-langage');
-        this.auto_detect_source_langage = document.querySelectorAll('.select-detect-langage');
+        this.auto_detect_source_langage = document.getElementById('auto-select-detect-langage');
         this.select_source_langage = document.getElementById('select-source-langage');
         this.select_target_langage = document.getElementById('select-target-langage');
         this.translation_placeholder = document.getElementById('translation-placeholder');
