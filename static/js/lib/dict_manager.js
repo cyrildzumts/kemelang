@@ -23,12 +23,13 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.langage_selection_list = Array.from(document.querySelectorAll('.dict-langage-selection'));
         this.dict_text = document.getElementById('dict-text');
         this.detect_source_langage = document.getElementById('select-detect-langage');
+        this.auto_detect_source_langage = document.querySelectorAll('.select-detect-langage');
         this.select_source_langage = document.getElementById('select-source-langage');
         this.select_target_langage = document.getElementById('select-target-langage');
         this.translation_placeholder = document.getElementById('translation-placeholder');
         this.no_translation = document.getElementById('no-translation');
         this.swap_langage_btn = document.getElementById('swap-langage-btn');
-        this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage];
+        this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage, auto_detect_source_langage];
         this.recent_sources_langages = document.getElementById('recent-source-langages');
         this.recent_target_langages = document.getElementById('recent-target-langages');
         this.no_filter_results = document.getElementById('no-results');
@@ -104,6 +105,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                         'innerText': lang.dataset.name
                     }}));
                     self.detect_source_langage.classList.remove('selected');
+                    self.auto_detect_source_langage.classList.remove('selected');
+                    
                     
                 }else if(self.selection_type == SELECTION_TYPE_TARGET){
                     self.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
@@ -138,7 +141,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
                     button.classList.toggle('selected', !selected);
                     self.source_langage = undefined;
                     self.swap_langage_btn.disabled = (self.source_langage && self.target_langage) == undefined;
-                    self.update_recent_langages();
+                    self.update_recent_langages(true);
                     if(!selected){
                         self.translate();
                     }
@@ -166,9 +169,17 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         
     };
 
-    DictManager.prototype.update_recent_langages = function(){
+    DictManager.prototype.update_recent_langages = function(auto_detect){
         this.clear_recent_langages();
-        if(this.source_langage){
+        if(auto_detect){
+            this.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
+                'cls': 'mat-button selected',
+                'data-name': "auto-detect",
+                'data-slug': "auto-detect",
+                'data-id': "auto-detect",
+                'innerText': "Auto Detect"
+            }}));
+        }else if(this.source_langage){
             this.recent_sources_langages.appendChild(tag_api.create_tag({'element':'button','options':{
                 'cls': 'mat-button selected',
                 'data-name': this.source_langage.name,
