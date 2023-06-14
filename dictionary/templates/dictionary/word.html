@@ -62,7 +62,15 @@
                     {% endif %}
                 </div>
                 <div id="word-synonymes" class="tab-content margin-v full">
-                    <div class="flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-synonyme-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span></div>
+                    <div class="flex">
+                        <div class="col-m-12 col-3">
+                            <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-synonyme-dialog">
+                                <span>
+                                    <i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding synonymes." %}</span>
+                                </span>
+                            </div>                            
+                        </div>
+                    </div>
                     <div class="padding-v full">
                         {% if word.synonymes.all %}
                         <ul class="grid-list">
@@ -96,7 +104,15 @@
                     </div>
                 </div>
                 <div id="word-examples" class="tab-content margin-v full">
-                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span></div>
+                    <div class="flex">
+                        <div class="col-m-12 col-3">
+                            <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog">
+                                <span>
+                                    <i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding examples." %}</span>
+                                </span>
+                            </div>                            
+                        </div>
+                    </div>
                     <div class="padding-v full">
                         {% if phrases %}
                         <ul>
@@ -122,13 +138,16 @@
                     </div>
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
-                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog">
+                    <div class="flex">
                         <div class="col-m-12 col-3">
-                            <span>
-                                <i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span>
-                            </span>
+                            <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog">
+                                <span>
+                                    <i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span>
+                                </span>
+                            </div>                            
                         </div>
                     </div>
+                    
                     <div class="padding-v full">
                         {% if translations %}
                         <ul class="">
