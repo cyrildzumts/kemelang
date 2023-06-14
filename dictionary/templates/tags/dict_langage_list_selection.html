@@ -4,6 +4,7 @@
 <div class="mat-box full">
     <div class="dict-search-langage-wrapper flex flex-left">
         <input id="search-langages" data-filter="dict-langage-selection" type="text" name="langage" class="search-langages" placeholder="{% translate 'Search langages' %}" aria-label="{% translate 'Search langages' %}">
+        <button id="auto-select-detect-langage" class="select-detect-langage detect-langage bold hidden-xl" data-type="2">{% translate "Auto Detect" %}</button>
     </div>
     <div id="dict-langages-container" class="dict-langages-container margin-v">
     {% for langage in langage_list %}
