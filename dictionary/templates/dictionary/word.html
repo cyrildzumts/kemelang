@@ -122,7 +122,13 @@
                     </div>
                 </div>
                 <div id="word-translations" class="tab-content margin-v full">
-                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog"><i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span></div>
+                    <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog">
+                        <div class="col-m-12 col-3">
+                            <span>
+                                <i class="fas fa-plus"></i><span class="small">{% translate "Contribute by adding translations." %}</span>
+                            </span>
+                        </div>
+                    </div>
                     <div class="padding-v full">
                         {% if translations %}
                         <ul class="">
