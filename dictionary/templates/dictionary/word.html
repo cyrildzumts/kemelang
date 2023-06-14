@@ -146,11 +146,11 @@
                                         {% render_tag translation.description %}
                                     </div>
                                     {% if translation.synonymes.exists %}
-                                    <div class="flex flex-left full">
-                                        <div class="margin-v full">
-                                            <span>{% translate "Synonymes" %}</span> 
+                                    <div class="margin-v flex flex-left full">
+                                        <div>
+                                            <span class="margin-r">{% translate "Synonymes" %}</span> 
                                         </div>
-                                        <div class="margin-v flex">
+                                        <div class="flex flex-wrap padding-05">
                                             {% for synonyme in translation.synonymes.all %}
                                             <span class="chips">{{synonyme}}</span>
                                             {% endfor %}
