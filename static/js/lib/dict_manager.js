@@ -29,7 +29,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.translation_placeholder = document.getElementById('translation-placeholder');
         this.no_translation = document.getElementById('no-translation');
         this.swap_langage_btn = document.getElementById('swap-langage-btn');
-        this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage, auto_detect_source_langage];
+        this.buttons = [this.detect_source_langage, this.select_source_langage, this.select_target_langage, this.auto_detect_source_langage];
         this.recent_sources_langages = document.getElementById('recent-source-langages');
         this.recent_target_langages = document.getElementById('recent-target-langages');
         this.no_filter_results = document.getElementById('no-results');
