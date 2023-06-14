@@ -92,7 +92,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.langage_selection_list.forEach(function(lang){
             lang.addEventListener('click', function(event){
                 event.stopPropagation();
-                if(self.selection_type == SELECTION_TYPE_SOURCE){
+                if((self.selection_type == SELECTION_TYPE_SOURCE || (self.selection_type == SELECTION_TYPE_AUTO))){
                     self.source_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
                     if(self.recent_sources_langages.firstChild){
                         self.recent_sources_langages.removeChild(self.recent_sources_langages.firstChild);
