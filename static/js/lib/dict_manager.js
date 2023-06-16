@@ -166,6 +166,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             self.update_recent_langages();
             self.translate();
         });
+        console.log("Dict Manager ready");
         
     };
 
