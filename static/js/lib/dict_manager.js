@@ -353,7 +353,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         let self = this;
         this.clear_definitions();
         translations.forEach(function(translation){
-            self.dictFactory.create_word(self.dict_text_definitions, translation.target_word);
+            self.dictFactory.create_word(self.dict_text_definitions, translation);
         });
     }
 
