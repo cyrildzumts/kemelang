@@ -476,7 +476,8 @@ def translate(query, source_lang, target_lang):
         
         words = [word.as_dict(True) for word in word_set]
         word = words[0]
-        translation_set = word.translations.filter(langage__slug__iexact=target_lang)
+        w = word_set.first()
+        translation_set = w.translations.filter(langage__slug__iexact=target_lang)
         #translation_set = TranslationWord.objects.filter(TRANSLATE_FILTER)
         found = translation_set.exists()
         result = {'success': True,'found':found,'auto_detect': auto_detect, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
