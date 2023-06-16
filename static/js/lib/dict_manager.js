@@ -356,16 +356,14 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         remove_children(self.dict_text_definitions);
         remove_children(this.word_container);
         self.dictFactory.create_word(self.word_container, word);
-        words.forEach(function(w){
-            self.dictFactory.create_word(self.dict_text_definitions, w);
-        });
     }
 
     DictManager.prototype.on_translated = function(tag, translations){
         let self = this;
         remove_children(self.dict_translation_container);
         translations.forEach(function(translation){
-            self.dictFactory.create_word(self.dict_translation_container, translation);
+            let word = self.dictFactory.create_word(self.dict_translation_container, translation);
+            word.classList.add('word-input-wrapper');
         });
         console.log("Translations : ", translations);
     }
