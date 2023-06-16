@@ -253,17 +253,13 @@ define(['tag_api'],function(tag_api) {
     DictFactory.prototype.create_word = function(container, word){
         let word_tag = tag_api.create_tag({'element': 'span','options': {
             'cls': 'bold',
-            'innerText': word.word
+            'innerText': `${word.word}, [${word.langage.name}]`
 
         }});
-        let langage_tag = tag_api.create_tag({'element': 'span','options': {
-            'cls': '',
-            'innerText': word.langage.name
 
-        }});
         let word_group = tag_api.create_tag({'element': 'div','options': {
-            'cls': 'flex space-between full',
-            'children': [word_tag, langage_tag]
+            'cls': 'flex flex-left full',
+            'children': [word_tag]
 
         }});
         let definition = tag_api.create_tag({'element': 'div','options': {
