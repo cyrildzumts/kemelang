@@ -355,6 +355,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         translations.forEach(function(translation){
             self.dictFactory.create_word(self.dict_text_definitions, translation);
         });
+        console.log("Translations : ", translations);
     }
 
     DictManager.prototype.clear_definitions = function(){
