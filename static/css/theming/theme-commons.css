@@ -927,9 +927,9 @@ option:checked{
   }
 
   .word-input-wrapper textarea{
-	background-color: var(--textarea-bg);
-	color: var(--textarea);
-	caret-color: var(--secondary-color);
+	background-color: var(--textarea);
+	color: var(--textarea-color);
+	caret-color: var(--textarea-color);
   }
 
   button:hover, .mat-button:hover, .btn:hover{

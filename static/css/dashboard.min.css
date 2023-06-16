@@ -5873,6 +5873,7 @@ main {
     --code-header : #bdc3c7;
     --code-header-bg : #34495e;
     --textarea: #16a085;
+    --textarea-color: #16a085;
     --textarea-bg: #fafafa;
     --status-delivered: #45A29E;
     --status-shipped : #1e88e5;
@@ -6636,9 +6637,9 @@ option:checked{
 	color: var(--secondary-color);
   }
   .word-input-wrapper textarea{
-	background-color: var(--textarea-bg);
-	color: var(--textarea);
-	caret-color: var(--secondary-color);
+	background-color: var(--textarea);
+	color: var(--textarea-color);
+	caret-color: var(--textarea-color);
   }
   button:hover, .mat-button:hover, .btn:hover{
     background-color: #eee;
