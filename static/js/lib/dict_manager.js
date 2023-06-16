@@ -42,6 +42,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         this.no_filter_results = document.getElementById('no-results');
         this.dict_text_definitions = document.getElementById('word-definitions-container');
         this.dict_translation_container = document.getElementById('word-translations-container');
+        this.word_container = document.getElementById("word-container");
         this.wrappers = [];
         this.detect_langage_active = true;
         this.source_langage = undefined;
@@ -331,9 +332,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
             if(response.success){
                 if(response.found){
                     self.on_translated(self.dict_text, response.translations);
-                    self.on_word_exist(self.dict_text,response.words)
+                    self.on_word_exist(self.dict_text,response.word,response.words)
                 }else if (response.words){
-                    self.on_word_exist(self.dict_text,response.words)
+                    self.on_word_exist(self.dict_text,response.word,response.words)
                 }else{
                     remove_children(self.dict_translation_container);
                     remove_children(self.dict_text_definitions);
@@ -350,11 +351,13 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         });
     }
 
-    DictManager.prototype.on_word_exist = function(tag, words){
+    DictManager.prototype.on_word_exist = function(tag, word ,words){
         let self = this;
         remove_children(self.dict_text_definitions);
-        words.forEach(function(word){
-            self.dictFactory.create_word(self.dict_text_definitions, word);
+        remove_children(this.word_container);
+        self.dictFactory.create_word(self.word_container, word);
+        words.forEach(function(w){
+            self.dictFactory.create_word(self.dict_text_definitions, w);
         });
     }
 
