@@ -1,0 +1,106 @@
+:root{
+    --primary-color: #0A0A0A;
+    --secondary-color: #16a085;
+    --third-color : #FFFFFF;
+    --fourth-color : #FFFFFF;
+    --light-color : #FAFAFA;
+    --header : #F0F1F3;
+    --header-color: #0A0A0A;
+    --nav-menu-bg : #0A0A0A;
+    --nav-menu-color: #16a085;
+    --label-color : #777;
+    /*--body-bg : #FAFAFA;*/
+    --body-bg : #EFF3F2;
+    --body-color: #0A0A0A;
+    --notification-bg : #2C3E50;
+    --notification-color : #FAFAFA;
+    --action-color : #2C3E50;
+    --sidebar-bg-color: #2C3E50;
+    --sidebar-color: #FAFAFA;
+    --sidebar-active-color: #2C3E50;
+    --text-grey: #777;
+    --color-stone : #707C80;
+    --color-ebony : #282C35;
+    --warning-color : #FF0D00;
+    --error-color : #FF0D00;
+    --success-color :#45A29E ;
+    --info-color: #0A0A0A;
+    --debug-color: #1e88e5;
+    --on-demand-order : #f39c12;
+    --standard-order : #2980b9;
+    --footer-content-wrapper:#16a085;
+    --footer-content-wrapper-color: #FAFAFA;
+    --footer-content: #16a085;
+    --footer-content-color : #FAFAFA;
+    --footer-catelog: #16a085;
+    --footer-catelog-color: #FAFAFA;
+    --footer-catalog-link: #AAA;
+
+    --best-deals: #16a085;
+    --best-deals-info: #B40900;
+    --best-deals-color : #FAFAFA;
+
+    --new-arrivals : #028E9B33;
+    --new-arrivals-info : #016E7833;
+    /*--new-arrivals-color : #0C5C63;*/
+    --new-arrivals-color : #0A0A0A;
+    --offers : #F4143333;
+    --offers-info : #D3001D33;
+    --offers-color : #0A0A0A;
+    --features: #3AE3F322;
+    --features-info: #01CCDF11;
+    --features-color : #0A0A0A;
+    --perfumes : #c2185b33;
+    --perfumes-info : #E0689633;
+    --perfumes-color: #0A0A0A;
+
+    --standard-perfumes : #9848B200;
+    --standard-perfumes-info : #832D9F00;
+    --standard-perfumes-color: #0A0A0A;
+
+    /*--editor : #eadbcb;*/
+    --editor : #F7FAF6;
+    --editor-color : #1A1A1A;
+    --editor-header : #CCDCD8;
+    --editor-header-color : #1a1a1a;
+    --dotted-color : #0a0a0a;
+    --quote : #eadbcb;
+    --quote-color: #a88b6d;
+    --quote-border-color : #a88b6d;
+    --code-area-bg : #2c3e50;
+    --code-area: #bdc3c7;
+    --code-header : #bdc3c7;
+    --code-header-bg : #34495e;
+    --textarea: #F0F1F3;
+    --textarea-bg: #F0F1F3;
+
+    --status-delivered: #45A29E;
+    --status-shipped : #1e88e5;
+    --status-picked-up: #f39c12;
+    --status-processing: #028E9B;
+    --status-waiting : #F3BC00;
+    --status-retoure : #707C80;
+    --status-customer-not-found : #2C3E50;
+    --status-customer-can-not-pay: #2C3E50;
+    --status-customer-has-not-pay: #2C3E50;
+    --status-closed : #25D366;
+    --status-submitted : #1e88e5;
+    --status-paid : #0584B5;
+    --status-payment-failed: #2C3E50;
+    --status-canceled: #D64B00;
+    --status-ready-for-shipment: #25D366;
+    --status-refund: #D64B00;
+    --status-refunded: #25D366;
+    --status-timeout-expired: #D64B00;
+    --quote : #fafafa;
+    --quote-color: #0a0a0a;
+    --quote-border-color : #a88b6d;
+    --quote-footer: #fafafa;
+    --activity-bg: #efefef;
+    --activity-hover-bg: #eee;
+    --modal: #CCDCD8;
+    --modal-container: #CCDCD8;
+    --modal-header: #E5F1DF;
+    --search-result: #CCDCD8;
+    --search-result-odd: #CED5DD;
+}
