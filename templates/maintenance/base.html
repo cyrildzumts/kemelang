@@ -52,19 +52,8 @@
 
 <body>
 <input id="lang" type="hidden" name="lang" value="{{LANGUAGE_CODE}}">
-{% csrf_token %}
-{% block SCRIPT_VAR %}
-{% endblock SCRIPT_VAR %}
-{% include "tags/components/loader.html" %}
 <div class="page full">
 {% block NAV %}
-<nav class="navbar navbar-expand">
-    <div class="container px-5">
-        <div class="flex flex-left">
-            <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
-        </div>
-    </div>
-</nav>
 {% endblock NAV %}
  
 {% block NEWS %}
@@ -98,12 +87,6 @@
 </footer>
 {% endcache %}
 {% endblock FOOTER %}
-
-<script defer  src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
-{% block BASE_SCRIPT %}
-<script defer data-main="{% static 'js/main.min' %}" src="{% static 'js/require.js' %}"></script>        
-{% endblock BASE_SCRIPT %}
-
 </body>
 
 </html>
