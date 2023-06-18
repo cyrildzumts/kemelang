@@ -58,7 +58,13 @@
 {% include "tags/components/loader.html" %}
 <div class="page full">
 {% block NAV %}
-{% include "tags/nav-tag.html" %}
+<nav class="navbar navbar-expand">
+    <div class="container px-5">
+        <div class="flex flex-left">
+            <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
+        </div>
+    </div>
+</nav>
 {% endblock NAV %}
  
 {% block NEWS %}
