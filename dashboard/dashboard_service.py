@@ -1,4 +1,3 @@
-from core import core_tools 
 from dashboard.models import Settings
 from dashboard.forms import SettingsForm
 import logging
