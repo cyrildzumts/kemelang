@@ -14,18 +14,7 @@
       {% endif %}
     </div>
   </div>
-  {% if site_settings %}
-    <div class="activity">
-        <div class="status-entry-wrapper">
-            <div class="status-entry">
-                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Maintenant Mode" %}</span> : <span>{{site_settings.maintenance_mode|yesno:_('activated,deactivated')}}</span></span>
-            </div>
-            <div class="status-entry">
-                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Allow Anonyme User" %}</span> : <span>{{site_settings.allow_anonyme_user|yesno:_('activated,deactivated')}}</span></span>
-            </div>
-        </div> 
-    </div>
-  {% endif %}
+  {% include 'tags/setting_tag.html' %}
 </div>
 
 {% else %}
