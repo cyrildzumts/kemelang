@@ -3,7 +3,7 @@
 {% if perms.dashboard.add_settings %}
 
 <div class="container">
-    <form id="settings-form" class="settings-form form" name="settings" action="{% url 'dashboard:settings-update' settings.settings_uuid %}" method="POST">{% csrf_token %}
+    <form id="settings-form" class="settings-form form" name="settings" action="{% url 'dashboard:settings-update' setting.setting_uuid %}" method="POST">{% csrf_token %}
         <input type="hidden" name="added_by" value="{{settings.added_by.pk}}">
         <input type="hidden" name="changed_by" value="{{request.user.pk}}">
         <div class="actions flex-right">

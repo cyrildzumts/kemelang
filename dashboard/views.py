@@ -79,7 +79,8 @@ def update_settings (request, setting_uuid):
     page_title = _('New Setting')
     context = {
         'page_title': page_title,
-        'content_title' : _('New Setting'),        
+        'content_title' : _('New Setting'),      
+        'setting'  : setting
     }
     return render(request,template_name, context)
 
