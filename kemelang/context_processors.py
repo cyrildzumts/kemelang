@@ -16,7 +16,9 @@ def site_context(request):
         'dev_mode' : settings.DEV_MODE,
         'next_url' : request.path,
         'TEMPLATE_CACHE_TIMEOUT': settings.TEMPLATE_CACHE_TIMEOUT,
-        'DICTIONARY_HOME_URL': constants.DICTIONARY_HOME_URL
+        'DICTIONARY_HOME_URL': constants.DICTIONARY_HOME_URL,
+        'SITE_HEADER_BG': settings.SITE_HEADER_BG,
+        'CONTACT_MAIL': settings.CONTACT_MAIL,
     }
     context.update(constants.DICTIONARY_URL_TRANSLATION_CONTEXT)
     return context

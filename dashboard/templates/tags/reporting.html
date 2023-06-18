@@ -1,0 +1,16 @@
+{% load static %}
+{% load i18n %}
+
+<div class="container">
+    <div class="actions flex-right">
+        <button class="mat-button update-report-btn">
+            <i class="fas fa-sync"></i><span>{% translate "Refresh" %}</span>
+        </button>
+    </div>
+    <div class="grid">
+        <div class="col-m-12 col-5"><div id="month-wise-reports" class="grid padding"></div></div>
+        <div class="col-m-12 col-5"><div id="year-wise-reports" class="grid padding"></div> </div>
+    </div>
+    <div id="report-diagrams" class="grid"></div>
+    
+</div>

@@ -1,0 +1,28 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+
+{% if perms.auth.view_group %}
+
+
+<div class="container style-container">
+    
+    <div class="mat-table-wrapper style-box">
+        <div class="mat-table-title flex flex-left flex-wrap">
+            <div class="actions flex-left small">
+            {% if perms.auth.add_group %}<a class="mat-button mat-button-text" href="{% url 'dashboard:group-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Group" %}</span> </a>{% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    {% include "tags/components/groups-snippet.html"  with list_title=_('Groups') BASE_URL="dashboard:group-detail" %}    
+</div>
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+
+{% endblock CONTENT_MAIN %}

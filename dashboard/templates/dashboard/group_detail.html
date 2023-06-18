@@ -1,0 +1,71 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+
+{% if perms.auth.view_group %}
+{% if perms.auth.change_group %}
+<div class="actions flex-left">
+    <a class="mat-button mat-button-text" href="{% url GROUP_UPDATE_URL group.pk %}"><i class="far fa-edit"></i><span>{% trans "Edit" %}</span></a>
+    {% if perms.auth.delete_group %}<a class="mat-button mat-button-text danger" href="{% url GROUP_DELETE_URL group.pk %}"><i class="far fa-trash-alt"></i><span>{% trans "Delete" %}</span></a>{% endif %}
+</div>
+{% endif %}
+<div class="container style-container">
+    <div class="mat-box full style-box">
+        <div class="container">
+            <div class="col-m-12 col-3">
+                <div class="container">
+                        <div class="margin title full">
+                            <span>{% trans "Permissions" %}</span>
+                        </div>
+                        <ul class="activity-list status-list js-filter-table full">
+                        {% for p in group.permissions.all %}
+                        <li class="activity" data-permission="{{p.codename}}" data-app="{{p.content_type.app_label}}" data-model="{{p.content_type.model}}">
+                            <div class="status-entry-wrapper">
+                                    <div class="status-entry flex space-between">
+                                            <span class="bold">{{p.codename}}</span>
+                                    </div>
+                                    <div class="status-entry small">
+                                            <span class="bold">{{p.content_type.app_label}}</span> | <span>{{p.content_type.model}}</span>
+                                    </div>
+                            </div>
+                        </li>
+                        {% empty %}
+                        <li><span>{% trans "No Permissions" %}</span></li>
+                        {% endfor %}
+                        </ul>
+                </div>
+            </div>
+            <div class="col-m-12 col-4">
+                <div class="container">
+                    <div class="margin title full">
+                        <span>{% trans "Members" %}</span>
+                    </div>
+                    <ul class="activity-list status-list js-filter-table full">
+                    {% for u in group.user_set.all %}
+                    <li class="activity" data-username="{{u.username}}" data-name="{{u.get_full_name}}">
+                        <div class="status-entry-wrapper">
+                            <div class="status-entry flex space-between">
+                                    <span class="bold">{{u.get_full_name}}</span>
+                                    <span><i class="fas fa-circle icon {% if u.is_active %}success{% else %}error{% endif %}"></i><span class="margin-h">{{u.is_active|yesno:_('active,inactive')}}</span></span>
+                            </div>
+                            <div class="status-entry small">
+                                    <span class="bold">{{u.username}}</span> | <span>{{u.date_joined|date:"F j, Y H:i:s"}}</span>
+                            </div>
+                        </div>
+                    </li>
+                    {% empty %}
+                    <li><span>{% trans "No Members" %}</span></li>
+                    {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

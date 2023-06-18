@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.contrib.sitemaps import Sitemap
 from django.contrib.auth.forms import UserCreationForm
+from dashboard import dashboard_service
 from kemelang import settings
 from dictionary import dictionary_service
 from core.resources import ui_strings as CORE_UI_STRINGS
@@ -48,24 +49,29 @@ def bad_request(request):
 
 
 def home(request):
-    """
-    This function serves the About Page.
-    By default the About html page is saved
-    on the root template folder.
-    """
-    logger.info("Home page request")
-    template_name = "dictionary/dict.html"
-    page_title = CORE_UI_STRINGS.UI_HOME_PAGE
-    context = {
-        'page_title': page_title,
-        'user_is_authenticated' : request.user.is_authenticated,
-        'OG_TITLE' : page_title,
-        'OG_DESCRIPTION': "",
-        'OG_URL': request.build_absolute_uri(),
-        'countrie_list': dictionary_service.get_countries(),
-        'langage_list': dictionary_service.get_langages()
-    }
-    logger.info("Home page request ready")
+    setting = dashboard_service.get_setting()
+    if setting is None or setting.maintenance_mode:
+        template_name = "maintenance/home.html"
+        page_title = CORE_UI_STRINGS.UI_HOME_MAINTENANCE_PAGE
+        context = {
+            'page_title': page_title,
+            'user_is_authenticated' : request.user.is_authenticated,
+            'OG_TITLE' : page_title,
+            'OG_DESCRIPTION': "",
+            'OG_URL': request.build_absolute_uri(),
+        }
+    else:
+        template_name = "dictionary/dict.html"
+        page_title = CORE_UI_STRINGS.UI_HOME_PAGE
+        context = {
+            'page_title': page_title,
+            'user_is_authenticated' : request.user.is_authenticated,
+            'OG_TITLE' : page_title,
+            'OG_DESCRIPTION': "",
+            'OG_URL': request.build_absolute_uri(),
+            'countrie_list': dictionary_service.get_countries(),
+            'langage_list': dictionary_service.get_langages()
+        }
     return render(request, template_name,context)
 
 

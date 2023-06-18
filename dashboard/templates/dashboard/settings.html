@@ -1,0 +1,36 @@
+{% extends "users_base.html"%}
+{% load i18n %}
+
+{% block CONTENT_MAIN %}
+
+{% if perms.auth.view_user %}
+
+<div class="container style-container">
+  <div class="mat-table-title flex flex-left flex-wrap style-box full">
+    <div class="padding-v">{% trans "Users" %}</div>
+    <div class="actions flex-left small">
+      {% if perms.auth.add_user %}
+      <a class="mat-button mat-button-text" href="{% url 'dashboard:create-settings' %}"><i class="fas fa-user-plus"></i><span>{% trans "Add Settings" %}</span></a>
+      {% endif %}
+    </div>
+  </div>
+  {% if site_settings %}
+    <div class="activity">
+        <div class="status-entry-wrapper">
+            <div class="status-entry">
+                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Maintenant Mode" %}</span> : <span>{{site_settings.maintenance_mode|yesno:_('activated,deactivated')}}</span></span>
+            </div>
+            <div class="status-entry">
+                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Allow Anonyme User" %}</span> : <span>{{site_settings.allow_anonyme_user|yesno:_('activated,deactivated')}}</span></span>
+            </div>
+        </div> 
+    </div>
+  {% endif %}
+</div>
+
+{% else %}
+<div class="access-error">
+  <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}
