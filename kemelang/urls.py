@@ -28,7 +28,7 @@ urlpatterns_i18n = i18n_patterns(
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
     path('accounts/', include('accounts.urls')),
-    #path('dashboard/', include('dashboard.urls')),
+    path('dashboard/', include('dashboard.urls')),
     path('faq/', views.faq, name='faq'),
     path('kemelang-admin-board/', admin.site.urls),
     path('dictionary/', include('dictionary.urls')),
