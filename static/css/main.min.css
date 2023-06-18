@@ -5229,6 +5229,8 @@ inset 2px 2px 4px black;
     --debug-color: #1e88e5;
     --on-demand-order : #f39c12;
     --standard-order : #2980b9;
+    --footer: #EFF3F2;
+    --footer-color: #16a085;
     --footer-content-wrapper:#16a085;
     --footer-content-wrapper-color: #FAFAFA;
     --footer-content: #16a085;
@@ -5393,8 +5395,8 @@ input.error{
     color: var(--primary-color);
 }
 .footer{
-    background-color: var(--primary-color);
-    color: var(--fourth-color);
+    background-color: var(--footer);
+    color: var(--footer-color);
 }
 .mat-button-default{
     background-color: var(--primary-color);
