@@ -4,7 +4,7 @@
 
 <div class="container">
     <form id="settings-form" class="settings-form form" name="settings" action="{% url 'dashboard:settings-update' setting.setting_uuid %}" method="POST">{% csrf_token %}
-        <input type="hidden" name="added_by" value="{{settings.added_by.pk}}">
+        <input type="hidden" name="added_by" value="{{setting.added_by.pk}}">
         <input type="hidden" name="changed_by" value="{{request.user.pk}}">
         <div class="actions flex-right">
             <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:settings'%}">{% trans "Cancel" %}</a>
@@ -13,11 +13,11 @@
         <div class="form-group-wrapper">
             <div class="form-group">
                 <label for="maintenance_mode">{% trans "Maintenance Mode" %} :</label>
-                <input type="checkbox" name="maintenance_mode" id="maintenance_mode" {% if settings.maintenance_mode %}checked{% endif %}> 
+                <input type="checkbox" name="maintenance_mode" id="maintenance_mode" {% if setting.maintenance_mode %}checked{% endif %}> 
             </div>
             <div class="form-group">
                 <label for="allow_anonyme_user">{% trans "Allow Anonyme User" %} :</label>
-                <input type="checkbox" name="allow_anonyme_user" id="allow_anonyme_user" {% if settings.allow_anonyme_user %}checked{% endif %}> 
+                <input type="checkbox" name="allow_anonyme_user" id="allow_anonyme_user" {% if setting.allow_anonyme_user %}checked{% endif %}> 
             </div>
         </div>
     </form>
