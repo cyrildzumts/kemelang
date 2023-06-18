@@ -10,7 +10,7 @@
     <div class="padding-v">{% trans "Users" %}</div>
     <div class="actions flex-left small">
       {% if perms.auth.add_user %}
-      <a class="mat-button mat-button-text" href="{% url 'dashboard:create-settings' %}"><i class="fas fa-user-plus"></i><span>{% trans "Add Settings" %}</span></a>
+      <a class="mat-button mat-button-text" href="{% url 'dashboard:settings-create' %}"><i class="fas fa-user-plus"></i><span>{% trans "Add Settings" %}</span></a>
       {% endif %}
     </div>
   </div>
