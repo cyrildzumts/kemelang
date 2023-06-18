@@ -1,0 +1,25 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% load blog_tags %}
+{% load core_tags %}
+{% if not perms.dashboard.can_view_dashboard %}
+{% include "tags/unauthorized.html" %}
+{% else %}
+
+<div class="main-content">
+{% block DASHBOARD_SUMMARY %}
+        {% comment %}
+                {% include "tags/dashboard_summary.html" %}
+        {% endcomment %}
+{% endblock DASHBOARD_SUMMARY %}
+
+{% block CONTENT %}
+<div class="container">
+        {% include 'tags/setting_tag.html' %}
+</div>
+
+{% endblock CONTENT %}
+</div>
+
+
+{% endif %}
