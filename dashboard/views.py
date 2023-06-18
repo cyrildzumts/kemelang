@@ -76,10 +76,10 @@ def update_settings (request, setting_uuid):
             messages.error(request,_('Error when updateing setting'))
             logger.error(f'[ NOT OK ] Error on updating Setting by user {request.user.username}.' )
 
-    page_title = _('New Setting')
+    page_title = _('Update Setting')
     context = {
         'page_title': page_title,
-        'content_title' : _('New Setting'),      
+        'content_title' : _('Update Setting'),      
         'setting'  : setting
     }
     return render(request,template_name, context)
