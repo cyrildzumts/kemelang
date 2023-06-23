@@ -8,13 +8,13 @@
 <div class="grid">
     <div class="flex flex-center full padding-05">
         <div class="collapsible grid">
-            <button class="collapse-v2-toggle bold" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{% translate "Contribute" %}</span></span></button>
+            <button class="collapse-v2-toggle bold" data-toggle="contribute-group" data-target="contribute-group"><span><i class="fas fa-users"></i><span>{{UI_STRINGS_CONTEXT.LABEL_CONTRIBUTE}}</span></span></button>
             <div id="contribute-group" class="collapse full">
                 <ul class="flex">
-                    <li><a class="mat-button" href="{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Country" %}</span></a></li>
-                    <li><a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{% translate "Langage" %}</span></a></li>
-                    <li><a class="mat-button" href="{% url 'dictionary:word-create' %}" title="{% translate 'Add a new word for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Word" %}</span></a></li>
-                    <li><a class="mat-button" href="{% url TRANSLATION_CREATE_URL %}" title="{% translate 'Add Translation' %}"><i class="fas fa-plus"></i><span>{% translate "Translation" %}</span></a></li>
+                    <li><a class="mat-button" href="{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY}}</span></a></li>
+                    <li><a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_LANGAGE}}</span></a></li>
+                    <li><a class="mat-button" href="{% url 'dictionary:word-create' %}" title="{% translate 'Add a new word for a langage' %}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_WORD}}</span></a></li>
+                    <li><a class="mat-button" href="{% url TRANSLATION_CREATE_URL %}" title="{% translate 'Add Translation' %}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_TRANSLATION}}</span></a></li>
                 </ul>
             </div>
         </div>
@@ -24,7 +24,7 @@
         <div class="grid padding-05">
             <div class="col-m-6 col-4">
                 <div class="source-langage flex flex-right full">
-                    <button id="select-detect-langage" class="select-detect-langage detect-langage bold hidden-m" data-type="2">{% translate "Auto Detect" %}</button>
+                    <button id="select-detect-langage" class="select-detect-langage detect-langage bold hidden-m" data-type="2">{{UI_STRINGS_CONTEXT.LABEL_AUTO_DETECT}}</button>
                     <div id="recent-source-langages" class="recent-langages flex"></div>
                     <button id="select-source-langage" class="select-source-langage collapse-v2-toggle" type="button" data-container="recent-source-langages" data-hide="" data-type="0" data-target="langage-selection-container"><i class="fas fa-chevron-down"></i></button>
                 </div>
@@ -51,7 +51,7 @@
             <div class="col-m-12 col-5">
                 <div class="container">
                     <div class="source-langage word-input-wrapper">
-                        <textarea name="text" id="dict-text" placeholder="{% translate 'Enter word' %}"></textarea>
+                        <textarea name="text" id="dict-text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}"></textarea>
                         <div id="word-container" class="padding-v full"></div>
                     </div>
                     <div id="word-definitions-container" class="padding-v full"></div>
@@ -61,12 +61,12 @@
                 <div class="container">
                     <div id="translation-placeholder" class="target-langage word-input-wrapper">
                         <div class="target-placeholder hidden-m">
-                            <span>{% translate "Translation" %}</span>
+                            <span>{{UI_STRINGS_CONTEXT.LABEL_TRANSLATION}}</span>
                         </div>
                     </div>
                     <div id="no-translation" class="word-input-wrapper hidden">
                         <div class="target-placeholder">
-                            <span>{% translate "No translations" %}</span>
+                            <span>{{UI_STRINGS_CONTEXT.LABEL_NO_TRANSLATION}}</span>
                         </div>
                     </div>
                     <div id="word-translations-container" class="padding-v full"></div>

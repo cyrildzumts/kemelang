@@ -97,49 +97,9 @@
 
 {% block SEARCH_BAR %}
 {% if SEARCH_AVAILABLE %}
-{% include 'tags/search_bar.html' with search_id="lyshop-search-tag" %}
+{% include 'tags/search_bar.html' with search_id="kemelang-search-tag" %}
 {% endif %}
 {% endblock SEARCH_BAR %}
-{% block CATEGORY_OVERLAY_MENU %}
-{% if root_category_list %}
-{% cache TEMPLATE_CACHE_TIMEOUT overlay_menu LANGUAGE_CODE %}
-<div class="catalog-overlay-wrapper">
-        <input type="checkbox" id="catalog-overlay-toggle" class="hidden">
-        <div class="catalog-overlay">
-                <div class="nav-menu">
-                        <div class="flex flex-left submenu">
-                                <ul class="grid">
-                                        <li><a class="mat-button mat-button-default bold js-action-abtest cta-btn" data-action="2" href="{% url 'dictionary:dict-home' %}">{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_CATALOG}}</a></li>
-                                </ul>
-                        </div>
-                        <ul class="grid">
-                                {% for c in root_category_list %}
-                                <li class="col-xs-12 col-2">
-                                        <div class="submenu full">
-                                                <span class="underline">{% trans c.display_name %} <i class="icon"></i></span>
-                                                {% if c.children.exists %}
-                                                <ul>
-                                                        <li><a href="{{c.get_slug_url}}"><span>{% trans "See all" %}</span></a></li>
-                                                        {% for cc in c.children.all %}
-                                                        {% if cc.is_active %}
-                                                        <li class="full"><a href="{{cc.get_slug_url}}">{% trans cc.display_name %}</a></li>
-                                                        {% endif %}
-                                                        {% endfor %}
-                                                </ul>
-                                                {% endif %}
-                                        </div>
-                                </li>
-                                {% endfor %}
-                        </ul>
-                </div>
-                <div class="actions hidden-m">
-                        <label for="catalog-overlay-toggle"><i class="fas fa-times icon"></i><span>{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span></label>
-                </div>
-        </div>  
-</div>
-{% endcache %}
-{% endif %}
-{% endblock CATEGORY_OVERLAY_MENU %}  
 {% block NEWS %}
 {% if news %}
 <div class="news">
@@ -148,10 +108,6 @@
 </div>
 {% endif %}
 {% endblock NEWS %}
-
-{% block CATEGORIES %}
-{% comment %}{% include 'tags/category_nav.html' %}{% endcomment %}
-{% endblock CATEGORIES %}
 {% if banner %}
 {% block HEADER_BANNER %}
 

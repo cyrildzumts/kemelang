@@ -1,6 +1,6 @@
 {% load i18n %} 
 
-
+{{UI_STRINGS_CONTEXT.UI_NO_RESULT}}
 <div class="container">
         
     <form id="update-word-form" class="form" name="add-brand" action="{% url WORD_UPDATE_URL word.word word.word_uuid %}" method="POST">{% csrf_token %}
@@ -9,19 +9,19 @@
                 <input type="hidden" name="changed_by" value="{{request.user.pk|default:''}}">
                 <div class="form-group-wrapper">
                     <div class="form-group full">
-                        <label for="word">{% trans "Word" %}</label>
+                        <label for="word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
                         <input id="word" type="text"  name="word" value="{{word.word}}">
                     </div>
                 </div>
                 <div class="form-group-wrapper">
                     <div class="form-group full">
-                        <label for="transliteration">{% trans "Transliteration" %}</label>
+                        <label for="transliteration">{{UI_STRINGS_CONTEXT.LABEL_TRANSLITERATION}}</label>
                         <input id="transliteration" type="text"  name="transliteration" value="{{word.transliteration|default:''}}">
                     </div>
                 </div>
                 <div class="form-group-wrapper">
                     <div class="form-group full">
-                        <span class="bold">{% trans "Word Type" %}</span>
+                        <span class="bold">{{UI_STRINGS_CONTEXT.LABEL_WORD_TYPE}}</span>
                         <div class="flex flex-left full" id="word_type">
                             {% for k,v in WORD_TYPES %} <div class="margin-r"><input id="word-type-{{k}}" name="word_type" type="radio" value="{{k}}" {% if word.word_type == k %}checked{% endif %} ><label for="word-type-{{k}}">{{v}}</label></div>{% endfor %}
                         </div>
@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group-wrapper">
                     <div class="form-group full">
-                        <label for="langage">{% trans "Langage" %}</label>
+                        <label for="langage">{{UI_STRINGS_CONTEXT.LABEL_LANGAGE}}</label>
                         <select id="langage" name="langage">
                             {% for lang in langage_list %}
                             <option value="{{lang.id}}" {% if word.langage == lang %}selected{% endif %}>{{lang.name}}</option>
@@ -40,14 +40,14 @@
                 <div class="form-group-wrapper">
                     <div class="form-group full description">
                         <input id="description" type="hidden" name="description" value="{{word.description_to_json|default:''}}">
-                        <span class="padding-bottom">{% trans "Description" %}</span>
+                        <span class="padding-bottom">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span>
                         <div id="editor" class="editor" data-editor="editor" data-target="description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
                     </div>
                 </div>
 
                 <div class="actions">
-                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
-                    <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</a>
+                    <button class="mat-button mat-button-default" type="submit">{{UI_STRINGS_CONTEXT.UI_CREATE_BTN_LABEL}}</button>
                 </div>
         </div>
     </form>

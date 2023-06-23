@@ -12,8 +12,8 @@
                 <div class="flex flex-left"><span class="padding-v bold"><span class="capitalyze">{{country}}</span></span></div>
                 {% endif %}
                 <div class="flex flex-left">
-                    <span class="padding-v bold">{% translate "Langages" %} (<span class="counter">{{langage_list.count}}</span>)</span>
-                    <a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{% translate 'Add a new langage for a translation' %}"><i class="fas fa-plus"></i><span>{% translate "Add Langage" %}</span></a>
+                    <span class="padding-v bold">{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_PLURAL}} (<span class="counter">{{langage_list.count}}</span>)</span>
+                    <a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{% translate "Add Langage" %}</span></a>
                 </div>
             </div>
             

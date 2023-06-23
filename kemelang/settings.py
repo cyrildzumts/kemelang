@@ -140,6 +140,7 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'accounts.context_processors.account_context',
                 'kemelang.context_processors.site_context',
+                'core.context_processors.ui_strings_context',
             ],
         },
     },

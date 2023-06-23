@@ -11,8 +11,8 @@
                 <input id="translation-langage" type="hidden" name="langage" value="{{word.langage.pk}}">
                 <div class="form-group-wrapper">
                     <div class="form-group">
-                        <label for="translation-source_word">{% trans "Word" %}</label>
-                        <input id="translation-search-word" class="search-word" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="Enter word ...">
+                        <label for="translation-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
+                        <input id="translation-search-word" class="search-word" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                 </div>
                 <div id="translation-search-word-results" class="search-word-results form-group-wrapper scrollable">
@@ -20,7 +20,7 @@
                 </div>
 
                 <div class="actions flex-right">
-                    <button class="mat-button mat-button-default">{% trans "Add" %}</button>
+                    <button class="mat-button mat-button-default">{{UI_STRINGS_CONTEXT.UI_SEND_BTN_LABEL}}</button>
                 </div>
         </div>
     </form>

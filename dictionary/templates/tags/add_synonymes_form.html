@@ -10,8 +10,8 @@
                 <input id="synonymes-langage" type="hidden" name="langage" value="{{word.langage.pk}}">
                 <div class="form-group-wrapper">
                     <div class="form-group">
-                        <label for="synonymes-source_word">{% trans "Word" %}</label>
-                        <input id="synonymes-search-word" class="search-word" data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="Enter word ...">
+                        <label for="synonymes-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
+                        <input id="synonymes-search-word" class="search-word" data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                 </div>
                 <div id="synonymes-search-word-results" class="search-word-results form-group-wrapper scrollable">
@@ -19,7 +19,7 @@
                 </div>
 
                 <div class="actions flex-right">
-                    <button class="mat-button mat-button-default">{% trans "Add" %}</button>
+                    <button class="mat-button mat-button-default">{{UI_STRINGS_CONTEXT.UI_SEND_BTN_LABEL}}</button>
                 </div>
         </div>
     </form>

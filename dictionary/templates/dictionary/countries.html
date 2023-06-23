@@ -9,8 +9,8 @@
         <div class="grid padding-05">
             <div class="margin-v full">
                 <div class="flex flex-left">
-                    <span class="bold">{% translate "Countries" %} (<span class="counter">{{country_list.count}}</span>)</span>
-                    <a class="mat-button" href="{% url 'dictionary:country-create' %}" title="{% translate 'Add a new country for a langage' %}"><i class="fas fa-plus"></i><span>{% translate "Add Country" %}</span></a>
+                    <span class="bold">{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}} (<span class="counter">{{country_list.count}}</span>)</span>
+                    <a class="mat-button" href="{% url 'dictionary:country-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{% translate "Add Country" %}</span></a>
                 </div>
             </div>
             
