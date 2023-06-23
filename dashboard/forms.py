@@ -6,7 +6,7 @@ from dashboard.models import Settings
 
 class SettingsForm(forms.ModelForm):
     
-    maintenance_mode = forms.BooleanField(required=True, initial=True)
+    maintenance_mode = forms.BooleanField(required=False, initial=True)
     
     class Meta:
         model = Settings
