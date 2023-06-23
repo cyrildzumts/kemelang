@@ -1,5 +1,6 @@
 from dashboard.models import Settings
 from dashboard.forms import SettingsForm
+from core import service
 import logging
 
 logger = logging.getLogger(__name__)
@@ -21,9 +22,10 @@ def create_setting(data):
 
 
 def update_setting(data, setting):
-    form = SettingsForm(data, instance=setting)
-    if form.is_valid():
-        logger.info(f"Setting updated with data: {data} - Clean Data : {form.cleaned_data}")
-        return form.save()
-    logger.warning(f"Error on updating Setting : {form.errors.as_data()}")
-    return None
+    # form = SettingsForm(data, instance=setting)
+    # if form.is_valid():
+    #     logger.info(f"Setting updated with data: {data} - Clean Data : {form.cleaned_data}")
+    #     return form.save()
+    # logger.warning(f"Error on updating Setting : {form.errors.as_data()}")
+    # return None
+    return service.update_instance(Settings, setting, data)
