@@ -20,6 +20,3 @@ class SettingsForm(forms.ModelForm):
     #     if value is None:
     #         value = True
     #     return value
-
-    def clean(self):
-        return super().clean()
