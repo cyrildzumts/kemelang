@@ -7,10 +7,10 @@
         </div>
         <div class="status-entry-wrapper">
             <div class="status-entry">
-                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Maintenant Mode" %}</span> : <span>{{setting.maintenance_mode|yesno:_('activated,deactivated')}}</span></span>
+                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Maintenant Mode" %}</span> : <span>{{setting.maintenance_mode}}</span></span>
             </div>
             <div class="status-entry">
-                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Allow Anonyme User" %}</span> : <span>{{setting.allow_anonyme_user|yesno:_('activated,deactivated')}}</span></span>
+                <span class="text-gray"><i class="fas fa-mouse icon"></i><span>{% translate "Allow Anonyme User" %}</span> : <span>{{setting.allow_anonyme_user}}</span></span>
             </div>
         </div> 
     </div>
