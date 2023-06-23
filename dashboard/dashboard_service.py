@@ -15,7 +15,7 @@ def get_setting():
 def create_setting(data):
     form = SettingsForm(data)
     if form.is_valid():
-        logger.info("Setting created")
+        logger.info(f"Setting created with data: {data} - Clean Data : {form.cleaned_data}")
         return form.save()
     logger.warning(f"Error on creating Setting : {form.errors.as_data()}")
     return None
