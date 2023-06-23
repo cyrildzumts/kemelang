@@ -50,7 +50,7 @@ def bad_request(request):
 
 def home(request):
     setting = dashboard_service.get_setting()
-    if setting is None or setting.maintenance_mode:
+    if setting is None or not setting.maintenance_mode:
         template_name = "maintenance/home.html"
         page_title = CORE_UI_STRINGS.UI_HOME_MAINTENANCE_PAGE
         context = {
