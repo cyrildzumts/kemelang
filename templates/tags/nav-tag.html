@@ -5,17 +5,11 @@
         <div class="flex flex-left">
             <button class="navbar-toggler js-action-abtest" type="button" data-action="0" data-ui-toggle="collapse" data-ui-target="navbar-main-menu"><i class="fas fa-bars"></i></button>
             <a href="{{SITE_HOST}}" class="navbar-brand">{{SITE_NAME}}</a>
-            {% if root_category_list %}
-            <ul class="navbar-nav hidden-m">
-                <li class="nav-item"><a class="nav-link js-action-abtest bold" data-action="2" href="{% url 'dictionary:dict-home' %}"><span>{% trans "See all" %}</span></a></li>
-                {% for category in root_category_list %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link js-action-abtest" data-action="20">{% translate category.display_name %}</a></li> {% endfor %}
-            </ul>
-            {% endif %}
         </div>
         <div class="flex main-nav-bar">
             <ul class="navbar-nav">
-                {% if is_dashboard_allowed %}
-                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{% trans 'Dashboard' %}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{% trans "Dashboard" %}</span></a></li>
+                {% if perms.can_access_dashboard %}
+                <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}"><i class="fas fa-tachometer-alt icon"></i><span class="hidden-m">{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}</span></a></li>
                 {% endif %}
                 {% if not request.user.is_authenticated %}
                 <li class="nav-item js-action-abtest" data-action="1"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:login' %}?next={{request.path}}" title="{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}"><i class="fas fa-sign-in-alt icon"></i></a></li>
@@ -28,20 +22,14 @@
         
         <div class="collapse navbar-collapse" id="navbar-main-menu">
             <div class="navbar-menu-wrapper">
-                {% if root_category_list %}
-                <ul class="navbar-nav primary">
-                    <li class="nav-item"><a class="nav-link js-action-abtest bold" data-action="2" href="{% url 'dictionary:dict-home' %}"><span>{% trans "See all" %}</span></a></li>
-                    {% for category in root_category_list %} <li class="nav-item"><a href="{{SITE_HOST}}{{category.get_slug_url}}" class="nav-link js-action-abtest" data-action="21"">{% translate category.display_name %}</a></li> {% endfor %}
-                </ul>
-                {% endif %}
                 <ul class="navbar-nav secondary">
                     {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>{% endcomment %}
                     
-                    {% if is_dashboard_allowed %}
-                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{{UI_STRINGS_CONTEXT.DASHBOARD_DASHBOARD_TITLE}}"><i class="fas fa-tachometer-alt icon"></i><span>{{UI_STRINGS_CONTEXT.DASHBOARD_DASHBOARD_TITLE}}</span></a></li>
+                    {% if perms.can_access_dashboard %}
+                    <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:home'%}" title="{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}"><i class="fas fa-tachometer-alt icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}</span></a></li>
                     {% endif %}
                     
-                    {% if is_translator %}
+                    {% if perms.can_access_translator %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'translators:home' %}" title="{{UI_STRINGS_CONTEXT.DASHBOARD_TRANSLATOR_TITLE}}"><i class="fas fa-handshake icon"></i><span class="hidden-m">{{UI_STRINGS_CONTEXT.DASHBOARD_TRANSLATOR_TITLE}}</span></a></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:countries' %}" title="{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}"><i class="fas fa-globe-africa"></i><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></a></li>

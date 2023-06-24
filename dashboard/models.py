@@ -1,8 +1,17 @@
 from django.db import models
 from django.contrib.auth.models import User
+from dashboard import constants as Constants
 import uuid
 
 # Create your models here.
+
+class AccessPermissions(models.Model):
+    class Meta:
+        managed = False
+        permissions = Constants.PERMISSION_DASHBOAD
+
+
+        
 
 class Settings(models.Model):
     maintenance_mode = models.BooleanField(default=True, null=True)
