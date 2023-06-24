@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-24 14:37+0200\n"
+"POT-Creation-Date: 2023-06-25 00:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 "dictionnaire est idéal pour les personnes qui apprennent les langues "
 "africaines et ont besoin d'un dictionnaire dédié."
 
-#: core/resources/ui_strings.py:6
+#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:145
 msgid "African Dictionary"
 msgstr "Dictionnaire Africain"
 
@@ -227,7 +227,7 @@ msgstr "Détection automatique"
 #: core/resources/ui_strings.py:69
 #: dashboard/templates/tags/group_update_form.html:8
 #: templates/dashboard_base.html:23 templates/tags/dashboard_sidebar.html:12
-#: templates/tags/nav-tag.html:18 templates/tags/users_sidebar.html:4
+#: templates/tags/users_sidebar.html:4
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -372,48 +372,48 @@ msgstr "Données soumises invalides"
 msgid "Your online dictionary for african languages"
 msgstr "Votre dictionnaire en ligne pour les langues africaines"
 
-#: core/resources/ui_strings.py:114
+#: core/resources/ui_strings.py:115
 msgid "Need more information"
 msgstr "Besoin de plus d'informations"
 
-#: core/resources/ui_strings.py:115
+#: core/resources/ui_strings.py:116
 msgid "Hello, I have a question about the dictionary."
 msgstr "Bonjour, j'ai une question sur le dictionnaire."
 
-#: core/resources/ui_strings.py:116
+#: core/resources/ui_strings.py:117
 msgid "Invalid user request"
 msgstr "Demande d'utilisateur invalide"
 
-#: core/resources/ui_strings.py:117
+#: core/resources/ui_strings.py:118
 msgid "Resource not found !"
 msgstr "Ressource introuvable !"
 
-#: core/resources/ui_strings.py:118
+#: core/resources/ui_strings.py:119
 msgid "The resource you requested does not exist or is no longer available."
 msgstr ""
 "La ressource que vous avez demandée n'existe pas ou n'est plus disponible."
 
-#: core/resources/ui_strings.py:119
+#: core/resources/ui_strings.py:120
 msgid "Bad Request"
 msgstr "Mauvaise Demande"
 
-#: core/resources/ui_strings.py:120
+#: core/resources/ui_strings.py:121
 msgid "You submitted a bad request."
 msgstr "Vous avez soumis une mauvaise demande."
 
-#: core/resources/ui_strings.py:123
+#: core/resources/ui_strings.py:124
 msgid "Access Forbidden"
 msgstr "Accès Interdit"
 
-#: core/resources/ui_strings.py:124
+#: core/resources/ui_strings.py:125
 msgid "You can not access this page."
 msgstr "Vous ne pouvez pas accéder à cette page."
 
-#: core/resources/ui_strings.py:126
+#: core/resources/ui_strings.py:127
 msgid "Server Error"
 msgstr "erreur du serveur"
 
-#: core/resources/ui_strings.py:127
+#: core/resources/ui_strings.py:128
 msgid ""
 "Oops ! There is an internal error. If the errors persists please inform our "
 "team through our contact."
@@ -421,23 +421,23 @@ msgstr ""
 "Oops ! Il y a une erreur interne. Si les erreurs persistent, veuillez en "
 "informer notre équipe via notre contact."
 
-#: core/resources/ui_strings.py:128
+#: core/resources/ui_strings.py:129
 msgid "Go to QUIZ-Home"
 msgstr "Allez au Quiz"
 
-#: core/resources/ui_strings.py:129
+#: core/resources/ui_strings.py:130
 msgid "KEMELANG"
 msgstr "KEMELANG"
 
-#: core/resources/ui_strings.py:130
+#: core/resources/ui_strings.py:131
 msgid "KEMELANG IS COMING"
 msgstr "KEMELANG ARRIVE"
 
-#: core/resources/ui_strings.py:131
+#: core/resources/ui_strings.py:132
 msgid "KEMELANG IS UNDER CONSTRUCTION!"
 msgstr "KEMELANG EST EN CONSTRUCTION!"
 
-#: core/resources/ui_strings.py:132
+#: core/resources/ui_strings.py:133
 msgid ""
 "Thank you for your interest in this project. The site is currently under "
 "construction."
@@ -445,38 +445,38 @@ msgstr ""
 "Merci de votre intérêt pour ce projet. Le site est actuellement en "
 "construction."
 
-#: core/resources/ui_strings.py:133
+#: core/resources/ui_strings.py:134
 msgid "Create Campaign"
 msgstr "Créer la Campagne"
 
-#: core/resources/ui_strings.py:134
+#: core/resources/ui_strings.py:135
 msgid "Campaign Image"
 msgstr "Image de Campagne"
 
-#: core/resources/ui_strings.py:135
+#: core/resources/ui_strings.py:136
 #: dictionary/templates/tags/create_mass_translation_form.html:10
 msgid "Add"
 msgstr "Ajouter"
 
-#: core/resources/ui_strings.py:136
+#: core/resources/ui_strings.py:137
 #: dashboard/templates/tags/campaign_creation_form.html:12
 #: dashboard/templates/tags/campaign_update_form.html:13
 msgid "Back"
 msgstr "Retour"
 
-#: core/resources/ui_strings.py:137
+#: core/resources/ui_strings.py:138
 #: dictionary/templates/tags/create_definition_form.html:25
 #: dictionary/templates/tags/create_phrase_form.html:32
 msgid "Create"
 msgstr "Créer"
 
-#: core/resources/ui_strings.py:138
+#: core/resources/ui_strings.py:139
 #: templates/tags/components/orders_tag.html:30
 #: templates/tags/components/shipments_tag.html:29
 msgid "Update"
 msgstr "Actualiser"
 
-#: core/resources/ui_strings.py:139
+#: core/resources/ui_strings.py:140
 #: dictionary/templates/tags/create_definition_form.html:24
 #: dictionary/templates/tags/create_phrase_form.html:31
 #: templates/accounts/account_detail.html:71
@@ -488,45 +488,41 @@ msgstr "Actualiser"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: core/resources/ui_strings.py:140 templates/accounts/account_detail.html:72
+#: core/resources/ui_strings.py:141 templates/accounts/account_detail.html:72
 msgid "Send"
 msgstr "Envoyer"
 
-#: core/resources/ui_strings.py:141
+#: core/resources/ui_strings.py:142
 #: templates/tags/components/orders_tag.html:29
 #: templates/tags/components/shipments_tag.html:28
 msgid "Open"
 msgstr "Ouvrir"
 
-#: core/resources/ui_strings.py:142
+#: core/resources/ui_strings.py:143
 msgid "Close"
 msgstr "Fermer"
 
-#: core/resources/ui_strings.py:143
-msgid "African dictionary"
-msgstr "Dictionnaire africain"
-
 #: core/resources/ui_strings.py:144
-msgid "Online African Dictionary"
-msgstr "Dictionnaire africain en ligne"
+msgid "African dictionary"
+msgstr "Dictionnaire Africain"
 
-#: core/resources/ui_strings.py:145
+#: core/resources/ui_strings.py:146
 msgid "Enter word ..."
 msgstr "Entrez le mot..."
 
-#: core/resources/ui_strings.py:146
+#: core/resources/ui_strings.py:147
 msgid "Space"
 msgstr "Espace"
 
-#: core/resources/ui_strings.py:147 core/templates/keyboard/keyboard.html:40
+#: core/resources/ui_strings.py:148 core/templates/keyboard/keyboard.html:40
 msgid "Backspace"
 msgstr "Effacer"
 
-#: core/resources/ui_strings.py:148
+#: core/resources/ui_strings.py:149
 msgid "No results"
 msgstr "Aucun resultats"
 
-#: core/resources/ui_strings.py:149
+#: core/resources/ui_strings.py:150
 #: templates/accounts/registration/login.html:28
 #: templates/accounts/registration/login.html:45
 #: templates/accounts/registration/password_reset_complete.html:11
@@ -535,7 +531,7 @@ msgstr "Aucun resultats"
 msgid "Login"
 msgstr "Coneexion"
 
-#: core/resources/ui_strings.py:150
+#: core/resources/ui_strings.py:151
 #: templates/accounts/registration/register.html:69
 #: templates/accounts/registration/vendor_register.html:49
 #: templates/registration/register.html:50
@@ -543,35 +539,34 @@ msgstr "Coneexion"
 msgid "Sign In"
 msgstr "S'identifier"
 
-#: core/resources/ui_strings.py:151 templates/dashboard_base.html:50
+#: core/resources/ui_strings.py:152 templates/dashboard_base.html:50
 #: templates/tags/dashboard_header.html:63
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:152
+#: core/resources/ui_strings.py:153
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:153
+#: core/resources/ui_strings.py:154
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: core/resources/ui_strings.py:154
+#: core/resources/ui_strings.py:155
 #: templates/accounts/registration/email_validation.html:19
-#: templates/registration/email_validation.html:19
 #: templates/tags/dashboard_header.html:62
 msgid "My Account"
 msgstr "Mon Compte"
 
-#: core/resources/ui_strings.py:155
+#: core/resources/ui_strings.py:156
 msgid "Start typing here ..."
 msgstr "Commencez à écrire ici..."
 
-#: core/resources/ui_strings.py:156
+#: core/resources/ui_strings.py:157
 msgid "Maintenance Mode"
 msgstr ""
 
-#: core/resources/ui_strings.py:157
+#: core/resources/ui_strings.py:158
 msgid "Allow Anonymous User"
 msgstr "Autoriser l'utilisateur anonyme"
 
@@ -1268,7 +1263,7 @@ msgid "Add a new language for a translation"
 msgstr "Ajouter une nouvelle langue pour une traduction"
 
 #: dictionary/templates/dictionary/dict.html:16
-#: dictionary/templates/dictionary/langage.html:55
+#: dictionary/templates/dictionary/langage.html:64
 msgid "Add a new word for a language"
 msgstr "Ajouter un nouveau mot pour une langue"
 
@@ -1276,7 +1271,7 @@ msgstr "Ajouter un nouveau mot pour une langue"
 msgid "Add Translation"
 msgstr "Ajouter une traduction"
 
-#: dictionary/templates/dictionary/langage.html:55
+#: dictionary/templates/dictionary/langage.html:64
 msgid " Add Word"
 msgstr "Ajouter un mot"
 
@@ -1331,11 +1326,11 @@ msgstr "Alphabet"
 msgid "Update for Example usage for word"
 msgstr ""
 
-#: kemelang/settings.py:279
+#: kemelang/settings.py:304
 msgid "French"
 msgstr "Francais"
 
-#: kemelang/settings.py:280
+#: kemelang/settings.py:305
 msgid "English"
 msgstr "Anglais"
 
@@ -1347,10 +1342,6 @@ msgstr "Mauvaise requête !"
 msgid "The server did not understand your request."
 msgstr "The serveur n'a pu comprendre votre requête."
 
-#: templates/400.html:12 templates/403.html:12 templates/500.html:14
-msgid "Go back to Home Page"
-msgstr ""
-
 #: templates/403.html:6
 msgid "Access Forbidden ! "
 msgstr ""
@@ -1359,19 +1350,19 @@ msgstr ""
 msgid "You are not allowed to access this page."
 msgstr ""
 
-#: templates/500.html:6
+#: templates/500.html:7
 msgid "Internal Server Error ! "
 msgstr ""
 
-#: templates/500.html:9
+#: templates/500.html:10
 msgid "The server has encountered an internal error."
 msgstr ""
 
-#: templates/500.html:10
+#: templates/500.html:11
 msgid "If this problem persists please contact us."
 msgstr ""
 
-#: templates/500.html:11
+#: templates/500.html:12
 msgid "Our technicians are working on the problem."
 msgstr ""
 
@@ -1558,7 +1549,6 @@ msgid "Send me a Validation link"
 msgstr ""
 
 #: templates/accounts/registration/email_validation.html:24
-#: templates/registration/email_validation.html:24
 msgid "Home Page"
 msgstr ""
 
@@ -1646,8 +1636,6 @@ msgstr ""
 
 #: templates/accounts/registration/password_change_done.html:9
 #: templates/accounts/registration/password_reset_complete.html:7
-#: templates/registration/password_change_done.html:17
-#: templates/registration/password_reset_complete.html:7
 msgid "Back to home page"
 msgstr ""
 
@@ -1873,11 +1861,11 @@ msgstr ""
 msgid "ONLINE SHOP"
 msgstr ""
 
-#: templates/dashboard_base.html:60 templates/error_base.html:75
+#: templates/dashboard_base.html:60
 msgid "About us"
 msgstr ""
 
-#: templates/dashboard_base.html:61 templates/error_base.html:76
+#: templates/dashboard_base.html:61
 msgid "FAQ"
 msgstr ""
 
@@ -1892,14 +1880,6 @@ msgstr ""
 #: templates/email_tags/order_cancel_confirmation_email.html:47
 #: templates/email_tags/order_confirmation_email.html:46
 msgid "Image"
-msgstr ""
-
-#: templates/error_base.html:47
-msgid "Catalog"
-msgstr ""
-
-#: templates/error_base.html:72
-msgid "ONLINE QUIZ"
 msgstr ""
 
 #: templates/faq.html:11
@@ -1931,7 +1911,7 @@ msgid "New Word"
 msgstr ""
 
 #: templates/registration/email_validation.html:18
-msgid "Go to your Account by following this link"
+msgid "Go to our dictionary by following this link"
 msgstr ""
 
 #: templates/registration/email_validation.html:22
@@ -2097,14 +2077,13 @@ msgstr ""
 msgid "Select language : "
 msgstr "Choisir la langue :"
 
-#: templates/tags/nav-tag.html:10 templates/tags/nav-tag.html:34
-#: templates/tags/navigations.html:21
-msgid "See all"
-msgstr "Tout voir"
-
 #: templates/tags/navigations.html:6
 msgid "Shop"
 msgstr ""
+
+#: templates/tags/navigations.html:21
+msgid "See all"
+msgstr "Tout voir"
 
 #: templates/tags/pagination.html:13
 msgid "current"
@@ -2117,6 +2096,9 @@ msgstr ""
 #: templates/tags/users_sidebar.html:8
 msgid "Online Users"
 msgstr ""
+
+#~ msgid "Online African Dictionary"
+#~ msgstr "Dictionnaire africain en ligne"
 
 #~ msgid "Create Settings"
 #~ msgstr "Créer le parametre"
