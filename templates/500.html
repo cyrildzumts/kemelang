@@ -11,7 +11,7 @@
                     <p>{% trans "Our technicians are working on the problem." %}</p>
             </div>
             <div class="actions">
-                <a class="nav-link" href="{% url 'home' %}">{{SITE_NAME}}</a>
+                <a class="nav-link" href="{% url 'home' %}">{{SITE_NAME|default:'KEMELANG'}}</a>
             </div>
     </div> 
   {% endblock MAIN %}

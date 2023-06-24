@@ -11,7 +11,7 @@
         {% block META_REDIRECT %}
         
         {% endblock META_REDIRECT %}
-        <title>{% block title %}{{SITE_NAME}} | {{page_title}}{% endblock %}</title>
+        <title>{% block title %}{{SITE_NAME|default:'KEMELANG'}}{% endblock %}</title>
         {% comment %}
                 twitter card
         {% endcomment %}
