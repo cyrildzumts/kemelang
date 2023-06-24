@@ -15,11 +15,19 @@
                 <a title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BTN_LABEL}}" href="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
             <div class="flex full">
+                {% comment %}
+                    <div id="tabs" class="tabs flex flex-center" data-current="1">
+                        <div class="col-m-4 col-4"><div class="tab active" data-parent="tabs" data-index="1" data-target="langage-description"><span>{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></div></div>
+                        <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></div></div>
+                        <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="3" data-target="langage-vocabulary"><span>{{UI_STRINGS_CONTEXT.LABEL_VOCABULARY}}</span></div></div>
+                        
+                    </div>
+                {% endcomment %}
+
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
-                    <div class="col-m-4 col-4"><div class="tab active" data-parent="tabs" data-index="1" data-target="langage-description"><span>{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></div></div>
-                    <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></div></div>
-                    <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="3" data-target="langage-vocabulary"><span>{{UI_STRINGS_CONTEXT.LABEL_VOCABULARY}}</span></div></div>
-                    
+                    <div class="tab active" data-parent="tabs" data-index="1" data-target="langage-description"><span>{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></div>
+                    <div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></div>
+                    <div class="tab" data-parent="tabs" data-index="3" data-target="langage-vocabulary"><span>{{UI_STRINGS_CONTEXT.LABEL_VOCABULARY}}</span></div>
                 </div>
             </div>
             <div class="tab-container full">
