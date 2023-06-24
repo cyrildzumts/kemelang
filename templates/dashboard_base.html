@@ -32,7 +32,7 @@
                         <li><a class="mat-button mat-button-text" href="{% url 'dashboard:customers' %}"><i class="fas fa-user-tag icon"></i><span>{% trans "Customers" %}</span></a></li>
                     {% endcomment %}
                     {% comment %}
-                        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+                        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a></li>
                     {% endcomment %}
                     {% comment %}
                         <li><a class="mat-button mat-button-text" href="{% url 'dashboard:tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Tokens" %}</span></a></li>

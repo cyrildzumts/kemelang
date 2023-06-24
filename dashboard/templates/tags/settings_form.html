@@ -6,16 +6,16 @@
     <form id="group-form" class="group-form form" name="group" action="{% url 'dashboard:settings-create' %}" method="POST">{% csrf_token %}
         <input type="hidden" name="added_by" value="{{request.user.pk}}">
         <div class="actions flex-right">
-            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:settings'%}">{% trans "Cancel" %}</a>
-            <button class="mat-button mat-button-default" type="submit">{% trans "Create Settings" %}</button>
+            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:settings'%}">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</a>
+            <button class="mat-button mat-button-default" type="submit">{{UI_STRINGS_CONTEXT.UI_CREATE_BTN_LABEL}}</button>
         </div>
         <div class="form-group-wrapper">
             <div class="form-group">
-                <label for="maintenance_mode">{% trans "Maintenance Mode" %} :</label>
+                <label for="maintenance_mode">{{UI_STRINGS_CONTEXT.LABEL_MAINTENANCE_MODE}} :</label>
                 <input type="checkbox" name="maintenance_mode" id="maintenance_mode"> 
             </div>
             <div class="form-group">
-                <label for="allow_anonyme_user">{% trans "Allow Anonyme User" %} :</label>
+                <label for="allow_anonyme_user">{{UI_STRINGS_CONTEXT.LABEL_ALLOW_ANONYMOUS_USERS}} :</label>
                 <input type="checkbox" name="allow_anonyme_user" id="allow_anonyme_user"> 
             </div>
         </div>

@@ -7,7 +7,7 @@
 
 <div class="container style-container">
   <div class="mat-table-title flex flex-left flex-wrap style-box full">
-    <div class="padding-v">{% trans "Users" %}</div>
+    <div class="padding-v">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</div>
     <div class="actions flex-left small">
       {% if perms.auth.add_user %}
       <a class="mat-button mat-button-text" href="{% url 'dashboard:create-user' %}"><i class="fas fa-user-plus"></i><span>{% trans "New User" %}</span></a>

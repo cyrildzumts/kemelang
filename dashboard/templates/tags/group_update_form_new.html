@@ -5,7 +5,7 @@
 <div class="container">
     <form id="group-form" class="group-form form" name="group" action="{% url 'dashboard:group-update' group.pk %}" method="POST">{% csrf_token %}
         <div class="actions flex-right">
-            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:group-detail' group.pk%}">{% trans "Cancel" %}</a>
+            <a class="mat-button mat-button-outline js-cancel" href="{%url 'dashboard:group-detail' group.pk%}">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</a>
             <button class="mat-button mat-button-default" type="submit">{% trans "Update Group" %}</button>
         </div>
         <div class="flex flex-left">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="collapsible padding-v">
                     <div class="collapsible-toggle open">
-                        <span class="padding-h">{% trans "Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                        <span class="padding-h">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <ul class="mat-list" id="users-list">
@@ -109,7 +109,7 @@
                 </div>
                 <div class="collapsible padding-v">
                     <div class="collapsible-toggle open">
-                        <span class="padding-h">{% trans "Users" %}<i class="fas fa-angle-down padding-h"></i></span>
+                        <span class="padding-h">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <ul class="mat-list" id="available-users-list">

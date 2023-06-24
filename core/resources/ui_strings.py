@@ -1,6 +1,20 @@
 from django.utils.translation import gettext_lazy as _
 from kemelang import settings
 
+## SEO 
+SEO_META_DESCRIPTION = _('Kemelang is an online dictionary for African languages. This dictionary is ideal for people who are learning African languages and need a dedicated dictionary.')
+SEO_SITE_TITLE = _('African Dictionary')
+SEO_META_KEYWORDS = _('dictionary, african language, african dictionary, dictionary of african languages')
+DESCRIPTION_HOOK = _('Use our dictionary to translate words between African languages.')
+SEO_HOOK_HEAD_1 = _('Do you know an African language and want to help people learn this language?')
+SEO_HOOK_HEAD_2 = _('Do you want to make African languages more accessible?')
+SEO_HOOK_HEAD_3 = _('Help us make African languages more accessible.')
+
+SEO_HOOK_BODY_1 = _('Help us make African languages more accessible.')
+SEO_HOOK_BODY_2 = _('Contribute to the promotion of your language by adding words from this language to our dictionary.')
+SEO_HOOK_BODY_3 = _('African languages need you. Help us translate African languages')
+
+
 
 
 LABEL_DICTIONARY = _('Dictionary')
@@ -10,10 +24,10 @@ LABEL_COUNTRY_PLURAL = _('Countries')
 LABEL_NO_COUNTRY = _('No countries')
 LABEL_COUNTRY_ACTION_ADD = _('Add country')
 
-LABEL_LANGAGE = _('Langage')
-LABEL_LANGAGE_PLURAL = _('Langages')
-LABEL_NO_LANGAGE = _('No langages')
-LABEL_LANGAGE_ACTION_ADD = _('Add langage')
+LABEL_LANGAGE = _('Language')
+LABEL_LANGAGE_PLURAL = _('languages')
+LABEL_NO_LANGAGE = _('No languages')
+LABEL_LANGAGE_ACTION_ADD = _('Add language')
 
 LABEL_WORD = _('Word')
 LABEL_WORD_TYPE = _('Word Type')
@@ -47,7 +61,7 @@ LABEL_TRANSLATION_CONTRIBUTE = _('Contribute by adding translations')
 
 LABEL_CONTRIBUTE = _('Contribute')
 LABEL_TRANSLATE_INVITE = _('Enter word')
-LABEL_SEARCH_LANGAGE = _('Search langages')
+LABEL_SEARCH_LANGAGE = _('Search languages')
 LABEL_AUTO_DETECT = _('Auto Detect')
 
 
@@ -76,18 +90,16 @@ DASHBOARD_CAMPAIGN_UPDATE_TITLE               = _('Campaign Update')
 DASHBOARD_CAMPAIGN_CREATE_TITLE               = _('Campaign Create')
 DASHBOARD_CAMPAIGN_TITLE               = _('Campaign')
 
+LABEL_USER = _('User')
+LABEL_USERS_PLURAL = _('Users')
+LABEL_CUSTOMER_PLURAL = _('Customers')
+LABEL_USER_UPDATE = _('User Update')
+LABEL_USER_CREATE = _('New User')
 
-DASHBOARD_USERS_TITLE = _('Users')
-DASHBOARD_CUSTOMERS_TITLE = _('Customers')
-DASHBOARD_SELLERS_TITLE = _('Sellers')
-DASHBOARD_USER_TITLE = _('User')
-DASHBOARD_USER_UPDATE_TITLE = _('User Update')
-DASHBOARD_USER_CREATE_TITLE = _('New User')
-
-
-DASHBOARD_TOKENS_TITLE = _('Tokens')
-DASHBOARD_PARTNER_TOKENS_TITLE = _('Partner Tokens')
-DASHBOARD_TOKEN_CREATE_TITLE = _('New Token')
+LABEL_TOKEN = _('Token')
+LABEL_TOKEN_PLURAL = _('Tokens')
+LABEL_PARTNER_TOKENS = _('Partner Tokens')
+LABEL_TOKEN_CREATE = _('New Token')
 
 DASHBOARD_REPORTS_TITLE = _('Reports')
 LABEL_NEW = _('New')
@@ -97,7 +109,7 @@ REQUEST_ERROR = _('Error on the request')
 INVALID_FORM = _('Invalid Submitted data')
 
 
-UI_BANNER_DESCRIPTION = _("Your online dictionary for african langages")
+UI_BANNER_DESCRIPTION = _("Your online dictionary for african languages")
 
 UI_CONTACT_SUBJECT = _('Need more information')
 UI_CONTACT_BODY = _('Hello, I have a question about the dictionary.')
@@ -112,10 +124,12 @@ UI_403_TITLE = _('Access Forbidden')
 UI_403 = _('You can not access this page.')
 
 UI_500_TITLE = _('Server Error')
-UI_500 = _('Oups ! There is an intern error. If the errors persists please informe our team through our contact.')
+UI_500 = _('Oops ! There is an internal error. If the errors persists please inform our team through our contact.')
 UI_GO_TO_QUIZ = _('Go to QUIZ-Home')
 UI_HOME_PAGE = _('KEMELANG')
 UI_HOME_MAINTENANCE_PAGE = _('KEMELANG IS COMING')
+UI_MAINTENANCE_HEAD = _('KEMELANG IS UNDER CONSTRUCTION!')
+UI_MAINTENANCE_BODY = _('Thank you for your interest in this project. The site is currently under construction.')
 UI_CAMPAIGN_CREATE_BTN_LABEL = _('Create Campaign')
 UI_CAMPAIGN_IMAGE_TITLE = _('Campaign Image')
 UI_ADD_BTN_LABEL = _('Add')
@@ -138,6 +152,9 @@ UI_LOGOUT_LABEL = _('Logout')
 UI_SIGNOUT_LABEL = _('Sign Out')
 UI_SIGN_UP_LABEL = _('Sign Up')
 UI_ACCOUNT_LABEL = _('My Account')
+UI_EDITOR_PLACEHOLDER = _("Start typing here ...")
+LABEL_MAINTENANCE_MODE = _('Maintenance Mode')
+LABEL_ALLOW_ANONYMOUS_USERS = _('Allow Anonymous User')
 
 UI_STRINGS_CONTEXT = {
     
@@ -191,13 +208,20 @@ UI_STRINGS_CONTEXT = {
     'DASHBOARD_GROUP_TITLE': DASHBOARD_GROUP_TITLE,
     'DASHBOARD_GROUP_CREATE_TITLE': DASHBOARD_GROUP_CREATE_TITLE,
     'DASHBOARD_GROUP_UPDATE_TITLE': DASHBOARD_GROUP_UPDATE_TITLE,
-    'DASHBOARD_USERS_TITLE': DASHBOARD_USERS_TITLE,
-    'DASHBOARD_USER_TITLE': DASHBOARD_USER_TITLE,
-    'DASHBOARD_USER_UPDATE_TITLE': DASHBOARD_USER_UPDATE_TITLE,
-    'DASHBOARD_USER_CREATE_TITLE': DASHBOARD_USER_CREATE_TITLE,
-    'DASHBOARD_TOKENS_TITLE': DASHBOARD_TOKENS_TITLE,
-    'DASHBOARD_PARTNER_TOKENS_TITLE': DASHBOARD_PARTNER_TOKENS_TITLE,
-    'DASHBOARD_TOKEN_CREATE_TITLE': DASHBOARD_TOKEN_CREATE_TITLE,
+    'DASHBOARD_USERS_TITLE': LABEL_USERS_PLURAL,
+    'DASHBOARD_USER_TITLE': LABEL_USER,
+    'DASHBOARD_USER_UPDATE_TITLE': LABEL_USER_UPDATE,
+    'DASHBOARD_USER_CREATE_TITLE': LABEL_USER_CREATE,
+    'DASHBOARD_TOKENS_TITLE': LABEL_TOKEN_PLURAL,
+    'DASHBOARD_PARTNER_TOKENS_TITLE': LABEL_PARTNER_TOKENS,
+    'DASHBOARD_TOKEN_CREATE_TITLE': LABEL_TOKEN_CREATE,
+    'LABEL_USER_UPDATE': LABEL_USER_UPDATE,
+    'LABEL_USER_CREATE': LABEL_USER_CREATE,
+    'LABEL_TOKEN_PLURAL': LABEL_TOKEN_PLURAL,
+    'LABEL_PARTNER_TOKENS': LABEL_PARTNER_TOKENS,
+    'LABEL_TOKEN_CREATE': LABEL_TOKEN_CREATE,
+    'LABEL_USER': LABEL_USER,
+    'LABEL_USERS_PLURAL': LABEL_USERS_PLURAL,
     'LABEL_DICTIONARY': LABEL_DICTIONARY,
     'LABEL_COUNTRY': LABEL_COUNTRY,
     'LABEL_COUNTRY_PLURAL':LABEL_COUNTRY_PLURAL,
@@ -233,5 +257,23 @@ UI_STRINGS_CONTEXT = {
     'LABEL_SEARCH_LANGAGE': LABEL_SEARCH_LANGAGE,
     'LABEL_AUTO_DETECT': LABEL_AUTO_DETECT,
     'LABEL_DEFINITION': LABEL_DEFINITION,
-    'LABEL_TRANSLITERATION': LABEL_TRANSLITERATION
+    'LABEL_TRANSLITERATION': LABEL_TRANSLITERATION,
+    'SEO_META_DESCRIPTION': SEO_META_DESCRIPTION,
+    'META_DESCRIPTION': SEO_META_DESCRIPTION,
+    'SEO_META_KEYWORDS': SEO_META_KEYWORDS,
+    'META_KEYWORDS': SEO_META_KEYWORDS,
+    'SEO_SITE_TITLE': SEO_SITE_TITLE,
+    'DESCRIPTION_HOOK': DESCRIPTION_HOOK,
+    'UI_MAINTENANCE_HEAD': UI_MAINTENANCE_HEAD,
+    'UI_MAINTENANCE_BODY': UI_MAINTENANCE_BODY,
+    'SEO_HOOK_HEAD_1': SEO_HOOK_HEAD_1,
+    'SEO_HOOK_HEAD_2': SEO_HOOK_HEAD_2,
+    'SEO_HOOK_HEAD_3': SEO_HOOK_HEAD_3,
+    'SEO_HOOK_BODY_1': SEO_HOOK_BODY_1,
+    'SEO_HOOK_BODY_2': SEO_HOOK_BODY_2,
+    'SEO_HOOK_BODY_3': SEO_HOOK_BODY_3,
+    'UI_EDITOR_PLACEHOLDER': UI_EDITOR_PLACEHOLDER,
+    'LABEL_MAINTENANCE_MODE': LABEL_MAINTENANCE_MODE,
+    'LABEL_ALLOW_ANONYMOUS_USERS': LABEL_ALLOW_ANONYMOUS_USERS,
+    
 }

@@ -24,7 +24,7 @@
                 <a class="margin" href="{% url 'dashboard:deactivate-vendor-products' user_instance.pk %}"><i class="fas fa-unlink icon"></i><span>{% trans "Deactivate Products" %}</span></a>
                 <a class="margin" href="{% url 'dashboard:activate-vendor-products' user_instance.pk %}"><i class="fas fa-link icon"></i><span>{% trans "Activate Products" %}</span></a>
                 {% endif %}
-                <a class="margin" href="{% url 'dashboard:users' %}"><i class="fas fa-users icon"></i><span>{% trans "Users" %}</span></a>
+                <a class="margin" href="{% url 'dashboard:users' %}"><i class="fas fa-users icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a>
                 
         </div><!--End of Banner-Actions-->
         <div class="mat-box full">

@@ -1,6 +1,6 @@
 {
-    "short_name" : "LYSHOPING",
-    "name": "Boutique en ligne",
+    "short_name" : "KEMELANG",
+    "name": "Dictionnaire de langues Africaines",
     "icons": [
         {
             "src": "/favicon.ico",
@@ -9,8 +9,8 @@
         }
     ],
     "start_url": "/?pinned_site=android",
-    "background_color": "#FF0D00",
+    "background_color": "#EFF3F2",
     "display": "standalone",
-    "theme_color": "#FF0D00",
-    "description": "Boutique de mode en ligne"
+    "theme_color": "#EFF3F2",
+    "description": "Dictionnaire de langues Africaines"
 }

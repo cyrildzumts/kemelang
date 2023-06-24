@@ -11,7 +11,7 @@
                 <div class="form-group-wrapper">
                     <div class="col-m-12 col-5">
                         <div class="form-group full">
-                            <label for="word">{% trans "Word" %}</label>
+                            <label for="word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
                             <input id="word" type="text"  name="word" value="">
                         </div>
                     </div>
@@ -19,7 +19,7 @@
                 <div class="form-group-wrapper">
                     <div class="col-m-12 col-5">
                         <div class="form-group full">
-                            <label for="langage">{% trans "Langage" %}</label>
+                            <label for="langage">{{UI_STRINGS_CONTEXT.LABEL_LANGAGE}}</label>
                             <select name="langage" id="langage">
                                 {% for l in langage_list %}
                                 <option value="{{l.pk}}">{{l.name}}</option>
@@ -44,15 +44,15 @@
                     <div class="col-m-12 col-5">
                         <div class="form-group full">
                             <input id="word-description" type="hidden" name="description">
-                            <span class="padding-bottom">{% trans "Description" %}</span>
+                            <span class="padding-bottom">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span>
                             <div id="editor" class="editor mat-box" data-target="word-description" data-placeholder="{{UI_STRINGS_CONTEXT.UI_EDITOR_PLACEHOLDER}}"></div>
                         </div>
                     </div>
                 </div>
 
                 <div class="actions">
-                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{% trans "Cancel" %}</a>
-                    <button class="mat-button mat-button-default" type="submit">{% trans "Create" %}</button>
+                    <a class="mat-button mat-button-outline js-cancel" href="{% url DICTIONARY_HOME_URL %}">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</a>
+                    <button class="mat-button mat-button-default" type="submit">{{UI_STRINGS_CONTEXT.UI_CREATE_BTN_LABEL}}</button>
                 </div>
         </div>
     </form>

@@ -1,0 +1,2122 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-06-24 14:37+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: core/resources/ui_strings.py:5
+msgid ""
+"Kemelang is an online dictionary for African languages. This dictionary is "
+"ideal for people who are learning African languages and need a dedicated "
+"dictionary."
+msgstr ""
+"Kemelang est un dictionnaire en ligne pour les langues africaines. Ce "
+"dictionnaire est idéal pour les personnes qui apprennent les langues "
+"africaines et ont besoin d'un dictionnaire dédié."
+
+#: core/resources/ui_strings.py:6
+msgid "African Dictionary"
+msgstr "Dictionnaire Africain"
+
+#: core/resources/ui_strings.py:7
+msgid ""
+"dictionary, african language, african dictionary, dictionary of african "
+"languages"
+msgstr ""
+"dictionnaire, langue africaine, dictionnaire africain, dictionnaire de "
+"langues africaines"
+
+#: core/resources/ui_strings.py:8
+msgid "Use our dictionary to translate words between African languages."
+msgstr ""
+"Utilisez notre dictionnaire pour traduire les mots entre les langues "
+"africaines."
+
+#: core/resources/ui_strings.py:9
+msgid ""
+"Do you know an African language and want to help people learn this language?"
+msgstr ""
+"Vous connaissez une langue africaine et souhaitez aider les gens à apprendre "
+"cettre langue ?"
+
+#: core/resources/ui_strings.py:10
+msgid "Do you want to make African languages more accessible?"
+msgstr "Vous souhaitez rendre les langues africaines plus accéssible ?"
+
+#: core/resources/ui_strings.py:11 core/resources/ui_strings.py:13
+msgid "Help us make African languages more accessible."
+msgstr "Aidez nous à rendre les langues africaines plus accéssible."
+
+#: core/resources/ui_strings.py:14
+msgid ""
+"Contribute to the promotion of your language by adding words from this "
+"language to our dictionary."
+msgstr ""
+"Contribuez à la valorisation de votre langue en ajoutant des mots de cette "
+"langue dans notre dictionnaire."
+
+#: core/resources/ui_strings.py:15
+msgid "African languages need you. Help us translate African languages"
+msgstr ""
+"Les langues africaines ont besoin de vous. Aidez-nous à traduire les langues "
+"africaines"
+
+#: core/resources/ui_strings.py:20 templates/home.html:11
+msgid "Dictionary"
+msgstr "Dictionnaire"
+
+#: core/resources/ui_strings.py:22
+#: dashboard/templates/dashboard/user_detail.html:55
+#: dashboard/templates/tags/account_update_form.html:30
+msgid "Country"
+msgstr "Pays"
+
+#: core/resources/ui_strings.py:23
+#: dictionary/templates/tags/create_langage_form.html:23
+#: dictionary/templates/tags/update_langage_form.html:22 templates/home.html:12
+msgid "Countries"
+msgstr "Pays"
+
+#: core/resources/ui_strings.py:24
+msgid "No countries"
+msgstr "Aucun pays"
+
+#: core/resources/ui_strings.py:25
+msgid "Add country"
+msgstr "Ajouter un pays"
+
+#: core/resources/ui_strings.py:27
+msgid "Language"
+msgstr "Langue"
+
+#: core/resources/ui_strings.py:28
+msgid "languages"
+msgstr "Langues"
+
+#: core/resources/ui_strings.py:29
+msgid "No languages"
+msgstr "Aucunes langues"
+
+#: core/resources/ui_strings.py:30
+msgid "Add language"
+msgstr "Ajouter une langue"
+
+#: core/resources/ui_strings.py:32
+msgid "Word"
+msgstr "Mot"
+
+#: core/resources/ui_strings.py:33
+msgid "Word Type"
+msgstr "Type de mot"
+
+#: core/resources/ui_strings.py:34
+msgid "Words"
+msgstr "Mots"
+
+#: core/resources/ui_strings.py:35
+msgid "No words"
+msgstr "Aucun mots"
+
+#: core/resources/ui_strings.py:36
+msgid "Add word"
+msgstr "Ajouter un mot"
+
+#: core/resources/ui_strings.py:38
+msgid "Example"
+msgstr "Exemple"
+
+#: core/resources/ui_strings.py:39
+msgid "Examples"
+msgstr "Exemples"
+
+#: core/resources/ui_strings.py:40
+msgid "No example"
+msgstr "Aucun exemples"
+
+#: core/resources/ui_strings.py:41
+msgid "Add example"
+msgstr "Ajouter un exemple"
+
+#: core/resources/ui_strings.py:42
+msgid "Contribute by adding examples"
+msgstr "Contribuer en ajoutant des exemples"
+
+#: core/resources/ui_strings.py:44
+#: dictionary/templates/tags/create_word_form.html:34
+msgid "Synonyme"
+msgstr "Synonyme"
+
+#: core/resources/ui_strings.py:45
+msgid "Synonymes"
+msgstr "Synonymes"
+
+#: core/resources/ui_strings.py:46
+msgid "No synonymes"
+msgstr "Aucun synonymes"
+
+#: core/resources/ui_strings.py:47
+msgid "Contribute by adding synonymes"
+msgstr "Contribuer en ajoutant des synonymes"
+
+#: core/resources/ui_strings.py:49
+msgid "Description"
+msgstr "Description"
+
+#: core/resources/ui_strings.py:50
+msgid "Definition"
+msgstr "Definition"
+
+#: core/resources/ui_strings.py:51
+msgid "Transliteration"
+msgstr "Translitération"
+
+#: core/resources/ui_strings.py:53
+msgid "Vocabulary"
+msgstr "Vocabulaire"
+
+#: core/resources/ui_strings.py:54
+msgid "Vocabularies"
+msgstr "Vocabulaires"
+
+#: core/resources/ui_strings.py:57
+msgid "Translation"
+msgstr "Traduction"
+
+#: core/resources/ui_strings.py:58
+msgid "Translations"
+msgstr "Traductions"
+
+#: core/resources/ui_strings.py:59
+msgid "No translations"
+msgstr "Aucune traductions"
+
+#: core/resources/ui_strings.py:60
+msgid "Contribute by adding translations"
+msgstr "Contribuez en ajoutant des traductions"
+
+#: core/resources/ui_strings.py:62
+msgid "Contribute"
+msgstr "Contribuer"
+
+#: core/resources/ui_strings.py:63
+msgid "Enter word"
+msgstr "Entrez le mot"
+
+#: core/resources/ui_strings.py:64
+msgid "Search languages"
+msgstr "Recherche de langues"
+
+#: core/resources/ui_strings.py:65
+msgid "Auto Detect"
+msgstr "Détection automatique"
+
+#: core/resources/ui_strings.py:69
+#: dashboard/templates/tags/group_update_form.html:8
+#: templates/dashboard_base.html:23 templates/tags/dashboard_sidebar.html:12
+#: templates/tags/nav-tag.html:18 templates/tags/users_sidebar.html:4
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: core/resources/ui_strings.py:70
+msgid "Translator"
+msgstr "Traducteur"
+
+#: core/resources/ui_strings.py:72
+#: dashboard/templates/dashboard/news_create.html:4
+#: dashboard/templates/dashboard/news_detail.html:8
+msgid "Infos"
+msgstr "Infos"
+
+#: core/resources/ui_strings.py:73
+#: dashboard/templates/dashboard/news_update.html:4
+msgid "Info"
+msgstr "Info"
+
+#: core/resources/ui_strings.py:74
+#: dashboard/templates/dashboard/news_detail.html:5
+#: dashboard/templates/dashboard/news_list.html:10
+msgid "New Info"
+msgstr "Nouvelle Info"
+
+#: core/resources/ui_strings.py:75
+msgid "Info Update"
+msgstr "Actualiser l'Info"
+
+#: core/resources/ui_strings.py:77
+#: dashboard/templates/dashboard/group_create.html:7
+#: dashboard/templates/dashboard/group_create.html:8
+#: dashboard/templates/dashboard/group_list.html:20
+#: dashboard/templates/tags/group_update_form.html:9
+#: templates/tags/users_sidebar.html:5
+msgid "Groups"
+msgstr "Groupes"
+
+#: core/resources/ui_strings.py:78
+#: dashboard/templates/dashboard/user_detail.html:127
+msgid "Group"
+msgstr "Groupe"
+
+#: core/resources/ui_strings.py:79
+#: dashboard/templates/dashboard/group_list.html:14
+msgid "New Group"
+msgstr "Nouveau Groupe"
+
+#: core/resources/ui_strings.py:80
+msgid "Group Update"
+msgstr "Actualiser le Groupe"
+
+#: core/resources/ui_strings.py:83
+msgid "Highlights"
+msgstr ""
+
+#: core/resources/ui_strings.py:84
+msgid "Highlight"
+msgstr ""
+
+#: core/resources/ui_strings.py:85
+msgid "Highlight Update"
+msgstr "actualiser"
+
+#: core/resources/ui_strings.py:86 templates/tags/dashboard_header.html:26
+msgid "New Highlight"
+msgstr ""
+
+#: core/resources/ui_strings.py:88
+msgid "Campaigns"
+msgstr "Campagnes"
+
+#: core/resources/ui_strings.py:89
+msgid "Campaign Update"
+msgstr "Actualiser la Campagne"
+
+#: core/resources/ui_strings.py:90
+msgid "Campaign Create"
+msgstr "Créer la Campagne"
+
+#: core/resources/ui_strings.py:91
+msgid "Campaign"
+msgstr "Campagne"
+
+#: core/resources/ui_strings.py:93 templates/tags/dashboard_header.html:44
+msgid "User"
+msgstr ""
+
+#: core/resources/ui_strings.py:94
+msgid "Users"
+msgstr "Utilisateurs"
+
+#: core/resources/ui_strings.py:95 templates/tags/users_sidebar.html:6
+msgid "Customers"
+msgstr "Clients"
+
+#: core/resources/ui_strings.py:96
+msgid "User Update"
+msgstr "Actualiser l'utilisateur"
+
+#: core/resources/ui_strings.py:97
+#: dashboard/templates/dashboard/user_list.html:13
+msgid "New User"
+msgstr "Nouvel utilisateur"
+
+#: core/resources/ui_strings.py:99
+msgid "Token"
+msgstr "Jeton"
+
+#: core/resources/ui_strings.py:100 templates/tags/users_sidebar.html:9
+msgid "Tokens"
+msgstr "Jetons"
+
+#: core/resources/ui_strings.py:101 templates/tags/users_sidebar.html:10
+msgid "Partner Tokens"
+msgstr "Jetons de Partenaires"
+
+#: core/resources/ui_strings.py:102
+msgid "New Token"
+msgstr "Nouveau Jeton"
+
+#: core/resources/ui_strings.py:104
+msgid "Reports"
+msgstr "Rapports"
+
+#: core/resources/ui_strings.py:105
+msgid "New"
+msgstr "Nouveau"
+
+#: core/resources/ui_strings.py:106
+msgid "NEW"
+msgstr "NOUVEAU"
+
+#: core/resources/ui_strings.py:108
+msgid "Error on the request"
+msgstr "Erreur sur la demande"
+
+#: core/resources/ui_strings.py:109
+msgid "Invalid Submitted data"
+msgstr "Données soumises invalides"
+
+#: core/resources/ui_strings.py:112
+msgid "Your online dictionary for african languages"
+msgstr "Votre dictionnaire en ligne pour les langues africaines"
+
+#: core/resources/ui_strings.py:114
+msgid "Need more information"
+msgstr "Besoin de plus d'informations"
+
+#: core/resources/ui_strings.py:115
+msgid "Hello, I have a question about the dictionary."
+msgstr "Bonjour, j'ai une question sur le dictionnaire."
+
+#: core/resources/ui_strings.py:116
+msgid "Invalid user request"
+msgstr "Demande d'utilisateur invalide"
+
+#: core/resources/ui_strings.py:117
+msgid "Resource not found !"
+msgstr "Ressource introuvable !"
+
+#: core/resources/ui_strings.py:118
+msgid "The resource you requested does not exist or is no longer available."
+msgstr ""
+"La ressource que vous avez demandée n'existe pas ou n'est plus disponible."
+
+#: core/resources/ui_strings.py:119
+msgid "Bad Request"
+msgstr "Mauvaise Demande"
+
+#: core/resources/ui_strings.py:120
+msgid "You submitted a bad request."
+msgstr "Vous avez soumis une mauvaise demande."
+
+#: core/resources/ui_strings.py:123
+msgid "Access Forbidden"
+msgstr "Accès Interdit"
+
+#: core/resources/ui_strings.py:124
+msgid "You can not access this page."
+msgstr "Vous ne pouvez pas accéder à cette page."
+
+#: core/resources/ui_strings.py:126
+msgid "Server Error"
+msgstr "erreur du serveur"
+
+#: core/resources/ui_strings.py:127
+msgid ""
+"Oops ! There is an internal error. If the errors persists please inform our "
+"team through our contact."
+msgstr ""
+"Oops ! Il y a une erreur interne. Si les erreurs persistent, veuillez en "
+"informer notre équipe via notre contact."
+
+#: core/resources/ui_strings.py:128
+msgid "Go to QUIZ-Home"
+msgstr "Allez au Quiz"
+
+#: core/resources/ui_strings.py:129
+msgid "KEMELANG"
+msgstr "KEMELANG"
+
+#: core/resources/ui_strings.py:130
+msgid "KEMELANG IS COMING"
+msgstr "KEMELANG ARRIVE"
+
+#: core/resources/ui_strings.py:131
+msgid "KEMELANG IS UNDER CONSTRUCTION!"
+msgstr "KEMELANG EST EN CONSTRUCTION!"
+
+#: core/resources/ui_strings.py:132
+msgid ""
+"Thank you for your interest in this project. The site is currently under "
+"construction."
+msgstr ""
+"Merci de votre intérêt pour ce projet. Le site est actuellement en "
+"construction."
+
+#: core/resources/ui_strings.py:133
+msgid "Create Campaign"
+msgstr "Créer la Campagne"
+
+#: core/resources/ui_strings.py:134
+msgid "Campaign Image"
+msgstr "Image de Campagne"
+
+#: core/resources/ui_strings.py:135
+#: dictionary/templates/tags/create_mass_translation_form.html:10
+msgid "Add"
+msgstr "Ajouter"
+
+#: core/resources/ui_strings.py:136
+#: dashboard/templates/tags/campaign_creation_form.html:12
+#: dashboard/templates/tags/campaign_update_form.html:13
+msgid "Back"
+msgstr "Retour"
+
+#: core/resources/ui_strings.py:137
+#: dictionary/templates/tags/create_definition_form.html:25
+#: dictionary/templates/tags/create_phrase_form.html:32
+msgid "Create"
+msgstr "Créer"
+
+#: core/resources/ui_strings.py:138
+#: templates/tags/components/orders_tag.html:30
+#: templates/tags/components/shipments_tag.html:29
+msgid "Update"
+msgstr "Actualiser"
+
+#: core/resources/ui_strings.py:139
+#: dictionary/templates/tags/create_definition_form.html:24
+#: dictionary/templates/tags/create_phrase_form.html:31
+#: templates/accounts/account_detail.html:71
+#: templates/accounts/registration/password_change.html:37
+#: templates/accounts/registration/password_reset_form.html:36
+#: templates/registration/password_change.html:37
+#: templates/registration/password_reset_form.html:32
+#: templates/tags/components/orders_tag.html:31
+msgid "Cancel"
+msgstr "Annuler"
+
+#: core/resources/ui_strings.py:140 templates/accounts/account_detail.html:72
+msgid "Send"
+msgstr "Envoyer"
+
+#: core/resources/ui_strings.py:141
+#: templates/tags/components/orders_tag.html:29
+#: templates/tags/components/shipments_tag.html:28
+msgid "Open"
+msgstr "Ouvrir"
+
+#: core/resources/ui_strings.py:142
+msgid "Close"
+msgstr "Fermer"
+
+#: core/resources/ui_strings.py:143
+msgid "African dictionary"
+msgstr "Dictionnaire africain"
+
+#: core/resources/ui_strings.py:144
+msgid "Online African Dictionary"
+msgstr "Dictionnaire africain en ligne"
+
+#: core/resources/ui_strings.py:145
+msgid "Enter word ..."
+msgstr "Entrez le mot..."
+
+#: core/resources/ui_strings.py:146
+msgid "Space"
+msgstr "Espace"
+
+#: core/resources/ui_strings.py:147 core/templates/keyboard/keyboard.html:40
+msgid "Backspace"
+msgstr "Effacer"
+
+#: core/resources/ui_strings.py:148
+msgid "No results"
+msgstr "Aucun resultats"
+
+#: core/resources/ui_strings.py:149
+#: templates/accounts/registration/login.html:28
+#: templates/accounts/registration/login.html:45
+#: templates/accounts/registration/password_reset_complete.html:11
+#: templates/registration/login.html:41
+#: templates/registration/password_reset_complete.html:11
+msgid "Login"
+msgstr "Coneexion"
+
+#: core/resources/ui_strings.py:150
+#: templates/accounts/registration/register.html:69
+#: templates/accounts/registration/vendor_register.html:49
+#: templates/registration/register.html:50
+#: templates/registration/vendor_register.html:49
+msgid "Sign In"
+msgstr "S'identifier"
+
+#: core/resources/ui_strings.py:151 templates/dashboard_base.html:50
+#: templates/tags/dashboard_header.html:63
+msgid "Logout"
+msgstr "Se déconnecter"
+
+#: core/resources/ui_strings.py:152
+msgid "Sign Out"
+msgstr "Se déconnecter"
+
+#: core/resources/ui_strings.py:153
+msgid "Sign Up"
+msgstr "S'inscrire"
+
+#: core/resources/ui_strings.py:154
+#: templates/accounts/registration/email_validation.html:19
+#: templates/registration/email_validation.html:19
+#: templates/tags/dashboard_header.html:62
+msgid "My Account"
+msgstr "Mon Compte"
+
+#: core/resources/ui_strings.py:155
+msgid "Start typing here ..."
+msgstr "Commencez à écrire ici..."
+
+#: core/resources/ui_strings.py:156
+msgid "Maintenance Mode"
+msgstr ""
+
+#: core/resources/ui_strings.py:157
+msgid "Allow Anonymous User"
+msgstr "Autoriser l'utilisateur anonyme"
+
+#: core/templates/core/catalog_filter_old.html:14
+msgid "Apply"
+msgstr "Appliquer"
+
+#: core/templates/core/core_filter.html:5
+#: dashboard/templates/tags/group_form.html:33
+#: dashboard/templates/tags/group_form.html:63
+#: dashboard/templates/tags/group_form.html:85
+#: dashboard/templates/tags/group_form.html:114
+#: dashboard/templates/tags/group_form_new.html:24
+#: dashboard/templates/tags/group_form_new.html:50
+#: dashboard/templates/tags/group_update_form.html:44
+#: dashboard/templates/tags/group_update_form.html:66
+#: dashboard/templates/tags/group_update_form.html:90
+#: dashboard/templates/tags/group_update_form.html:112
+#: dashboard/templates/tags/group_update_form_new.html:24
+#: dashboard/templates/tags/group_update_form_new.html:51
+#: dashboard/templates/tags/group_update_form_new.html:78
+#: dashboard/templates/tags/group_update_form_new.html:104
+msgid "Filter"
+msgstr ""
+
+#: core/templates/core/core_filter_old.html:5
+msgid "FILTER"
+msgstr ""
+
+#: core/templates/keyboard/keyboard.html:39
+msgid "space"
+msgstr ""
+
+#: core/templates/tags/datetime_field.html:11
+#: core/templates/tags/decimal_field.html:23
+#: core/templates/tags/integer_field.html:33
+msgid "Min"
+msgstr ""
+
+#: core/templates/tags/datetime_field.html:15
+#: core/templates/tags/decimal_field.html:27
+#: core/templates/tags/integer_field.html:37
+msgid "Max"
+msgstr ""
+
+#: dashboard/templates/dashboard/create_settings.html:7
+#: dashboard/templates/dashboard/update_settings.html:7 dashboard/views.py:96
+#: templates/dashboard_base.html:25 templates/tags/dashboard_header.html:41
+msgid "Settings"
+msgstr "Parametres"
+
+#: dashboard/templates/dashboard/group_detail.html:9
+#: dashboard/templates/dashboard/news_detail.html:6
+#: dashboard/templates/tags/setting_tag.html:6
+#: templates/accounts/account_detail.html:15
+msgid "Edit"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:10
+#: dashboard/templates/dashboard/news_detail.html:7
+#: dashboard/templates/dashboard/news_list.html:11
+#: dashboard/templates/dashboard/user_detail.html:11
+msgid "Delete"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:19
+#: dashboard/templates/tags/group_update_form_new.html:32
+#: dashboard/templates/tags/group_update_form_new.html:59
+#: templates/tags/components/groups-snippet.html:23
+msgid "Permissions"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:34
+msgid "No Permissions"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:42
+msgid "Members"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:50
+#: dashboard/templates/dashboard/news_list.html:34
+#: templates/tags/components/campaigns_snippet.html:22
+#: templates/tags/components/customers-snippet.html:23
+#: templates/tags/components/sellers-snippet.html:22
+#: templates/tags/components/users-snippet.html:21
+msgid "active,inactive"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:58
+msgid "No Members"
+msgstr ""
+
+#: dashboard/templates/dashboard/group_detail.html:68
+#: dashboard/templates/dashboard/group_list.html:24
+#: dashboard/templates/dashboard/new_user.html:24
+#: dashboard/templates/dashboard/settings.html:22
+#: dashboard/templates/dashboard/user_list.html:31
+#: dashboard/templates/tags/group_form.html:142
+#: dashboard/templates/tags/group_form_new.html:75
+#: dashboard/templates/tags/group_update_form.html:133
+#: dashboard/templates/tags/group_update_form_new.html:131
+#: dashboard/templates/tags/settings_form.html:27
+#: dashboard/templates/tags/settings_update_form.html:28
+#: templates/users_base.html:5
+msgid ""
+"The page you requested could not be found or you are not allowed to access "
+"this page."
+msgstr ""
+
+#: dashboard/templates/dashboard/group_update.html:8
+msgid "Create A Group"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:19
+#: dashboard/templates/dashboard/news_list.html:21
+#: dashboard/templates/dashboard/news_list.html:32
+#: dashboard/templates/tags/campaign_creation_form.html:33
+#: dashboard/templates/tags/campaign_update_form.html:63
+#: templates/tags/info_form_tag.html:10
+#: templates/tags/info_form_update_tag.html:10
+msgid "Title"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:23
+#: dictionary/templates/tags/create_phrase_form.html:24
+#: dictionary/templates/tags/update_phrase_form.html:22
+#: templates/tags/info_form_tag.html:14
+#: templates/tags/info_form_update_tag.html:14
+msgid "Content"
+msgstr "Contenu"
+
+#: dashboard/templates/dashboard/news_detail.html:29
+#: dashboard/templates/dashboard/news_list.html:22
+#: dashboard/templates/dashboard/news_list.html:33
+#: templates/tags/info_form_tag.html:20
+#: templates/tags/info_form_update_tag.html:20
+msgid "Start"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:33
+#: templates/tags/info_form_tag.html:24
+#: templates/tags/info_form_update_tag.html:24
+msgid "Expire"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:39
+msgid "Create at"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:43
+msgid "Last changed"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:49
+msgid "Added by"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:53
+msgid "Last changed by"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:59
+#: templates/tags/info_form_tag.html:30
+#: templates/tags/info_form_update_tag.html:30
+msgid "Status"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_detail.html:60
+#: dashboard/templates/dashboard/news_list.html:23
+#: dashboard/templates/dashboard/news_list.html:34
+#: dashboard/templates/tags/campaign_creation_form.html:63
+#: dashboard/templates/tags/campaign_update_form.html:93
+#: templates/tags/info_form_tag.html:31
+#: templates/tags/info_form_update_tag.html:31
+msgid "Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:14
+msgid "News List"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:20
+#: dashboard/templates/tags/category_manage_form.html:24
+msgid "Select all"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:24
+msgid "Date of creation"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:25
+#: dashboard/templates/dashboard/news_list.html:36
+#: dashboard/templates/tags/category_manage_form.html:30
+#: dashboard/templates/tags/category_manage_form.html:44
+#: dictionary/templates/dictionary/word.html:188
+msgid "Details"
+msgstr ""
+
+#: dashboard/templates/dashboard/news_list.html:35
+msgid "Date of Creation"
+msgstr ""
+
+#: dashboard/templates/dashboard/settings.html:13
+msgid "Add Settings"
+msgstr "Ajouter un Parametre"
+
+#: dashboard/templates/dashboard/user_detail.html:12
+msgid "Welcome Mail"
+msgstr "Mail de Bienvenu"
+
+#: dashboard/templates/dashboard/user_detail.html:14
+#: templates/accounts/account.html:13
+msgid "Send Validation Link"
+msgstr "Envoyer le lien de validation"
+
+#: dashboard/templates/dashboard/user_detail.html:17
+msgid "Add Balance"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:21
+msgid "Update Vendor"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:22
+msgid "Reset Vendor"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:23
+msgid "Pay Vendor"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:24
+msgid "Deactivate Products"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:25
+msgid "Activate Products"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:31
+msgid "User Information"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:35
+#: templates/accounts/account_detail.html:26
+#: templates/accounts/registration/login.html:36
+#: templates/accounts/registration/register.html:28
+#: templates/registration/login.html:30
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: dashboard/templates/dashboard/user_detail.html:38
+#: templates/accounts/account_detail.html:34
+msgid "Lastname"
+msgstr "Nom"
+
+#: dashboard/templates/dashboard/user_detail.html:41
+#: templates/accounts/account_detail.html:30
+#: templates/accounts/registration/register.html:40
+msgid "Firstname"
+msgstr "Prénom"
+
+#: dashboard/templates/dashboard/user_detail.html:44
+#: templates/accounts/registration/register.html:33
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: dashboard/templates/dashboard/user_detail.html:47
+msgid "User is Active"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:58
+#: dashboard/templates/tags/account_update_form.html:18
+msgid "City"
+msgstr "Ville"
+
+#: dashboard/templates/dashboard/user_detail.html:61
+#: dashboard/templates/tags/account_update_form.html:26
+msgid "Telefon"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:64
+msgid "Account Type"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:67
+msgid "Account"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:70
+msgid "Email is Validated"
+msgstr "L'e-mail est validé"
+
+#: dashboard/templates/dashboard/user_detail.html:73
+msgid "Account is Active"
+msgstr "Le compte est actif"
+
+#: dashboard/templates/dashboard/user_detail.html:76
+msgid "Customer ID"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:83
+msgid "Balance"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:88
+#: dashboard/templates/tags/dashboard_summary.html:15
+msgid "Solds"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:91
+#: dashboard/templates/tags/analytics.html:26
+msgid "Products"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:94
+msgid "Sold Products"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:98
+#: templates/accounts/account_detail.html:65
+msgid "Date joined"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:101
+#: templates/accounts/account_detail.html:61
+msgid "Last login"
+msgstr "Dernière connexion"
+
+#: dashboard/templates/dashboard/user_detail.html:109
+msgid "Create Access Token"
+msgstr "Créer un jeton d'accès"
+
+#: dashboard/templates/dashboard/user_detail.html:120
+msgid "User Groups"
+msgstr "Groupes d'utilisateurs"
+
+#: dashboard/templates/dashboard/user_detail.html:128
+msgid "Group Permissions"
+msgstr "Autorisations de groupe"
+
+#: dashboard/templates/dashboard/user_detail.html:140
+msgid "User Permissions"
+msgstr "Autorisations utilisateur"
+
+#: dashboard/templates/dashboard/user_detail.html:153
+msgid "Addressbook"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:163
+msgid "No address found"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:169
+msgid "User Shopping Cart"
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:185
+msgid "Recents Orders"
+msgstr ""
+
+#: dashboard/templates/tags/account_update_form.html:9
+msgid "Edit my account"
+msgstr ""
+
+#: dashboard/templates/tags/account_update_form.html:22
+msgid "Province"
+msgstr ""
+
+#: dashboard/templates/tags/account_update_form.html:34
+msgid "Address"
+msgstr "Adresse"
+
+#: dashboard/templates/tags/account_update_form.html:38
+msgid "Zip Code"
+msgstr ""
+
+#: dashboard/templates/tags/account_update_form.html:42
+msgid "Newsletter"
+msgstr ""
+
+#: dashboard/templates/tags/account_update_form.html:54
+msgid "Update my Account"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:8
+#: dashboard/templates/tags/dashboard_summary.html:7
+msgid "Orders"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:17
+msgid "Orders Price"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:35
+msgid "Logged in Users"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:44
+#: dashboard/templates/tags/dashboard_summary.html:23
+msgid "Visitors"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:52
+msgid "Unique Visitors"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:60
+msgid "Facebook Visitors"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:69
+msgid "Google Visitors"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:78
+msgid "Visitors Chart"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:86
+msgid "Suspicious Visitors"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:16
+#: dashboard/templates/tags/campaign_update_form.html:23
+msgid "Desktop image"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:20
+#: dashboard/templates/tags/campaign_update_form.html:27
+msgid "Mobile image"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:29
+#: dashboard/templates/tags/campaign_update_form.html:59
+msgid "Campaign Name"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:39
+#: dashboard/templates/tags/campaign_update_form.html:69
+msgid "Campaign Type"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:49
+#: dashboard/templates/tags/campaign_update_form.html:79
+msgid "Start at"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:53
+#: dashboard/templates/tags/campaign_update_form.html:83
+msgid "End at"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:57
+#: dashboard/templates/tags/campaign_update_form.html:87
+msgid "Repeat Day"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_creation_form.html:67
+#: dashboard/templates/tags/campaign_update_form.html:97
+msgid "Show Buy Button"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_update_form.html:36
+msgid "Desktop Image :"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_update_form.html:44
+msgid "Mobile Image :"
+msgstr ""
+
+#: dashboard/templates/tags/campaign_update_form.html:52
+#: templates/tags/images_uploader.html:20
+msgid "no images"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:7
+#: dashboard/templates/tags/category_update_form.html:5
+msgid "Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:14
+#: dashboard/templates/tags/category_manage_form.html:11
+#: dashboard/templates/tags/category_manage_form.html:26
+#: dashboard/templates/tags/category_manage_form.html:39
+#: dashboard/templates/tags/category_update_form.html:12
+#: dashboard/templates/tags/group_form.html:18
+#: dashboard/templates/tags/group_form_new.html:13
+#: dashboard/templates/tags/group_update_form.html:27
+#: dashboard/templates/tags/group_update_form_new.html:13
+#: dictionary/templates/tags/create_country_form.html:15
+#: dictionary/templates/tags/create_langage_form.html:15
+#: dictionary/templates/tags/update_country_form.html:11
+#: dictionary/templates/tags/update_definition_form.html:12
+#: dictionary/templates/tags/update_langage_form.html:12
+#: templates/accounts/registration/register.html:45
+msgid "Name"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:18
+#: dashboard/templates/tags/category_manage_form.html:15
+#: dashboard/templates/tags/category_manage_form.html:27
+#: dashboard/templates/tags/category_manage_form.html:40
+#: dashboard/templates/tags/category_update_form.html:16
+msgid "Display Name"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:22
+#: dashboard/templates/tags/category_update_form.html:20
+msgid "Page title"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:24
+msgid "Select a page title"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:29
+msgid "Category Code"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:34
+#: dashboard/templates/tags/category_update_form.html:31
+msgid "Is Active"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:47
+#: dashboard/templates/tags/category_update_form.html:44
+msgid "Parent Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_creation_form.html:49
+msgid "Select a parent Category"
+msgstr ""
+
+#: dashboard/templates/tags/category_manage_form.html:5
+msgid "Category Products Management"
+msgstr ""
+
+#: dashboard/templates/tags/category_manage_form.html:28
+#: dashboard/templates/tags/category_manage_form.html:41
+msgid "Gender"
+msgstr ""
+
+#: dashboard/templates/tags/category_manage_form.html:29
+#: dashboard/templates/tags/category_manage_form.html:42
+msgid "Price"
+msgstr ""
+
+#: dashboard/templates/tags/category_manage_form.html:44
+msgid "Detail"
+msgstr ""
+
+#: dashboard/templates/tags/category_update_form.html:26
+msgid "Code"
+msgstr ""
+
+#: dashboard/templates/tags/category_update_form.html:47
+msgid "Select Parent category"
+msgstr ""
+
+#: dashboard/templates/tags/dashboard_summary.html:11
+msgid "Revenue"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:14
+#: dashboard/templates/tags/group_form_new.html:9
+msgid "Create Group"
+msgstr "Créer le Groupe"
+
+#: dashboard/templates/tags/group_form.html:29
+#: dashboard/templates/tags/group_form_new.html:20
+#: dashboard/templates/tags/group_update_form.html:40
+msgid "Select Permissions to add"
+msgstr "Sélectionnez les autorisations à ajouter"
+
+#: dashboard/templates/tags/group_form.html:36
+#: dashboard/templates/tags/group_form.html:66
+#: dashboard/templates/tags/group_form.html:88
+#: dashboard/templates/tags/group_form.html:117
+#: dashboard/templates/tags/group_form_new.html:27
+#: dashboard/templates/tags/group_form_new.html:53
+#: dashboard/templates/tags/group_update_form.html:47
+#: dashboard/templates/tags/group_update_form.html:69
+#: dashboard/templates/tags/group_update_form.html:93
+#: dashboard/templates/tags/group_update_form.html:115
+#: dashboard/templates/tags/group_update_form_new.html:27
+#: dashboard/templates/tags/group_update_form_new.html:54
+#: dashboard/templates/tags/group_update_form_new.html:81
+#: dashboard/templates/tags/group_update_form_new.html:107
+msgid "Enter the term to filter"
+msgstr ""
+
+#: dashboard/templates/tags/group_form.html:41
+#: dashboard/templates/tags/group_form_new.html:32
+msgid "Permission"
+msgstr "Autorisation"
+
+#: dashboard/templates/tags/group_form.html:59
+#: dashboard/templates/tags/group_update_form.html:62
+#: dashboard/templates/tags/group_update_form_new.html:20
+msgid "Selected Permissions"
+msgstr "Autorisations sélectionnées"
+
+#: dashboard/templates/tags/group_form.html:81
+#: dashboard/templates/tags/group_form_new.html:46
+#: dashboard/templates/tags/group_update_form.html:86
+#: dashboard/templates/tags/group_update_form_new.html:100
+msgid "Select Users to add"
+msgstr "Sélectionnez les utilisateurs à ajouter"
+
+#: dashboard/templates/tags/group_form.html:93
+msgid "Available Users"
+msgstr "Utilisateurs disponibles"
+
+#: dashboard/templates/tags/group_form.html:110
+#: dashboard/templates/tags/group_form.html:122
+#: dashboard/templates/tags/group_update_form.html:108
+#: dashboard/templates/tags/group_update_form_new.html:74
+msgid "Selected Users"
+msgstr "Utilisateurs sélectionnés"
+
+#: dashboard/templates/tags/group_update_form.html:24
+#: dashboard/templates/tags/group_update_form_new.html:9
+msgid "Update Group"
+msgstr "Actualiser le Groupe"
+
+#: dashboard/templates/tags/group_update_form_new.html:47
+msgid "Available Permissions"
+msgstr "Autorisations disponibles"
+
+#: dashboard/templates/tags/reporting.html:7
+msgid "Refresh"
+msgstr "Actualiser"
+
+#: dashboard/views.py:49
+msgid "New Setting created"
+msgstr ""
+
+#: dashboard/views.py:53
+msgid "Error when creating new setting"
+msgstr ""
+
+#: dashboard/views.py:56 dashboard/views.py:59
+msgid "New Setting"
+msgstr "Nouveau Parametre"
+
+#: dashboard/views.py:72
+msgid "Setting updated"
+msgstr ""
+
+#: dashboard/views.py:76
+msgid "Error when updateing setting"
+msgstr ""
+
+#: dashboard/views.py:79 dashboard/views.py:82
+msgid "Update Setting"
+msgstr ""
+
+#: dictionary/constants.py:47
+msgid "Noun"
+msgstr "Nom"
+
+#: dictionary/constants.py:48
+msgid "Verb"
+msgstr "Verbe"
+
+#: dictionary/constants.py:49
+msgid "Pronoun"
+msgstr "Pronom"
+
+#: dictionary/constants.py:50
+msgid "Adverb"
+msgstr "Adverbe"
+
+#: dictionary/constants.py:51
+msgid "Adjective"
+msgstr "Adjectif"
+
+#: dictionary/constants.py:52
+msgid "Preposition"
+msgstr "Préposition"
+
+#: dictionary/templates/dictionary/countries.html:13
+msgid "Add Country"
+msgstr "Ajouter un pays"
+
+#: dictionary/templates/dictionary/dict.html:14
+msgid "Add a new country for a language"
+msgstr "Ajouter un nouveau pays pour une langue"
+
+#: dictionary/templates/dictionary/dict.html:15
+msgid "Add a new language for a translation"
+msgstr "Ajouter une nouvelle langue pour une traduction"
+
+#: dictionary/templates/dictionary/dict.html:16
+#: dictionary/templates/dictionary/langage.html:55
+msgid "Add a new word for a language"
+msgstr "Ajouter un nouveau mot pour une langue"
+
+#: dictionary/templates/dictionary/dict.html:17
+msgid "Add Translation"
+msgstr "Ajouter une traduction"
+
+#: dictionary/templates/dictionary/langage.html:55
+msgid " Add Word"
+msgstr "Ajouter un mot"
+
+#: dictionary/templates/dictionary/langages.html:16
+#, fuzzy
+#| msgid "Add Language"
+msgid "Add Langage"
+msgstr "Ajouter une langue"
+
+#: dictionary/templates/dictionary/word.html:123
+msgid "Update this example"
+msgstr "Actualiser cet exemple"
+
+#: dictionary/templates/tags/add_synonyme_dialog.html:11
+#: dictionary/templates/tags/add_translation_dialog.html:11
+msgid "Open the virtual keyboard"
+msgstr "Ouvrir le clavier virtuel"
+
+#: dictionary/templates/tags/create_phrase_form.html:17
+msgid "Example usage for word"
+msgstr "Exemple d'utilisation du mot"
+
+#: dictionary/templates/tags/translation_form.html:12
+msgid "Source Word"
+msgstr ""
+
+#: dictionary/templates/tags/translation_form.html:16
+msgid "Target Word"
+msgstr ""
+
+#: dictionary/templates/tags/translation_form.html:22
+msgid "Source Language"
+msgstr ""
+
+#: dictionary/templates/tags/translation_form.html:30
+msgid "Target Language"
+msgstr ""
+
+#: dictionary/templates/tags/translation_form.html:40
+msgid "Comment"
+msgstr "Commentaire"
+
+#: dictionary/templates/tags/update_langage_form.html:16
+msgid "Slug"
+msgstr "Slug"
+
+#: dictionary/templates/tags/update_langage_form.html:39
+msgid "Alphabet"
+msgstr "Alphabet"
+
+#: dictionary/templates/tags/update_phrase_form.html:15
+msgid "Update for Example usage for word"
+msgstr ""
+
+#: kemelang/settings.py:279
+msgid "French"
+msgstr "Francais"
+
+#: kemelang/settings.py:280
+msgid "English"
+msgstr "Anglais"
+
+#: templates/400.html:6
+msgid "Bad Request ! "
+msgstr "Mauvaise requête !"
+
+#: templates/400.html:9
+msgid "The server did not understand your request."
+msgstr "The serveur n'a pu comprendre votre requête."
+
+#: templates/400.html:12 templates/403.html:12 templates/500.html:14
+msgid "Go back to Home Page"
+msgstr ""
+
+#: templates/403.html:6
+msgid "Access Forbidden ! "
+msgstr ""
+
+#: templates/403.html:9
+msgid "You are not allowed to access this page."
+msgstr ""
+
+#: templates/500.html:6
+msgid "Internal Server Error ! "
+msgstr ""
+
+#: templates/500.html:9
+msgid "The server has encountered an internal error."
+msgstr ""
+
+#: templates/500.html:10
+msgid "If this problem persists please contact us."
+msgstr ""
+
+#: templates/500.html:11
+msgid "Our technicians are working on the problem."
+msgstr ""
+
+#: templates/about.html:6
+msgid "About"
+msgstr "À propos"
+
+#: templates/about.html:8
+msgid "We are selling products like :"
+msgstr ""
+
+#: templates/about.html:13
+msgid "accessoires"
+msgstr ""
+
+#: templates/about.html:14
+msgid "clothes"
+msgstr ""
+
+#: templates/about.html:15
+msgid "electronics"
+msgstr ""
+
+#: templates/about.html:16
+msgid "parfums"
+msgstr ""
+
+#: templates/about.html:17
+msgid "shoes"
+msgstr ""
+
+#: templates/about.html:19
+msgid "Product quality"
+msgstr ""
+
+#: templates/about.html:21
+msgid ""
+"We pay attention to the quality of the products we sell. We are only selling "
+"original articles"
+msgstr ""
+
+#: templates/about.html:26
+msgid "Trust"
+msgstr ""
+
+#: templates/about.html:28
+msgid ""
+"We understand your concern about trustability. Our business is based on "
+"trust. If you pay for an order, rest assured that your order will be "
+"delivered."
+msgstr ""
+
+#: templates/about.html:34
+msgid "Our Location"
+msgstr ""
+
+#: templates/about.html:36
+msgid ""
+"We are currently based at Libreville and Port-Gentil. We will expand the "
+"region where we can deliver our product as soon as possible."
+msgstr ""
+
+#: templates/about.html:42
+msgid "Issues report"
+msgstr ""
+
+#: templates/about.html:44
+msgid ""
+"In case you have any issue with your order, please contact at the following "
+"address:"
+msgstr ""
+
+#: templates/about.html:48
+msgid "Send Mail"
+msgstr ""
+
+#: templates/about.html:51
+msgid "Refund"
+msgstr ""
+
+#: templates/about.html:54
+msgid "It is possible to get a refund. You must meet the following conditions:"
+msgstr ""
+
+#: templates/about.html:59
+msgid "The order must have been paid"
+msgstr ""
+
+#: templates/about.html:60
+msgid "You have successfully returned the ordered items"
+msgstr ""
+
+#: templates/about.html:61
+msgid "The returned ordered items are intact and has not been used."
+msgstr ""
+
+#: templates/about.html:62
+msgid "The ordered items have been returned on time."
+msgstr ""
+
+#: templates/about.html:62
+msgid "max. 7 days after delivery"
+msgstr ""
+
+#: templates/accounts/account.html:9
+msgid "You have not yet validated your email address."
+msgstr ""
+
+#: templates/accounts/account.html:10
+msgid "We have already sent you a validation link to your email address."
+msgstr ""
+
+#: templates/accounts/account.html:11
+msgid "Please click on the validation link sent to you."
+msgstr ""
+
+#: templates/accounts/account.html:12
+msgid "Click on the link below to receive a new activation link."
+msgstr ""
+
+#: templates/accounts/account.html:18
+msgid "Overview"
+msgstr ""
+
+#: templates/accounts/account_detail.html:9
+msgid "User Picture"
+msgstr ""
+
+#: templates/accounts/account_detail.html:16
+msgid "Change password"
+msgstr ""
+
+#: templates/accounts/account_detail.html:17
+msgid "Delete my Account"
+msgstr ""
+
+#: templates/accounts/account_detail.html:42
+msgid "Date of Birth"
+msgstr ""
+
+#: templates/accounts/account_detail.html:46
+msgid "Phone"
+msgstr ""
+
+#: templates/accounts/account_detail.html:50
+#: templates/accounts/registration/password_reset_form.html:31
+#: templates/registration/password_reset_form.html:27
+msgid "Email"
+msgstr ""
+
+#: templates/accounts/account_detail.html:57
+msgid "Newsletter Subscribtion"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:7
+#: templates/accounts/registration/registration_complete.html:7
+#: templates/registration/email_validation.html:7
+#: templates/registration/registration_complete.html:7
+msgid "Registration successful"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:17
+#: templates/registration/email_validation.html:17
+msgid ""
+"Great! Your email address has been verified. You can now log to your account."
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:18
+msgid "Go to your Account by folowing this Link "
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:21
+#: templates/registration/email_validation.html:21
+msgid "Sorry! Your email address could not be verified."
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:22
+msgid "Click on this link to get a new activation link "
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:23
+#: templates/registration/email_validation.html:23
+msgid "Send me a Validation link"
+msgstr ""
+
+#: templates/accounts/registration/email_validation.html:24
+#: templates/registration/email_validation.html:24
+msgid "Home Page"
+msgstr ""
+
+#: templates/accounts/registration/login.html:40
+#: templates/accounts/registration/register.html:52
+#: templates/registration/login.html:34
+msgid "Password"
+msgstr ""
+
+#: templates/accounts/registration/login.html:48
+#: templates/accounts/registration/password_reset_form.html:17
+#: templates/registration/login.html:38
+#: templates/registration/password_reset_form.html:16
+msgid "Forgot your password ?"
+msgstr ""
+
+#: templates/accounts/registration/login.html:51
+#: templates/registration/login.html:44
+msgid "New here ?"
+msgstr ""
+
+#: templates/accounts/registration/login.html:51
+msgid "Create your Account"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:7
+#: templates/registration/password_change.html:7
+msgid "CHANGE PASSWORD"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:19
+#: templates/registration/password_change.html:19
+msgid ""
+"Your password should not be too similar to your other personal information"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:20
+#: templates/registration/password_change.html:20
+msgid "Your password must contain at least 8 characters"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:21
+#: templates/registration/password_change.html:21
+msgid "Your password cannot be a commonly used password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:22
+#: templates/registration/password_change.html:22
+msgid "Your password must not be entirely numeric"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:27
+#: templates/registration/password_change.html:27
+msgid "Old password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:30
+#: templates/accounts/registration/password_reset_confirm.html:20
+#: templates/registration/password_change.html:30
+#: templates/registration/password_reset_confirm.html:20
+msgid "New password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:33
+#: templates/accounts/registration/password_reset_confirm.html:24
+#: templates/registration/password_change.html:33
+#: templates/registration/password_reset_confirm.html:24
+msgid "Confirm password"
+msgstr ""
+
+#: templates/accounts/registration/password_change.html:38
+#: templates/registration/password_change.html:38
+msgid "Change Password"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:6
+#: templates/registration/password_change_done.html:7
+msgid "PASSWORD CHANGED"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:8
+#: templates/registration/password_change_done.html:16
+msgid "Your password has been changed successfully"
+msgstr ""
+
+#: templates/accounts/registration/password_change_done.html:9
+#: templates/accounts/registration/password_reset_complete.html:7
+#: templates/registration/password_change_done.html:17
+#: templates/registration/password_reset_complete.html:7
+msgid "Back to home page"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_complete.html:6
+#: templates/registration/password_reset_complete.html:6
+msgid "Password changed"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:5
+#: templates/registration/password_reset_confirm.html:5
+msgid "Password reset confirmation"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:7
+#: templates/accounts/registration/password_reset_done.html:8
+#: templates/registration/password_reset_confirm.html:7
+#: templates/registration/password_reset_done.html:8
+msgid "Confirmation"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:8
+#: templates/accounts/registration/password_reset_done.html:9
+#: templates/accounts/registration/password_reset_form.html:9
+#: templates/registration/password_reset_confirm.html:8
+#: templates/registration/password_reset_done.html:9
+#: templates/registration/password_reset_form.html:9
+msgid "Home page"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:17
+#: templates/registration/password_reset_confirm.html:17
+msgid "Please enter your new password twice."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:29
+#: templates/registration/password_reset_confirm.html:29
+msgid "Change"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_confirm.html:34
+#: templates/registration/password_reset_confirm.html:34
+msgid ""
+"The reset password link is invalid. Make a new request if you want to reset "
+"your password"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:6
+#: templates/accounts/registration/password_reset_form.html:8
+#: templates/registration/password_reset_done.html:6
+#: templates/registration/password_reset_form.html:8
+#: templates/registration/password_reset_subject.txt:2
+msgid "Password reset"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:17
+#: templates/registration/password_reset_done.html:17
+msgid ""
+"We have sent you an email with instructions on how to reset your password."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:18
+#: templates/registration/password_reset_done.html:18
+msgid "You should receive it in a moment."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:20
+#: templates/registration/password_reset_done.html:20
+msgid ""
+"Check that you have given the correct email address, the one with which you "
+"registered with us."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_done.html:22
+#: templates/registration/password_reset_done.html:22
+msgid "Also check your spam."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:5
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:7
+msgid "Please go to the following page and choose a new password:"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:11
+msgid "Your username, in case you've forgotten:"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:13
+msgid "Thanks for using our site!"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:15
+#, python-format
+msgid "The %(site_name)s team"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:23
+msgid ""
+"You are receiving this email because you requested to reset your password at"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:25
+#: templates/registration/password_reset_email.html:7
+msgid "Please follow this link and choose a new password"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:29
+#: templates/registration/password_reset_email.html:10
+msgid "Your username, in case you forgot it"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:31
+#: templates/registration/password_reset_email.html:12
+msgid "Thank you for using our site!"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_email.html:33
+#, python-format
+msgid "Team %(site_name)s"
+msgstr ""
+
+#: templates/accounts/registration/password_reset_form.html:18
+#: templates/registration/password_reset_form.html:17
+msgid ""
+"Fill in your Email address in the field below and we'll send you "
+"instructions on how to reset your password."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_form.html:26
+#: templates/registration/password_reset_form.html:22
+msgid "We will never ask you for your password."
+msgstr ""
+
+#: templates/accounts/registration/password_reset_form.html:37
+#: templates/registration/password_reset_form.html:33
+msgid "Reset"
+msgstr ""
+
+#: templates/accounts/registration/register.html:57
+msgid "Repeat your password"
+msgstr ""
+
+#: templates/accounts/registration/register.html:69
+#: templates/registration/register.html:50
+msgid "Already have an account ?"
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:15
+#: templates/registration/registration_complete.html:15
+msgid ""
+"Your account has been successfully created, but it is not activated yet."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:16
+#: templates/registration/registration_complete.html:16
+msgid "You will be able to login your account after you have activated it."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:17
+#: templates/registration/registration_complete.html:17
+msgid "An activation link has been sent to your mailbox"
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:18
+#: templates/registration/registration_complete.html:18
+msgid ""
+"Please open your mailbox and click on the activation link to activate your "
+"account."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:19
+#: templates/registration/registration_complete.html:19
+msgid ""
+"If you can't find the activation link in your mailbox, please also check "
+"your spam folder."
+msgstr ""
+
+#: templates/accounts/registration/registration_complete.html:20
+#: templates/registration/registration_complete.html:20
+msgid ""
+"Your account will be automatically deleted after 3 days if you don't "
+"activate it through the link we have just sent in your mailbox."
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:22
+#: templates/registration/vendor_register.html:22
+msgid "Registration"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:33
+#: templates/registration/register.html:35
+#: templates/registration/vendor_register.html:33
+msgid "Account type"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:35
+#: templates/registration/register.html:37
+#: templates/registration/vendor_register.html:35
+msgid "Select an Account Type"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:46
+#: templates/registration/register.html:47
+#: templates/registration/vendor_register.html:46
+msgid "Create My Account"
+msgstr ""
+
+#: templates/accounts/registration/vendor_register.html:49
+#: templates/registration/vendor_register.html:49
+msgid "Already have an account ? "
+msgstr ""
+
+#: templates/dashboard_base.html:49
+msgid "Visite The Shop"
+msgstr ""
+
+#: templates/dashboard_base.html:57
+msgid "ONLINE SHOP"
+msgstr ""
+
+#: templates/dashboard_base.html:60 templates/error_base.html:75
+msgid "About us"
+msgstr ""
+
+#: templates/dashboard_base.html:61 templates/error_base.html:76
+msgid "FAQ"
+msgstr ""
+
+#: templates/dashboard_base.html:77
+msgid "Search"
+msgstr ""
+
+#: templates/dashboard_base.html:83
+msgid "Administrator"
+msgstr ""
+
+#: templates/email_tags/order_cancel_confirmation_email.html:47
+#: templates/email_tags/order_confirmation_email.html:46
+msgid "Image"
+msgstr ""
+
+#: templates/error_base.html:47
+msgid "Catalog"
+msgstr ""
+
+#: templates/error_base.html:72
+msgid "ONLINE QUIZ"
+msgstr ""
+
+#: templates/faq.html:11
+msgid "JARIBIO FAQ"
+msgstr ""
+
+#: templates/faq.html:13
+msgid "This FAQ collects the commons questions you may be looking for answers."
+msgstr ""
+
+#: templates/faq.html:19
+msgid "How do I pcreate a quiz ?"
+msgstr ""
+
+#: templates/home.html:13
+msgid "Langages"
+msgstr "Langues"
+
+#: templates/home.html:14
+msgid "New Country"
+msgstr ""
+
+#: templates/home.html:15
+msgid "New Langage"
+msgstr ""
+
+#: templates/home.html:16
+msgid "New Word"
+msgstr ""
+
+#: templates/registration/email_validation.html:18
+msgid "Go to your Account by following this link"
+msgstr ""
+
+#: templates/registration/email_validation.html:22
+msgid "Click on this link to get a new activation link"
+msgstr ""
+
+#: templates/registration/login.html:44
+msgid "Register"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:5
+msgid ""
+"You are receiving this email because you requested to reset your password"
+msgstr ""
+
+#: templates/registration/password_reset_email.html:14
+msgid "Sincerely"
+msgstr ""
+
+#: templates/site_account_base.html:12
+msgid "Hello"
+msgstr ""
+
+#: templates/site_account_base.html:18
+msgid "Contributions"
+msgstr "Contributions"
+
+#: templates/site_account_base.html:23
+msgid "Account Details"
+msgstr ""
+
+#: templates/tags/components/campaigns_snippet.html:38
+msgid "No campaigns"
+msgstr ""
+
+#: templates/tags/components/customers-snippet.html:35
+#: templates/tags/components/sellers-snippet.html:35
+#: templates/tags/components/users-snippet.html:31
+msgid "There is no users yet"
+msgstr ""
+
+#: templates/tags/components/groups-snippet.html:29
+msgid "There is no groups yet"
+msgstr ""
+
+#: templates/tags/components/orders_tag.html:33
+msgid "Shipment"
+msgstr ""
+
+#: templates/tags/components/orders_tag.html:41
+msgid "There is no orders yet"
+msgstr ""
+
+#: templates/tags/components/shipments_tag.html:30
+msgid "History"
+msgstr ""
+
+#: templates/tags/components/shipments_tag.html:38
+msgid "There is no shipment yet"
+msgstr ""
+
+#: templates/tags/components/user_search_form.html:9
+msgid "Search User"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:3
+msgid "Sidebar Menu"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:10
+msgid "Tools"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:13
+msgid "Shortcuts"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:16
+msgid "Use this shortcuts for quick actions"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:19
+msgid "Price Calculator"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:20
+msgid "New Product"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:21
+msgid "offline order"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:22
+msgid "New Brand"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:23
+msgid "New Category"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:24
+msgid "New Attribute"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:25
+msgid "New Coupon"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:34
+msgid "Notifications"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:58
+msgid "User settings"
+msgstr ""
+
+#: templates/tags/dashboard_header.html:60
+msgid "Welcome !"
+msgstr ""
+
+#: templates/tags/dashboard_sidebar.html:24
+msgid "Feedbacks"
+msgstr ""
+
+#: templates/tags/dashboard_sidebar.html:25
+msgid "Searches"
+msgstr ""
+
+#: templates/tags/dashboard_sidebar.html:28
+msgid "Mails"
+msgstr ""
+
+#: templates/tags/dashboard_sidebar.html:31
+msgid "Mail Campaigns"
+msgstr ""
+
+#: templates/tags/dashboard_sidebar.html:34
+msgid "Dictionary Site"
+msgstr ""
+
+#: templates/tags/images_uploader.html:5
+msgid "Accepted formats"
+msgstr ""
+
+#: templates/tags/images_uploader.html:9
+msgid "Please Drag and drop the product images here"
+msgstr ""
+
+#: templates/tags/images_uploader.html:9
+msgid "or click here to choose your images"
+msgstr ""
+
+#: templates/tags/images_uploader.html:12
+msgid "Clear"
+msgstr ""
+
+#: templates/tags/language.html:15
+msgid "Current language : "
+msgstr ""
+
+#: templates/tags/language.html:17
+msgid "Select language : "
+msgstr "Choisir la langue :"
+
+#: templates/tags/nav-tag.html:10 templates/tags/nav-tag.html:34
+#: templates/tags/navigations.html:21
+msgid "See all"
+msgstr "Tout voir"
+
+#: templates/tags/navigations.html:6
+msgid "Shop"
+msgstr ""
+
+#: templates/tags/pagination.html:13
+msgid "current"
+msgstr "actuelle"
+
+#: templates/tags/unauthorized.html:4
+msgid "The requested Page was not found."
+msgstr ""
+
+#: templates/tags/users_sidebar.html:8
+msgid "Online Users"
+msgstr ""
+
+#~ msgid "Create Settings"
+#~ msgstr "Créer le parametre"

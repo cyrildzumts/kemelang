@@ -11,7 +11,7 @@
             {% block SIDEBAR_CONTENT %}
             <li><a href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
             {% if perms.auth.view_user %}
-            <li><a href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+            <li><a href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a></li>
             {% endif %}
             
             {% comment %}

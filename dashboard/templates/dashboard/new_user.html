@@ -8,13 +8,13 @@
 
 <div class="container">
     <div class="actions">
-        <a class="mat-button mat-button-default" href="{% url 'dashboard:users' %}"><i class="fas fa-list icon"></i><span>{% trans "Users" %}</span></a>
+        <a class="mat-button mat-button-default" href="{% url 'dashboard:users' %}"><i class="fas fa-list icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a>
     </div><!--End of Banner-Actions-->  
     <form class="signup-form container" action="{% url 'dashboard:create-user'%}" method="POST">{% csrf_token %}
         {% include 'tags/registration_form.html' %}
         <div class="actions">
-            <a class="mat-button mat-button-default" href="{%url 'dashboard:home'%}"><i class="fas fa-ban icon"></i><span>{% trans "Cancel" %}</span></a>
-            <button class="mat-button mat-button-default" type="submit">{%trans 'Create My Account'%} </button>
+            <a class="mat-button mat-button-default" href="{%url 'dashboard:home'%}"><i class="fas fa-ban icon"></i><span>{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</span></a>
+            <button class="mat-button mat-button-default" type="submit">{{UI_STRINGS_CONTEXT.UI_SEND_BTN_LABEL}}</button>
         </div>
     </form>
 </div>

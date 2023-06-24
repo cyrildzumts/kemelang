@@ -16,7 +16,7 @@
                 </div>
                 <div id="metric-users" class="metric mat-box" data-index="3">
                         <h4 class="metric-value">{{valid_users_count|default_if_none:'0'}}</h4>
-                        <span class="metric-title"><i class="fas fa-users icon"></i>{% trans "Users" %}</span>
+                        <span class="metric-title"><i class="fas fa-users icon"></i>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span>
                 </div>
                 <div id="metric-users" class="metric mat-box" data-index="4">
                         <h4 class="metric-value">{{online_users_count|default_if_none:'0'}}</h4>

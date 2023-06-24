@@ -4,7 +4,7 @@
     <li><a href="{% url 'dashboard:home'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
     <li><a href="{% url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{% trans "Groups" %}</span></a></li>
     <li><a href="{% url 'dashboard:customers' %}"><i class="fas fa-user-tag icon"></i><span>{% trans "Customers" %}</span></a></li>
-    <li><a href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{% trans "Users" %}</span></a></li>
+    <li><a href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a></li>
     <li><a href="{% url 'dashboard:online-users'%}"><i class="fas fa-user-clock icon"></i><span>{% trans "Online Users" %}</span></a></li>
     <li><a href="{% url 'dashboard:tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Tokens" %}</span></a></li>
     <li><a href="{% url 'dashboard:partner-tokens' %}"><i class="fas fa-fingerprint icon"></i><span>{% trans "Partner Tokens" %}</span></a></li>

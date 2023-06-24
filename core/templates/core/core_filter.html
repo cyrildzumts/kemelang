@@ -4,7 +4,7 @@
     <div class="flex space-between">
         <span><strong>{% trans "Filter" %}</strong></span>
         {% if not DONT_SHOW_CLOSE %}
-        <button class="navbar-toggler mat-button-text" type="button" data-ui-toggle="collapse" data-custom="true" data-ui-target="{{close_target|default:'catalog-filter'}}"><i class="fas fa-times"></i><span>{% trans "Close" %}</span></button>
+        <button class="navbar-toggler mat-button-text" type="button" data-ui-toggle="collapse" data-custom="true" data-ui-target="{{close_target|default:'catalog-filter'}}"><i class="fas fa-times"></i><span>{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span></button>
         {% endif %}
     </div>
     <div class="grid">
