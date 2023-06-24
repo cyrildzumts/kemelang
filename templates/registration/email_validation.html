@@ -21,7 +21,7 @@
             <p>{% blocktrans %}Sorry! Your email address could not be verified.{% endblocktrans %}</p>
             <p>{% blocktrans %}Click on this link to get a new activation link{% endblocktrans %} :</p>
             <p><a class="mat-button mat-button-text" href="{% url 'accounts:send-validation' account.account_uuid %}">{% trans "Send me a Validation link" %}</a></p>
-            <p><a class="mat-button mat-button-outlined" href="{% url 'home' %}">{% trans "Home Page" %}</a></p>
+            <p><a class="mat-button mat-button-outlined" href="{% url 'home' %}">{{UI_STRINGS_CONTEXT.UI_HOME_PAGE}}</a></p>
         {% endif %}
     {% endautoescape %}
     </div>
