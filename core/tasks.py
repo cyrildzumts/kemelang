@@ -29,6 +29,8 @@ def send_mail_task(email_context=None):
                     [email_context['recipient_email']],
                     html_message=html_message
                 )
+                with open(f"mail-{timezone.now()}.html", 'w' ) as f:
+                    f.write(html_message)
             else:
                 send_mail(
                     email_context['title'],

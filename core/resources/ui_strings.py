@@ -110,6 +110,7 @@ INVALID_FORM = _('Invalid Submitted data')
 
 
 UI_BANNER_DESCRIPTION = _("Your online dictionary for african languages")
+UI_EMAIL_FOOTER_1 = UI_BANNER_DESCRIPTION
 
 UI_CONTACT_SUBJECT = _('Need more information')
 UI_CONTACT_BODY = _('Hello, I have a question about the dictionary.')
