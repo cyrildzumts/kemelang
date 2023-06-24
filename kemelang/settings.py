@@ -32,6 +32,13 @@ SITE_HEADER_BG      = "#EFF3F2"
 CELERY_BROKER_URL   = os.environ.get('KEMELANG_CELERY_BROKER_URL')
 CELERY_BACKEND      = os.environ.get('KEMELANG_CELERY_BACKEND')
 
+
+CELERY_LOGGER_HANDLER_NAME = "async"
+CELERY_LOGGER_NAME = "async"
+CELERY_LOGGER_QUEUE = "kemelang-logger"
+CELERY_LOGGER_EXCHANGE = "kemelang-logger"
+CELERY_LOGGER_ROUTING_KEY = "kemelang-logger"
+
 CELERY_DEFAULT_QUEUE = "kemelang-default"
 CELERY_DEFAULT_EXCHANGE = "kemelang-default"
 CELERY_DEFAULT_ROUTING_KEY = "kemelang-default"
@@ -221,6 +228,10 @@ LOGGING = {
             'format': '{asctime} {levelname} {module} {message}',
             'style': '{',
         },
+        'async': {
+            'format': '{module} {message}',
+            'style': '{',
+        },
     },
 
     'handlers': {
@@ -228,6 +239,14 @@ LOGGING = {
             'level': 'DEBUG',
             'class': 'logging.StreamHandler',
             'formatter': 'console'
+        },
+        'async':{
+            'level': 'INFO',
+            'class': 'core.logging.handlers.AsyncLoggingHandler',
+            'formatter': 'async',
+            'queue': CELERY_LOGGER_QUEUE,
+            'routing_key': CELERY_LOGGER_ROUTING_KEY,
+            'exchange': CELERY_LOGGER_EXCHANGE
         },
         'file': {
             'level': 'DEBUG',
@@ -246,6 +265,11 @@ LOGGING = {
             'level': 'DEBUG',
             'handlers': ['console', 'file'],
             'propagate': False,
+        },
+        'async':{
+            'level': 'INFO',
+            'handlers': ['file'],
+            'propagate': False
         },
         'django': {
             'level': 'WARNING',

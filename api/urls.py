@@ -27,6 +27,7 @@ api_patterns = [
     path('update-country/<slug:country_slug>/<uuid:country_uuid>/', views.update_country, name="country-update"),
     path('update-langage/<slug:langage_slug>/<uuid:langage_uuid>/', views.update_langage, name="langage-update"),
     path('word-synonymes/<str:word>/<uuid:word_uuid>/', views.word_synonymes, name="word-synonymes"),
+    path('track-actions/', views.track_user_actions, name='api-track-actions'),
     
 ]
 

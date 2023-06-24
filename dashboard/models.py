@@ -13,3 +13,11 @@ class Settings(models.Model):
     changed_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     setting_uuid = models.UUIDField(default=uuid.uuid4, editable=False)
     FORM_FIELDS = ['maintenance_mode', 'allow_anonyme_user', 'added_by', 'changed_by']
+    
+    
+
+
+class Report(models.Model):
+    translations = models.IntegerField(default=0, null=True)
+    created_at = models.DateField(auto_now_add=True)
+    changed_at = models.DateField(auto_now=True, blank=True, null=True)

@@ -10,6 +10,7 @@ from django.forms import modelform_factory
 from django.forms import formset_factory, modelformset_factory
 
 from django.utils.text import slugify
+from core.models import ABTest
 from dictionary.models import Country, Langage, Word, Definition
 import logging
 import datetime
@@ -60,3 +61,11 @@ def core_send_mail(recipient_list, subject, message):
     send_mail(subject, message, recipient_list)
 
 
+def log_user_tracking(data):
+    action = int(data.get('action'))
+    logger.info(f'ABTEST action : {action}')
+    abtest, created = ABTest.objects.get_or_create(action=action, defaults={'hits': 1})
+    if not created:
+        abtest.hits = F('hits') + 1
+        abtest.save()
+    return

@@ -11,6 +11,7 @@ from api.serializers import UserSerializer, CountrySerializer, LangageSerializer
 from kemelang import utils
 from dictionary.models import Country, Langage,Word, Definition, Comment, Phrase, TranslationWord
 from dictionary import dictionary_service
+from core.tasks import log_user_tracking
 from core.resources import ui_strings as UI_STRINGS
 
 import logging
@@ -389,3 +390,16 @@ def translate(request):
         result = {'success': False, 'message': str(e)}
         logger.warn(f"API: Translate request failed : {e}")
     return Response(data=result, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([])
+@authentication_classes([])
+def track_user_actions(request):
+    logger.info(f"API: tracking user action")
+    if request.method != 'POST':
+        return Response({'status': False, 'error': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
+    
+    log_user_tracking.apply_async(args=[utils.get_postdata(request)])
+    
+    return Response(data={'message': 'OK'}, status=status.HTTP_200_OK)
