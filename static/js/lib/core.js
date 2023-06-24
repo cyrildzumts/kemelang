@@ -325,7 +325,7 @@ function(ajax_api, Filter, Editor_API, WordTools) {
             dataType : 'json',
             cache : false,
         };
-        ajax_api.ajax(options).then(function(response){}, function(error){});
+        ajax_api.ajax(options, false).then(function(response){}, function(error){});
     }
     autoplayCarousel();
     let modal = new Modal();
