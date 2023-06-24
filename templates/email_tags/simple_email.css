@@ -151,11 +151,11 @@ img {
       text-align: center; 
   }
     .btn a {
-      background-color: #ffffff;
-      border: solid 1px #3498db;
+      background-color: #16a085;
+      border: solid 1px #16a085;
       border-radius: 5px;
       box-sizing: border-box;
-      color: #3498db;
+      color: #FAFAFA;
       cursor: pointer;
       display: inline-block;
       font-size: 14px;
@@ -171,8 +171,8 @@ img {
   }
 
   .btn-primary a {
-    background-color: #3498db;
-    border-color: #3498db;
+    background-color: #16a085;
+    border-color: #16a085;
     color: #ffffff; 
   }
 
