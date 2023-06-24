@@ -17,15 +17,15 @@
         {% endcomment %}
         <meta name="twitter:card"       content="summary_large_image">
         <meta name="twitter:creator"    content="@cyrildz"/>
-        <meta name="keywords"           content="{{META_KEYWORDS|default:''}}">
-        <meta name="description"        content="{{META_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta name="keywords"           content="{{UI_STRINGS_CONTEXT.META_KEYWORDS|default:''}}">
+        <meta name="description"        content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{UI_STRINGS_CONTEXT.DESCRIPTION_HOOK|default:''}}">
         <meta property="og:title"       content="{{OG_TITLE|default:''}}">
-        <meta property="og:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="og:description" content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{UI_STRINGS_CONTEXT.DESCRIPTION_HOOK|default:''}}">
         <meta property="og:image"       content="{{OG_IMAGE|default:''}}">
         <meta property="og:url"         content="{{OG_URL|default:''}}">
 
         <meta property="twitter:title"       content="{{OG_TITLE|default:''}}">
-        <meta property="twitter:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="twitter:description" content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
         <meta property="twitter:image:src"       content="{{OG_IMAGE|default:''}}">
         <meta property="twitter:url"         content="{{OG_URL|default:''}}">
 
@@ -43,7 +43,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon apple-touch-icon" href="{% static 'favicon.ico' %}">
         <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
-        <link rel="canonical" href="{{OG_URL}}">
         
         <!-- Add icon library -->
         {% block STYLESHEET %}

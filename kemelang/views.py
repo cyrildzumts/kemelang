@@ -21,7 +21,11 @@ logger = logging.getLogger(__name__)
 def page_not_found(request):
     template_name = '404.html'
     context={
-        'page_title': CORE_UI_STRINGS.UI_404_TITLE
+        'page_title': CORE_UI_STRINGS.UI_404_TITLE,
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_HOST': settings.SITE_HOST,
+        'SITE_HEADER_BG': settings.SITE_HEADER_BG,
+        'UI_STRINGS_CONTEXT': CORE_UI_STRINGS.UI_STRINGS_CONTEXT
     }
     return render(request, template_name, context)
 
@@ -29,21 +33,33 @@ def page_not_found(request):
 def server_error(request):
     template_name = '500.html'
     context={
-        'page_title': CORE_UI_STRINGS.UI_500_TITLE
+        'page_title': CORE_UI_STRINGS.UI_500_TITLE,
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_HOST': settings.SITE_HOST,
+        'SITE_HEADER_BG': settings.SITE_HEADER_BG,
+        'UI_STRINGS_CONTEXT': CORE_UI_STRINGS.UI_STRINGS_CONTEXT
     }
     return render(request, template_name, context)
 
 def permission_denied(request):
     template_name = '403.html'
     context={
-        'page_title': CORE_UI_STRINGS.UI_403_TITLE
+        'page_title': CORE_UI_STRINGS.UI_403_TITLE,
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_HOST': settings.SITE_HOST,
+        'SITE_HEADER_BG': settings.SITE_HEADER_BG,
+        'UI_STRINGS_CONTEXT': CORE_UI_STRINGS.UI_STRINGS_CONTEXT
     }
     return render(request, template_name, context)
 
 def bad_request(request):
     template_name = '400.html'
     context={
-        'page_title': CORE_UI_STRINGS.UI_400_TITLE
+        'page_title': CORE_UI_STRINGS.UI_400_TITLE,
+        'SITE_NAME': settings.SITE_NAME,
+        'SITE_HOST': settings.SITE_HOST,
+        'SITE_HEADER_BG': settings.SITE_HEADER_BG,
+        'UI_STRINGS_CONTEXT': CORE_UI_STRINGS.UI_STRINGS_CONTEXT
     }
     return render(request, template_name, context)
 
