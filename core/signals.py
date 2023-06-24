@@ -7,7 +7,7 @@ from django.dispatch import receiver
 from accounts.models import Account
 from django.utils.text import slugify
 from django.utils import translation
-from core.tasks import send_mail_task, move_session_to_user
+from core.tasks import send_mail_task
 from core import constants as CORE_CONSTANTS
 from django.core.cache.utils import make_template_fragment_key
 from kemelang import settings, conf
