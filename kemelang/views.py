@@ -66,7 +66,7 @@ def bad_request(request):
 
 def home(request):
     setting = dashboard_service.get_setting()
-    if setting is None or setting.maintenance_mode is None or setting.maintenance_mode :
+    if not dashboard_service.can_access_on_maintenance(request.user) :
         template_name = "maintenance/home.html"
         page_title = CORE_UI_STRINGS.UI_HOME_MAINTENANCE_PAGE
         context = {

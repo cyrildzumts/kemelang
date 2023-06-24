@@ -5,6 +5,9 @@ import logging
 
 logger = logging.getLogger(__name__)
 
+
+
+
 def get_setting():
     setting_set = Settings.objects.all()
     setting = None
@@ -30,3 +33,11 @@ def update_setting(data, setting):
         logger.warning(f"Error on updating Setting : {form.errors.as_data()}")
     return None
     #return service.update_instance(Settings, setting, data)
+    
+
+def can_access_on_maintenance(user):
+    
+    setting = get_setting()
+    maintenance_mode_active = setting is None or setting.maintenance_mode is None or setting.maintenance_mode
+    is_superuser = user.is_superuser or user.is_staff
+    return is_superuser or not maintenance_mode_active
