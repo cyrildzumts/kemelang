@@ -85,11 +85,14 @@ def clean_users_not_actif():
     deleted , users= User.objects.filter(DATE_JOINED_FILTER).delete()
     logger.info(f"Clean User inactifs : deleted {deleted} inactive users {users}")
 
+
 @shared_task
 def log_user_tracking(data):
+    logger.info(f"Logging Track Action in Task {data}")
     action = int(data.get('action'))
     abtest, created = ABTest.objects.get_or_create(action=action, defaults={'hits': 1})
     if not created:
         abtest.hits = F('hits') + 1
         abtest.save()
+    logger.info(f"Logged Track Action in Task {data}")   
     return
