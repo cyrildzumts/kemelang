@@ -20,6 +20,7 @@ from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.sitemaps.views import sitemap
+from accounts import views as accounts_views
 from kemelang import views
 
 
@@ -27,6 +28,10 @@ urlpatterns_i18n = i18n_patterns(
     *[
     path('', views.home, name='home'),
     path('about/', views.about, name='about'),
+    # path('login/', accounts_views.login, name='login'),
+    # path('logout/', accounts_views.logout, name='logout'),
+    # path('register/', accounts_views.register, name='register'),
+    
     path('accounts/', include('accounts.urls')),
     path('dashboard/', include('dashboard.urls')),
     path('faq/', views.faq, name='faq'),
