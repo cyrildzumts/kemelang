@@ -4,52 +4,7 @@
 {% load static %}
 {% load core_tags %}
 <html lang="{{LANGUAGE_CODE}}">
-
-<head>
-        <meta charset="utf-8">
-        {% block META_REDIRECT %}
-        
-        {% endblock META_REDIRECT %}
-        <title>{% block title %}{{SITE_NAME}} | {{page_title}}{% endblock %}</title>
-        {% comment %}
-                twitter card
-        {% endcomment %}
-        <meta name="twitter:card"       content="summary_large_image">
-        <meta name="twitter:creator"    content="@cyrildz"/>
-        <meta name="keywords"           content="{{META_KEYWORDS|default:''}}">
-        <meta name="description"        content="{{META_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
-        <meta property="og:title"       content="{{OG_TITLE|default:''}}">
-        <meta property="og:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
-        <meta property="og:image"       content="{{OG_IMAGE|default:''}}">
-        <meta property="og:url"         content="{{OG_URL|default:''}}">
-
-        <meta property="twitter:title"       content="{{OG_TITLE|default:''}}">
-        <meta property="twitter:description" content="{{OG_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
-        <meta property="twitter:image:src"       content="{{OG_IMAGE|default:''}}">
-        <meta property="twitter:url"         content="{{OG_URL|default:''}}">
-
-        <meta property="og:type"        content="website">
-        <meta property="og:site_name"   content="{{SITE_NAME}}">
-        <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
-        <meta name="mobile-web-app-capable" content="yes">
-        <meta name="apple-mobile-web-app-title" content="{{SITE_NAME}}">
-        <meta name="short_name" content="{{SITE_NAME}}">
-        <meta name="name" content="{{SITE_NAME}}">
-        <meta name="application-name" content="{{SITE_NAME}}">
-        <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
-        <link rel="manifest" href="{% static 'manifest.json' %}">
-        <meta name="apple-mobile-web-app-status-bar-style" content="{{SITE_HEADER_BG}}">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <link rel="shortcut icon apple-touch-icon" href="{% static 'favicon.ico' %}">
-        <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
-        <link rel="canonical" href="{{OG_URL}}">
-        
-        <!-- Add icon library -->
-        {% block STYLESHEET %}
-                <link rel="preload stylesheet"  href="{% static 'css/main.min.css' %}" as="style" type="text/css">
-        {% endblock STYLESHEET %}
-</head>
-
+{% include 'tags/head.html' %}
 <body>
 <input id="lang" type="hidden" name="lang" value="{{LANGUAGE_CODE}}">
 <div class="page full">
@@ -76,16 +31,7 @@
 
 </div><!--End of page -->
 {% block FOOTER %}
-{% cache TEMPLATE_CACHE_TIMEOUT footer-kemelang LANGUAGE_CODE %}
-<footer class="footer">
-        <div class="footer-list">
-                {% now "Y" as current_year %}
-                <ul class="footer-copyright">
-                        <li><span>Copyright <i class="fa fa-copyright"></i><span class="copyright-year padding-h">{{current_year}}</span><span class="site">{{SITE_NAME}}</span></span></li>
-                </ul>
-        </div>
-</footer>
-{% endcache %}
+{% include 'tags/footer.html' %}
 {% endblock FOOTER %}
 </body>
 
