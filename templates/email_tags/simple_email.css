@@ -7,7 +7,7 @@ img {
   }
 
   body {
-    background-color: #f6f6f6;
+    background-color: #EFF3F2;
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
     font-size: 14px;
@@ -34,7 +34,7 @@ img {
   ------------------------------------- */
 
   .body {
-    background-color: #f6f6f6;
+    background-color: #EFF3F2;
     width: 100%; 
   }
 
@@ -61,7 +61,7 @@ img {
       HEADER, FOOTER, MAIN
   ------------------------------------- */
   .main {
-    background: #ffffff;
+    background: #EFF3F2;
     border-radius: 3px;
     width: 100%; 
   }
