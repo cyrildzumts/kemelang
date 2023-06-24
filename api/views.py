@@ -401,5 +401,5 @@ def track_user_actions(request):
         return Response({'status': False, 'error': 'Bad request. Use POST instead'}, status=status.HTTP_400_BAD_REQUEST)
     
     log_user_tracking.apply_async(args=[utils.get_postdata(request)])
-    
+    logger.info(f"Logged tracking user action")
     return Response(data={'message': 'OK'}, status=status.HTTP_200_OK)
