@@ -525,7 +525,7 @@ nav, .nav{
 }
 
 .sidebar-menu .fas, .sidebar-menu .icon {
-    color: var(--secondary-color);
+    color: #1A1A1A;
 }
 
 .sidebar-menu > ul li:hover, .sidebar-menu > ul li:hover a,

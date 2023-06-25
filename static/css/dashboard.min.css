@@ -6094,7 +6094,7 @@ nav, .nav{
     color: var(--secondary-color);
 }
 .sidebar-menu .fas, .sidebar-menu .icon {
-    color: var(--secondary-color);
+    color: #1A1A1A;
 }
 .sidebar-menu > ul li:hover, .sidebar-menu > ul li:hover a,
 .dash-main-content ul li:hover, .dash-main-content > ul li:hover a{
