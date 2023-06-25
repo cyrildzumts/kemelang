@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-25 00:54+0200\n"
+"POT-Creation-Date: 2023-06-25 11:10+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -539,8 +539,7 @@ msgstr "Coneexion"
 msgid "Sign In"
 msgstr "S'identifier"
 
-#: core/resources/ui_strings.py:152 templates/dashboard_base.html:50
-#: templates/tags/dashboard_header.html:63
+#: core/resources/ui_strings.py:152 templates/tags/dashboard_header.html:63
 msgid "Logout"
 msgstr "Se déconnecter"
 
@@ -563,10 +562,14 @@ msgid "Start typing here ..."
 msgstr "Commencez à écrire ici..."
 
 #: core/resources/ui_strings.py:157
+msgid "Visite the Site"
+msgstr "Visiter le Site"
+
+#: core/resources/ui_strings.py:158
 msgid "Maintenance Mode"
 msgstr ""
 
-#: core/resources/ui_strings.py:158
+#: core/resources/ui_strings.py:159
 msgid "Allow Anonymous User"
 msgstr "Autoriser l'utilisateur anonyme"
 
@@ -623,29 +626,29 @@ msgstr "Parametres"
 #: dashboard/templates/tags/setting_tag.html:6
 #: templates/accounts/account_detail.html:15
 msgid "Edit"
-msgstr ""
+msgstr "Editer"
 
 #: dashboard/templates/dashboard/group_detail.html:10
 #: dashboard/templates/dashboard/news_detail.html:7
 #: dashboard/templates/dashboard/news_list.html:11
 #: dashboard/templates/dashboard/user_detail.html:11
 msgid "Delete"
-msgstr ""
+msgstr "Supprimer"
 
 #: dashboard/templates/dashboard/group_detail.html:19
 #: dashboard/templates/tags/group_update_form_new.html:32
 #: dashboard/templates/tags/group_update_form_new.html:59
 #: templates/tags/components/groups-snippet.html:23
 msgid "Permissions"
-msgstr ""
+msgstr "Authorisations"
 
 #: dashboard/templates/dashboard/group_detail.html:34
 msgid "No Permissions"
-msgstr ""
+msgstr "Aucune permissions"
 
 #: dashboard/templates/dashboard/group_detail.html:42
 msgid "Members"
-msgstr ""
+msgstr "Membres"
 
 #: dashboard/templates/dashboard/group_detail.html:50
 #: dashboard/templates/dashboard/news_list.html:34
@@ -654,11 +657,11 @@ msgstr ""
 #: templates/tags/components/sellers-snippet.html:22
 #: templates/tags/components/users-snippet.html:21
 msgid "active,inactive"
-msgstr ""
+msgstr "actif,inactif"
 
 #: dashboard/templates/dashboard/group_detail.html:58
 msgid "No Members"
-msgstr ""
+msgstr "Aucun membres"
 
 #: dashboard/templates/dashboard/group_detail.html:68
 #: dashboard/templates/dashboard/group_list.html:24
@@ -837,7 +840,7 @@ msgstr "E-Mail"
 
 #: dashboard/templates/dashboard/user_detail.html:47
 msgid "User is Active"
-msgstr ""
+msgstr "L'Utilisateur est actif"
 
 #: dashboard/templates/dashboard/user_detail.html:58
 #: dashboard/templates/tags/account_update_form.html:18
@@ -847,15 +850,15 @@ msgstr "Ville"
 #: dashboard/templates/dashboard/user_detail.html:61
 #: dashboard/templates/tags/account_update_form.html:26
 msgid "Telefon"
-msgstr ""
+msgstr "Téléphone"
 
 #: dashboard/templates/dashboard/user_detail.html:64
 msgid "Account Type"
-msgstr ""
+msgstr "Type de Compte"
 
 #: dashboard/templates/dashboard/user_detail.html:67
 msgid "Account"
-msgstr ""
+msgstr "Compte"
 
 #: dashboard/templates/dashboard/user_detail.html:70
 msgid "Email is Validated"
@@ -1065,7 +1068,7 @@ msgstr ""
 #: dictionary/templates/tags/update_langage_form.html:12
 #: templates/accounts/registration/register.html:45
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: dashboard/templates/tags/category_creation_form.html:18
 #: dashboard/templates/tags/category_manage_form.html:15
@@ -1220,11 +1223,11 @@ msgstr ""
 
 #: dashboard/views.py:76
 msgid "Error when updateing setting"
-msgstr ""
+msgstr "Erreur en actualisant le parametre"
 
 #: dashboard/views.py:79 dashboard/views.py:82
 msgid "Update Setting"
-msgstr ""
+msgstr "Actualiser le parametre"
 
 #: dictionary/constants.py:47
 msgid "Noun"
@@ -1263,23 +1266,12 @@ msgid "Add a new language for a translation"
 msgstr "Ajouter une nouvelle langue pour une traduction"
 
 #: dictionary/templates/dictionary/dict.html:16
-#: dictionary/templates/dictionary/langage.html:64
 msgid "Add a new word for a language"
 msgstr "Ajouter un nouveau mot pour une langue"
 
 #: dictionary/templates/dictionary/dict.html:17
 msgid "Add Translation"
 msgstr "Ajouter une traduction"
-
-#: dictionary/templates/dictionary/langage.html:64
-msgid " Add Word"
-msgstr "Ajouter un mot"
-
-#: dictionary/templates/dictionary/langages.html:16
-#, fuzzy
-#| msgid "Add Language"
-msgid "Add Langage"
-msgstr "Ajouter une langue"
 
 #: dictionary/templates/dictionary/word.html:123
 msgid "Update this example"
@@ -1326,11 +1318,11 @@ msgstr "Alphabet"
 msgid "Update for Example usage for word"
 msgstr ""
 
-#: kemelang/settings.py:304
+#: kemelang/settings.py:305
 msgid "French"
 msgstr "Francais"
 
-#: kemelang/settings.py:305
+#: kemelang/settings.py:306
 msgid "English"
 msgstr "Anglais"
 
@@ -1851,14 +1843,6 @@ msgstr ""
 #: templates/accounts/registration/vendor_register.html:49
 #: templates/registration/vendor_register.html:49
 msgid "Already have an account ? "
-msgstr ""
-
-#: templates/dashboard_base.html:49
-msgid "Visite The Shop"
-msgstr ""
-
-#: templates/dashboard_base.html:57
-msgid "ONLINE SHOP"
 msgstr ""
 
 #: templates/dashboard_base.html:60

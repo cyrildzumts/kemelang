@@ -13,7 +13,7 @@
                 {% endif %}
                 <div class="flex flex-left">
                     <span class="padding-v bold">{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_PLURAL}} (<span class="counter">{{langage_list.count}}</span>)</span>
-                    <a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{% translate "Add Langage" %}</span></a>
+                    <a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}</span></a>
                 </div>
             </div>
             
