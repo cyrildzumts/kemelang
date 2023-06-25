@@ -5584,19 +5584,19 @@ main {
     --third-color : #FFFFFF;
     --fourth-color : #FFFFFF;
     --light-color : #FAFAFA;
-    --header : #2C3E50;
-    --header-color: #FAFAFA;
-    --nav-menu-bg : #0A0A0A;
+    --header : #E7EFEE;
+    --header-color: #16a085;
+    --nav-menu-bg : #E7EFEE;
     --nav-menu-color: #16a085;
     --label-color : #777;
     
-    --body-bg : #AFC4BF33;
-    --body-color: #2C3E50;
+    --body-bg : #EFF3F2;
+    --body-color: #0A0A0A;
     --notification-bg : #2C3E50;
     --notification-color : #FAFAFA;
     --action-color : #2C3E50;
-    --sidebar-bg-color: #2C3E50;
-    --sidebar-color: #FAFAFA;
+    --sidebar-bg-color: #EAF4EF;
+    --sidebar-color: #0a0a0a;
     --sidebar-active-color: #2C3E50;
     --text-grey: #777;
     --color-stone : #707C80;
@@ -5608,7 +5608,7 @@ main {
     --debug-color: #1e88e5;
     --on-demand-order : #f39c12;
     --standard-order : #2980b9;
-    --footer: #0a0a0a;
+    --footer: #EFF3F2;
     --footer-color: #16a085;
     --footer-content-wrapper:#16a085;
     --footer-content-wrapper-color: #FAFAFA;
@@ -5637,9 +5637,9 @@ main {
     --standard-perfumes-info : #832D9F00;
     --standard-perfumes-color: #0A0A0A;
     
-    --editor : #FAFAFA;
+    --editor : #F7FAF6;
     --editor-color : #1A1A1A;
-    --editor-header : #F5F5F5;
+    --editor-header : #CCDCD8;
     --editor-header-color : #1a1a1a;
     --dotted-color : #0a0a0a;
     --quote : #eadbcb;
@@ -5649,9 +5649,9 @@ main {
     --code-area: #bdc3c7;
     --code-header : #bdc3c7;
     --code-header-bg : #34495e;
-    --textarea: #16a085;
+    --textarea: #F0F1F3;
     --textarea-color: #16a085;
-    --textarea-bg: #fafafa;
+    --textarea-bg: #F0F1F3;
     --status-delivered: #45A29E;
     --status-shipped : #1e88e5;
     --status-picked-up: #f39c12;
@@ -5676,11 +5676,11 @@ main {
     --quote-footer: #fafafa;
     --activity-bg: #efefef;
     --activity-hover-bg: #eee;
-    --modal: #AFC4BFAA;
-    --modal-container: #AFC4BF;
-    --modal-header: #AFC4BF3F;
-    --search-result: #AFC4BF3F;
-    --search-result-odd: #AFC4BF4F;
+    --modal: #CCDCD8;
+    --modal-container: #CCDCD8;
+    --modal-header: #E5F1DF;
+    --search-result: #CCDCD8;
+    --search-result-odd: #CED5DD;
 }
 body{
     background-color: var(--body-bg);
