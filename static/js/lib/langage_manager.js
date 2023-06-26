@@ -52,6 +52,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         this.form = document.getElementById('langage-form');
         this.langage_form = document.getElementById('langage-form');
         this.form_container = document.getElementById('langage-form-container');
+        this.form_management = document.getElementById('form-management');
         this.country_selection_list = Array.from(document.querySelectorAll('.country-selection'));
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.active_langage = undefined;
@@ -75,7 +76,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         let add_form_btn = document.getElementById('add-langage-btn');
         let create_langage_btn = document.getElementById('create-langage-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', function(even){
+            add_form_btn.addEventListener('click', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.add_langage_form('langage');
@@ -83,7 +84,7 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
         }
         self.create_managed_langage_form('langage');
         if(this.langage_form){
-            this.langage_form.addEventListener('submit', function(even){
+            this.langage_form.addEventListener('submit', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.submit();
@@ -201,10 +202,10 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api'],function(aja
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
-        this.form_container.appendChild(this.form_TOTAL_FORMS);
-        this.form_container.appendChild(this.form_INITIAL_FORMS);
-        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
-        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
+        this.form_management.appendChild(this.form_TOTAL_FORMS);
+        this.form_management.appendChild(this.form_INITIAL_FORMS);
+        this.form_management.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_management.appendChild(this.form_MAX_NUM_FORMS);
     }
 
     LangageManager.prototype.add_langage_form = function(prefix){

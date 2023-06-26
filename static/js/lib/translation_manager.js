@@ -15,6 +15,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         this.form = document.getElementById('translation-form');
         this._form = document.getElementById('translation-form');
         this.form_container = document.getElementById('translation-form-container');
+        this.form_management = document.getElementById('form-management');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
         this.translationFormFactory;
@@ -44,7 +45,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         let add_form_btn = document.getElementById('add-btn');
         let create_btn = document.getElementById('create-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', function(even){
+            add_form_btn.addEventListener('click', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.add_form(PREFIX);
@@ -52,7 +53,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
         }
         self.create_managed_form(PREFIX);
         if(this._form){
-            this._form.addEventListener('submit', function(even){
+            this._form.addEventListener('submit', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.submit();
@@ -108,10 +109,10 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
-        this.form_container.appendChild(this.form_TOTAL_FORMS);
-        this.form_container.appendChild(this.form_INITIAL_FORMS);
-        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
-        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
+        this.form_management.appendChild(this.form_TOTAL_FORMS);
+        this.form_management.appendChild(this.form_INITIAL_FORMS);
+        this.form_management.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_management.appendChild(this.form_MAX_NUM_FORMS);
     }
 
     TranslationManager.prototype.register_modal = function(btn){

@@ -3,6 +3,7 @@
 
 <div class="grid">
     <form id="country-form" class="country-form" name="country" action="{% url 'dictionary:country-create' %}" method="POST">{% csrf_token %}
+        <div id="form-management" class="hidden"></div>
         <div id="country-form-container" class="create-form grid">  
         </div>
         <div class="actions">

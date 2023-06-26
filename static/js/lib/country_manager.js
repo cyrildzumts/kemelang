@@ -15,6 +15,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         this.form = document.getElementById('country-form');
         this.country_form = document.getElementById('country-form');
         this.form_container = document.getElementById('country-form-container');
+        this.form_management = document.getElementById('form-management');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.wrappers = [];
         this.form_is_valid = false;
@@ -33,7 +34,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         let add_form_btn = document.getElementById('add-country-btn');
         let create_country_btn = document.getElementById('create-country-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', function(even){
+            add_form_btn.addEventListener('click', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 
@@ -42,7 +43,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
         }
         self.create_managed_country_form('country');
         if(this.country_form){
-            this.country_form.addEventListener('submit', function(even){
+            this.country_form.addEventListener('submit', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 
@@ -118,10 +119,10 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
-        this.form_container.appendChild(this.form_TOTAL_FORMS);
-        this.form_container.appendChild(this.form_INITIAL_FORMS);
-        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
-        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
+        this.form_management.appendChild(this.form_TOTAL_FORMS);
+        this.form_management.appendChild(this.form_INITIAL_FORMS);
+        this.form_management.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_management.appendChild(this.form_MAX_NUM_FORMS);
     }
 
     CountryManager.prototype.add_country_form = function(prefix){

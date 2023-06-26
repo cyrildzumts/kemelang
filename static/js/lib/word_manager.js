@@ -15,6 +15,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
         this.form = document.getElementById('word-form');
         this.word_form = document.getElementById('word-form');
         this.form_container = document.getElementById('word-form-container');
+        this.form_management = document.getElementById('form-management');
         this.updatable_attrs = ['id','name','for','data-name','data-id','data-error'];
         this.langage_selection_list = Array.from(document.querySelectorAll('.langage-selection'));
         this.span_selected_langage = undefined;
@@ -41,7 +42,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
         let add_form_btn = document.getElementById('add-word-btn');
         let create_country_btn = document.getElementById('create-word-btn');
         if(add_form_btn){
-            add_form_btn.addEventListener('click', function(even){
+            add_form_btn.addEventListener('click', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.add_word_form('word');
@@ -49,7 +50,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
         }
         self.create_managed_word_form(PREFIX);
         if(this.word_form){
-            this.word_form.addEventListener('submit', function(even){
+            this.word_form.addEventListener('submit', function(event){
                 event.stopPropagation();
                 event.preventDefault();
                 self.submit();
@@ -130,10 +131,10 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
                 'name': `${FORM_PREFIX}-${MAX_NUM_FORMS}`
             }
         });
-        this.form_container.appendChild(this.form_TOTAL_FORMS);
-        this.form_container.appendChild(this.form_INITIAL_FORMS);
-        this.form_container.appendChild(this.form_MIN_NUM_FORMS);
-        this.form_container.appendChild(this.form_MAX_NUM_FORMS);
+        this.form_management.appendChild(this.form_TOTAL_FORMS);
+        this.form_management.appendChild(this.form_INITIAL_FORMS);
+        this.form_management.appendChild(this.form_MIN_NUM_FORMS);
+        this.form_management.appendChild(this.form_MAX_NUM_FORMS);
     }
 
     WordManager.prototype.register_modal = function(btn){
