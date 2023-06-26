@@ -6,7 +6,7 @@
 {% block MAIN %}
 <div class="grid">
     <div class="col-m-12 col-8">
-        <div class="grid padding-05">
+        <div class="grid padding">
             <div class="margin-v full">
                 <div class="flex flex-left">
                     <span class="bold">{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}} (<span class="counter">{{country_list.count}}</span>)</span>
@@ -15,9 +15,14 @@
             </div>
             
             <div class="margin-v full">
-                <ul class="grid-list">
+                <div class="filter margin-v flex flex-left">
+                    <input class="js-list-filter search-langages" 
+                            data-target="country-list" data-fields="name slug" type="text"  
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}">
+                </div>
+                <ul id="country-list" class="grid-list list-filter" >
                     {% for country in country_list %}
-                    <li class="margin-b dict-list-entry">
+                    <li class="margin-b dict-list-entry" data-name="{{country.name}}" data-slug="{{country.slug}}">
                         <a href="{{SITE_HOST}}{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
                     </li>
                     {% endfor %}
