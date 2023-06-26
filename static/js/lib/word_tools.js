@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang-local.com"
+    const API_BASE_URL = "https://api.kemelang.com"
 
     function remove_children(tag){
         if(!tag){

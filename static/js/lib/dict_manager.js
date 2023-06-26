@@ -10,7 +10,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     const SELECTION_TYPE_SOURCE = 0;
     const SELECTION_TYPE_TARGET = 1;
     const SELECTION_TYPE_AUTO = 2;
-    const API_BASE_URL = "https://api.kemelang-local.com";
+    const API_BASE_URL = "https://api.kemelang.com";
 
 
     function remove_children(tag){

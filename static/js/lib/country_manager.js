@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "country";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang-local.com"
+    const API_BASE_URL = "https://api.kemelang.com"
 
 
     function CountryManager(){
