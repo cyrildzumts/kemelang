@@ -252,7 +252,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     CountryManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.country_form);
-        let url = "http://api.kemelang-local.com/create-country/";
+        let url = `${API_BASE_URL}/create-country/`;
         let option = {
             type:'POST',
             dataType: 'json',
