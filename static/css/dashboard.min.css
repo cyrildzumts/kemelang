@@ -6649,6 +6649,6 @@ option:checked{
     grid-template-rows:repeat(10, 1fr);
     grid-template-columns: repeat(6,1fr);
     column-gap: 2px;
-    column-count: 6;
+    column-count: 3;
   }
 }
