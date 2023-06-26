@@ -41,7 +41,7 @@ def create_mass_country(data):
         #result = {'success' : True, 'message': f'Created countries'}
         result = {'success' : True, 'message': f'Created {len(countries)} countries'}
     else:
-        logger.warning(f"Country form is invalid - Error : {formset.errors} - Non Fields Errors : {formset.non_form_errors} - Data {data}")
+        logger.warning(f"Country form is invalid - Error : {formset.errors} - Non Fields Errors : {formset.non_form_errors}")
         result = {'success': False, 'message': formset.errors}
     return result
 
@@ -55,7 +55,7 @@ def create_mass_langage(data):
         logger.info(f"Langage Formset created.")
         result = {'success' : True, 'message': f'Created {len(langages)} langages'}
     else:
-        logger.warning(f"Language form is invalid : {formset.errors} - Non Fields Errors : {formset.non_form_errors} - Data {data}")
+        logger.warning(f"Language form is invalid : {formset.errors} - Non Fields Errors : {formset.non_form_errors}")
         result = {'success': False, 'message': formset.errors}
     return result
 
@@ -70,7 +70,7 @@ def create_mass_word(data):
         logger.info(f"Word Formset created.")
         result = {'success' : True, 'message': f'Created {len(words)} words'}
     else:
-        logger.warn(f"Word not created : Errors : {formset.errors} - Non Fields Errors : {formset.non_form_errors} - data : {data}")
+        logger.warn(f"Word not created : Errors : {formset.errors} - Non Fields Errors : {formset.non_form_errors}")
         result = {'success': False, 'message': formset.errors}
     return result
 
@@ -84,7 +84,7 @@ def create_mass_translation(data):
         logger.info(f"Word Formset created.")
         result = {'success' : True, 'message': f'Translated {len(translations)} words'}
     else:
-        logger.warn(f"Translation not created : Errors : {formset.errors} - data : {data}")
+        logger.warn(f"Translation not created : Errors : {formset.errors} - Non Fields Errors : {formset.non_form_errors}")
         result = {'success': False, 'message': formset.errors}
     return result
 
