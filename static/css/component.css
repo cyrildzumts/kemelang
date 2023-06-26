@@ -97,9 +97,12 @@
   
   .filter{
 	  position: relative;
-	  background-color: var(--filter-background-color);
 	  color: var(--filter-color);
 	  /*font-size: 0.875em;*/
+  }
+
+  .filter-content .hidden{
+	display: none !important;
   }
   
   .product-filter, .content-filter{

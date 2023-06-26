@@ -39,7 +39,7 @@
                                     data-target="langage-list" data-fields="name slug" type="text"  
                                     placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                         </div>
-                        <ul id="langage-list" class="grid-list">
+                        <ul id="langage-list" class="grid-list filter-content">
                             {% for langage in langage_list %}
                             <li class="margin-b dict-list-entry" data-name="{{langage.name}}" data-slug="{{langage.slug}}">
                                 <a title="{{UI_STRINGS_CONTEXT.UI_OPEN_BTN_LABEL}}" href="{{langage.get_absolute_url}}"><span class="word-type">{{langage}}</span></a>

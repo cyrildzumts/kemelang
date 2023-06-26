@@ -41,7 +41,7 @@
                                     data-target="country-list" data-fields="name slug" type="text"  
                                     placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                         </div>
-                        <ul id="country-list" class="grid-list">
+                        <ul id="country-list" class="grid-list filter-content">
                             {% for country in country_list %}
                             <li class="margin-b dict-list-entry" data-name="{{country.name}}" data-slug="{{country.slug}}">
                                 <a href="{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
@@ -65,7 +65,7 @@
                                     data-target="word-list" data-fields="word type" type="text"  
                                     placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                         </div>
-                        <ul id="word-list" class="grid-list">
+                        <ul id="word-list" class="grid-list filter-content">
                             {% for word in word_list %}
                             <li class="margin-b dict-list-entry" data-word="{{word.word}}" data-type="{{word.word_type|word_type}}">
                                 <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}({{word.word_type|word_type}})</span></a>

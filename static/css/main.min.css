@@ -724,9 +724,11 @@ ul li{
   
   .filter{
 	  position: relative;
-	  background-color: var(--filter-background-color);
 	  color: var(--filter-color);
 	  
+  }
+  .filter-content .hidden{
+	display: none !important;
   }
   
   .product-filter, .content-filter{

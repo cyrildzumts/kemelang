@@ -11,6 +11,6 @@
     "start_url": "/?pinned_site=android",
     "background_color": "#EFF3F2",
     "display": "standalone",
-    "theme_color": "#EFF3F2",
+    "theme_color": "#E7EFEE",
     "description": "Dictionnaire de langues Africaines"
 }
