@@ -21,7 +21,7 @@
                 <span id="close-country-dialog" class="js-close-modal" title="{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}" data-target="country-selector-dialog"><i class="fas fa-times-circle"></i></span>
             </div>
             <div class="modal-content">
-                <div id="country-list" class="grid padding">
+                <div id="country-list" class="grid padding filter-content">
                 {% for country in country_list %}
                     <div class="country-select country-selection" data-id="{{country.pk}}" data-name="{{country.name}}" data-uuid="{{country.country_uuid}}"><span class="padding">{{country.name}}</span></div>
                 {% endfor %}

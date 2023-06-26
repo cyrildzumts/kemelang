@@ -1,8 +1,8 @@
 {% load i18n %}
 
 
-<div class="mat-box full">
-    <div class="grid">
+<div class="full">
+    <div id="langage-list" class="grid padding filter-content">
     {% for langage in langage_list %}
         <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-slug="{{langage.slug}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
     {% endfor %}
