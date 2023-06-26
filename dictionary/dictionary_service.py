@@ -41,6 +41,7 @@ def create_mass_country(data):
         #result = {'success' : True, 'message': f'Created countries'}
         result = {'success' : True, 'message': f'Created {len(countries)} countries'}
     else:
+        logger.warning(f"Country form is invalid : {formset.errors} - Data {data}")
         result = {'success': False, 'message': formset.errors}
     return result
 
@@ -54,6 +55,7 @@ def create_mass_langage(data):
         logger.info(f"Langage Formset created.")
         result = {'success' : True, 'message': f'Created {len(langages)} langages'}
     else:
+        logger.warning(f"Language form is invalid : {formset.errors} - Data {data}")
         result = {'success': False, 'message': formset.errors}
     return result
 
