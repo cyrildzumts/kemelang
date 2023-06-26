@@ -3,6 +3,7 @@
 
 <div class="grid">
     <form id="langage-form" class="langage-form" name="langage" action="{% url 'dictionary:langage-create' %}" method="POST">{% csrf_token %}
+        <div id="form-management" class="hidden"></div>
         <div id="langage-form-container" class="create-form grid">  
         </div>
         <div class="actions">

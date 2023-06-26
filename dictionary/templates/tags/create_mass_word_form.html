@@ -3,6 +3,7 @@
 
 <div class="grid">
     <form id="word-form" class="word-form" name="word" action="{% url 'dictionary:word-create' %}" method="POST">{% csrf_token %}
+        <div id="form-management" class="hidden"></div>
         <div id="word-form-container" class="create-form grid" data-types="{{WORD_TYPES_JSON}}">  
         </div>
         <div class="actions">
