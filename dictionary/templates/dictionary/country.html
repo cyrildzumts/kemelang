@@ -34,9 +34,14 @@
                         <a class="mat-button" href="{% url 'dictionary:langage-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_LANGAGE_ACTION_ADD}}</span></a>
                     </div>
                     <div class="padding-v full">
+                        <div class="margin-v flex flex-left full">
+                            <input class="js-list-filter search-langages full" 
+                                    data-target="country-list" data-fields="name slug" type="text"  
+                                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                        </div>
                         <ul class="grid-list">
                             {% for langage in langage_list %}
-                            <li class="margin-b dict-list-entry">
+                            <li class="margin-b dict-list-entry" data-name="{{langage.name}}" data-slug="{{langage.slug}}">
                                 <a title="{{UI_STRINGS_CONTEXT.UI_OPEN_BTN_LABEL}}" href="{{langage.get_absolute_url}}"><span class="word-type">{{langage}}</span></a>
                             </li>
                             {% empty %}

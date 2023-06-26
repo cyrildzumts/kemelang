@@ -15,14 +15,6 @@
                 <a title="{{UI_STRINGS_CONTEXT.UI_UPDATE_BTN_LABEL}}" href="{% url LANGAGE_UPDATE_URL langage.slug langage.langage_uuid %}" class="margin-l"><i class="fas fa-edit"></i></a>
             </div>
             <div class="flex full">
-                {% comment %}
-                    <div id="tabs" class="tabs flex flex-center" data-current="1">
-                        <div class="col-m-4 col-4"><div class="tab active" data-parent="tabs" data-index="1" data-target="langage-description"><span>{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></div></div>
-                        <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="2" data-target="langage-countries"><span>{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></div></div>
-                        <div class="col-m-4 col-4"><div class="tab" data-parent="tabs" data-index="3" data-target="langage-vocabulary"><span>{{UI_STRINGS_CONTEXT.LABEL_VOCABULARY}}</span></div></div>
-                        
-                    </div>
-                {% endcomment %}
 
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="tab active" data-parent="tabs" data-index="1" data-target="langage-description"><span>{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></div>
@@ -44,9 +36,14 @@
                         <span class="bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></span>
                     </div>
                     <div class="padding-v full">
+                        <div class="margin-v flex flex-left full">
+                            <input class="js-list-filter search-langages full" 
+                                    data-target="country-list" data-fields="name slug" type="text"  
+                                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                        </div>
                         <ul class="grid-list">
                             {% for country in country_list %}
-                            <li class="margin-b dict-list-entry">
+                            <li class="margin-b dict-list-entry" data-name="{{country.name}}" data-slug="{{country.slug}}">
                                 <a href="{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
                             </li>
                             {% empty %}
@@ -63,9 +60,14 @@
                         <a class="mat-button" href="{% url 'dictionary:word-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_WORD_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_WORD_ACTION_ADD}}</span></a>
                     </div>
                     <div class="padding-v full">
+                        <div class="margin-v flex flex-left full">
+                            <input class="js-list-filter search-langages full" 
+                                    data-target="country-list" data-fields="word type" type="text"  
+                                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                        </div>
                         <ul class="grid-list">
                             {% for word in word_list %}
-                            <li class="margin-b dict-list-entry">
+                            <li class="margin-b dict-list-entry" data-word="{{word.word}}" data-type="{{word.word_type|word_type}}">
                                 <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}</span></a>
                             </li>
                             {% empty %}

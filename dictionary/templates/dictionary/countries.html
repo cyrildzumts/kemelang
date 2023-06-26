@@ -15,10 +15,10 @@
             </div>
             
             <div class="margin-v full">
-                <div class="filter margin-v flex flex-left">
-                    <input class="js-list-filter search-langages" 
+                <div class="margin-v flex flex-left full">
+                    <input class="js-list-filter search-langages full" 
                             data-target="country-list" data-fields="name slug" type="text"  
-                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}">
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                 </div>
                 <ul id="country-list" class="grid-list list-filter" >
                     {% for country in country_list %}

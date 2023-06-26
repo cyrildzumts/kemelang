@@ -1613,8 +1613,8 @@ ul li{
 	  
 	  outline: 0;
   
-	  padding: 1rem;
-	  border-radius: 4px;
+	  padding: 0.5rem;
+	  border-radius: 5px;
   }
   
   input:not([type="hidden"]) + label, input:not([type="hidden"]) + span{
@@ -1637,7 +1637,7 @@ ul li{
   
   button, input, select, textarea{
 	  margin: 0;
-	  padding: 1em;
+	  padding: 0.5em;
 	  border: 2px solid #ccc;
 	  vertical-align: baseline;
   }
