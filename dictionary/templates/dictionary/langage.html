@@ -36,11 +36,13 @@
                         <span class="bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.LABEL_COUNTRY_PLURAL}}</span></span>
                     </div>
                     <div class="padding-v full">
+                        {% if country_list %}
                         <div class="margin-v flex flex-left full">
                             <input class="js-list-filter search-langages full" 
-                                    data-target="country-list" data-fields="name slug" type="text"  
-                                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                            data-target="country-list" data-fields="name slug" type="text"  
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                         </div>
+                        {% endif %}
                         <ul id="country-list" class="grid-list filter-content">
                             {% for country in country_list %}
                             <li class="margin-b dict-list-entry" data-name="{{country.name}}" data-slug="{{country.slug}}">
@@ -60,11 +62,13 @@
                         <a class="mat-button" href="{% url 'dictionary:word-create' %}" title="{{UI_STRINGS_CONTEXT.LABEL_WORD_ACTION_ADD}}"><i class="fas fa-plus"></i><span>{{UI_STRINGS_CONTEXT.LABEL_WORD_ACTION_ADD}}</span></a>
                     </div>
                     <div class="padding-v full">
+                        {% if word_list %}
                         <div class="margin-v flex flex-left full">
                             <input class="js-list-filter search-langages full" 
-                                    data-target="word-list" data-fields="word type" type="text"  
-                                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                            data-target="word-list" data-fields="word type" type="text"  
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
                         </div>
+                        {% endif %}
                         <ul id="word-list" class="grid-list filter-content">
                             {% for word in word_list %}
                             <li class="margin-b dict-list-entry" data-word="{{word.word}}" data-type="{{word.word_type|word_type}}">
