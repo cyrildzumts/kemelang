@@ -70,7 +70,7 @@ LABEL_DASHBOARD = _('Dashboard')
 LABEL_TRANSLATOR = _('Translator')
 LABEL_SETTINGS = _('Settings')
 LABEL_SETTINGS_ACTION_ADD = _('Add Settings')
-LABEL_FILTER_INPUT = _('Type to filter ...')
+LABEL_FILTER_INPUT = _('Search ...')
 
 DASHBOARD_INFOS_TITLE                 = _('Infos')
 DASHBOARD_INFO_TITLE                  = _('Info')

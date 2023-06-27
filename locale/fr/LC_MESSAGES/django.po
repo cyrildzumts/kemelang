@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-26 22:20+0200\n"
+"POT-Creation-Date: 2023-06-27 13:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -247,8 +247,8 @@ msgid "Add Settings"
 msgstr "Ajouter un Parametre"
 
 #: core/resources/ui_strings.py:73
-msgid "Type to filter ..."
-msgstr "Écrivez pour filtrer"
+msgid "Search ..."
+msgstr "Recherche ..."
 
 #: core/resources/ui_strings.py:75
 #: dashboard/templates/dashboard/news_create.html:4
@@ -469,7 +469,7 @@ msgid "Campaign Image"
 msgstr "Image de Campagne"
 
 #: core/resources/ui_strings.py:139
-#: dictionary/templates/tags/create_mass_translation_form.html:10
+#: dictionary/templates/tags/create_mass_translation_form.html:11
 msgid "Add"
 msgstr "Ajouter"
 
