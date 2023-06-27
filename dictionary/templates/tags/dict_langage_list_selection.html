@@ -10,7 +10,7 @@
     {% for langage in langage_list %}
         <div class="dict-langage-select dict-langage-selection" data-id="{{langage.pk}}" data-slug="{{langage.slug}}" data-name="{{langage.name}}" data-uuid="{{langage.langage_uuid}}"><i class="fas fa-check"></i><span>{{langage.name}}</span></div>
     {% empty %}
-        <div id="no-results" class="dict-langage-selection-no-results hidden"><span>{{UI_STRINGS_CONTEXT.UI_NO_RESULT}}</span></div>
+        <div id="no-results" class="dict-langage-selection-no-results"><span>{{UI_STRINGS_CONTEXT.UI_NO_RESULT}}</span></div>
         {% comment %}
             <div class="padding"><span class="word-type">{{UI_STRINGS_CONTEXT.LABEL_NO_LANGAGE}}</span></div>
         {% endcomment %}
