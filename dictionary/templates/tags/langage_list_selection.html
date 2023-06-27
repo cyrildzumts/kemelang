@@ -5,6 +5,8 @@
     <div id="langage-list" class="grid padding filter-content">
     {% for langage in langage_list %}
         <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-slug="{{langage.slug}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
+    {% empty %}
+    <div class="padding"><span class="word-type">{{UI_STRINGS_CONTEXT.LABEL_NO_LANGAGE}}</span></div>
     {% endfor %}
     </div>
 </div>
