@@ -71,6 +71,7 @@ LABEL_TRANSLATOR = _('Translator')
 LABEL_SETTINGS = _('Settings')
 LABEL_SETTINGS_ACTION_ADD = _('Add Settings')
 LABEL_FILTER_INPUT = _('Search ...')
+LABEL_RESOURCE_LOCKED = _('You can not update this resource now. A User is currently updating this resource. Please try again later')
 
 DASHBOARD_INFOS_TITLE                 = _('Infos')
 DASHBOARD_INFO_TITLE                  = _('Info')
@@ -287,5 +288,6 @@ UI_STRINGS_CONTEXT = {
     'LABEL_SETTINGS': LABEL_SETTINGS,
     'LABEL_SETTINGS_ACTION_ADD': LABEL_SETTINGS_ACTION_ADD,
     'LABEL_FILTER_INPUT': LABEL_FILTER_INPUT,
+    'LABEL_RESOURCE_LOCKED': LABEL_RESOURCE_LOCKED
     
 }

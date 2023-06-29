@@ -138,6 +138,8 @@ def create_definition(data):
 
 
 def update_country(country, data):
+    result = core_service.update_instance(Country,country, data)
+    Country.objects.filter(pk=country.pk).update(editing=False, start_editing_at=None, editing_token=None)
     return core_service.update_instance(Country,country, data)
 
 def update_langage(langage, data):

@@ -7,7 +7,9 @@ from dictionary.models import Comment, Country, Definition, Langage, Word, Trans
 from dictionary import constants as DICT_CONSTANTS
 from dictionary import dictionary_service
 from core import renderers
+from core.resources import ui_strings as CORE_UI_STRINGS
 from django.contrib import messages
+from django.utils import timezone
 import logging
 import json
 
@@ -187,18 +189,38 @@ def update_country(request, country_slug, country_uuid):
     context = {
         'page_title': "Update Country",
         'country': country,
+        'RESOURCE': {
+            'type': DICT_CONSTANTS.RESOURCE_TYPE_COUNTRY,
+            'name': 'County',
+            'idle': DICT_CONSTANTS.RESOURCE_EDIT_MAX_IDLE,
+        }
     }
+    
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
-            country = dictionary_service.update_country(country, data)
-            return redirect(country)
+            if (country.editing and country.editing_token == data.get('editing_token')) or not country.editing:
+                country = dictionary_service.update_country(country, data)
+                return redirect(country)
+            else:
+                context['is_resource_holder'] = False
+                messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
         except Exception as e:
             msg = f"Error on updating Country {country.name} : {e}"
             messages.warning(request, msg)
+            Country.objects.filter(pk=country.pk).update(editing=True, start_editing_at=timezone.now())
             logger.warn(msg)
     else:
-        pass
+        if not country.editing:
+            editing_token = utils.get_random_ref()
+            Country.objects.filter(pk=country.pk).update(editing=True, start_editing_at=timezone.now(), editing_token=editing_token)
+            country.refresh_from_db()
+            context['is_resource_holder'] = True
+            context['editing_token'] = editing_token
+        else:
+            context['is_resource_holder'] = False
+            messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
+    
     context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
     return render(request, template_name, context)
 
