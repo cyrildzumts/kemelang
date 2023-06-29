@@ -32,7 +32,7 @@ def dashboard(request):
             'user_list': recent_users,
             'setting': dashboard_service.get_setting()
         }
-
+    context.update(dashboard_service.create_resources_opened())
     logger.info(f"Authorized Access : User {username} has requested the Dashboard Page")
 
     return render(request, template_name, context)

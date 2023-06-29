@@ -1,5 +1,6 @@
 from dashboard.models import Settings
 from dashboard.forms import SettingsForm
+from dictionary.models import Word, Country, Langage
 from core import service
 import logging
 
@@ -41,3 +42,11 @@ def can_access_on_maintenance(user):
     maintenance_mode_active = setting is None or setting.maintenance_mode is None or setting.maintenance_mode
     is_superuser = user.is_superuser or user.is_staff
     return is_superuser or not maintenance_mode_active
+
+
+def create_resources_opened():
+    return {
+        'editing_word_list': Word.objects.none(),
+        'editing_langage_list': Langage.objects.filter(editing=True),
+        'editing_country_list': Country.objects.none()
+    }

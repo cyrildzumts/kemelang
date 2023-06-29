@@ -1,0 +1,41 @@
+{% load i18n %}
+
+<div class="activity">
+    <div class="margin-v padding"><span>{% translate "Resources currently opened for Editing" %}</span></div>
+    {% if editing_word_list %}
+    <div class="mat-box">
+        <div class="margin-v padding"><span>{% translate "Words currently opened for Editing" %}</span></div>
+        {% for word in editing_word_list %}
+        <div class="status-entry-wrapper">
+            <div class="status-entry">
+                <span>{word.word}</span><span><i class="fas fa-business-time"></i><span>{{word.start_editing_at}}</span></span>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if editing_langage_list %}
+    <div class="mat-box">
+        <div class="margin-v padding"><span>{% translate "Langages currently opened for Editing" %}</span></div>
+        {% for langage in editing_langage_list %}
+        <div class="status-entry-wrapper">
+            <div class="status-entry">
+                <span>{langage.name} - {{langage.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{langage.start_editing_at}}</span></span>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if editing_country_list %}
+    <div class="mat-box">
+        <div class="margin-v padding"><span>{% translate "Countries currently opened for Editing" %}</span></div>
+        {% for country in editing_country_list %}
+        <div class="status-entry-wrapper">
+            <div class="status-entry">
+                <span>{country.name} - {{country.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{country.start_editing_at}}</span></span>
+            </div>
+        </div> 
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
