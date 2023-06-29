@@ -253,19 +253,38 @@ def update_langage(request, langage_slug, langage_uuid):
         'page_title': "Update Langage",
         'langage': langage,
         'country_list': dictionary_service.get_countries().exclude(langages__pk=langage.pk),
+        'RESOURCE': {
+            'type': DICT_CONSTANTS.RESOURCE_TYPE_COUNTRY,
+            'name': 'County',
+            'idle': DICT_CONSTANTS.RESOURCE_EDIT_MAX_IDLE,
+        }
     }
     logger.info(f"langage update : {langage} - Description : {langage.description}")
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
-            langage = dictionary_service.update_langage(langage, data)
-            return redirect(langage)
+            if (langage.editing and langage.editing_token == data.get('editing_token')) or not langage.editing:
+                langage = dictionary_service.update_langage(langage, data)
+                return redirect(langage)
+            else:
+                context['is_resource_holder'] = False
+                messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
         except Exception as e:
-            msg = f"Error on updating Langage {langage.name} : {e}"
+            msg = f"Error on updating Country {langage.name} : {e}"
             messages.warning(request, msg)
+            Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now())
             logger.warn(msg)
     else:
-        pass
+        if not langage.editing:
+            editing_token = utils.get_random_ref()
+            Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now(), editing_token=editing_token)
+            langage.refresh_from_db()
+            context['is_resource_holder'] = True
+            context['editing_token'] = editing_token
+        else:
+            context['is_resource_holder'] = False
+            messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
+            
     context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     return render(request, template_name, context)
 
