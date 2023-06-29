@@ -8,7 +8,7 @@
         {% for word in editing_word_list %}
         <div class="status-entry-wrapper">
             <div class="status-entry">
-                <span>{word.word}</span><span><i class="fas fa-business-time"></i><span>{{word.start_editing_at}}</span></span>
+                <span>{{word.word}}</span><span><i class="fas fa-business-time"></i><span>{{word.start_editing_at}}</span></span>
             </div>
         </div> 
         {% endfor %}
@@ -20,7 +20,7 @@
         {% for langage in editing_langage_list %}
         <div class="status-entry-wrapper">
             <div class="status-entry">
-                <span>{langage.name} - {{langage.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{langage.start_editing_at}}</span></span>
+                <span>{{langage.name}} - {{langage.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{langage.start_editing_at}}</span></span>
             </div>
         </div> 
         {% endfor %}
@@ -32,7 +32,7 @@
         {% for country in editing_country_list %}
         <div class="status-entry-wrapper">
             <div class="status-entry">
-                <span>{country.name} - {{country.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{country.start_editing_at}}</span></span>
+                <span>{{country.name}} - {{country.editing_token}}</span><span><i class="fas fa-business-time"></i><span>{{country.start_editing_at}}</span></span>
             </div>
         </div> 
         {% endfor %}
