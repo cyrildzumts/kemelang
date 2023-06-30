@@ -329,30 +329,35 @@ def search_words(search_query):
     logger.info(f"Search word : {search_query}")
     CAST_DEFINITION = Cast('description', output_field=TextField())
     WORD_VECTOR = SearchVector('word', weight='A')
+    DEFINITION_VECTOR = SearchVector('definition', weight='A')
     DESCRIPTION_VECTOR = SearchVector(CAST_DEFINITION, weight='A')
-    DB_VECTOR = WORD_VECTOR + DESCRIPTION_VECTOR
+    DB_VECTOR = WORD_VECTOR + DESCRIPTION_VECTOR + DEFINITION_VECTOR
     DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH)
     #TRIGRAM_SIMILARITY = TrigramSimilarity('word', search_query)
     TRIGRAM_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
     #####
     TRIGRAM_FIELD_WORD_SIMILARITY = TrigramSimilarity('word', search_query)
+    TRIGRAM_FIELD_DEFINITION_SIMILARITY = TrigramSimilarity('definition', search_query)
     TRIGRAM_FIELD_DESCRIPTION_SIMILARITY = TrigramSimilarity(CAST_DEFINITION, search_query)
     #####
     #TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramWordSimilarity(search_query, 'word')
     #TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramWordSimilarity(search_query, CAST_DEFINITION)
     
     TRIGRAMWORD_FIELD_WORD_SIMILARITY = TrigramStrictWordSimilarity(search_query, 'word')
+    TRIGRAMWORD_FIELD_DEFINITION_SIMILARITY = TrigramStrictWordSimilarity(search_query, 'definition')
     TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY = TrigramStrictWordSimilarity(search_query, CAST_DEFINITION)
     #####
     TRIGRAM_FIELD_WORD_DISTANCE = TrigramDistance('word', search_query)
+    TRIGRAM_FIELD_DEFINITION_DISTANCE = TrigramDistance('definition', search_query)
     TRIGRAM_FIELD_DESCRIPTION_DISTANCE = TrigramDistance(CAST_DEFINITION, search_query)
     TRIGRAM_DISTANCE = TrigramDistance('word', search_query)
     TRIGRAMWORD_FIELD_WORD_DISTANCE = TrigramWordDistance(search_query, 'word')
+    TRIGRAMWORD_FIELD_DEFINITION_DISTANCE = TrigramWordDistance(search_query, 'definition')
     TRIGRAMWORD_FIELD_DESCRIPTION_DISTANCE = TrigramWordDistance(search_query, CAST_DEFINITION)
     RANK_FILTER = Q(rank__gt=Constants.SEARCH_RANK_FILTER)
     #TRIGRAM_SIMILARITY_FILTER = Q(similarity_word__gt=Constants.SEARCH_SIMILARITY_FILTER) | Q(similarity_description__gt=Constants.SEARCH_SIMILARITY_FILTER)
-    TRIGRAM_WORD_SIMILARITY_FILTER = Q(word_similarity_word__gt=Constants.SEARCH_SIMILARITY_FILTER) | Q(word_similarity_description__gt=Constants.SEARCH_SIMILARITY_FILTER)
-    TRIGRAM_DISTANCE_FILTER = Q(word_distance_word__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER) | Q(word_distance_description__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
+    TRIGRAM_WORD_SIMILARITY_FILTER = Q(word_similarity_word__gt=Constants.SEARCH_SIMILARITY_FILTER) | Q(word_similarity_definition__gt=Constants.SEARCH_SIMILARITY_FILTER) | Q(word_similarity_description__gt=Constants.SEARCH_SIMILARITY_FILTER)
+    TRIGRAM_DISTANCE_FILTER = Q(word_distance_word__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER) | Q(word_distance_definition__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER) | Q(word_distance_description__lt=Constants.SEARCH_TRIGRAM_DISTANCE_FILTER)
     SEARCH_FILTER = RANK_FILTER | TRIGRAM_WORD_SIMILARITY_FILTER | TRIGRAM_DISTANCE_FILTER 
     ORDER_BY = ['-rank']
     found_words = set()
@@ -360,13 +365,18 @@ def search_words(search_query):
         rank=SearchRank(DB_VECTOR, DB_QUERY),
         rank_word=SearchRank(WORD_VECTOR, DB_QUERY),
         rank_descr=SearchRank(DESCRIPTION_VECTOR, DB_QUERY), 
+        rank_def=SearchRank(DEFINITION_VECTOR, DB_QUERY),
         similarity_word=TRIGRAM_FIELD_WORD_SIMILARITY,
         similarity_description=TRIGRAM_FIELD_DESCRIPTION_SIMILARITY,
+        similarity_definition=TRIGRAM_FIELD_DEFINITION_SIMILARITY,
         word_similarity_word=TRIGRAMWORD_FIELD_WORD_SIMILARITY,
+        word_similarity_definition=TRIGRAMWORD_FIELD_DEFINITION_SIMILARITY,
         word_similarity_description=TRIGRAMWORD_FIELD_DESCRIPTION_SIMILARITY,
         distance_word=TRIGRAM_FIELD_WORD_DISTANCE,
         distance_description=TRIGRAM_FIELD_DESCRIPTION_DISTANCE,
+        distance_definition=TRIGRAM_FIELD_DEFINITION_DISTANCE,
         word_distance_word=TRIGRAMWORD_FIELD_WORD_DISTANCE,
+        word_distance_definition=TRIGRAMWORD_FIELD_DEFINITION_DISTANCE,
         word_distance_description=TRIGRAMWORD_FIELD_DESCRIPTION_DISTANCE
     ).filter(SEARCH_FILTER).order_by(*ORDER_BY)
 

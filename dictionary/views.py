@@ -263,27 +263,27 @@ def update_langage(request, langage_slug, langage_uuid):
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
-            if (langage.editing and langage.editing_token == data.get('editing_token')) or not langage.editing:
+            #if (langage.editing and langage.editing_token == data.get('editing_token')) or not langage.editing:
                 langage = dictionary_service.update_langage(langage, data)
                 return redirect(langage)
-            else:
-                context['is_resource_holder'] = False
-                messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
+            #else:
+            #    context['is_resource_holder'] = False
+            #   messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
         except Exception as e:
             msg = f"Error on updating Country {langage.name} : {e}"
             messages.warning(request, msg)
-            Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now())
+            #Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now())
             logger.warn(msg)
-    else:
-        if not langage.editing:
-            editing_token = utils.get_random_ref()
-            Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now(), editing_token=editing_token)
-            langage.refresh_from_db()
-            context['is_resource_holder'] = True
-            context['editing_token'] = editing_token
-        else:
-            context['is_resource_holder'] = False
-            messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
+    #else:
+        # if not langage.editing:
+        #     editing_token = utils.get_random_ref()
+        #     Langage.objects.filter(pk=langage.pk).update(editing=True, start_editing_at=timezone.now(), editing_token=editing_token)
+        #     langage.refresh_from_db()
+        #     context['is_resource_holder'] = True
+        #     context['editing_token'] = editing_token
+        # else:
+        #     context['is_resource_holder'] = False
+        #     messages.warning(request, CORE_UI_STRINGS.LABEL_RESOURCE_LOCKED)
             
     context.update(DICT_CONSTANTS.DICTIONARY_URL_LANGAGE_CONTEXT)
     return render(request, template_name, context)

@@ -144,6 +144,7 @@ class Word(models.Model):
     synonymes = models.ManyToManyField('self', blank=True)
     translations = models.ManyToManyField('self', blank=True)
     langage = models.ForeignKey(Langage, on_delete=models.CASCADE, related_name='words')
+    definition = models.CharField(max_length=constants.WORD_DEFINITION_MAX_LENGTH)
     description = models.JSONField(blank=True, null=True)
     view_count = models.IntegerField(default=0)
     word_type = models.IntegerField(default=constants.WORD_TYPE_NOUN, choices=constants.WORD_TYPES, blank=True, null=True)

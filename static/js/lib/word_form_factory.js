@@ -67,6 +67,16 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'placeholder': 'Enter transliteration'
 
         }});
+        let definition = create_tag({'element': 'input', 'options':{
+            'id': `id-${form_prefix}-${form_index}-definition`,
+            'name': `${form_prefix}-${form_index}-definition`,
+            'data-error': `${id}-definition-error`,
+            'data-lang': '',
+            'cls': 'managed-update',
+            'type':'text',
+            'placeholder': 'Enter definition'
+
+        }});
         let word_error = create_tag({'element': 'span', 'options':{'id': `${id}-word-error` ,'cls': 'managaed-update small hidden','innerText': 'word already exists'}})
         let label_word = create_tag({'element': 'label', 'options': {
             'innerText': 'Word',
@@ -78,14 +88,19 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'cls': 'managed-update force-hidden',
             'htmlFor': transliteration.id
         }});
+        let label_definition = create_tag({'element': 'label', 'options': {
+            'innerText': 'Definition',
+            'cls': 'managed-update force-hidden',
+            'htmlFor': definition.id
+        }});
         
         let form_group_name = create_tag({'element': 'div', 'options': {
             'cls': 'form-group',
-            'children': [label_word, word_error, word, label_transliteration, transliteration]
+            'children': [label_word, word_error, word, label_definition, definition, label_transliteration, transliteration]
         }});
         let label_word_type = create_tag({'element': 'span', 'options': {
             'innerText': 'Word Type :',
-            'cls': 'margin-r',
+            'cls': 'margin-r margin-b full',
         }});
 
         let word_types = [label_word_type];

@@ -102,7 +102,7 @@ define([], function(){
             };
         })
         .catch((err)=>{
-            console.err(`Error on getUserMedia : ${err}`);
+            console.error(`Error on getUserMedia : ${err}`);
         });
         return true;
     };
