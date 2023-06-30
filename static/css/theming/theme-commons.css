@@ -981,7 +981,7 @@ option:checked{
 
 
 .keyboard{
-    box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
+    /*box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;*/
     background-color: rgb(26, 26, 26);
 }
 

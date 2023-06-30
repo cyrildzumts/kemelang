@@ -4098,7 +4098,7 @@
     align-items: center;
 	justify-content: center;
     border-radius: 10px;
-	overflow: auto;
+	/*overflow: auto;*/
 }
 .keyboard-btn{
 	margin: 0 0.5em;
@@ -4117,8 +4117,10 @@
 .keyboard button{
     width: 30px;
     height: 30px;
-	min-width: 0 !important;
-	min-height: 0 !important;
+	min-width: 30px !important;
+	min-height: 30px !important;
+	max-width: 30px !important;
+	max-height: 30px !important;
     font-weight: bold;
     margin: 0 4px;
     border: none;
@@ -4213,6 +4215,14 @@ inset 2px 2px 4px black;
 
   
   @media only screen and (max-width:50em){
+	.keyboard button{
+		width: 40px;
+		height: 40px;
+		min-width: 40px !important;
+		min-height: 40px !important;
+		max-width: 40px !important;
+		max-height: 40px !important;
+	}
 	.virtual-keyboard{
 		width: 100%;
 	  }
