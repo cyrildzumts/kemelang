@@ -32,6 +32,7 @@ function chunks_of(str, n){
         chunk = str.substring(i, i + n);
         chunks.push(chunk.split(''));
     }
+    return chunks;
 }
 let SPECIAL_CHARACTERS_LOWER = "āǎαʌɓτçɗɖðēeɛɛ̄ǝẹƒɠɣɦɩɟƙλɴŋɲñn̄ɔọƥɽṣʃƭʈθʉωvʋzʒƹʔ";
 let UPPERCASE_LETTERS;
