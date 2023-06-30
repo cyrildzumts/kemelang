@@ -10,6 +10,30 @@ m 	ɴ 	n 	ŋ 	ɲ 	o 	ɔ 	p 	ƥ 	q 	r 	ɽ 	s 	ʃ 	t
 
 */
 
+const CHUNK_SIZE = 10;
+const GROUPS_SIZE = 4;
+
+function regroup_chunks(chunks, n){
+    let groups = [];
+    for(let i = 0; i < chunks.length; i++){
+        if(i % n === 0){
+            groups.push([chunks[i]]);
+        }else{
+            groups[groups.length - 1].push(chunks[i]);
+        }
+    }
+    return groups;
+}
+
+function chunks_of(str, n){
+    let chunks = [];
+    let chunk = undefined;
+    for(let i = 0, size = str.length; i < size; i += n){
+        chunk = str.substring(i, i + n);
+        chunks.push(chunk.split(''));
+    }
+}
+let SPECIAL_CHARACTERS_LOWER = "āǎαʌɓτçɗɖðēeɛɛ̄ǝẹƒɠɣɦɩɟƙλɴŋɲñn̄ɔọƥɽṣʃƭʈθʉωvʋzʒƹʔ";
 let UPPERCASE_LETTERS;
 const LOWERCASE_LETTERS = [
     ['ɓ','ɖ','ɛ','ǝ','Ǝ','ƒ','ɣ','ŋ','ɔ','ʃ', 'ʋ'],
@@ -22,8 +46,11 @@ UPPERCASE_LETTERS = LOWERCASE_LETTERS.map((row,index) => {
     return row.map(s => s.toUpperCase());
 });
 
+let SPECIAL_CHARACTERS_GROUPS = regroup_chunks(chunks_of(SPECIAL_CHARACTERS_LOWER, CHUNK_SIZE), GROUPS_SIZE);
+
 return {
     'UPPERCASE_LETTERS': UPPERCASE_LETTERS,
-    'LOWERCASE_LETTERS': LOWERCASE_LETTERS
+    'LOWERCASE_LETTERS': LOWERCASE_LETTERS,
+    'SPECIAL_CHARACTERS_GROUPS': SPECIAL_CHARACTERS_GROUPS
 }
 });

@@ -5,6 +5,7 @@ const KEYBOARD_ID = "african-keyboard";
 const KEYS_CONTAINER_ID = "keys";
 let scheduled_query = false;
 let event_registered = false;
+
 // KEYBOARD 3 ROWS
 // 1st ROW : 10 Chars
 // 2nd ROW : 9 Chars
@@ -18,6 +19,9 @@ const AFRICAN_ALPHABET = [
     ['\u0394','\u0398', '\u039B','\u03A0', '\u03A3', '\u03A6','\u03A8','\u03A9'],
 ]
 let AFRICAN_ALPHABET_LIST = ALPHABET.LOWERCASE_LETTERS;
+let LETTER_GROUPS = ALPHABET.SPECIAL_CHARACTERS_GROUPS;
+let current_group = 0;
+let GROUPS_SIZE = LETTER_GROUPS.length;
 $('.js-user-search').on('keyup', function(event){
     event.stopPropagation();
     query = $(this).val().trim();
@@ -40,6 +44,7 @@ function fill_keyboard(already_filled){
     if(!keys_container){
         return;
     }
+    /*
     AFRICAN_ALPHABET_LIST.forEach(function(row, index){
         let row_keys = [];
         row.forEach(function(key){
@@ -55,6 +60,31 @@ function fill_keyboard(already_filled){
         }});
         keys_container.appendChild(div);
     });
+    */
+    LETTER_GROUPS.forEach(function(group, idx){
+        let div_group = TAG_API.create_tag({'element': 'div', 'options': {
+            'cls': `keyboard-group group-${idx + 1} hidden`,
+            'id': `keyboard-group-${idx + 1}`,
+            'data-group': idx,
+        }});
+        group.forEach(function(row, index){
+            let row_keys = [];
+            row.forEach(function(key){
+                let button = TAG_API.create_tag({'element': 'button', 'options': {
+                    'innerText': key
+                }})
+                row_keys.push(button);
+                keys.push(button);
+            });
+            let div = TAG_API.create_tag({'element': 'div', 'options': {
+                'cls': `keyboard-row row${index + 1}`,
+                'children': row_keys
+            }});
+            div_group.appendChild(div);
+        });
+        keys_container.appendChild(div_group);
+    });
+    
     return keys;
 }
 
@@ -114,9 +144,11 @@ function init_keyboard(tag){
     //let keys = document.querySelectorAll(".keyboard button");
 
     let keys = fill_keyboard(event_registered);
+    let keys_container = document.getElementById(KEYS_CONTAINER_ID);
     let content = document.getElementById("ip");
     let cap_lock = document.getElementById("cap-lock");
     let space = document.getElementById("space");
+    let switch_keyboard = document.getElementById("switch-keyboard");
     let backspace = document.getElementById("backspace");
     let keyboard = document.getElementById(tag.dataset.keyboard);
     tag.addEventListener('click', function(event){
@@ -138,6 +170,11 @@ function init_keyboard(tag){
     if(event_registered){
         return;
     }
+    switch_keyboard.addEventListener('click', function(e){
+        keys_container[current_group].classList.toggle('hidden');
+        current_group = current_group % GROUPS_SIZE;
+        keys_container[current_group].classList.toggle('hidden');
+    });
     cap_lock.addEventListener('click', function(e){
         cap_lock.classList.toggle('active');
         if(cap_lock.classList.contains('active')){
@@ -245,7 +282,7 @@ function init_keyboard(tag){
         });
     });
     event_registered = true;
-
+    keys_container[current_group].classList.toggle('hidden');
 
 }
 return {
