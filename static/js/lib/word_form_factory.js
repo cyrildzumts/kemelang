@@ -52,7 +52,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'name': `${form_prefix}-${form_index}-word`,
             'data-error': `${id}-word-error`,
             'data-lang': '',
-            'cls': 'managed-update',
+            'cls': 'managed-update full',
             'type':'text',
             'placeholder': 'Enter word'
 
@@ -62,7 +62,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'name': `${form_prefix}-${form_index}-transliteration`,
             'data-error': `${id}-transliteration-error`,
             'data-lang': '',
-            'cls': 'managed-update',
+            'cls': 'managed-update full',
             'type':'text',
             'placeholder': 'Enter transliteration'
 
@@ -72,7 +72,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
             'name': `${form_prefix}-${form_index}-definition`,
             'data-error': `${id}-definition-error`,
             'data-lang': '',
-            'cls': 'managed-update',
+            'cls': 'managed-update full',
             'type':'text',
             'placeholder': 'Enter definition'
 

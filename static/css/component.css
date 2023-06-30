@@ -4092,7 +4092,7 @@
 
 
 .keyboard{
-    width: 95%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -4124,15 +4124,13 @@
     font-weight: bold;
     margin: 0 4px;
     border: none;
-    background-color: transparent;
-    color:white;
-    box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
     border-radius: 5px;
     cursor: pointer;
 }
 .keyboard button:hover{
 	background-color: transparent;
     color:var(--secondary-color);
+	box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
 }
 
 .row4 , .backspace , .space{

@@ -988,3 +988,8 @@ option:checked{
 .keyboard-btn.active{
 	color: var(--secondary-color);
 }
+
+.keyboard button{
+    background-color: transparent;
+    color:white;
+}
