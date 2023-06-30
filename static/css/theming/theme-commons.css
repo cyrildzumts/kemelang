@@ -971,3 +971,20 @@ option:checked{
 .editor-box-wrapper{
     background-color: #F5F5F5;
 }
+
+
+
+#ip{
+    box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
+    color: white;
+}
+
+
+.keyboard{
+    box-shadow: -3px -3px 5px rgb(63, 63, 63) , 3px 3px 5px black;
+    background-color: rgb(26, 26, 26);
+}
+
+.keyboard-btn.active{
+	color: var(--secondary-color);
+}
