@@ -84,7 +84,6 @@ function fill_keyboard(already_filled){
         });
         keys_container.appendChild(div_group);
     });
-    
     return keys;
 }
 
@@ -282,8 +281,10 @@ function init_keyboard(tag){
         });
     });
     event_registered = true;
-    keys_container[current_group].classList.toggle('hidden');
-
+    if(keys_container.firstChild){
+        keys_container.firstElementChild.classList.toggle('hidden');
+    }
+    
 }
 return {
     "register_keyboard": init_keyboard
