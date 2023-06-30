@@ -4145,7 +4145,7 @@
     color:var(--secondary-color);
     font-weight: bold;
     cursor: pointer;
-	margin: 0.5em 1em;
+	margin: 0.5em;
     /* user-select: none; */
 }
 .backspace , .space, .cap-lock{
@@ -4153,7 +4153,7 @@
     box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
 }
 .keyboard .space{
-    width: 200px;
+    width: 100px;
     height: 30px;
 }
 .keyboard .backspace {
@@ -4162,11 +4162,10 @@
     margin-left: 15px;
 }
 .keyboard .cap-lock {
-    width: 100px;
+    width: 50px;
     height: 30px;
 	font-size: 2em;
 	text-align: center;
-    margin-left: 15px;
 }
 
 .keyboard .active{
@@ -4213,6 +4212,7 @@ inset 2px 2px 4px black;
 
   
   @media only screen and (max-width:50em){
+	/*
 	.keyboard button{
 		width: 40px;
 		height: 40px;
@@ -4220,7 +4220,7 @@ inset 2px 2px 4px black;
 		min-height: 40px !important;
 		max-width: 40px !important;
 		max-height: 40px !important;
-	}
+	}*/
 	.virtual-keyboard{
 		width: 100%;
 	  }
