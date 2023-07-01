@@ -207,7 +207,10 @@ function init_keyboard(tag){
             e.preventDefault();
             e.stopPropagation();
             k.classList.add("active");
-            //content.innerText += k.innerText;
+            content.innerText += k.innerText;
+            if(keyboard.dataset.target){
+                document.getElementById(keyboard.dataset.target).value = content.innerText;
+            }
         });
         k.addEventListener('touchend', function (e) {
             k.classList.remove("active");
@@ -216,6 +219,8 @@ function init_keyboard(tag){
     });
     // SPACE 
     space.addEventListener('mousedown', function(e){
+        e.preventDefault();
+        e.stopPropagation();
         space.classList.add("active");
         content.innerText += "\xa0";
         if(keyboard.dataset.target){
@@ -223,11 +228,19 @@ function init_keyboard(tag){
         }
     });
     space.addEventListener('mouseup', function(e){
+        e.preventDefault();
+        e.stopPropagation();
         space.classList.remove("active");
     });
     // TOUCH Event
     space.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         space.classList.add("active");
+        content.innerText += "\xa0";
+        if(keyboard.dataset.target){
+            document.getElementById(keyboard.dataset.target).value = content.innerText;
+        }
         //content.innerText += k.innerText;
     });
     space.addEventListener('touchend', function (e) {
@@ -235,6 +248,8 @@ function init_keyboard(tag){
     });
     // BACKSPACE
     backspace.addEventListener('mousedown', function(e){
+        e.preventDefault();
+        e.stopPropagation();
         backspace.classList.add("active");
         content.innerText = content.innerText.slice(0, -1);
         if(keyboard.dataset.target){
@@ -246,8 +261,13 @@ function init_keyboard(tag){
     });
     // TOUCH Event
     backspace.addEventListener('touchstart', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
         backspace.classList.add("active");
-        //content.innerText += k.innerText;
+        content.innerText = content.innerText.slice(0, -1);
+        if(keyboard.dataset.target){
+            document.getElementById(keyboard.dataset.target).value = content.innerText;
+        }
     });
     backspace.addEventListener('touchend', function (e) {
         backspace.classList.remove("active");

@@ -4645,6 +4645,7 @@ ul li{
     border: none;
     border-radius: 5px;
     cursor: pointer;
+	box-shadow: -2px -2px 4px rgb(63, 63, 63) , 2px 2px 4px black;
 }
 .keyboard button:hover{
 	background-color: transparent;
