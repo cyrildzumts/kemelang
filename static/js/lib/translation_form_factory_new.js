@@ -17,7 +17,7 @@ define(['tag_api'],function(tag_api) {
         let create_api = tag_api.create_tag;
         let id = `${form_prefix}-${form_index}`;
         let delete_button = create_api({'element': 'span', 'options':{
-            'cls': 'managed-update',
+            'cls': 'managed-update delete-btn',
             'id': id + '-delete-btn',
             'title': 'Delete this Translation',
             'children': [create_api({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]

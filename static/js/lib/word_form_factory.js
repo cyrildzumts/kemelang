@@ -21,7 +21,7 @@ define(['tag_api','keyboard'],function(tag_api, Keyboard) {
         let create_tag = tag_api.create_tag;
         let id = `${form_prefix}-${form_index}`;
         let delete_button = create_tag({'element': 'span', 'options':{
-            'cls': 'managed-update',
+            'cls': 'managed-update delete-btn',
             'id': id + '-delete-btn',
             'title': 'Delete this word',
             'children': [create_tag({'element': 'i', 'options':{'cls': 'fas fa-trash icon'}})]

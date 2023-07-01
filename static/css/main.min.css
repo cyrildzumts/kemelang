@@ -4623,7 +4623,10 @@ ul li{
 	
 }
 .keyboard-btn{
-	margin: 0 0.5em;
+	margin: 0 1em;
+}
+.keyboard-btn i, .delete-btn i{
+	font-size: 1.3rem;
 }
 .keyboard-row{
 	display: flex;
