@@ -257,7 +257,7 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
 
         }});
         let a_tag = tag_api.create_tag({'element': 'a','options': {
-            'cls': 'bold',
+            'cls': 'bold link',
             'href': `${Constants.SITE_HOST}${word.url}`,
             'innerText': 'Details'
 
