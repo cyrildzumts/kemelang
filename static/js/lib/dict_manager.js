@@ -348,7 +348,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
-                this.clear_definitions();
+                self.clear_definitions();
                 if(response.found){
                     self.on_translated(self.dict_text, response.translations);
                     self.on_word_exist(self.dict_text,response.word,response.words);
