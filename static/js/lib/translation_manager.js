@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, tag_api, TranslationFormFactory) {
+define(["ajax_api", 'tag_api', 'translation_form_factory', 'constants'],function(ajax_api, tag_api, TranslationFormFactory, Constants) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "translation";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang.com"
+    const API_BASE_URL = Constants.API_BASE_URL;
 
 
     function TranslationManager(){
@@ -234,7 +234,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
             return;
         }
         let self = this;
-        let url = `${API_BASE_URL}/find-word/?word=${tag.value}&lang=${lang}`;
+        let url = `${Constants.API_BASE_URL}/find-word/?word=${tag.value}&lang=${lang}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -366,7 +366,7 @@ define(["ajax_api", 'tag_api', 'translation_form_factory'],function(ajax_api, ta
     TranslationManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this._form);
-        let url = `${API_BASE_URL}/create-translation/`;
+        let url = `${Constants.API_BASE_URL}/create-translation/`;
         let option = {
             type:'POST',
             dataType: 'json',

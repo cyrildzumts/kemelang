@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, tag_api, DictFactory, Editor_API) {
+define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],function(ajax_api, tag_api, DictFactory, Editor_API, Constants) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -10,7 +10,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     const SELECTION_TYPE_SOURCE = 0;
     const SELECTION_TYPE_TARGET = 1;
     const SELECTION_TYPE_AUTO = 2;
-    const API_BASE_URL = "https://api.kemelang.com";
+    const API_BASE_URL = Constants.API_BASE_URL;
 
 
     function remove_children(tag){
@@ -302,7 +302,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
 
     DictManager.prototype.find_word = function(){
         let self = this;
-        let url = `${API_BASE_URL}/search-word/?word=${self.dict_text.value}`;
+        let url = `${Constants.API_BASE_URL}/search-word/?word=${self.dict_text.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -339,7 +339,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
         }
         console.log(`translate text=${this.dict_text.value} from sl=${sl} to tl=${this.target_langage.slug}`);
         this.last_search = this.dict_text.value;
-        let url = `${API_BASE_URL}/translate/?sl=${sl}&tl=${this.target_langage.slug}&word=${this.dict_text.value}`;
+        let url = `${Constants.API_BASE_URL}/translate/?sl=${sl}&tl=${this.target_langage.slug}&word=${this.dict_text.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -399,7 +399,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api'],function(ajax_api, t
     DictManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.word_form);
-        let url = `${API_BASE_URL}/create-word/`;
+        let url = `${Constants.API_BASE_URL}/create-word/`;
         let option = {
             type:'POST',
             dataType: 'json',

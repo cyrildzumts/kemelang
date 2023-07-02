@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(ajax_api, tag_api, CountryFormFactory, Editor_API) {
+define(["ajax_api", 'tag_api', 'country_form_factory','editor_api', 'constants'],function(ajax_api, tag_api, CountryFormFactory, Editor_API, Constants) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "country";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang.com"
+    const API_BASE_URL = Constants.API_BASE_URL;
 
 
     function CountryManager(){
@@ -184,7 +184,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
 
     CountryManager.prototype.find_country = function(tag){
         let self = this;
-        let url = `${API_BASE_URL}/find-country/?country=${tag.value}`;
+        let url = `${Constants.API_BASE_URL}/find-country/?country=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -253,7 +253,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api'],function(aja
     CountryManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.country_form);
-        let url = `${API_BASE_URL}/create-country/`;
+        let url = `${Constants.API_BASE_URL}/create-country/`;
         let option = {
             type:'POST',
             dataType: 'json',

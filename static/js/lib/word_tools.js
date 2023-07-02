@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_api, Keyboard, Editor_API) {
+define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(ajax_api, tag_api, Keyboard, Editor_API, Constants) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang.com"
+    const API_BASE_URL = Constants.API_BASE_URL;
 
     function remove_children(tag){
         if(!tag){
@@ -128,7 +128,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
         }
         let self = this;
         this.preview_value = tag.value.trim();
-        let url = `${API_BASE_URL}/search-word/?word=${tag.value}`;
+        let url = `${Constants.API_BASE_URL}/search-word/?word=${tag.value}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -203,7 +203,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api'],function(ajax_api, tag_
     WordTools.prototype.submit = function(form){
         let self = this;
         let formData = new FormData(form);
-        let url = `${API_BASE_URL}${form.dataset.endpoint}`;
+        let url = `${Constants.API_BASE_URL}${form.dataset.endpoint}`;
         let option = {
             type:'POST',
             dataType: 'json',

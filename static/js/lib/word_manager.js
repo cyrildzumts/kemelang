@@ -1,4 +1,4 @@
-define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboard'],function(ajax_api, tag_api, WordFormFactory, Editor_API,AudioRecorder, Keyboard) {
+define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboard', 'constants'],function(ajax_api, tag_api, WordFormFactory, Editor_API,AudioRecorder, Keyboard, Constants) {
     'use strict';
     const TOTAL_FORMS   = "TOTAL_FORMS";
     const INITIAL_FORMS = "INITIAL_FORMS";
@@ -7,7 +7,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
     const MAX_SUBMITTED_FORMS = 100;
     const PREFIX = "word";
     const QUERY_DELAY = 800;
-    const API_BASE_URL = "https://api.kemelang.com"
+    const API_BASE_URL = Constants.API_BASE_URL;
 
 
     function WordManager(){
@@ -256,7 +256,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
             return;
         }
         let self = this;
-        let url = `${API_BASE_URL}/find-word/?word=${tag.value}&lang=${lang}`;
+        let url = `${Constants.API_BASE_URL}/find-word/?word=${tag.value}&lang=${lang}`;
         let option = {
             type:'GET',
             dataType: 'json',
@@ -383,7 +383,7 @@ define(["ajax_api", 'tag_api', 'word_form_factory','editor_api','audio', 'keyboa
     WordManager.prototype.submit = function(){
         let self = this;
         let formData = new FormData(this.word_form);
-        let url = `${API_BASE_URL}/create-word/`;
+        let url = `${Constants.API_BASE_URL}/create-word/`;
         let option = {
             type:'POST',
             dataType: 'json',
