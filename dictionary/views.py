@@ -382,7 +382,7 @@ def langage_details(request,langage_slug):
 
 def word_details(request,word, word_uuid):
     template_name = "dictionary/word.html"
-    word = get_object_or_404(Word, word__ixact=word, word_uuid=word_uuid)
+    word = get_object_or_404(Word, word__iexact=word, word_uuid=word_uuid)
     context = {
         'page_title': f"Word {word.word}",
         'word': word,
