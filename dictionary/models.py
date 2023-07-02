@@ -185,6 +185,7 @@ class Word(models.Model):
             'type': 'Word', 
             'word_type': self.word_type,
             'word': self.word,
+            'definition': self.definition,
             'transliteration': self.transliteration,
             'description': self.description, 
             'langage': self.langage.as_dict(True), 
