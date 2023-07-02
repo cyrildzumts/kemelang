@@ -70,9 +70,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
                     self.last_search = "";
                     self.translation_placeholder.classList.remove('hidden');
                     self.no_translation.classList.add('hidden');
-                    if(self.dict_text_definitions.firstChild){
-                        self.clear_definitions();
-                    }
+                    self.clear_definitions();
                     return;
                 }else if(self.dict_text.value == self.last_search){
                     return;

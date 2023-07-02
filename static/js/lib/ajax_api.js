@@ -31,12 +31,10 @@ define(['lang'], function(Locale) {
           options.beforeSend = function(xhr, status){
             let loader = document.getElementById('loader');
             loader.style.display = "block";
-            console.log("loader before Send activated");
           };
           options.complete = function(xhr, status){
             let loader = document.getElementById('loader');
             loader.style.display = "none";
-            console.log("loader on complete deactivated");
           };
         }
         
