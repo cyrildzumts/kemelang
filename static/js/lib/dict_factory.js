@@ -253,7 +253,7 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
     DictFactory.prototype.create_word = function(container, word){
         let word_tag = tag_api.create_tag({'element': 'span','options': {
             'cls': 'bold full',
-            'innerText': `${word.word},${word.transliteration},[${word.langage.name}]`
+            'innerText': `${word.word},${word.transliteration},[${word.langage.name}],`
 
         }});
         let definition = undefined;
@@ -271,11 +271,24 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
             }});
         }
 
-        let word_group = tag_api.create_tag({'element': 'div','options': {
-            'cls': 'flex flex-left flex-wrap full padding-b',
-            'children': [word_tag, definition]
+        let a_tag = tag_api.create_tag({'element': 'a','options': {
+            'cls': 'bold',
+            'href': `${Constants.SITE_HOST}${word.url}`,
+            'innerText': 'Details'
 
         }});
+        let word_header = tag_api.create_tag({'element': 'div','options': {
+            'cls': 'flex flex-left full padding-b',
+            'children': [word_tag, a_tag]
+
+        }});
+
+        let word_group = tag_api.create_tag({'element': 'div','options': {
+            'cls': 'flex flex-left flex-wrap full padding-b',
+            'children': [word_header, definition]
+
+        }});
+        /*
         let link = tag_api.create_tag({'element': 'div','options': {
             'cls': 'padding-b',
             'children': [tag_api.create_tag({'element': 'a','options': {
@@ -286,6 +299,7 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
             }})]
 
         }});
+        */
         /*
         let details = tag_api.create_tag({'element': 'div','options': {
             'cls': 'padding-b',
@@ -294,7 +308,7 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
         }});*/
         let word_div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'padding',
-            'children': [word_group, definition, link]
+            'children': [word_group, definition]
         }});
         container.appendChild(word_div);
         return word_div;
