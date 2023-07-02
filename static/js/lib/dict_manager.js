@@ -348,21 +348,17 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         }
         ajax_api.ajax(option).then(function(response){
             if(response.success){
+                this.clear_definitions();
                 if(response.found){
                     self.on_translated(self.dict_text, response.translations);
-                    self.on_word_exist(self.dict_text,response.word,response.words)
+                    self.on_word_exist(self.dict_text,response.word,response.words);
                 }else if (response.words){
-                    self.on_word_exist(self.dict_text,response.word,response.words)
-                }else{
-                    remove_children(self.dict_translation_container);
-                    remove_children(self.dict_text_definitions);
+                    self.on_word_exist(self.dict_text,response.word,response.words);
                 }
                 self.translation_placeholder.classList.add('hidden');
                 self.no_translation.classList.toggle('hidden', response.found);
-                
-                
             }else{
-                console.warn(`translation not found. ${response.message}`)
+                console.warn(`translation not found. ${response.message}`);
             }
         }, function(reason){
             console.error(reason);
@@ -371,8 +367,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
 
     DictManager.prototype.on_word_exist = function(tag, word ,words){
         let self = this;
-        remove_children(self.dict_text_definitions);
-        remove_children(this.word_container);
+        this.clear_definitions();
         self.dictFactory.create_word(self.word_container, word);
     }
 
