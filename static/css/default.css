@@ -514,11 +514,11 @@ ul li{
 }
 
 .big {
-  font-size: large;
+  font-size: large !important;
 }
 
 .extra-large{
-  font-size: xx-large;
+  font-size: xx-large !important;
 }
 
 .upper-case{

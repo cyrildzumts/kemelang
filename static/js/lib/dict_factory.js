@@ -252,15 +252,15 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
 
     DictFactory.prototype.create_word = function(container, word){
         let word_tag = tag_api.create_tag({'element': 'span','options': {
-            'cls': 'bold',
-            'innerText': `${word.word},${word.transliteration},[${word.langage.name}],`
+            'cls': 'bold margin-r',
+            'innerText': `${word.word},${word.transliteration},[${word.langage.name}]`
 
         }});
         let icon = tag_api.create_tag({'element': 'i','options': {
-            'cls': 'fas fa-book-open'
+            'cls': 'fas fa-book-open big'
         }});
         let icon_label = tag_api.create_tag({'element': 'span','options': {
-            'cls': 'bold',
+            'cls': 'bold hidden',
             'innerText': 'Details'
 
         }});

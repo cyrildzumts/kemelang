@@ -422,10 +422,10 @@ ul li{
   font-size: .875rem !important;
 }
 .big {
-  font-size: large;
+  font-size: large !important;
 }
 .extra-large{
-  font-size: xx-large;
+  font-size: xx-large !important;
 }
 .upper-case{
   text-transform: uppercase;
