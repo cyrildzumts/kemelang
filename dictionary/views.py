@@ -19,20 +19,26 @@ logger = logging.getLogger(__name__)
 
 def dict_home(request):
     template_name = "dictionary/dict.html"
+    source_lang, dest_lang = dictionary_service.get_default_translation_langages()
     context = {
         'page_title': "Dictionary Home",
         'countrie_list': dictionary_service.get_countries(),
-        'langage_list': dictionary_service.get_langages()
+        'langage_list': dictionary_service.get_langages(),
+        'SOURCE_LANG': source_lang,
+        'DESTINATION_LANG': dest_lang
     }
     return render(request, template_name, context)
 
 
 def dict(request):
     template_name = "dictionary/dict.html"
+    source_lang, dest_lang = dictionary_service.get_default_translation_langages()
     context = {
         'page_title': "Dictionary Home",
         'countrie_list': dictionary_service.get_countries(),
-        'langage_list': dictionary_service.get_langages()
+        'langage_list': dictionary_service.get_langages(),
+        'SOURCE_LANG': source_lang,
+        'DESTINATION_LANG': dest_lang
     }
     return render(request, template_name, context)
 
