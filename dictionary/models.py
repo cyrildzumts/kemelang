@@ -76,6 +76,7 @@ class Langage(models.Model):
                 'name': self.name, 
                 'slug': self.slug, 
                 'description': self.description_to_json,
+                'url': self.get_absolute_url(),
                 'langage_uuid': self.langage_uuid
             }
         return {
@@ -85,6 +86,7 @@ class Langage(models.Model):
             'slug': self.slug, 
             'description': self.description_to_json, 
             'countries': [c.as_dict(True) for c in self.countries.all()], 
+            'url': self.get_absolute_url(),
             'langage_uuid': self.langage_uuid
         }
     
@@ -133,8 +135,25 @@ class Country(models.Model):
     
     def as_dict(self, filter_foreign_key=False):
         if filter_foreign_key:
-            return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug, 'description': self.description, 'country_uuid': self.country_uuid}
-        return {'id': self.pk, 'type': 'Country', 'name': self.name, 'slug': self.slug,'description': self.description, 'langages': [l.as_dict(True) for l in self.langages.all()], 'country_uuid': self.country_uuid}
+            return {
+                'id': self.pk, 
+                'type': 'Country', 
+                'name': self.name, 
+                'slug': self.slug, 
+                'description': self.description, 
+                'url': self.get_absolute_url(),
+                'country_uuid': self.country_uuid
+            }
+        return {
+            'id': self.pk,
+            'type': 'Country',
+            'name': self.name,
+            'slug': self.slug,
+            'description': self.description, 
+            'url': self.get_absolute_url(), 
+            'langages': [l.as_dict(True) for l in self.langages.all()], 
+            'country_uuid': self.country_uuid
+        }
     
 
 class Word(models.Model):
@@ -189,7 +208,8 @@ class Word(models.Model):
             'transliteration': self.transliteration,
             'description': self.description, 
             'langage': self.langage.as_dict(True), 
-            'word_uuid': self.word_uuid
+            'word_uuid': self.word_uuid,
+            'url': self.get_absolute_url()
         }
 
 
@@ -217,7 +237,13 @@ class Definition(models.Model):
         return json.dumps(self.description)
     
     def as_dict(self, filter_foreign_key=False):
-        return {'id': self.pk, 'type': 'Definition', 'word': self.word.as_dict(),'description': self.description,'definition_uuid': self.definition_uuid}
+        return {
+            'id': self.pk, 
+            'type': 'Definition', 
+            'word': self.word.as_dict(),
+            'description': self.description,
+            'definition_uuid': self.definition_uuid
+        }
     
 
 
@@ -245,7 +271,13 @@ class Comment(models.Model):
         return json.dumps(self.comment)
     
     def as_dict(self, filter_foreign_key=False):
-        return {'id': self.pk, 'type': 'Comment', 'word': self.word.as_dict(),'comment': self.comment,'comment_uuid': self.comment_uuid}
+        return {
+            'id': self.pk, 
+            'type': 'Comment', 
+            'word': self.word.as_dict(),
+            'comment': self.comment,
+            'comment_uuid': self.comment_uuid
+        }
 
 
 class Phrase(models.Model):

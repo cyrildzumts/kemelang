@@ -1,4 +1,4 @@
-define(['tag_api'],function(tag_api) {
+define(['tag_api', 'constants'],function(tag_api, Constants) {
     'use strict';
 
     let headers = [null, "h1","h2", "h3", "h4", "h5", "h6"];
@@ -252,24 +252,49 @@ define(['tag_api'],function(tag_api) {
 
     DictFactory.prototype.create_word = function(container, word){
         let word_tag = tag_api.create_tag({'element': 'span','options': {
-            'cls': 'bold',
+            'cls': 'bold full',
             'innerText': `${word.word},${word.transliteration},[${word.langage.name}]`
 
         }});
+        let definition = undefined;
+        if(word.definition){
+            definition = tag_api.create_tag({'element': 'span','options': {
+                'cls': 'padding-b full',
+                'innerText': word.definition
+    
+            }});
+        }else{
+            definition = tag_api.create_tag({'element': 'div','options': {
+                'cls': 'padding-b',
+                'children': render_content(word.description['blocks'])
+    
+            }});
+        }
 
         let word_group = tag_api.create_tag({'element': 'div','options': {
-            'cls': 'flex flex-left full padding-b',
-            'children': [word_tag]
+            'cls': 'flex flex-left flex-wrap full padding-b',
+            'children': [word_tag, definition]
 
         }});
-        let definition = tag_api.create_tag({'element': 'div','options': {
+        let link = tag_api.create_tag({'element': 'div','options': {
             'cls': 'padding-b',
-            'children': render_content(word.description['blocks'])
+            'children': [tag_api.create_tag({'element': 'a','options': {
+                'cls': 'padding-b',
+                'href': `${Constants.SITE_HOST}${word.url}`,
+                'innerText': 'Details'
+    
+            }})]
 
         }});
+        /*
+        let details = tag_api.create_tag({'element': 'div','options': {
+            'cls': 'padding-b',
+            'children': render_content(word.definition['blocks'])
+
+        }});*/
         let word_div = tag_api.create_tag({'element': 'div', 'options': {
             'cls': 'padding',
-            'children': [word_group, definition]
+            'children': [word_group, definition, link]
         }});
         container.appendChild(word_div);
         return word_div;
