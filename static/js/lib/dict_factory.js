@@ -267,7 +267,7 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
         let a_tag = tag_api.create_tag({'element': 'a','options': {
             'cls': 'bold link',
             'href': `${Constants.SITE_HOST}${word.url}`,
-            'chilgren': [icon, icon_label]
+            'children': [icon, icon_label]
         }});
         let definition = undefined;
         if(word.definition){
