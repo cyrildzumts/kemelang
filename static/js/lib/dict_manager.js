@@ -367,13 +367,11 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
 
     DictManager.prototype.on_word_exist = function(tag, word ,words){
         let self = this;
-        this.clear_definitions();
         self.dictFactory.create_word(self.word_container, word);
     }
 
     DictManager.prototype.on_translated = function(tag, translations){
         let self = this;
-        this.clear_definitions();
         translations.forEach(function(translation){
             let word = self.dictFactory.create_word(self.dict_translation_container, translation);
             word.classList.add('word-input-wrapper');
