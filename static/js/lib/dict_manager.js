@@ -141,9 +141,11 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
             button.addEventListener('click', function(event){
                 event.stopPropagation();
                 event.preventDefault();
+                
                 self.selection_type = button.dataset.type;
                 
                 if(button.dataset.type == SELECTION_TYPE_AUTO){
+                    self.selection_type = SELECTION_TYPE_AUTO;
                     let selected = button.classList.contains('selected');
                     button.classList.toggle('selected', !selected);
                     self.source_langage = undefined;
