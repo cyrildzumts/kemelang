@@ -256,11 +256,18 @@ define(['tag_api', 'constants'],function(tag_api, Constants) {
             'innerText': `${word.word},${word.transliteration},[${word.langage.name}],`
 
         }});
+        let icon = tag_api.create_tag({'element': 'i','options': {
+            'cls': 'fas fa-book-open'
+        }});
+        let icon_label = tag_api.create_tag({'element': 'span','options': {
+            'cls': 'bold',
+            'innerText': 'Details'
+
+        }});
         let a_tag = tag_api.create_tag({'element': 'a','options': {
             'cls': 'bold link',
             'href': `${Constants.SITE_HOST}${word.url}`,
-            'innerText': 'Details'
-
+            'chilgren': [icon, icon_label]
         }});
         let definition = undefined;
         if(word.definition){
