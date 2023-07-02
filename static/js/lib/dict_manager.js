@@ -387,8 +387,10 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
     }
 
     DictManager.prototype.clear_definitions = function(){
-        remove_children(self.dict_translation_container);
-        remove_children(self.dict_text_definitions);
+        remove_children(this.dict_translation_container);
+        remove_children(this.dict_text_definitions);
+        remove_children(this.word_container);
+        remove_children(this.dict_translation_container);
     }
 
 
