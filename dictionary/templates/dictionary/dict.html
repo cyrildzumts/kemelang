@@ -24,7 +24,14 @@
         <div class="grid padding-05">
             <div class="col-m-6 col-4">
                 <div class="source-langage flex flex-right full">
-                    <button id="select-detect-langage" class="select-detect-langage detect-langage bold hidden-m" data-type="2">{{UI_STRINGS_CONTEXT.LABEL_AUTO_DETECT}}</button>
+                    <button id="select-detect-langage" class="select-detect-langage detect-langage dict-langage-selection bold hidden-m" 
+                            data-id=""
+                            data-uuid=""
+                            data-slug="auto" 
+                            data-name="{{UI_STRINGS_CONTEXT.LABEL_AUTO_DETECT}}"
+                            data-type="2">
+                            {{UI_STRINGS_CONTEXT.LABEL_AUTO_DETECT}}
+                    </button>
                     <div id="recent-source-langages" class="recent-langages flex"></div>
                     <button id="select-source-langage" class="select-source-langage collapse-v2-toggle" type="button" 
                             data-default-language-name="{{SOURCE_LANG.name}}" data-default-language-id="{{SOURCE_LANG.pk}}" data-default-language-slug="{{SOURCE_LANG.slug}}"
