@@ -68,7 +68,7 @@ SITE_HOST = os.getenv('KEMELANG_HOST')
 
 #EMAIL SETTINGS
 #EMAIL_HOST = os.environ.get('KEMELANG_EMAIL_HOST')
-EMAIL_HOST = "mail.kemelang.com"
+EMAIL_HOST = "mail.lyshoping.com"
 EMAIL_PORT = os.environ.get('KEMELANG_EMAIL_PORT')
 EMAIL_HOST_PASSWORD = os.environ.get('KEMELANG_EMAIL_PASSWORD')
 EMAIL_HOST_USER = os.environ.get('KEMELANG_EMAIL_USER')
