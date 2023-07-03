@@ -6481,7 +6481,7 @@ option:checked{
 }
 .cta-primary-btn{
     background-color: var(--cta-primary-bg);
-    color: var(--cta-color);
+    color: var(--cta-primary-color);
 }
 .cta-secondary-color{
     color: var(--cta-secondary-color);
