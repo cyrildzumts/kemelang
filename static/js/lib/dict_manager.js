@@ -120,6 +120,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
                 event.stopPropagation();
                 event.preventDefault();
                 self.selection_type = button.dataset.type;
+                self.auto_detect_source_langage.classList.toggle('hidden', button.dataset.type == SELECTION_TYPE_TARGET);
             });
         });
 
@@ -156,6 +157,9 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
     }
 
     DictManager.prototype.update_target_lang = function(lang){
+        if(this.selection_type == SELECTION_TYPE_TARGET && lang.dataset.slug == "auto"){
+            return;
+        }
         this.target_langage = {'id': lang.dataset.id ,'name': lang.dataset.name,  'slug': lang.dataset.slug};
         remove_children(this.recent_target_langages);
         this.recent_target_langages.appendChild(tag_api.create_tag({'element':'button','options':{
