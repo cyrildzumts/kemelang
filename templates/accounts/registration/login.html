@@ -24,30 +24,35 @@
                     {% comment %}
                         <h3>{{SITE_NAME}}</h3>
                     {% endcomment %}
-                    <h3>{% trans "Login" %}</h3>
+                    <h3>{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</h3>
                     <div id="user-login" class="user-login flex mat-box">
                         <form id="login-form" class="login-form" action="{% url 'accounts:login' %}" method="post"> {% csrf_token %}
                             {% if login_error %}
                                 <div class="login-error error">{% trans login_error %}</div>
                             {% endif %}
                             <input type="hidden" name="next" value="{{next_url}}">
-                            <div class="form-group">
-                                <label for="username">{% trans "Username" %}</label>
-                                <input id="username" type="text" name="username">
+                            <div class="form-group-wrapper">
+                                <div class="form-group">
+                                    <label class="full" for="username">{{UI_STRINGS_CONTEXT.UI_USERNAME_LABEL}}</label>
+                                    <input id="username" class="full" type="text" name="username">
+                                </div>
                             </div>
-                            <div class="form-group">
-                                    <label for="password">{% trans "Password" %}</label>
-                                    <input id="password" type="password" name="password">
+                            <div class="form-group-wrapper">
+                                <div class="form-group">
+                                    <label class="full" for="password">{{UI_STRINGS_CONTEXT.UI_PASSWORD_LABEL}}</label>
+                                    <input id="password" class="full" type="password" name="password">
+                                </div>
                             </div>
                             
                             <div class="actions padding-v">
-                                <button id="login-submit" class="mat-button mat-button-default full"  name="submit" type="submit">{% trans "Login" %}</button>
+                                <button id="login-submit" class="mat-button mat-button-default link full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
                             </div>
                             <div class="actions padding-v">
-                                <a class="mat-button mat-button-text full" href="{% url 'accounts:password-reset' %}">{% trans "Forgot your password ?" %}</a>
+                                <a class="link full" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
                             </div>
                             <div class="actions padding-v">
-                                <span class="register-hint">{% trans "New here ?" %}</span><a class="mat-button mat-button-outline register-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{% trans "Create your Account" %}</a>
+                                <div class="flex full"><span class="register-hint bold link">{% trans "New here ?" %}</span></div>
+                                <a class="mat-button mat-button-outline full link register-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</a>
                             </div>
                         </form>
                     </div> <!-- End of Section Login-->

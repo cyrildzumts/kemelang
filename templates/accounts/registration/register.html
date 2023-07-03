@@ -22,51 +22,53 @@
       <form class="signup-form full" action="{% url 'accounts:register'%}" method="POST">{% csrf_token %}
             <div class="mat-box full">
                 <div class="mat-box-title center"><span class="bold text-gray">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</span></div>
-                <div class="mat-box-content">
-                      <div class="flex flex-left">
-                          <div class="form-group">
-                            <label for="username">{% trans "Username" %}</label>
-                            <input id="username" type="text" name="username">
-                            {{form.username.errors}}
-                          </div>
-                          <div class="form-group">
-                            <label for="email">{% trans "E-Mail" %}</label>
-                            <input id="email" type="text" name="email">
-                            {{form.email.errors}}
-                          </div>
+                <div class="grid">
+                  <div class="col-m-12 col-6">
+                    <div class="form-group-wrapper">
+                      <div class="form-group">
+                        <label class="full" for="username">{{UI_STRINGS_CONTEXT.UI_USERNAME_LABEL}}</label>
+                        <input class="full" id="username" type="text" name="username">
+                        {{form.username.errors}}
                       </div>
-                      <div class="flex flex-left">
-                          <div class="form-group">
-                              <label for="first_name">{% trans "Firstname" %}</label>
-                              <input id="first_name" type="text" name="first_name">
-                              {{form.first_name.errors}}
-                          </div>
-                          <div class="form-group">
-                              <label for="last_name">{% trans "Name" %}</label>
-                              <input id="last_name" type="text" name="last_name">
-                              {{form.last_name.errors}}
-                          </div>
+                      <div class="form-group">
+                        <label class="full" for="first_name">{{UI_STRINGS_CONTEXT.UI_FIRSTNAME_LABEL}}</label>
+                        <input id="first_name" type="text" name="first_name">
+                        {{form.first_name.errors}}
                       </div>
-                      <div class="flex flex-left">
-                          <div class="form-group">
-                              <label for="password1">{% trans "Password" %}</label>
-                              <input id="password1" type="password" name="password1" autcomplete="new-password">
-                              {{form.password1.errors}}
-                          </div>
-                          <div class="form-group">
-                              <label for="password2">{% trans "Repeat your password" %}</label>
-                              <input id="password2" type="password" name="password2" autcomplete="new-password">
-                              {{form.password2.errors}}
-                          </div>
+                      <div class="form-group">
+                        <label class="full" for="last_name">{{UI_STRINGS_CONTEXT.UI_LASTNAME_LABEL}}</label>
+                        <input class="full" id="last_name" type="text" name="last_name">
+                        {{form.last_name.errors}}
+                    </div>
+                    </div>
+                  </div>
+                  <div class="col-m-12 col-6">
+                      <div class="form-group-wrapper">
+                        <div class="form-group">
+                          <label class="full" for="email">{{UI_STRINGS_CONTEXT.UI_EMAIL_LABEL}}</label>
+                          <input id="email" type="text" name="email">
+                          {{form.email.errors}}
+                        </div>
+                        <div class="form-group">
+                          <label class="full" for="password1">{{UI_STRINGS_CONTEXT.UI_PASSWORD_LABEL}}</label>
+                          <input id="password1" type="password" name="password1" autcomplete="new-password">
+                          {{form.password1.errors}}
+                        </div>
+                        <div class="form-group">
+                          <label class="full" for="password2">{{UI_STRINGS_CONTEXT.UI_PASSWORD_REPEAT_LABEL}}</label>
+                          <input class="full" id="password2" type="password" name="password2" autcomplete="new-password">
+                          {{form.password2.errors}}
+                        </div>
                       </div>
+                  </div>
                 </div>
                 <div class="mat-box-actions">
-                    <div class="padding-1x"></div>
-                    <div class="actions padding-v">
-                      <button class="mat-button mat-button-default full" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}} </button>
+                    <div class="actions margin-v padding-v">
+                      <button class="mat-button mat-button-default full" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</button>
                     </div>
                     <div class="actions padding-v">
-                        <span class="register-hint">{% trans "Already have an account ?" %}</span><a class="mat-button mat-button-outline register-btn" href="{% url 'accounts:login' %}">{% trans "Sign In" %}</a>
+                      <div class="flex full margin-b"><span class="register-hint">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_INVITE_LABEL}}</span></div>
+                      <a class="mat-button mat-button-outline register-btn" href="{% url 'accounts:login' %}">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_LABEL}}</a>
                     </div>
                 </div>
             </div>
