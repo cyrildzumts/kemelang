@@ -42,7 +42,12 @@
                         <button id="login-submit" class="cta-secondary-btn full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
                     </div>
                     <div class="actions padding-v">
-                        <a class="full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
+                        <div class="flex full">
+                            <div class="col-m-11 col-11 flex">
+                                <a class="full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
+                            </div>
+                        </div>
+                        
                     </div>
                     <div class="actions padding-v">
                         <div class="flex full margin-b">
