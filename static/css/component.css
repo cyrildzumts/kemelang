@@ -1797,10 +1797,18 @@
 	  border-radius: 3em;
   }
   
-  .cta-btn{
-	  width: 320px;
-	  min-width: 320px;
-  }
+  .cta-primary-btn, .cta-secondary-btn, .cta-btn{
+    display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 3em;
+	box-shadow: var(--box-shadow);
+	min-width: 320px;
+	height: 3em;
+	min-height: 3em;
+	margin: 0.5em auto;
+	font-size: 1em;
+}
   .product-actions{
 	  display: flex;
 	  font-size: 1.3em;

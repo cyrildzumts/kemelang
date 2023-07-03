@@ -45,14 +45,14 @@
                             </div>
                             
                             <div class="actions padding-v">
-                                <button id="login-submit" class="mat-button mat-button-default cta-primary-btn full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
+                                <button id="login-submit" class="cta-secondary-btn full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
                             </div>
                             <div class="actions padding-v">
-                                <a class="link full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
+                                <a class="full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
                             </div>
                             <div class="actions padding-v">
                                 <div class="flex full"><span class="register-hint bold cta-secondary-color">{% trans "New here ?" %}</span></div>
-                                <a class="mat-button mat-button-outline full cta-secondary-btn register-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</a>
+                                <a class="full cta-primary-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</a>
                             </div>
                         </form>
                     </div> <!-- End of Section Login-->
