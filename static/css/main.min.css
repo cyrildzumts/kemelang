@@ -5298,6 +5298,10 @@ inset 2px 2px 4px black;
     --modal-header: #E5F1DF;
     --search-result: #CCDCD8;
     --search-result-odd: #CED5DD;
+    --cta-primary-color: #16a085;
+    --cta-secondary-color : #0a0a0a;
+    --cta-primary-bg : #E7EFEE;
+    --cta-secondary-bg:#CCDCD8;
 }
 body{
     background-color: var(--body-bg);
@@ -6083,6 +6087,20 @@ option:checked{
 .keyboard button{
     background-color: transparent;
     color:white;
+}
+.cta-primary-color{
+    color: var(--cta-primary-color);
+}
+.cta-primary-btn{
+    background-color: var(--cta-primary-bg);
+    color: var(--cta-color);
+}
+.cta-secondary-color{
+    color: var(--cta-secondary-color);
+}
+.cta-secondary-btn{
+    background-color: var(--cta-secondary-bg);
+    color: var(--cta-secondary-color);
 }
 .loader {
     display: none;

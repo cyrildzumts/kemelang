@@ -993,3 +993,21 @@ option:checked{
     background-color: transparent;
     color:white;
 }
+
+.cta-primary-color{
+    color: var(--cta-primary-color);
+}
+
+.cta-primary-btn{
+    background-color: var(--cta-primary-bg);
+    color: var(--cta-color);
+}
+
+.cta-secondary-color{
+    color: var(--cta-secondary-color);
+}
+
+.cta-secondary-btn{
+    background-color: var(--cta-secondary-bg);
+    color: var(--cta-secondary-color);
+}

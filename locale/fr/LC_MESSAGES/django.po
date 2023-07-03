@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-27 13:59+0200\n"
+"POT-Creation-Date: 2023-07-03 18:46+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 "dictionnaire est idéal pour les personnes qui apprennent les langues "
 "africaines et ont besoin d'un dictionnaire dédié."
 
-#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:148
+#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:149
 msgid "African Dictionary"
 msgstr "Dictionnaire Africain"
 
@@ -250,28 +250,34 @@ msgstr "Ajouter un Parametre"
 msgid "Search ..."
 msgstr "Recherche ..."
 
-#: core/resources/ui_strings.py:75
+#: core/resources/ui_strings.py:74
+msgid ""
+"You can not update this resource now. A User is currently updating this "
+"resource. Please try again later"
+msgstr ""
+
+#: core/resources/ui_strings.py:76
 #: dashboard/templates/dashboard/news_create.html:4
 #: dashboard/templates/dashboard/news_detail.html:8
 msgid "Infos"
 msgstr "Infos"
 
-#: core/resources/ui_strings.py:76
+#: core/resources/ui_strings.py:77
 #: dashboard/templates/dashboard/news_update.html:4
 msgid "Info"
 msgstr "Info"
 
-#: core/resources/ui_strings.py:77
+#: core/resources/ui_strings.py:78
 #: dashboard/templates/dashboard/news_detail.html:5
 #: dashboard/templates/dashboard/news_list.html:10
 msgid "New Info"
 msgstr "Nouvelle Info"
 
-#: core/resources/ui_strings.py:78
+#: core/resources/ui_strings.py:79
 msgid "Info Update"
 msgstr "Actualiser l'Info"
 
-#: core/resources/ui_strings.py:80
+#: core/resources/ui_strings.py:81
 #: dashboard/templates/dashboard/group_create.html:7
 #: dashboard/templates/dashboard/group_create.html:8
 #: dashboard/templates/dashboard/group_list.html:20
@@ -280,155 +286,155 @@ msgstr "Actualiser l'Info"
 msgid "Groups"
 msgstr "Groupes"
 
-#: core/resources/ui_strings.py:81
+#: core/resources/ui_strings.py:82
 #: dashboard/templates/dashboard/user_detail.html:127
 msgid "Group"
 msgstr "Groupe"
 
-#: core/resources/ui_strings.py:82
+#: core/resources/ui_strings.py:83
 #: dashboard/templates/dashboard/group_list.html:14
 msgid "New Group"
 msgstr "Nouveau Groupe"
 
-#: core/resources/ui_strings.py:83
+#: core/resources/ui_strings.py:84
 msgid "Group Update"
 msgstr "Actualiser le Groupe"
 
-#: core/resources/ui_strings.py:86
+#: core/resources/ui_strings.py:87
 msgid "Highlights"
 msgstr ""
 
-#: core/resources/ui_strings.py:87
+#: core/resources/ui_strings.py:88
 msgid "Highlight"
 msgstr ""
 
-#: core/resources/ui_strings.py:88
+#: core/resources/ui_strings.py:89
 msgid "Highlight Update"
 msgstr "actualiser"
 
-#: core/resources/ui_strings.py:89 templates/tags/dashboard_header.html:26
+#: core/resources/ui_strings.py:90 templates/tags/dashboard_header.html:26
 msgid "New Highlight"
 msgstr ""
 
-#: core/resources/ui_strings.py:91
+#: core/resources/ui_strings.py:92
 msgid "Campaigns"
 msgstr "Campagnes"
 
-#: core/resources/ui_strings.py:92
+#: core/resources/ui_strings.py:93
 msgid "Campaign Update"
 msgstr "Actualiser la Campagne"
 
-#: core/resources/ui_strings.py:93
+#: core/resources/ui_strings.py:94
 msgid "Campaign Create"
 msgstr "Créer la Campagne"
 
-#: core/resources/ui_strings.py:94
+#: core/resources/ui_strings.py:95
 msgid "Campaign"
 msgstr "Campagne"
 
-#: core/resources/ui_strings.py:96 templates/tags/dashboard_header.html:44
+#: core/resources/ui_strings.py:97 templates/tags/dashboard_header.html:44
 msgid "User"
 msgstr ""
 
-#: core/resources/ui_strings.py:97
+#: core/resources/ui_strings.py:98
 msgid "Users"
 msgstr "Utilisateurs"
 
-#: core/resources/ui_strings.py:98 templates/tags/users_sidebar.html:6
+#: core/resources/ui_strings.py:99 templates/tags/users_sidebar.html:6
 msgid "Customers"
 msgstr "Clients"
 
-#: core/resources/ui_strings.py:99
+#: core/resources/ui_strings.py:100
 msgid "User Update"
 msgstr "Actualiser l'utilisateur"
 
-#: core/resources/ui_strings.py:100
+#: core/resources/ui_strings.py:101
 #: dashboard/templates/dashboard/user_list.html:13
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
-#: core/resources/ui_strings.py:102
+#: core/resources/ui_strings.py:103
 msgid "Token"
 msgstr "Jeton"
 
-#: core/resources/ui_strings.py:103 templates/tags/users_sidebar.html:9
+#: core/resources/ui_strings.py:104 templates/tags/users_sidebar.html:9
 msgid "Tokens"
 msgstr "Jetons"
 
-#: core/resources/ui_strings.py:104 templates/tags/users_sidebar.html:10
+#: core/resources/ui_strings.py:105 templates/tags/users_sidebar.html:10
 msgid "Partner Tokens"
 msgstr "Jetons de Partenaires"
 
-#: core/resources/ui_strings.py:105
+#: core/resources/ui_strings.py:106
 msgid "New Token"
 msgstr "Nouveau Jeton"
 
-#: core/resources/ui_strings.py:107
+#: core/resources/ui_strings.py:108
 msgid "Reports"
 msgstr "Rapports"
 
-#: core/resources/ui_strings.py:108
+#: core/resources/ui_strings.py:109
 msgid "New"
 msgstr "Nouveau"
 
-#: core/resources/ui_strings.py:109
+#: core/resources/ui_strings.py:110
 msgid "NEW"
 msgstr "NOUVEAU"
 
-#: core/resources/ui_strings.py:111
+#: core/resources/ui_strings.py:112
 msgid "Error on the request"
 msgstr "Erreur sur la demande"
 
-#: core/resources/ui_strings.py:112
+#: core/resources/ui_strings.py:113
 msgid "Invalid Submitted data"
 msgstr "Données soumises invalides"
 
-#: core/resources/ui_strings.py:115
+#: core/resources/ui_strings.py:116
 msgid "Your online dictionary for african languages"
 msgstr "Votre dictionnaire en ligne pour les langues africaines"
 
-#: core/resources/ui_strings.py:118
+#: core/resources/ui_strings.py:119
 msgid "Need more information"
 msgstr "Besoin de plus d'informations"
 
-#: core/resources/ui_strings.py:119
+#: core/resources/ui_strings.py:120
 msgid "Hello, I have a question about the dictionary."
 msgstr "Bonjour, j'ai une question sur le dictionnaire."
 
-#: core/resources/ui_strings.py:120
+#: core/resources/ui_strings.py:121
 msgid "Invalid user request"
 msgstr "Demande d'utilisateur invalide"
 
-#: core/resources/ui_strings.py:121
+#: core/resources/ui_strings.py:122
 msgid "Resource not found !"
 msgstr "Ressource introuvable !"
 
-#: core/resources/ui_strings.py:122
+#: core/resources/ui_strings.py:123
 msgid "The resource you requested does not exist or is no longer available."
 msgstr ""
 "La ressource que vous avez demandée n'existe pas ou n'est plus disponible."
 
-#: core/resources/ui_strings.py:123
+#: core/resources/ui_strings.py:124
 msgid "Bad Request"
 msgstr "Mauvaise Demande"
 
-#: core/resources/ui_strings.py:124
+#: core/resources/ui_strings.py:125
 msgid "You submitted a bad request."
 msgstr "Vous avez soumis une mauvaise demande."
 
-#: core/resources/ui_strings.py:127
+#: core/resources/ui_strings.py:128
 msgid "Access Forbidden"
 msgstr "Accès Interdit"
 
-#: core/resources/ui_strings.py:128
+#: core/resources/ui_strings.py:129
 msgid "You can not access this page."
 msgstr "Vous ne pouvez pas accéder à cette page."
 
-#: core/resources/ui_strings.py:130
+#: core/resources/ui_strings.py:131
 msgid "Server Error"
 msgstr "erreur du serveur"
 
-#: core/resources/ui_strings.py:131
+#: core/resources/ui_strings.py:132
 msgid ""
 "Oops ! There is an internal error. If the errors persists please inform our "
 "team through our contact."
@@ -436,23 +442,23 @@ msgstr ""
 "Oops ! Il y a une erreur interne. Si les erreurs persistent, veuillez en "
 "informer notre équipe via notre contact."
 
-#: core/resources/ui_strings.py:132
+#: core/resources/ui_strings.py:133
 msgid "Go to QUIZ-Home"
 msgstr "Allez au Quiz"
 
-#: core/resources/ui_strings.py:133
+#: core/resources/ui_strings.py:134
 msgid "KEMELANG"
 msgstr "KEMELANG"
 
-#: core/resources/ui_strings.py:134
+#: core/resources/ui_strings.py:135
 msgid "KEMELANG IS COMING"
 msgstr "KEMELANG ARRIVE"
 
-#: core/resources/ui_strings.py:135
+#: core/resources/ui_strings.py:136
 msgid "KEMELANG IS UNDER CONSTRUCTION!"
 msgstr "KEMELANG EST EN CONSTRUCTION!"
 
-#: core/resources/ui_strings.py:136
+#: core/resources/ui_strings.py:137
 msgid ""
 "Thank you for your interest in this project. The site is currently under "
 "construction."
@@ -460,38 +466,37 @@ msgstr ""
 "Merci de votre intérêt pour ce projet. Le site est actuellement en "
 "construction."
 
-#: core/resources/ui_strings.py:137
+#: core/resources/ui_strings.py:138
 msgid "Create Campaign"
 msgstr "Créer la Campagne"
 
-#: core/resources/ui_strings.py:138
+#: core/resources/ui_strings.py:139
 msgid "Campaign Image"
 msgstr "Image de Campagne"
 
-#: core/resources/ui_strings.py:139
-#: dictionary/templates/tags/create_mass_translation_form.html:11
+#: core/resources/ui_strings.py:140
 msgid "Add"
 msgstr "Ajouter"
 
-#: core/resources/ui_strings.py:140
+#: core/resources/ui_strings.py:141
 #: dashboard/templates/tags/campaign_creation_form.html:12
 #: dashboard/templates/tags/campaign_update_form.html:13
 msgid "Back"
 msgstr "Retour"
 
-#: core/resources/ui_strings.py:141
+#: core/resources/ui_strings.py:142
 #: dictionary/templates/tags/create_definition_form.html:25
 #: dictionary/templates/tags/create_phrase_form.html:32
 msgid "Create"
 msgstr "Créer"
 
-#: core/resources/ui_strings.py:142
+#: core/resources/ui_strings.py:143
 #: templates/tags/components/orders_tag.html:30
 #: templates/tags/components/shipments_tag.html:29
 msgid "Update"
 msgstr "Actualiser"
 
-#: core/resources/ui_strings.py:143
+#: core/resources/ui_strings.py:144
 #: dictionary/templates/tags/create_definition_form.html:24
 #: dictionary/templates/tags/create_phrase_form.html:31
 #: templates/accounts/account_detail.html:71
@@ -503,88 +508,137 @@ msgstr "Actualiser"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: core/resources/ui_strings.py:144 templates/accounts/account_detail.html:72
+#: core/resources/ui_strings.py:145 templates/accounts/account_detail.html:72
 msgid "Send"
 msgstr "Envoyer"
 
-#: core/resources/ui_strings.py:145
+#: core/resources/ui_strings.py:146
 #: templates/tags/components/orders_tag.html:29
 #: templates/tags/components/shipments_tag.html:28
 msgid "Open"
 msgstr "Ouvrir"
 
-#: core/resources/ui_strings.py:146
+#: core/resources/ui_strings.py:147
 msgid "Close"
 msgstr "Fermer"
 
-#: core/resources/ui_strings.py:147
+#: core/resources/ui_strings.py:148
 msgid "African dictionary"
 msgstr "Dictionnaire Africain"
 
-#: core/resources/ui_strings.py:149
+#: core/resources/ui_strings.py:150
 msgid "Enter word ..."
 msgstr "Entrez le mot..."
 
-#: core/resources/ui_strings.py:150
+#: core/resources/ui_strings.py:151
 msgid "Space"
 msgstr "Espace"
 
-#: core/resources/ui_strings.py:151 core/templates/keyboard/keyboard.html:40
+#: core/resources/ui_strings.py:152 core/templates/keyboard/keyboard.html:40
 msgid "Backspace"
 msgstr "Effacer"
 
-#: core/resources/ui_strings.py:152
+#: core/resources/ui_strings.py:153
 msgid "No results"
 msgstr "Aucun resultats"
 
-#: core/resources/ui_strings.py:153
-#: templates/accounts/registration/login.html:28
-#: templates/accounts/registration/login.html:45
+#: core/resources/ui_strings.py:154
 #: templates/accounts/registration/password_reset_complete.html:11
 #: templates/registration/login.html:41
 #: templates/registration/password_reset_complete.html:11
 msgid "Login"
-msgstr "Coneexion"
+msgstr "Connexion"
 
-#: core/resources/ui_strings.py:154
-#: templates/accounts/registration/register.html:69
+#: core/resources/ui_strings.py:155
 #: templates/accounts/registration/vendor_register.html:49
 #: templates/registration/register.html:50
 #: templates/registration/vendor_register.html:49
 msgid "Sign In"
 msgstr "S'identifier"
 
-#: core/resources/ui_strings.py:155 templates/tags/dashboard_header.html:63
+#: core/resources/ui_strings.py:156 templates/tags/dashboard_header.html:63
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:156
+#: core/resources/ui_strings.py:157
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:157
+#: core/resources/ui_strings.py:158
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: core/resources/ui_strings.py:158
+#: core/resources/ui_strings.py:159 templates/registration/login.html:34
+msgid "Password"
+msgstr "Mot de passe"
+
+#: core/resources/ui_strings.py:160
+msgid "Repeat your Password"
+msgstr "Repetez le mot de passe"
+
+#: core/resources/ui_strings.py:161
+#: templates/accounts/registration/password_reset_form.html:17
+#: templates/registration/login.html:38
+#: templates/registration/password_reset_form.html:16
+msgid "Forgot your password ?"
+msgstr "Mot de passe oublié ?"
+
+#: core/resources/ui_strings.py:162
+#: dashboard/templates/dashboard/user_detail.html:35
+#: templates/accounts/account_detail.html:26
+#: templates/registration/login.html:30
+msgid "Username"
+msgstr "Nom d'utilisateur"
+
+#: core/resources/ui_strings.py:163
+msgid "First name"
+msgstr "Prénom"
+
+#: core/resources/ui_strings.py:164
+msgid "Last name"
+msgstr "Nom"
+
+#: core/resources/ui_strings.py:165
+#: dashboard/templates/dashboard/user_detail.html:44
+msgid "E-Mail"
+msgstr "E-Mail"
+
+#: core/resources/ui_strings.py:166
+
+msgid "New Here ? "
+msgstr "Vous n'avez pas de compte ?"
+
+#: core/resources/ui_strings.py:167
+msgid "Already Have an Account ? "
+msgstr "Vous avez déjà un compte ?"
+
+#: core/resources/ui_strings.py:168
 #: templates/accounts/registration/email_validation.html:19
 #: templates/tags/dashboard_header.html:62
 msgid "My Account"
 msgstr "Mon Compte"
 
-#: core/resources/ui_strings.py:159
+#: core/resources/ui_strings.py:169
+msgid "Delete Account"
+msgstr "Supprimer Mon Compte"
+
+#: core/resources/ui_strings.py:170
+msgid "Deleting your account is irreversible."
+msgstr "La supppréssion de votre est irréversible"
+
+#: core/resources/ui_strings.py:171
 msgid "Start typing here ..."
 msgstr "Commencez à écrire ici..."
 
-#: core/resources/ui_strings.py:160
+#: core/resources/ui_strings.py:172
 msgid "Visite the Site"
 msgstr "Visiter le Site"
 
-#: core/resources/ui_strings.py:161
+#: core/resources/ui_strings.py:173
 msgid "Maintenance Mode"
 msgstr "Mode Maintenance"
 
-#: core/resources/ui_strings.py:162
+#: core/resources/ui_strings.py:174
 msgid "Allow Anonymous User"
 msgstr "Autoriser l'utilisateur anonyme"
 
@@ -630,6 +684,24 @@ msgstr ""
 msgid "Max"
 msgstr ""
 
+#: dashboard/templates/dashboard/editing_resources.html:17
+#: dashboard/templates/dashboard/group_detail.html:68
+#: dashboard/templates/dashboard/group_list.html:24
+#: dashboard/templates/dashboard/new_user.html:24
+#: dashboard/templates/dashboard/settings.html:22
+#: dashboard/templates/dashboard/user_list.html:31
+#: dashboard/templates/tags/group_form.html:142
+#: dashboard/templates/tags/group_form_new.html:75
+#: dashboard/templates/tags/group_update_form.html:133
+#: dashboard/templates/tags/group_update_form_new.html:131
+#: dashboard/templates/tags/settings_form.html:27
+#: dashboard/templates/tags/settings_update_form.html:28
+#: templates/users_base.html:5
+msgid ""
+"The page you requested could not be found or you are not allowed to access "
+"this page."
+msgstr ""
+
 #: dashboard/templates/dashboard/group_detail.html:9
 #: dashboard/templates/dashboard/news_detail.html:6
 #: dashboard/templates/tags/setting_tag.html:6
@@ -671,23 +743,6 @@ msgstr "actif,inactif"
 #: dashboard/templates/dashboard/group_detail.html:58
 msgid "No Members"
 msgstr "Aucun membres"
-
-#: dashboard/templates/dashboard/group_detail.html:68
-#: dashboard/templates/dashboard/group_list.html:24
-#: dashboard/templates/dashboard/new_user.html:24
-#: dashboard/templates/dashboard/settings.html:22
-#: dashboard/templates/dashboard/user_list.html:31
-#: dashboard/templates/tags/group_form.html:142
-#: dashboard/templates/tags/group_form_new.html:75
-#: dashboard/templates/tags/group_update_form.html:133
-#: dashboard/templates/tags/group_update_form_new.html:131
-#: dashboard/templates/tags/settings_form.html:27
-#: dashboard/templates/tags/settings_update_form.html:28
-#: templates/users_base.html:5
-msgid ""
-"The page you requested could not be found or you are not allowed to access "
-"this page."
-msgstr ""
 
 #: dashboard/templates/dashboard/group_update.html:8
 msgid "Create A Group"
@@ -774,7 +829,7 @@ msgstr ""
 #: dashboard/templates/dashboard/news_list.html:36
 #: dashboard/templates/tags/category_manage_form.html:30
 #: dashboard/templates/tags/category_manage_form.html:44
-#: dictionary/templates/dictionary/word.html:188
+#: dictionary/templates/dictionary/word.html:176
 msgid "Details"
 msgstr ""
 
@@ -819,14 +874,6 @@ msgstr ""
 msgid "User Information"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:35
-#: templates/accounts/account_detail.html:26
-#: templates/accounts/registration/login.html:36
-#: templates/accounts/registration/register.html:28
-#: templates/registration/login.html:30
-msgid "Username"
-msgstr "Nom d'utilisateur"
-
 #: dashboard/templates/dashboard/user_detail.html:38
 #: templates/accounts/account_detail.html:34
 msgid "Lastname"
@@ -834,14 +881,8 @@ msgstr "Nom"
 
 #: dashboard/templates/dashboard/user_detail.html:41
 #: templates/accounts/account_detail.html:30
-#: templates/accounts/registration/register.html:40
 msgid "Firstname"
 msgstr "Prénom"
-
-#: dashboard/templates/dashboard/user_detail.html:44
-#: templates/accounts/registration/register.html:33
-msgid "E-Mail"
-msgstr "E-Mail"
 
 #: dashboard/templates/dashboard/user_detail.html:47
 msgid "User is Active"
@@ -1071,7 +1112,6 @@ msgstr ""
 #: dictionary/templates/tags/update_country_form.html:11
 #: dictionary/templates/tags/update_definition_form.html:12
 #: dictionary/templates/tags/update_langage_form.html:12
-#: templates/accounts/registration/register.html:45
 msgid "Name"
 msgstr "Nom"
 
@@ -1210,6 +1250,22 @@ msgstr "Autorisations disponibles"
 msgid "Refresh"
 msgstr "Actualiser"
 
+#: dashboard/templates/tags/resources_tag.html:4
+msgid "Resources currently opened for Editing"
+msgstr ""
+
+#: dashboard/templates/tags/resources_tag.html:7
+msgid "Words currently opened for Editing"
+msgstr ""
+
+#: dashboard/templates/tags/resources_tag.html:19
+msgid "Langages currently opened for Editing"
+msgstr ""
+
+#: dashboard/templates/tags/resources_tag.html:31
+msgid "Countries currently opened for Editing"
+msgstr ""
+
 #: dashboard/views.py:49
 msgid "New Setting created"
 msgstr ""
@@ -1234,27 +1290,27 @@ msgstr "Erreur en actualisant le parametre"
 msgid "Update Setting"
 msgstr "Actualiser le parametre"
 
-#: dictionary/constants.py:47
+#: dictionary/constants.py:52
 msgid "Noun"
 msgstr "Nom"
 
-#: dictionary/constants.py:48
+#: dictionary/constants.py:53
 msgid "Verb"
 msgstr "Verbe"
 
-#: dictionary/constants.py:49
+#: dictionary/constants.py:54
 msgid "Pronoun"
 msgstr "Pronom"
 
-#: dictionary/constants.py:50
+#: dictionary/constants.py:55
 msgid "Adverb"
 msgstr "Adverbe"
 
-#: dictionary/constants.py:51
+#: dictionary/constants.py:56
 msgid "Adjective"
 msgstr "Adjectif"
 
-#: dictionary/constants.py:52
+#: dictionary/constants.py:57
 msgid "Preposition"
 msgstr "Préposition"
 
@@ -1274,7 +1330,7 @@ msgstr "Ajouter un nouveau mot pour une langue"
 msgid "Add Translation"
 msgstr "Ajouter une traduction"
 
-#: dictionary/templates/dictionary/word.html:123
+#: dictionary/templates/dictionary/word.html:131
 msgid "Update this example"
 msgstr "Actualiser cet exemple"
 
@@ -1452,26 +1508,9 @@ msgstr ""
 msgid "Home Page"
 msgstr ""
 
-#: templates/accounts/registration/login.html:40
-#: templates/accounts/registration/register.html:52
-#: templates/registration/login.html:34
-msgid "Password"
-msgstr ""
-
-#: templates/accounts/registration/login.html:48
-#: templates/accounts/registration/password_reset_form.html:17
-#: templates/registration/login.html:38
-#: templates/registration/password_reset_form.html:16
-msgid "Forgot your password ?"
-msgstr ""
-
-#: templates/accounts/registration/login.html:51
+#: templates/accounts/registration/login.html:55
 #: templates/registration/login.html:44
 msgid "New here ?"
-msgstr ""
-
-#: templates/accounts/registration/login.html:51
-msgid "Create your Account"
 msgstr ""
 
 #: templates/accounts/registration/password_change.html:7
@@ -1679,15 +1718,6 @@ msgstr ""
 msgid "Reset"
 msgstr ""
 
-#: templates/accounts/registration/register.html:57
-msgid "Repeat your password"
-msgstr ""
-
-#: templates/accounts/registration/register.html:69
-#: templates/registration/register.html:50
-msgid "Already have an account ?"
-msgstr ""
-
 #: templates/accounts/registration/registration_complete.html:15
 #: templates/registration/registration_complete.html:15
 msgid ""
@@ -1809,6 +1839,10 @@ msgstr ""
 
 #: templates/registration/password_reset_email.html:14
 msgid "Sincerely"
+msgstr ""
+
+#: templates/registration/register.html:50
+msgid "Already have an account ?"
 msgstr ""
 
 #: templates/site_account_base.html:12

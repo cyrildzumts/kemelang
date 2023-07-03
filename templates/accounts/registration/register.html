@@ -20,8 +20,8 @@
     </div>
     <div class="col-m-12 col-6">
       <form class="signup-form full" action="{% url 'accounts:register'%}" method="POST">{% csrf_token %}
-            <div class="mat-box full">
-                <div class="mat-box-title center"><span class="bold text-gray">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</span></div>
+            <div class="full">
+                <div class="mat-box-title center margin-v"><span class="bold cta-primary-color">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</span></div>
                 <div class="grid">
                   <div class="col-m-12 col-6">
                     <div class="form-group-wrapper padding">
@@ -64,11 +64,17 @@
                 </div>
                 <div class="mat-box-actions">
                     <div class="actions margin-v padding-v">
-                      <button class="mat-button mat-button-default full" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</button>
+                      <div class="col-m-11 col-11">
+                        <button class="mat-button mat-button-default full cta-primary-btn" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</button>
+                      </div>
                     </div>
                     <div class="actions padding-v">
-                      <div class="flex full margin-b"><span class="register-hint">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_INVITE_LABEL}}</span></div>
-                      <a class="mat-button mat-button-outline register-btn full" href="{% url 'accounts:login' %}">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</a>
+                      <div class="flex full margin-b">
+                        <div class="col-m-11 col-11"><span class="register-hint cta-secondary-color">{{UI_STRINGS_CONTEXT.UI_SIGN_IN_INVITE_LABEL}}</span></div>
+                      </div>
+                      <div class="flex full">
+                        <div class="col-m-11 col-11"><a class="mat-button mat-button-outline register-btn full cta-secondary-color" href="{% url 'accounts:login' %}">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</a></div>
+                      </div>
                     </div>
                 </div>
             </div>

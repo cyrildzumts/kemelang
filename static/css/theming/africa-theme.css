@@ -106,4 +106,8 @@
     --modal-header: #E5F1DF;
     --search-result: #CCDCD8;
     --search-result-odd: #CED5DD;
+    --cta-primary-color: #16a085;
+    --cta-secondary-color : #0a0a0a;
+    --cta-primary-bg : #E7EFEE;
+    --cta-secondary-bg:#CCDCD8;
 }
