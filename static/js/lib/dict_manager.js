@@ -99,7 +99,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         this.langage_selection_list.forEach(function(lang){
             lang.addEventListener('click', function(event){
                 event.stopPropagation();
-                switch (self.selection_type) {
+                switch (parseInt(self.selection_type)) {
                     case SELECTION_TYPE_AUTO:
                         self.update_auto_detect(lang);
                         break;
