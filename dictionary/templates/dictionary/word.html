@@ -167,7 +167,8 @@
                                         {% if translation.transliteration %}
                                         <span class="small bold">, [{{translation.transliteration}}]</span>
                                         {% endif %}
-                                        <span class="margin-l"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
+                                        <span class="margin-h"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
+                                        <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
                                     </div>
                                     <div class="margin-t full">
                                         <span class="bold word-type">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span>
@@ -187,9 +188,11 @@
                                         </div>
                                     </div>
                                     {% endif %}
-                                    <div class="margin-b full">
-                                        <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}"><span class="word-type">{% translate "Details" %}</span></a>
-                                    </div>
+                                    {% comment %}
+                                        <div class="margin-b full">
+                                            <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}"><span class="word-type">{% translate "Details" %}</span></a>
+                                        </div>
+                                    {% endcomment %}
                                 </div>
 
                             </li>
