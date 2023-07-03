@@ -23,7 +23,9 @@
                 <div id="tabs" class="tabs flex flex-center" data-current="1">
                     <div class="tab active" data-parent="tabs" data-index="1" data-target="word-definitions"><span>{{UI_STRINGS_CONTEXT.LABEL_DEFINITION}}</span></div>
                     <div class="tab" data-parent="tabs" data-index="2" data-target="word-synonymes"><span>{{UI_STRINGS_CONTEXT.LABEL_SYNONYME_PLURAL}}</span></div>
-                    <div class="tab" data-parent="tabs" data-index="3" data-target="word-examples"><span>{{UI_STRINGS_CONTEXT.LABEL_EXAMPLE_PLURAL}}</span></div>
+                    {% comment %}
+                        <div class="tab" data-parent="tabs" data-index="3" data-target="word-examples"><span>{{UI_STRINGS_CONTEXT.LABEL_EXAMPLE_PLURAL}}</span></div>
+                    {% endcomment %}
                     <div class="tab" data-parent="tabs" data-index="4" data-target="word-translations"><span>{{UI_STRINGS_CONTEXT.LABEL_TRANSLATION_PLURAL}}</span></div>
                 </div>
             </div>
@@ -111,7 +113,7 @@
                 <div id="word-examples" class="tab-content margin-v full">
                     <div class="flex">
                         <div class="col-m-12 col-4">
-                            <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-translation-dialog">
+                            <div class="link flex js-open-modal padding-05 margin-b mat-button-default" data-target="new-phrases-dialog">
                                 <span>
                                     <i class="fas fa-plus"></i><span class="small">{{UI_STRINGS_CONTEXT.LABEL_EXAMPLE_CONTRIBUTE}}</span>
                                 </span>
