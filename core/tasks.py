@@ -42,6 +42,8 @@ def send_mail_task(email_context=None):
         except KeyError as e:
             logger.error(f"send_mail_task : template_name not available. Mail not send. email_context : {email_context}")
             return
+        except Exception as e:
+            logger.warning(f"Error when sending Email : EMAIL_USER : {settings.EMAIL_HOST_USER}, EMAIL_HOST : {settings.EMAIL_HOST}, EMAIL_PORT : {settings.EMAIL_PORT}", e)
         
     else:
         logger.warn(f"send_mail_task: email_context missing or is not a dict. email_context : {email_context}")
