@@ -2393,9 +2393,6 @@ ul li{
 	  border-radius: 3em;
   }
   
-  .cta-btn{
-	  min-width: 320px;
-  }
   .cta-primary-btn, .cta-secondary-btn, .cta-btn{
     display: flex;
 	align-items: center;
@@ -2403,10 +2400,11 @@ ul li{
 	border-radius: 3em;
 	box-shadow: var(--box-shadow);
 	min-width: 320px;
-	height: 3em;
-	min-height: 3em;
+	height: 3em !important;
+	min-height: 3em !important;
 	margin: 0.5em auto;
 	font-size: 1em;
+	letter-spacing: 0 !important;
 }
   .product-actions{
 	  display: flex;

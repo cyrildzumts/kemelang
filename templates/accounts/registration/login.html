@@ -11,54 +11,46 @@
 
 {% endblock HEADER_BANNER %}
 
-
 {% block MAIN %}
 <div class="container">
     <div class="hidden-xs col-6">
         <div class="signin-hero"></div>
     </div>
     <div class="col-xs-12 col-6">
-        <div class="container">
-            <div class="col-6">
-                <div id="account-dialog" class="container padding-1x">
-                    {% comment %}
-                        <h3>{{SITE_NAME}}</h3>
-                    {% endcomment %}
-                    <h3>{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</h3>
-                    <div id="user-login" class="user-login flex mat-box">
-                        <form id="login-form" class="login-form" action="{% url 'accounts:login' %}" method="post"> {% csrf_token %}
-                            {% if login_error %}
-                                <div class="login-error error">{% trans login_error %}</div>
-                            {% endif %}
-                            <input type="hidden" name="next" value="{{next_url}}">
-                            <div class="form-group-wrapper">
-                                <div class="form-group">
-                                    <label class="full" for="username">{{UI_STRINGS_CONTEXT.UI_USERNAME_LABEL}}</label>
-                                    <input id="username" class="full" type="text" name="username">
-                                </div>
-                            </div>
-                            <div class="form-group-wrapper">
-                                <div class="form-group">
-                                    <label class="full" for="password">{{UI_STRINGS_CONTEXT.UI_PASSWORD_LABEL}}</label>
-                                    <input id="password" class="full" type="password" name="password">
-                                </div>
-                            </div>
-                            
-                            <div class="actions padding-v">
-                                <button id="login-submit" class="cta-secondary-btn full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
-                            </div>
-                            <div class="actions padding-v">
-                                <a class="full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
-                            </div>
-                            <div class="actions padding-v">
-                                <div class="flex full"><span class="register-hint bold cta-secondary-color">{% trans "New here ?" %}</span></div>
-                                <a class="full cta-primary-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</a>
-                            </div>
-                        </form>
-                    </div> <!-- End of Section Login-->
-                </div><!--End of container -->
-            </div>
-        </div>
+        <div id="user-login" class="user-login flex mat-box">
+            <form id="login-form" class="login-form full" action="{% url 'accounts:login' %}" method="post"> {% csrf_token %}
+                <div class="full">
+                    <div class="mat-box-title center margin-v"><span class="bold cta-primary-color">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</span></div>
+                    {% if login_error %}
+                        <div class="login-error error">{% trans login_error %}</div>
+                    {% endif %}
+                    <input type="hidden" name="next" value="{{next_url}}">
+                    <div class="form-group-wrapper">
+                        <div class="form-group">
+                            <label class="full" for="username">{{UI_STRINGS_CONTEXT.UI_USERNAME_LABEL}}</label>
+                            <input id="username" class="full" type="text" name="username">
+                        </div>
+                    </div>
+                    <div class="form-group-wrapper">
+                        <div class="form-group">
+                            <label class="full" for="password">{{UI_STRINGS_CONTEXT.UI_PASSWORD_LABEL}}</label>
+                            <input id="password" class="full" type="password" name="password">
+                        </div>
+                    </div>
+                    
+                    <div class="actions padding-v">
+                        <button id="login-submit" class="cta-secondary-btn full"  name="submit" type="submit">{{UI_STRINGS_CONTEXT.UI_SIGNIN_LABEL}}</button>
+                    </div>
+                    <div class="actions padding-v">
+                        <a class="full cta-secondary-color" href="{% url 'accounts:password-reset' %}">{{UI_STRINGS_CONTEXT.UI_PASSWORD_FORGOT_LABEL}}</a>
+                    </div>
+                    <div class="actions padding-v">
+                        <div class="flex full"><span class="register-hint bold cta-secondary-color">{% trans "New here ?" %}</span></div>
+                        <a class="full cta-primary-btn js-action-abtest" href="{% url 'accounts:register' %}" data-action="4">{{UI_STRINGS_CONTEXT.UI_SIGN_UP_LABEL}}</a>
+                    </div>
+                </div>
+            </form>
+        </div> <!-- End of Section Login-->
     </div>
 </div>
     
