@@ -26,4 +26,4 @@ def sendmail():
             server.sendmail(sender, receivers, msg.as_string())
             logger.info('Test Mail sent')
         except Exception as e:
-            logger.warn(f"Error while sending : {e}")
+            logger.warn(f"Error while sending : {e}", e)
