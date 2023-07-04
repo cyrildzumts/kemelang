@@ -23,6 +23,7 @@ def sendmail():
     
     with smtplib.SMTP(HOST, PORT) as server:
         try:
+            server.starttls()
             server.sendmail(sender, receivers, msg.as_string())
             logger.info('Test Mail sent')
         except Exception as e:
