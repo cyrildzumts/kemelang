@@ -27,7 +27,7 @@ class CoreEmailBackend(EmailBackend):
     
     def send_messages(self, email_messages: Iterable[EmailMessage]) -> int:
         if(self.use_tls):
-            logger.info(f"CoreEmailBackend using TLS - SSL-Context : {self.ssl_context}")
+            logger.info(f"CoreEmailBackend using TLS - type of SS Context {type(self.ssl_context)}-  SSL-Context : {self.ssl_context}")
             self.connection.starttls()
         return super().send_messages(email_messages)
     
