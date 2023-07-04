@@ -68,4 +68,4 @@ def sendmail():
             backend.send_messages([message])
             logger.info(f"Sent Mail with CoreEmailBackend")
     except Exception as e:
-        logger.warn(f"Error while sending with CoreEmailBackend : {e}", e)
+        logger.warn(f"Error while sending with CoreEmailBackend : {e.getMessage()}")
