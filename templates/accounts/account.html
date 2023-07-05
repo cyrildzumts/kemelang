@@ -22,7 +22,7 @@
                 <a class="nav-link" href="{%url 'accounts:update' account.account_uuid %}"> {% trans "Edit my account" %}</a>
                 <a class="nav-link" href="{%url 'accounts:password-change' %}"> {% trans "Change my password" %}</a>
         </div>
-        <div class="padding-v fill">
+        <div class="padding fill">
                 {% if perms.dashboard.can_access_translator %}
                 <div class="balance-info">
                     <div class="row flex-left"><h5>{% trans "Contributions" %}</h5></div>
