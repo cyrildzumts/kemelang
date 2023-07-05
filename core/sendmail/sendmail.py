@@ -74,10 +74,12 @@ class EMailBackend(DefaultEmailBackend):
     def ssl_context(self):
         logger.info(f"ssl_context : using TLS  - SSL-Context")
         if self.ssl_certfile or self.ssl_keyfile:
+            logger.info(f"ssl_context : using SSL_CERT")
             ssl_context = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_CLIENT)
             ssl_context.load_cert_chain(self.ssl_certfile, self.ssl_keyfile)
             return ssl_context
         else:
+            logger.info(f"ssl_context : Not using SSL_CERT")
             ssl_context = ssl.create_default_context()
             ssl_context.check_hostname = False
             ssl_context.verify_mode = ssl.CERT_NONE
