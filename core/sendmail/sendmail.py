@@ -64,6 +64,21 @@ class CoreEmailBackend(EmailBackend):
     #         self.connection.starttls()
     #     return super().send_messages(email_messages)
     
+
+
+class MailBackend(EmailBackend):
+    
+    def open(self):
+        logger.info(f"Opening CoreEmailBackend using TLS  - SSL-Context : {self.ssl_context}")
+        return super().open()
+        
+    
+    # def send_messages(self, email_messages: Iterable[EmailMessage]) -> int:
+    #     if(self.use_tls):
+    #         logger.info(f"CoreEmailBackend using TLS - type of SSS Context {type(self.ssl_context)} -  SSL-Context : {self.ssl_context}")
+    #         self.connection.starttls()
+    #     return super().send_messages(email_messages)
+    
     
 
 
@@ -86,9 +101,9 @@ def sendmail():
         except Exception as e:
             logger.warn(f"Error while sending : {e}", e)
     
-    logger.info(f"Sending Mail with CoreEmailBackend")
+    logger.info(f"Sending Mail with MailBackend CERT_KEY = {settings.EMAIL_SSL_KEYFILE}")
     try:
-        with CoreEmailBackend(
+        with MailBackend(
                 host=settings.EMAIL_HOST, 
                 port=settings.EMAIL_PORT, 
                 username=settings.EMAIL_HOST_USER,
