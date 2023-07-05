@@ -3927,6 +3927,9 @@ ul li{
 	  padding: 0.5em;
   }
   
+  .user-infos input:not([type='checkbox']):not([type='radio']){
+	width: 100%;
+  }
   
   .footer-catalog{
 	  margin: 0.5em;
