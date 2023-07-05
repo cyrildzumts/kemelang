@@ -7,10 +7,11 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User, Group, Permission
 from django.contrib import messages
+from rest_framework.authtoken.models import Token
 from accounts import constants as Account_Constants
 from accounts.forms import AccountCreationForm, UserCreationForm
 from accounts import account_services
-from dashboard.forms import (AccountForm, GroupFormCreation)
+from dashboard.forms import (AccountForm, GroupFormCreation, TokenForm)
 from dashboard.models import Settings
 from dashboard import dashboard_service, constants as DASHBOARD_CONSTANTS
 from core import permissions as PERMISSIONS
@@ -606,3 +607,65 @@ def send_welcome_mail(request, pk):
     )
 
     return redirect('dashboard:user-detail', pk=pk)
+
+
+
+@login_required
+def tokens(request):
+    username = request.user.username
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_DASHBOARD_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {username} for path {request.path}")
+        raise PermissionDenied
+    
+
+    context = {}
+    queryset = Token.objects.all()
+    template_name = "dashboard/token_list.html"
+    page_title = CORE_UI_STRINGS.LABEL_TOKEN_PLURAL
+    page = request.GET.get('page', 1)
+    paginator = Paginator(queryset, utils.PAGINATED_BY)
+    try:
+        list_set = paginator.page(page)
+    except PageNotAnInteger:
+        list_set = paginator.page(1)
+    except EmptyPage:
+        list_set = None
+    context['page_title'] = page_title
+    context['token_list'] = list_set
+    context['content_title'] =  page_title
+    return render(request,template_name, context)
+
+
+@login_required
+def generate_token(request):
+    username = request.user.username
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_CREATE_TOKEN_PERM) :
+        logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
+        raise PermissionDenied
+    
+
+    template_name = "dashboard/token_generate.html"
+    context = {
+        'page_title' : CORE_UI_STRINGS.LABEL_TOKEN_CREATE,
+        'content_title' : CORE_UI_STRINGS.LABEL_TOKEN_CREATE
+    }
+    if request.method == 'POST':
+            form = TokenForm(utils.get_postdata(request))
+            if form.is_valid():
+                user_id = form.cleaned_data.get('user')
+                user = User.objects.get(pk=user_id)
+                t = Token.objects.get_or_create(user=user)
+                context['generated_token'] = t
+                logger.info("user \"%s\" create a token for user \"%s\"", request.user.username, user.username )
+                messages.add_message(request, messages.SUCCESS, _(f'Token successfully generated for user {username}') )
+                return redirect('dashboard:home')
+            else :
+                logger.error("TokenForm is invalid : %s\n%s", form.errors, form.non_field_errors)
+                messages.add_message(request, messages.ERROR, _('The submitted form is not valid') )
+    else :
+            context['form'] = TokenForm()
+        
+    return render(request, template_name, context)
+
+
+
