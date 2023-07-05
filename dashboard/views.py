@@ -31,7 +31,9 @@ logger = logging.getLogger(__name__)
 def dashboard(request):
     template_name = "dashboard/dashboard.html"
     username = request.user.username
-
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_DASHBOARD_PERM):
+        logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
+        raise PermissionDenied
     page_title = "Dashboard"
     #settings_set = Settings.objects.all()[:utils.TOP_VIEWS_MAX]
     recent_users = User.objects.all().order_by('-date_joined')[:utils.MAX_RECENTS]
@@ -52,7 +54,9 @@ def dashboard(request):
 def create_settings (request):
     template_name = 'dashboard/create_settings.html'
     username = request.user.username
-    
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_DASHBOARD_PERM):
+        logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
+        raise PermissionDenied
     if request.method == 'POST':
         setting = dashboard_service.create_setting(utils.get_postdata(request))
         if setting:
@@ -75,6 +79,9 @@ def create_settings (request):
 def update_settings (request, setting_uuid):
     template_name = 'dashboard/update_settings.html'
     username = request.user.username
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_DASHBOARD_PERM):
+        logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
+        raise PermissionDenied
     setting = get_object_or_404(Settings, setting_uuid=setting_uuid)
     if request.method == 'POST':
         setting = dashboard_service.update_setting(utils.get_postdata(request), setting)
@@ -99,6 +106,9 @@ def update_settings (request, setting_uuid):
 def dashboard_settings(request):
     template_name = "dashboard/settings.html"
     username = request.user.username
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_DASHBOARD_PERM):
+        logger.warning("Dashboard : PermissionDenied to user %s for path %s", username, request.path)
+        raise PermissionDenied
     context = {
         'content_title' : "Settings"
     }

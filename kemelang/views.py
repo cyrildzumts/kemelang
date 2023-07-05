@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.utils.translation import gettext as _
 from django.contrib.sitemaps import Sitemap
 from django.contrib.auth.forms import UserCreationForm
+from core import permissions as PERMISSIONS
 from dashboard import dashboard_service
 from kemelang import settings
 from dictionary import dictionary_service
@@ -66,7 +67,7 @@ def bad_request(request):
 
 def home(request):
     setting = dashboard_service.get_setting()
-    if not dashboard_service.can_access_on_maintenance(request.user) :
+    if setting.maintenance_mode and not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_MAINTENANCE_MODE_PERM):
         template_name = "maintenance/home.html"
         page_title = CORE_UI_STRINGS.UI_HOME_MAINTENANCE_PAGE
         context = {
