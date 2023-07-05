@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-05 17:45+0200\n"
+"POT-Creation-Date: 2023-07-06 00:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,8 +224,8 @@ msgstr "Recherche de langues"
 msgid "Auto Detect"
 msgstr "Détection automatique"
 
-#: core/resources/ui_strings.py:69 templates/dashboard_base.html:23
-#: templates/tags/dashboard_sidebar.html:12 templates/tags/users_sidebar.html:4
+#: core/resources/ui_strings.py:69 templates/tags/dashboard_sidebar.html:12
+#: templates/tags/users_sidebar.html:4
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -235,8 +235,9 @@ msgstr "Traducteur"
 
 #: core/resources/ui_strings.py:71
 #: dashboard/templates/dashboard/create_settings.html:7
-#: dashboard/templates/dashboard/update_settings.html:7 dashboard/views.py:106
-#: templates/dashboard_base.html:25 templates/tags/dashboard_header.html:41
+#: dashboard/templates/dashboard/update_settings.html:7 dashboard/views.py:116
+#: templates/tags/dashboard_header.html:36
+#: templates/tags/dashboard_sidebar.html:13
 msgid "Settings"
 msgstr "Parametres"
 
@@ -276,12 +277,12 @@ msgid "Info Update"
 msgstr "Actualiser l'Info"
 
 #: core/resources/ui_strings.py:81 core/resources/ui_strings.py:104
-#: templates/dashboard_base.html:28 templates/tags/users_sidebar.html:5
+#: templates/tags/dashboard_sidebar.html:14 templates/tags/users_sidebar.html:5
 msgid "Groups"
 msgstr "Groupes"
 
 #: core/resources/ui_strings.py:82 core/resources/ui_strings.py:103
-#: dashboard/templates/dashboard/user_detail.html:99
+#: dashboard/templates/dashboard/user_detail.html:96
 msgid "Group"
 msgstr "Groupe"
 
@@ -305,7 +306,7 @@ msgstr ""
 msgid "Highlight Update"
 msgstr "actualiser"
 
-#: core/resources/ui_strings.py:90 templates/tags/dashboard_header.html:26
+#: core/resources/ui_strings.py:90
 msgid "New Highlight"
 msgstr ""
 
@@ -325,7 +326,7 @@ msgstr "Créer la Campagne"
 msgid "Campaign"
 msgstr "Campagne"
 
-#: core/resources/ui_strings.py:97 templates/tags/dashboard_header.html:44
+#: core/resources/ui_strings.py:97 templates/tags/dashboard_header.html:39
 msgid "User"
 msgstr ""
 
@@ -342,7 +343,7 @@ msgid "User Update"
 msgstr "Actualiser l'utilisateur"
 
 #: core/resources/ui_strings.py:101
-#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:555
+#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:565
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
@@ -350,7 +351,7 @@ msgstr "Nouvel utilisateur"
 msgid "Token"
 msgstr "Jeton"
 
-#: core/resources/ui_strings.py:109 templates/dashboard_base.html:34
+#: core/resources/ui_strings.py:109 templates/tags/dashboard_sidebar.html:20
 #: templates/tags/users_sidebar.html:7
 msgid "Tokens"
 msgstr "Jetons"
@@ -562,7 +563,7 @@ msgstr "Connexion"
 msgid "Sign In"
 msgstr "S'identifier"
 
-#: core/resources/ui_strings.py:165 templates/tags/dashboard_header.html:63
+#: core/resources/ui_strings.py:165 templates/tags/dashboard_header.html:58
 msgid "Logout"
 msgstr "Se déconnecter"
 
@@ -619,7 +620,7 @@ msgstr "Vous avez déjà un compte ?"
 
 #: core/resources/ui_strings.py:177
 #: templates/accounts/registration/email_validation.html:19
-#: templates/tags/dashboard_header.html:62
+#: templates/tags/dashboard_header.html:57
 msgid "My Account"
 msgstr "Mon Compte"
 
@@ -670,7 +671,7 @@ msgstr "Appliquer"
 #: dashboard/templates/tags/group_form.html:85
 #: dashboard/templates/tags/group_form.html:114
 #: dashboard/templates/tags/group_form_new.html:24
-#: dashboard/templates/tags/group_form_new.html:50
+#: dashboard/templates/tags/group_form_new.html:54
 #: dashboard/templates/tags/group_update_form.html:44
 #: dashboard/templates/tags/group_update_form.html:66
 #: dashboard/templates/tags/group_update_form.html:90
@@ -710,7 +711,7 @@ msgstr ""
 #: dashboard/templates/dashboard/token_list.html:39
 #: dashboard/templates/dashboard/user_list.html:31
 #: dashboard/templates/tags/group_form.html:142
-#: dashboard/templates/tags/group_form_new.html:75
+#: dashboard/templates/tags/group_form_new.html:83
 #: dashboard/templates/tags/group_update_form.html:133
 #: dashboard/templates/tags/group_update_form_new.html:131
 #: dashboard/templates/tags/settings_form.html:27
@@ -901,48 +902,47 @@ msgid "Telefon"
 msgstr "Téléphone"
 
 #: dashboard/templates/dashboard/user_detail.html:52
-msgid "Account Type"
-msgstr "Type de Compte"
-
-#: dashboard/templates/dashboard/user_detail.html:55
 msgid "Account"
 msgstr "Compte"
 
-#: dashboard/templates/dashboard/user_detail.html:58
+#: dashboard/templates/dashboard/user_detail.html:55
 msgid "Email is Validated"
 msgstr "L'e-mail est validé"
 
-#: dashboard/templates/dashboard/user_detail.html:61
+#: dashboard/templates/dashboard/user_detail.html:58
 msgid "Account is Active"
 msgstr "Le compte est actif"
 
-#: dashboard/templates/dashboard/user_detail.html:64
-msgid "Customer ID"
-msgstr ""
+#: dashboard/templates/dashboard/user_detail.html:61
+#, fuzzy
+#| msgid "Users"
+msgid "User ID"
+msgstr "Utilisateurs"
 
-#: dashboard/templates/dashboard/user_detail.html:70
+#: dashboard/templates/dashboard/user_detail.html:67
 #: templates/accounts/account_detail.html:65
 msgid "Date joined"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:73
+#: dashboard/templates/dashboard/user_detail.html:70
 #: templates/accounts/account_detail.html:61
 msgid "Last login"
 msgstr "Dernière connexion"
 
-#: dashboard/templates/dashboard/user_detail.html:92
+#: dashboard/templates/dashboard/user_detail.html:89
 msgid "User Groups"
 msgstr "Groupes d'utilisateurs"
 
-#: dashboard/templates/dashboard/user_detail.html:100
+#: dashboard/templates/dashboard/user_detail.html:97
 msgid "Group Permissions"
 msgstr "Autorisations de groupe"
 
-#: dashboard/templates/dashboard/user_detail.html:112
+#: dashboard/templates/dashboard/user_detail.html:109
 msgid "User Permissions"
 msgstr "Autorisations utilisateur"
 
 #: dashboard/templates/tags/account_update_form.html:9
+#: templates/accounts/account.html:22
 msgid "Edit my account"
 msgstr ""
 
@@ -1166,8 +1166,8 @@ msgstr "Sélectionnez les autorisations à ajouter"
 #: dashboard/templates/tags/group_form.html:66
 #: dashboard/templates/tags/group_form.html:88
 #: dashboard/templates/tags/group_form.html:117
-#: dashboard/templates/tags/group_form_new.html:27
-#: dashboard/templates/tags/group_form_new.html:53
+#: dashboard/templates/tags/group_form_new.html:31
+#: dashboard/templates/tags/group_form_new.html:61
 #: dashboard/templates/tags/group_update_form.html:47
 #: dashboard/templates/tags/group_update_form.html:69
 #: dashboard/templates/tags/group_update_form.html:93
@@ -1180,7 +1180,7 @@ msgid "Enter the term to filter"
 msgstr ""
 
 #: dashboard/templates/tags/group_form.html:41
-#: dashboard/templates/tags/group_form_new.html:32
+#: dashboard/templates/tags/group_form_new.html:36
 msgid "Permission"
 msgstr "Autorisation"
 
@@ -1191,7 +1191,7 @@ msgid "Selected Permissions"
 msgstr "Autorisations sélectionnées"
 
 #: dashboard/templates/tags/group_form.html:81
-#: dashboard/templates/tags/group_form_new.html:46
+#: dashboard/templates/tags/group_form_new.html:50
 #: dashboard/templates/tags/group_update_form.html:86
 #: dashboard/templates/tags/group_update_form_new.html:100
 msgid "Select Users to add"
@@ -1232,47 +1232,47 @@ msgstr ""
 msgid "Countries currently opened for Editing"
 msgstr ""
 
-#: dashboard/views.py:59
+#: dashboard/views.py:63
 msgid "New Setting created"
 msgstr ""
 
-#: dashboard/views.py:63
+#: dashboard/views.py:67
 msgid "Error when creating new setting"
 msgstr ""
 
-#: dashboard/views.py:66 dashboard/views.py:69
+#: dashboard/views.py:70 dashboard/views.py:73
 msgid "New Setting"
 msgstr "Nouveau Parametre"
 
-#: dashboard/views.py:82
+#: dashboard/views.py:89
 msgid "Setting updated"
 msgstr ""
 
-#: dashboard/views.py:86
+#: dashboard/views.py:93
 msgid "Error when updateing setting"
 msgstr "Erreur en actualisant le parametre"
 
-#: dashboard/views.py:89 dashboard/views.py:92
+#: dashboard/views.py:96 dashboard/views.py:99
 msgid "Update Setting"
 msgstr "Actualiser le parametre"
 
-#: dashboard/views.py:125
+#: dashboard/views.py:135
 #, fuzzy
 #| msgid "Dashboard"
 msgid "Dashboard Users"
 msgstr "Dashboard"
 
-#: dashboard/views.py:567
+#: dashboard/views.py:577
 #, python-brace-format
 msgid "User {name} created"
 msgstr ""
 
-#: dashboard/views.py:661
+#: dashboard/views.py:671
 #, python-brace-format
 msgid "Token successfully generated for user {username}"
 msgstr ""
 
-#: dashboard/views.py:665
+#: dashboard/views.py:675
 msgid "The submitted form is not valid"
 msgstr ""
 
@@ -1379,27 +1379,27 @@ msgstr "The serveur n'a pu comprendre votre requête."
 
 #: templates/403.html:6
 msgid "Access Forbidden ! "
-msgstr ""
+msgstr "Accèss interdit !"
 
 #: templates/403.html:9
 msgid "You are not allowed to access this page."
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à accéder à cette page"
 
 #: templates/500.html:7
 msgid "Internal Server Error ! "
-msgstr ""
+msgstr "Erreur Interne du Serveur"
 
 #: templates/500.html:10
 msgid "The server has encountered an internal error."
-msgstr ""
+msgstr "Le serveur a rencontré une erreur interne"
 
 #: templates/500.html:11
 msgid "If this problem persists please contact us."
-msgstr ""
+msgstr "Si ce problème persiste, veuillez nous contacter"
 
 #: templates/500.html:12
 msgid "Our technicians are working on the problem."
-msgstr ""
+msgstr "Nos techniciens travaillent sur le problème"
 
 #: templates/about.html:6
 msgid "About"
@@ -1407,57 +1407,71 @@ msgstr "À propos"
 
 #: templates/about.html:8 templates/faq.html:8
 msgid "This page is under construction."
-msgstr ""
+msgstr "Cette page est en construction"
 
 #: templates/accounts/account.html:9
 msgid "You have not yet validated your email address."
-msgstr ""
+msgstr "Vous n'avez encore validé votre adresse email."
 
 #: templates/accounts/account.html:10
 msgid "We have already sent you a validation link to your email address."
 msgstr ""
+"Nous vous avons déjà envoyé un lien de validation à votre adresse email."
 
 #: templates/accounts/account.html:11
 msgid "Please click on the validation link sent to you."
-msgstr ""
+msgstr "Veuillez cliquer sur le lien de validation qui vous a été envoyé."
 
 #: templates/accounts/account.html:12
 msgid "Click on the link below to receive a new activation link."
 msgstr ""
+"Cliquer sur le lien ci-dessous pour recevoir un nouveau lien d'activation."
 
 #: templates/accounts/account.html:18
 msgid "Overview"
-msgstr ""
+msgstr "Aperçu"
+
+#: templates/accounts/account.html:21 templates/site_account_base.html:23
+msgid "Account Details"
+msgstr "Details du compte"
+
+#: templates/accounts/account.html:23
+msgid "Change my password"
+msgstr "Modifier le mot de passe"
+
+#: templates/accounts/account.html:28 templates/site_account_base.html:18
+msgid "Contributions"
+msgstr "Contributions"
 
 #: templates/accounts/account_detail.html:9
 msgid "User Picture"
-msgstr ""
+msgstr "Image de profile"
 
 #: templates/accounts/account_detail.html:16
 msgid "Change password"
-msgstr ""
+msgstr "Modifier le mot de passe"
 
 #: templates/accounts/account_detail.html:17
 msgid "Delete my Account"
-msgstr ""
+msgstr "Suprimer mon compte"
 
 #: templates/accounts/account_detail.html:42
 msgid "Date of Birth"
-msgstr ""
+msgstr "Date de naissance"
 
 #: templates/accounts/account_detail.html:46
 msgid "Phone"
-msgstr ""
+msgstr "Téléphone"
 
 #: templates/accounts/account_detail.html:50
 #: templates/accounts/registration/password_reset_form.html:31
 #: templates/registration/password_reset_form.html:27
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
 #: templates/accounts/account_detail.html:57
 msgid "Newsletter Subscribtion"
-msgstr ""
+msgstr "Inscription à la Newsletter"
 
 #: templates/accounts/registration/email_validation.html:7
 #: templates/accounts/registration/registration_complete.html:7
@@ -1782,36 +1796,24 @@ msgstr ""
 msgid "Already have an account ? "
 msgstr ""
 
-#: templates/dashboard_base.html:54
-msgid "About us"
-msgstr ""
-
-#: templates/dashboard_base.html:55 templates/faq.html:6
-msgid "FAQ"
-msgstr ""
-
-#: templates/dashboard_base.html:71
-msgid "Search"
-msgstr "Recherche"
-
-#: templates/dashboard_base.html:77
-msgid "Administrator"
-msgstr "Administrateur"
-
 #: templates/email_tags/order_cancel_confirmation_email.html:47
 #: templates/email_tags/order_confirmation_email.html:46
 msgid "Image"
+msgstr ""
+
+#: templates/faq.html:6
+msgid "FAQ"
 msgstr ""
 
 #: templates/home.html:13
 msgid "Langages"
 msgstr "Langues"
 
-#: templates/home.html:14
+#: templates/home.html:14 templates/tags/dashboard_header.html:21
 msgid "New Country"
 msgstr "Nouveau pays"
 
-#: templates/home.html:15
+#: templates/home.html:15 templates/tags/dashboard_header.html:20
 msgid "New Langage"
 msgstr "Nouvelle langue"
 
@@ -1850,14 +1852,6 @@ msgstr "Vous avez déjà un compte ?"
 
 #: templates/site_account_base.html:12
 msgid "Hello"
-msgstr ""
-
-#: templates/site_account_base.html:18
-msgid "Contributions"
-msgstr "Contributions"
-
-#: templates/site_account_base.html:23
-msgid "Account Details"
 msgstr ""
 
 #: templates/tags/components/campaigns_snippet.html:38
@@ -1911,63 +1905,21 @@ msgid "Use this shortcuts for quick actions"
 msgstr ""
 
 #: templates/tags/dashboard_header.html:19
-msgid "Price Calculator"
-msgstr ""
+#, fuzzy
+#| msgid "Add word"
+msgid "Add Word"
+msgstr "Ajouter un mot"
 
-#: templates/tags/dashboard_header.html:20
-msgid "New Product"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:21
-msgid "offline order"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:22
-msgid "New Brand"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:23
-msgid "New Category"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:24
-msgid "New Attribute"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:25
-msgid "New Coupon"
-msgstr ""
-
-#: templates/tags/dashboard_header.html:34
+#: templates/tags/dashboard_header.html:29
 msgid "Notifications"
 msgstr ""
 
-#: templates/tags/dashboard_header.html:58
+#: templates/tags/dashboard_header.html:53
 msgid "User settings"
 msgstr ""
 
-#: templates/tags/dashboard_header.html:60
+#: templates/tags/dashboard_header.html:55
 msgid "Welcome !"
-msgstr ""
-
-#: templates/tags/dashboard_sidebar.html:24
-msgid "Feedbacks"
-msgstr ""
-
-#: templates/tags/dashboard_sidebar.html:25
-msgid "Searches"
-msgstr ""
-
-#: templates/tags/dashboard_sidebar.html:28
-msgid "Mails"
-msgstr ""
-
-#: templates/tags/dashboard_sidebar.html:31
-msgid "Mail Campaigns"
-msgstr ""
-
-#: templates/tags/dashboard_sidebar.html:34
-msgid "Dictionary Site"
 msgstr ""
 
 #: templates/tags/images_uploader.html:5
@@ -2009,6 +1961,15 @@ msgstr "actuelle"
 #: templates/tags/unauthorized.html:4
 msgid "The requested Page was not found."
 msgstr ""
+
+#~ msgid "Account Type"
+#~ msgstr "Type de Compte"
+
+#~ msgid "Search"
+#~ msgstr "Recherche"
+
+#~ msgid "Administrator"
+#~ msgstr "Administrateur"
 
 #~ msgid "Update Group"
 #~ msgstr "Actualiser le Groupe"
