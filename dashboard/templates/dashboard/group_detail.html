@@ -1,7 +1,7 @@
 {% extends "users_base.html"%}
 {% load i18n %}
 
-{% block CONTENT %}
+{% block PAGE_CONTENT %}
 
 {% if perms.auth.view_group %}
 {% if perms.auth.change_group %}
@@ -68,4 +68,4 @@
   <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
 </div>
 {% endif %}
-{% endblock CONTENT %}
+{% endblock PAGE_CONTENT %}

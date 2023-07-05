@@ -1,7 +1,7 @@
-{% extends "dashboard_base.html"%}
+{% extends "users_base.html"%}
 {% load i18n %}
 
-{% block CONTENT %}
+{% block PAGE_CONTENT %}
 
 {% if perms.auth.view_user %}
 
@@ -30,4 +30,4 @@
   <p>{% trans "The page you requested could not be found or you are not allowed to access this page." %}</p>
 </div>
 {% endif %}
-{% endblock CONTENT %}
+{% endblock PAGE_CONTENT %}

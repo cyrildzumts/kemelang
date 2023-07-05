@@ -1,7 +1,7 @@
-{% extends "dashboard_base.html"%}
+{% extends "users_base.html"%}
 {% load i18n %}
 
-{%block CONTENT %}
+{%block PAGE_CONTENT %}
 
                 
 <div class="container">
@@ -120,58 +120,7 @@
 
 </div>
 </div>
-<div id="addressbook" class="container">
-<div class="flex flex-left">
-        <h4>{% trans "Addressbook" %}</h4>
-</div>
-{% if addressbook %}
-        {% for address in addressbook %}
-        <div class="mat-box full">
-                {% include "tags/address_snippet.html" %}
-        </div>
-        {% endfor %}
-        
-{% else %}
-<p>{% trans "No address found" %}</p>
-{% endif %}
-</div>
-{% if cart_items %}
-<div class="container">
-        <div class="mat-box full">
-                <h5>{% trans "User Shopping Cart" %}</h5>
-                <ul>
-                        {% for item in cart_items %}
-                        <li id="item-{{item.id}}">
-                                {% include "tags/user_cart.html" %}
-                        </li>
-                        {% endfor %}
-                </ul>
                 
-        </div><!--End mat-list-wrapper-->
-</div>
-{% endif %}
-
-{% if recent_orders %}
-<div class="container">
-        <div class="mat-box full">
-                <h5>{% trans "Recents Orders" %}</h5>
-                <ul class="spaced-list">
-                        {% for order in recent_orders %}
-                        <li><a class="mat-button mat-button-text" href="{{order.get_dashboard_url}}"><i class="fas fa-shopping-bag icon"></i><span>{{order.order_ref_number}}</span> - <span>{{order.total_price|floatformat:"-2"}} {% trans CURRENCY %}</span> - <span>{{order.status|order_status_value}}</span></a></li>
-                        {% endfor %}
-                </ul>
-        </div>
-</div>
-{% endif %}
-
-{% if is_seller %}
-<div class="container">
-        <div class="mat-box full">
-        {% include 'tags/product_list_template.html' with product_list=product_list %}   
-        </div>
-</div>
-{% endif %}
-                
-{% endblock CONTENT %}
+{% endblock PAGE_CONTENT %}
 
 

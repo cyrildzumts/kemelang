@@ -1,7 +1,7 @@
 {% extends "users_base.html"%}
 {% load i18n %}
 
-{% block CONTENT %}
+{% block PAGE_CONTENT %}
 
 {% if perms.auth.view_group %}
 
@@ -25,4 +25,4 @@
 </div>
 {% endif %}
 
-{% endblock CONTENT %}
+{% endblock PAGE_CONTENT %}

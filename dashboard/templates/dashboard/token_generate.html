@@ -1,8 +1,8 @@
-{% extends "dashboard_base.html"%}
+{% extends "users_base.html"%}
 {% load i18n %}
 
 
-{% block CONTENT_MAIN %}
+{% block PAGE_CONTENT %}
 {% if not perms.authtoken.add_token %}
  {% include "tags/unauthorized.html" %}
 {% else %}
@@ -26,4 +26,4 @@
         </div>
 </div>
 {% endif %}
-{% endblock CONTENT_MAIN %}
+{% endblock PAGE_CONTENT %}
