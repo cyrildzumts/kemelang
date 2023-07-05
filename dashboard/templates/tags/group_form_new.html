@@ -15,13 +15,13 @@
             </div>
         </div>
         <div class="container">
-            <div class="mat-list-wrapper">
-                <div class="mat-list-header">
-                    <span class="list-title">{% trans "Select Permissions to add" %}</span>
+            <div class="margin-v padding-v">
+                <div class="">
+                    <span class="bold">{% trans "Select Permissions to add" %}</span>
                 </div>
                 <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open">
-                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    <div class="collapsible-toggle padding-v open">
+                        <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <input class="js-list-filter" 
@@ -32,8 +32,8 @@
                     </div>
                 </div>
                 <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open">
-                        <span class="padding-h">{% trans "Permission" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    <div class="collapsible-toggle open padding-v">
+                        <span class="bold">{% trans "Permission" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <ul class="mat-list filter-content" id="available-permission-list" data-target="#selected-permission-list" data-element="option">
@@ -45,25 +45,25 @@
                 </div>
                 
             </div>
-            <div class="mat-list-wrapper">
-                <div class="mat-list-header">
-                    <span class="list-title">{% trans "Select Users to add" %}</span>
+            <div class="margin-v padding-v">
+                <div class="">
+                    <span class="bold">{% trans "Select Users to add" %}</span>
                 </div>
                 <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open">
-                        <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
+                    <div class="collapsible-toggle open  padding-v">
+                        <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <input class="js-list-filter" 
-                                type="text" data-element=".entry" 
+                                type="text" 
                                 data-target="available-users-list" 
                                 data-fields="username firstname lastname"
                                 placeholder="{% trans 'Enter the term to filter' %}">
                     </div>
                 </div>
                 <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open">
-                        <span class="padding-h">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
+                    <div class="collapsible-toggle open padding-v">
+                        <span class="bold">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <ul class="mat-list filter-content" id="available-users-list">
