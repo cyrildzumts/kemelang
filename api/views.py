@@ -88,8 +88,6 @@ def update_country(request,country_slug, country_uuid):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
 def langages(request):
     logger.info(f"API: Langages request")
     try:
@@ -104,7 +102,6 @@ def langages(request):
 
 @api_view(['GET'])
 @permission_classes([API_PERMISSIONS.TranslatorPermission])
-@authentication_classes([])
 def country_langages(request, country_slug, country_uuid):
     logger.info(f"API: Langages request")
     try:
@@ -228,8 +225,8 @@ def update_word(request, word, word_uuid):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def search_langage(request):
     logger.info(f"API: Search Langages request")
     try:
@@ -245,8 +242,8 @@ def search_langage(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def detect_langage(request):
     logger.info(f"API: Search Langages request")
     try:
@@ -264,8 +261,8 @@ def detect_langage(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def search_country(request):
     logger.info(f"API: Search Countries request")
     try:
@@ -280,8 +277,8 @@ def search_country(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def search_word(request):
     logger.info(f"API: Search Words request")
     try:
@@ -299,8 +296,8 @@ def search_word(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def find_country(request):
     logger.info(f"API: Find Country request")
     try:
@@ -317,8 +314,8 @@ def find_country(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def find_langage(request):
     logger.info(f"API: Find Langage request")
     try:
@@ -336,8 +333,8 @@ def find_langage(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def find_word(request):
     logger.info(f"API: Find word request")
     try:
@@ -352,8 +349,8 @@ def find_word(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def word_synonymes(request, word, word_uuid):
     logger.info(f"API: Search Synonymes request")
     try:
@@ -369,8 +366,8 @@ def word_synonymes(request, word, word_uuid):
 
 
 @api_view(['GET'])
-@permission_classes([])
-@authentication_classes([])
+#@permission_classes([])
+#@authentication_classes([])
 def translate(request):
     logger.info(f"API: transalte word request")
     result = None
