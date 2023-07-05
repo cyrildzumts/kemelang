@@ -34,7 +34,7 @@ define(['tag_api'],function(tag_api) {
             'id': `id-${form_prefix}-${form_index}-name`,
             'name': `${form_prefix}-${form_index}-name`,
             'data-error': `${id}-name-error`,
-            'cls': 'managed-update',
+            'cls': 'managed-update full',
             'type':'text'
         }});
         let label_name = create_api({'element': 'label', 'options': {
@@ -42,7 +42,7 @@ define(['tag_api'],function(tag_api) {
             'cls': 'managed-update',
             'htmlFor': name.id
         }});
-        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update small hidden','innerText': 'Langage already exists'}})
+        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update small margin-b full hidden','innerText': 'Langage already exists'}})
         let form_group_name = create_api({'element': 'div', 'options': {
             'cls': 'form-group',
             'children': [label_name, name_error, name]
