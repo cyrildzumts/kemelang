@@ -15,9 +15,21 @@
 </div>
 
 {% else %}
-<div class="flex flex-left full padding-h"><h4>{% trans "Overview" %}</h4></div>
+<div class="flex flex-left full padding-v"><h4>{% trans "Overview" %}</h4></div>
 <div class="container">
-   <p>Here is something coming soon !</p>
+        <div class="actions ">
+                <a class="link" href="{{account.get_absolute_url}}"><i class="fas fa-user icon"></i><span>{% trans "Account Details" %}</span></a>
+                <a class="link" href="{%url 'accounts:update' account.account_uuid %}"> {% trans "Edit my account" %}</a>
+                <a class="link" href="{%url 'accounts:password-change' %}"> {% trans "Change my password" %}</a>
+        </div>
+        <div class="padding-v fill">
+                {% if perms.dashbaord.can_access_translator %}
+                <div class="balance-info">
+                    <div class="row flex-left"><h5>{% trans "Contributions" %}</h5></div>
+                    <div class="row flex-left balance"><span>{{total_contributions|default:'0'}}</span></div>
+                </div><!--End of Balance-->
+                {% endif %}
+            </div>
 </div>
 {% endif %}
 {% endblock MAIN %}
