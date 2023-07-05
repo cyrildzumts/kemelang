@@ -11,7 +11,7 @@
     <div class="mat-table-wrapper style-box">
         <div class="mat-table-title flex flex-left flex-wrap">
             <div class="actions flex-left small">
-            {% if perms.auth.add_group %}<a class="mat-button mat-button-text" href="{% url 'dashboard:group-create' %}"> <i class="fas fa-plus icon"></i> <span>{% trans "New Group" %}</span> </a>{% endif %}
+            {% if perms.auth.add_group %}<a class="mat-button mat-button-text" href="{% url 'dashboard:group-create' %}"> <i class="fas fa-plus icon"></i> <span>{{UI_STRINGS_CONTEXT.LABEL_GROUP_CREATE}}</span> </a>{% endif %}
             </div>
         </div>
     </div>

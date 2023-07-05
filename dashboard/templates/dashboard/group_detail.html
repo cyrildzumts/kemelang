@@ -7,7 +7,7 @@
 {% if perms.auth.change_group %}
 <div class="actions flex-left">
     <a class="mat-button mat-button-text" href="{% url GROUP_UPDATE_URL group.pk %}"><i class="far fa-edit"></i><span>{% trans "Edit" %}</span></a>
-    {% if perms.auth.delete_group %}<a class="mat-button mat-button-text danger" href="{% url GROUP_DELETE_URL group.pk %}"><i class="far fa-trash-alt"></i><span>{% trans "Delete" %}</span></a>{% endif %}
+    {% if perms.auth.delete_group %}<a class="mat-button mat-button-text danger" href="{% url GROUP_DELETE_URL group.pk %}"><i class="far fa-trash-alt"></i><span>{{UI_STRINGS_CONTEXT.UI_DELETE_BTN_LABEL}}</span></a>{% endif %}
 </div>
 {% endif %}
 <div class="container style-container">
