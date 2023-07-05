@@ -6203,10 +6203,6 @@ nav, .nav{
 .highlight .scroll-bar{
 	background-color: transparent;
 }
-.footer-content-wrapper{
-    background-color: var(--footer-content-wrapper);
-    color : var(--footer-content-wrapper-color);
-}
 .scroll-bar .scroll-btn{
 	background-color: #1a1a1a55;
     color: #fafafa;
@@ -6332,25 +6328,8 @@ a {
 .text-gray{
     color:#777;
 }
-.footer-content{
-	background-color: var(--footer-content);
-    color: var(--footer-content-color);
-}
-.footer-catalog{
-	background-color: var(--footer-catelog);
-    color: var(--footer-catelog-color);
-}
-.footer-catalog a{
-	color: var(--footer-catalog-link);
-}
 h1, h2, h3, h4, h5, h6{
 	color: var(--color-ebony);
-}
-.simple-calculator-results label{
-    font-weight: 600;
-}
-.simple-calculator-results label, .simple-calculator-results input{
-    color: var(--secondary-color) !important;
 }
 .campaign-background{
     background-color: var(--secondary-color);
