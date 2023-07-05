@@ -16,14 +16,9 @@
                     <p>{% trans "Use this shortcuts for quick actions" %}</p>
                 </div>
                 <ul class="shortcuts">
-                    <li><a href="{% url 'dashboard:price-calculator'%}"><i class="fas fa-calculator icon"></i><span>{% trans "Price Calculator" %}</span></a></li>
-                    <li><a href="{% url 'dashboard:product-create' %}"><i class="fas fa-plus icon"></i><span>{% trans "New Product" %}</span></a></li>
-                    {% if perms.orders.add_order %}<li><a href="{% url 'dashboard:create-offline-order'%}"><i class="fas fa-plus icon"></i><span>{% trans "offline order" %}</span></a></li>{% endif %}
-                    <li><a href="{% url 'dashboard:brand-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Brand" %}</span></a></li>
-                    <li><a href="{% url 'dashboard:category-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Category" %}</span></a></li>
-                    <li><a href="{% url 'dashboard:attributes-create'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Attribute" %}</span></a></li>
-                    <li><a href="{% url 'dashboard:coupon-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Coupon" %}</span></a></li>
-                    <li><a href="{% url 'dashboard:highlight-create'%}"> <i class="fas fa-plus icon"></i><span>{% trans "New Highlight" %}</span></a></li>
+                    <li><a href="{% url 'dictionary:create-word'%}"><i class="fas fa-calculator icon"></i><span>{% trans "Add Word" %}</span></a></li>
+                    <li><a href="{% url 'dictionary:create-langage' %}"><i class="fas fa-plus icon"></i><span>{% trans "New Langage" %}</span></a></li>
+                    <li><a href="{% url 'dictionary:create-country'%}"><i class="fas fa-plus icon"></i><span>{% trans "New Country" %}</span></a></li>
                 </ul>
                 <div class="actions">
                     <span class="dropdown-toggle mat-button mat-button-text" data-target="shortcuts">{{UI_STRINGS_CONTEXT.UI_CLOSE_BTN_LABEL}}</span>

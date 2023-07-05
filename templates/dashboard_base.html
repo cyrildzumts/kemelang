@@ -1,104 +1,121 @@
-{% extends "base.html"%}
-{% load static %}
+<!DOCTYPE html>
 {% load i18n %} 
-{% block META_REDIRECT %}
+{% load cache %}
+{% load static %}
+{% load core_tags %}
+<html lang="{{LANGUAGE_CODE}}">
+
+<head>
+        <meta charset="utf-8">
+        {% block META_REDIRECT %}
         
-{% endblock META_REDIRECT %}
-{% block STYLESHEET %}<link rel="stylesheet" type="text/css" href="{% static 'css/dashboard.min.css' %}" media="all" />{% endblock STYLESHEET %}
-{% block HEADER %}{% endblock HEADER%}
+        {% endblock META_REDIRECT %}
+        <title>{% block title %}{{SITE_NAME}} | {{page_title}}{% endblock %}</title>
+        <meta name="twitter:card"       content="summary_large_image">
+        <meta name="twitter:creator"    content="@cyrildz"/>
+        <meta name="keywords"           content="{{UI_STRINGS_CONTEXT.META_KEYWORDS|default:''}}">
+        <meta name="description"        content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{UI_STRINGS_CONTEXT.DESCRIPTION_HOOK|default:''}}">
+        <meta property="og:title"       content="{{OG_TITLE|default:''}}">
+        <meta property="og:description" content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{UI_STRINGS_CONTEXT.DESCRIPTION_HOOK|default:''}}">
+        <meta property="og:image"       content="{{OG_IMAGE|default:''}}">
+        <meta property="og:url"         content="{{OG_URL|default:''}}">
 
-{% block MAIN %}
-<div class="container">
-{% block SIDEBAR %}
-      <input type="checkbox" id="nav-toggle">
-      <div id="sidebar" class="sidebar">
-            <div class="sidebar-brand">
-                <h4><span>{{site_name}}</span></h4>
-                {% block SIDEBAR_BRAND_EXTRA %}{% endblock SIDEBAR_BRAND_EXTRA %}
-            </div>
-            
-            <div class="sidebar-menu">
-                <ul>
-                    {% block SIDEBAR_CONTENT %}
-                    <li><a class="link" href="{% url 'dashboard:dashboard'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
+        <meta property="twitter:title"       content="{{OG_TITLE|default:''}}">
+        <meta property="twitter:description" content="{{UI_STRINGS_CONTEXT.META_DESCRIPTION|default:''}} {{DESCRIPTION_HOOK|default:''}}">
+        <meta property="twitter:image:src"       content="{{OG_IMAGE|default:''}}">
+        <meta property="twitter:url"         content="{{OG_URL|default:''}}">
 
-                    <li><a class="link" href="{% url 'dashboard:settings'%}"><i class="fas fa-gear icon"></i><span>{% trans "Settings" %}</span></a></li>
-                    
-                    
-                    {% if perms.auth.view_group %}<li><a class="mat-button mat-button-text" href="{% url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{% trans "Groups" %}</span></a></li>{% endif %}
-                    
-                    {% if perms.auth.view_user %}
-                    
-                    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:users'%}"><i class="fas fa-user-circle icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}</span></a></li>
-                    
-                    <li><a class="mat-button mat-button-text" href="{% url 'dashboard:tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Tokens" %}</span></a></li>
-                    {% comment %}
-                        <li><a class="mat-button mat-button-text" href="{% url 'dashboard:partner-tokens' %}"><i class="fas fa-key icon"></i><span>{% trans "Partner Tokens" %}</span></a></li>
-                    {% endcomment %}
-                    
-                    {% endif %}
-                    
-                    {% endblock SIDEBAR_CONTENT %}
-                    <li><a class="link" href="{% url 'home'%}" target="_blank"><i class="fas fa-home icon"></i><span>{{UI_STRINGS_CONTEXT.UI_LINK_TO_SITE_LABEL}}</span></a></li>
-                    <li><a class="link" href="{% url 'accounts:logout'%}"><i class="fas fa-sign-out-alt icon"></i><span>{{UI_STRINGS_CONTEXT.UI_SIGNOUT_LABEL}}</span></a></li>
-                </ul>
-                
-            </div>
-            <div class="footer-wrapper">
-                    {% now "Y" as current_year %}
-                    <ul>
-                        <li><span>Copyright</span> <i class="fa fa-copyright icon"></i><span class="copyright-year padding-h">{{current_year}}</span> <span class="site">{{SITE_NAME}} - {{UI_STRINGS_CONTEXT.UI_FOOTER_LABEL}}</span></li>
-                        <li>
-                            <div class="flex">
-                                <a class="mat-button mat-button-text" href="{% url 'about' %}"><i class="fas fa-info-circle icon"></i><span>{% trans "About us" %}</span></a>
-                                <a class="mat-button mat-button-text" href="{% url 'faq' %}"><i class="fas fa-question-circle icon"></i><span>{% trans "FAQ" %}</span></a>
-                            </div>
-                        </li>
-                    </ul>
+        <meta property="og:type"        content="website">
+        <meta property="og:site_name"   content="{{SITE_NAME}}">
+        <meta name="theme-color"        content="{{SITE_HEADER_BG}}">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="{{SITE_NAME}}">
+        <meta name="short_name" content="{{SITE_NAME}}">
+        <meta name="name" content="{{SITE_NAME}}">
+        <meta name="application-name" content="{{SITE_NAME}}">
+        <meta name="msapplication-config" content="{% static 'browserconfig.xml' %}" />
+        <link rel="manifest" href="{% static 'manifest.json' %}">
+        <meta name="apple-mobile-web-app-status-bar-style" content="{{SITE_HEADER_BG}}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon apple-touch-icon" href="{% static 'favicon.ico' %}">
+        <link rel="apple-touch-icon" href="{% static 'favicon.ico' %}">
+        <link rel="canonical" href="{{OG_URL}}">
+        
+        <link rel="stylesheet"  href="{% static 'css/dashboard.min.css' %}" as="style" type="text/css">
+
+</head>
+
+<body>
+<input id="lang" type="hidden" name="lang" value="{{LANGUAGE_CODE}}">
+{% csrf_token %}
+{% include "tags/components/loader.html" %}
+{% block NOTIFICATIONS %}
+        <div id="notifications-wrapper" class="notifications-wrapper">
+                <div class="flex-column">
+                        <ul id="messages" class="messages notification-list" data-toggle="#notifications-wrapper">
+                        {% for message in messages %}
+                                <li {% if message.tags %} class="{{message.tags}}" {% endif %}>
+                                        <div class="notification flex">
+                                                <i class="js-close fas fa-info-circle icon"></i>
+                                                <p>{{message}}</p>
+                                        </div>
+                                </li>
+                        {% endfor %}
+                        </ul>
                 </div>
-      </div>
-{% endblock SIDEBAR %}
-{% block DASH_CONTENT %}
-<div class="dash-main-content">
-    <div class="dashboard-header-wrapper">
-        <header class="dashboard-header">
-            <div class="row dashboard-header-title medium">
-                <div><label for="nav-toggle"><i class="fas fa-bars icon"></i></label></div><div class="bold small">{{content_title|default_if_none:'Dashboard'}}</div>
-            </div>
-            <div class="search-wrapper force-hidden">
-                <span class="fas fa-search icon"></span>
-                <input type="search" placeholder="{% trans 'Search' %}">
-            </div>
-            <div class="user-wrapper">
-                {% if user_pic %} <img class="user-image" src="{{user_pic.image_url}}" alt=""> {% endif %}
-                <div>
-                    <h5>{{request.user.username}}</h5>
-                    <small>{% trans "Administrator" %}</small>
-                </div>
-            </div>
-        </header>
-    </div>
-    <main>
-    {% block MAIN_CONTENT %}
-      {% block DASHBOARD_SUMMARY %}{% endblock DASHBOARD_SUMMARY %}
-        {% block CONTENT %}{% endblock CONTENT %}
-        {% block DASHBOARD_FOOTER %}
-        {% endblock DASHBOARD_FOOTER %}
-    {% endblock MAIN_CONTENT %}
-    </main>
+        </div>
+{% endblock NOTIFICATIONS %}
 </div>
-{% endblock DASH_CONTENT %}
-</div>    
-{% endblock MAIN %}
-{% block FOOTER %}{% endblock FOOTER %}
+<div class="main-page">
+    <input class="hidden" type="checkbox"  id="sidebar-toggle">
+    <aside id="dashboard-sidebar-container" class="dashboard-sidebar-container">
+        {% block SIDEBAR %}
+        {% include "tags/dashboard_sidebar.html" %}
+        {% endblock SIDEBAR %}
+    </aside>
+    <div id="content-page" class="content-page">
+        <div class="content">
+            {% block DASHBOARD_HEADER %}{% include "tags/dashboard_header.html" %}{% endblock DASHBOARD_HEADER %}
+            
+            {% block NEWS %}
+            {% if news %}
+                <div class="news">
+                    <span class="news-title">{% trans news.title %}</span>
+                    <div class="news-content"> {% trans news.content %}</div>
+                </div>
+            {% endif %}
+            {% endblock NEWS %}
+            <div class="main-content">
+                {% block CONTENT %}
+                
+                {% endblock CONTENT %}
+            </div>
+        </div>
+        {% block FOOTER %}
+        {% cache TEMPLATE_CACHE_TIMEOUT footer-lyshop-dashboard LANGUAGE_CODE %}
+        <footer class="footer">
+                {% now "Y" as current_year %}
+                <ul class="small">
+                    <li><span>Copyright <i class="fa fa-copyright"></i><span class="copyright-year">{{current_year}}</span><span class="site">{{site_name}} - {{UI_STRINGS_CONTEXT.UI_FOOTER_ONLINE_SHOP}}</span></span></li>
+                </ul>
+        </footer>
+        {% endcache %}
+        {% endblock FOOTER %}
+    </div>
+</div>
+{% endcache %}
+{% endblock FOOTER %}
+
+<script defer  src="{% static 'js/vendors/jquery-3.6.0.min.js' %}"></script>
 {% block BASE_SCRIPT %}
-<script  data-main="{% static 'js/dashboard.min' %}" src="{% static 'js/require.js' %}"></script>        
+<script defer data-main="{% static 'js/dashboard.min' %}" src="{% static 'js/require.js' %}"></script>        
 {% endblock BASE_SCRIPT %}
 
-{% block SCRIPT %}     
-
-<script  type="application/javascript" src="{% static 'js/lib/validators.js' %}"></script>
-
+{% block SCRIPT %}
 {% endblock SCRIPT %}
 
-{% block GOOGLE_ANALYTICS %}{% endblock GOOGLE_ANALYTICS %}
+</body>
+
+</html>
+
+
