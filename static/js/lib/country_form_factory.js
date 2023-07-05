@@ -33,10 +33,10 @@ define(['tag_api'],function(tag_api) {
             'id': `id-${form_prefix}-${form_index}-name`,
             'name': `${form_prefix}-${form_index}-name`,
             'data-error': `${id}-name-error`,
-            'cls': 'managed-update full',
+            'cls': 'managed-update full margin-t',
             'type':'text'
         }});
-        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update small margin-b hidden full','innerText': 'Country already exists'}})
+        let name_error = create_api({'element': 'span', 'options':{'id': `${id}-name-error` ,'cls': 'managaed-update small margin-v hidden full','innerText': 'Country already exists'}})
         let label_name = create_api({'element': 'label', 'options': {
             'innerText': 'Name',
             'cls': 'managed-update',
