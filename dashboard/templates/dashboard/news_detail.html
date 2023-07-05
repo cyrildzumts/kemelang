@@ -1,4 +1,4 @@
-{% extends "product_base.html"%}
+{% extends "dashboard_base.html"%}
 {% load i18n %}
 
 {% block ACTIONS %}
@@ -7,7 +7,8 @@
 <a class="mat-button mat-button-outline warn" href="{{news.get_delete_url}}"><i class="fas fa-trash icon"></i>{% trans "Delete" %}</a>
 <a class="mat-button mat-button-outline" href="{% url 'dashboard:news' %}"><i class="fas fa-list icon"></i></span>{% trans "Infos" %}</a>
 {% endblock ACTIONS %}
-{% block CONTENT_MAIN %}
+
+{% block CONTENT %}
 
 
 <div class="container">
@@ -64,4 +65,4 @@
 </div>
 </div><!-- End of container-->
 </div>
-{% endblock CONTENT_MAIN %}
+{% endblock CONTENT %}
