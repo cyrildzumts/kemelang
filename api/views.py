@@ -13,6 +13,8 @@ from dictionary.models import Country, Langage,Word, Definition, Comment, Phrase
 from dictionary import dictionary_service
 from core.tasks import log_user_tracking
 from core.resources import ui_strings as UI_STRINGS
+from api import permissions as API_PERMISSIONS
+from core import permissions as PERMISSIONS
 
 import logging
 import uuid
@@ -39,7 +41,8 @@ class UserSearchView(ListAPIView):
 
 
 @api_view(['GET'])
-@permission_classes([])
+#@permission_classes([])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 @authentication_classes([])
 def countries(request):
     logger.info(f"API: Countries request")
@@ -53,6 +56,7 @@ def countries(request):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def create_country(request):
     logger.info(f"API: New country creation request")
     if request.method != 'POST':
@@ -66,6 +70,7 @@ def create_country(request):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def update_country(request,country_slug, country_uuid):
     logger.info(f"API: Update Country {country_slug}-{country_uuid} request")
     if request.method != 'POST':
@@ -98,7 +103,7 @@ def langages(request):
 
 
 @api_view(['GET'])
-@permission_classes([])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 @authentication_classes([])
 def country_langages(request, country_slug, country_uuid):
     logger.info(f"API: Langages request")
@@ -112,6 +117,7 @@ def country_langages(request, country_slug, country_uuid):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def create_langage(request):
     logger.info(f"API: New Langage creation request")
     if request.method != 'POST':
@@ -124,6 +130,7 @@ def create_langage(request):
     return Response(data=result, status=status.HTTP_200_OK)
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def create_translation(request):
     logger.info(f"API: New Translation creation request")
     if request.method != 'POST':
@@ -138,6 +145,7 @@ def create_translation(request):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def add_translations(request, word_uuid=None):
     logger.info(f"API: New Translation creation request")
     if request.method != 'POST':
@@ -152,6 +160,7 @@ def add_translations(request, word_uuid=None):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def add_synonymes(request, word_uuid=None):
     logger.info(f"API: New Synonymes creation request")
     if request.method != 'POST':
@@ -166,6 +175,7 @@ def add_synonymes(request, word_uuid=None):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def update_langage(request,langage_slug, langage_uuid):
     logger.info(f"API: Update Langage {langage_slug}-{langage_uuid} request")
     if request.method != 'POST':
@@ -183,6 +193,7 @@ def update_langage(request,langage_slug, langage_uuid):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def create_word(request):
     logger.info(f"API: New Word creation request")
     if request.method != 'POST':
@@ -200,6 +211,7 @@ def create_word(request):
 
 
 @api_view(['POST'])
+@permission_classes([API_PERMISSIONS.TranslatorPermission])
 def update_word(request, word, word_uuid):
     logger.info(f"API: Update Word {word}-{word_uuid} request")
     if request.method != 'POST':
