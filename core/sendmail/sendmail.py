@@ -124,8 +124,10 @@ def sendmail():
                 password=settings.EMAIL_HOST_PASSWORD,
                 use_tls=settings.EMAIL_USE_TLS,
                 use_ssl=settings.EMAIL_USE_SSL,
-                ssl_keyfile=settings.EMAIL_SSL_KEYFILE,
-                ssl_certfile=settings.EMAIL_SSL_CERTFILE
+                #ssl_keyfile=settings.EMAIL_SSL_KEYFILE,
+                #ssl_certfile=settings.EMAIL_SSL_CERTFILE,
+                ssl_keyfile=None,
+                ssl_certfile=None
                 ) as backend :
             backend.send_messages([message])
             logger.info(f"Sent Mail with CoreEmailBackend")
