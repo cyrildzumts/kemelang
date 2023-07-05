@@ -5,8 +5,8 @@
 <div class="col-m-12 col-8">
 <div class="container">
      <div class="actions">
-        <a class="mat-button mat-button-text" href="{%url 'dashboard:home'%}"><i class="fas fa-home icon"></i><span>{% trans "Dashboard" %}</span></a>
-        <a class="mat-button mat-button-text" href="{%url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{% trans "Groups" %}</span></a>
+        <a class="mat-button mat-button-text" href="{%url 'dashboard:dashboard'%}"><i class="fas fa-home icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}</span></a>
+        <a class="mat-button mat-button-text" href="{%url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_GROUPS_PLURAL}}</span></a>
     </div>
     <form id="group-form" class="group-form form" name="group" action="{% url 'dashboard:group-update' group.pk %}" method="POST">{% csrf_token %}
         <select id="selected-permission-list" name="permissions" class="hidden" multiple>
@@ -21,7 +21,7 @@
         </select>
         <div class="actions">
             <a class="mat-button mat-button-text js-cancel" href="{%url 'dashboard:group-detail' group.pk%}">{{UI_STRINGS_CONTEXT.UI_CANCEL_BTN_LABEL}}</a>
-            <button class="mat-button mat-button-default" type="submit">{% trans "Update Group" %}</button>
+            <button class="mat-button mat-button-default" type="submit">{{UI_STRINGS_CONTEXT.UI_UPDATE_BTN_LABEL}}</button>
         </div>
         <div class="form-group">
             <label for="name">{% trans "Name" %} :</label>

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-05 09:59+0200\n"
+"POT-Creation-Date: 2023-07-05 17:20+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,7 +28,7 @@ msgstr ""
 "dictionnaire est idéal pour les personnes qui apprennent les langues "
 "africaines et ont besoin d'un dictionnaire dédié."
 
-#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:149
+#: core/resources/ui_strings.py:6 core/resources/ui_strings.py:154
 msgid "African Dictionary"
 msgstr "Dictionnaire Africain"
 
@@ -80,7 +80,7 @@ msgid "Dictionary"
 msgstr "Dictionnaire"
 
 #: core/resources/ui_strings.py:22
-#: dashboard/templates/dashboard/user_detail.html:55
+#: dashboard/templates/dashboard/user_detail.html:43
 #: dashboard/templates/tags/account_update_form.html:30
 msgid "Country"
 msgstr "Pays"
@@ -237,7 +237,7 @@ msgstr "Traducteur"
 
 #: core/resources/ui_strings.py:71
 #: dashboard/templates/dashboard/create_settings.html:7
-#: dashboard/templates/dashboard/update_settings.html:7 dashboard/views.py:96
+#: dashboard/templates/dashboard/update_settings.html:7 dashboard/views.py:105
 #: templates/dashboard_base.html:25 templates/tags/dashboard_header.html:41
 msgid "Settings"
 msgstr "Parametres"
@@ -277,26 +277,23 @@ msgstr "Nouvelle Info"
 msgid "Info Update"
 msgstr "Actualiser l'Info"
 
-#: core/resources/ui_strings.py:81
-#: dashboard/templates/dashboard/group_create.html:7
-#: dashboard/templates/dashboard/group_create.html:8
+#: core/resources/ui_strings.py:81 core/resources/ui_strings.py:104
 #: dashboard/templates/dashboard/group_list.html:20
 #: dashboard/templates/tags/group_update_form.html:9
-#: templates/tags/users_sidebar.html:5
+#: templates/dashboard_base.html:28 templates/tags/users_sidebar.html:5
 msgid "Groups"
 msgstr "Groupes"
 
-#: core/resources/ui_strings.py:82
-#: dashboard/templates/dashboard/user_detail.html:127
+#: core/resources/ui_strings.py:82 core/resources/ui_strings.py:103
+#: dashboard/templates/dashboard/user_detail.html:99
 msgid "Group"
 msgstr "Groupe"
 
-#: core/resources/ui_strings.py:83
-#: dashboard/templates/dashboard/group_list.html:14
+#: core/resources/ui_strings.py:83 core/resources/ui_strings.py:106
 msgid "New Group"
 msgstr "Nouveau Groupe"
 
-#: core/resources/ui_strings.py:84
+#: core/resources/ui_strings.py:84 core/resources/ui_strings.py:105
 msgid "Group Update"
 msgstr "Actualiser le Groupe"
 
@@ -349,92 +346,93 @@ msgid "User Update"
 msgstr "Actualiser l'utilisateur"
 
 #: core/resources/ui_strings.py:101
-#: dashboard/templates/dashboard/user_list.html:13
+#: dashboard/templates/dashboard/user_list.html:13 dashboard/views.py:554
 msgid "New User"
 msgstr "Nouvel utilisateur"
 
-#: core/resources/ui_strings.py:103
+#: core/resources/ui_strings.py:108
 msgid "Token"
 msgstr "Jeton"
 
-#: core/resources/ui_strings.py:104 templates/tags/users_sidebar.html:9
+#: core/resources/ui_strings.py:109 templates/dashboard_base.html:34
+#: templates/tags/users_sidebar.html:9
 msgid "Tokens"
 msgstr "Jetons"
 
-#: core/resources/ui_strings.py:105 templates/tags/users_sidebar.html:10
+#: core/resources/ui_strings.py:110 templates/tags/users_sidebar.html:10
 msgid "Partner Tokens"
 msgstr "Jetons de Partenaires"
 
-#: core/resources/ui_strings.py:106
+#: core/resources/ui_strings.py:111
 msgid "New Token"
 msgstr "Nouveau Jeton"
 
-#: core/resources/ui_strings.py:108
+#: core/resources/ui_strings.py:113
 msgid "Reports"
 msgstr "Rapports"
 
-#: core/resources/ui_strings.py:109
+#: core/resources/ui_strings.py:114
 msgid "New"
 msgstr "Nouveau"
 
-#: core/resources/ui_strings.py:110
+#: core/resources/ui_strings.py:115
 msgid "NEW"
 msgstr "NOUVEAU"
 
-#: core/resources/ui_strings.py:112
+#: core/resources/ui_strings.py:117
 msgid "Error on the request"
 msgstr "Erreur sur la demande"
 
-#: core/resources/ui_strings.py:113
+#: core/resources/ui_strings.py:118
 msgid "Invalid Submitted data"
 msgstr "Données soumises invalides"
 
-#: core/resources/ui_strings.py:116
+#: core/resources/ui_strings.py:121
 msgid "Your online dictionary for african languages"
 msgstr "Votre dictionnaire en ligne pour les langues africaines"
 
-#: core/resources/ui_strings.py:119
+#: core/resources/ui_strings.py:124
 msgid "Need more information"
 msgstr "Besoin de plus d'informations"
 
-#: core/resources/ui_strings.py:120
+#: core/resources/ui_strings.py:125
 msgid "Hello, I have a question about the dictionary."
 msgstr "Bonjour, j'ai une question sur le dictionnaire."
 
-#: core/resources/ui_strings.py:121
+#: core/resources/ui_strings.py:126
 msgid "Invalid user request"
 msgstr "Demande d'utilisateur invalide"
 
-#: core/resources/ui_strings.py:122
+#: core/resources/ui_strings.py:127
 msgid "Resource not found !"
 msgstr "Ressource introuvable !"
 
-#: core/resources/ui_strings.py:123
+#: core/resources/ui_strings.py:128
 msgid "The resource you requested does not exist or is no longer available."
 msgstr ""
 "La ressource que vous avez demandée n'existe pas ou n'est plus disponible."
 
-#: core/resources/ui_strings.py:124
+#: core/resources/ui_strings.py:129
 msgid "Bad Request"
 msgstr "Mauvaise Demande"
 
-#: core/resources/ui_strings.py:125
+#: core/resources/ui_strings.py:130
 msgid "You submitted a bad request."
 msgstr "Vous avez soumis une mauvaise demande."
 
-#: core/resources/ui_strings.py:128
+#: core/resources/ui_strings.py:133
 msgid "Access Forbidden"
 msgstr "Accès Interdit"
 
-#: core/resources/ui_strings.py:129
+#: core/resources/ui_strings.py:134
 msgid "You can not access this page."
 msgstr "Vous ne pouvez pas accéder à cette page."
 
-#: core/resources/ui_strings.py:131
+#: core/resources/ui_strings.py:136
 msgid "Server Error"
 msgstr "erreur du serveur"
 
-#: core/resources/ui_strings.py:132
+#: core/resources/ui_strings.py:137
 msgid ""
 "Oops ! There is an internal error. If the errors persists please inform our "
 "team through our contact."
@@ -442,23 +440,23 @@ msgstr ""
 "Oops ! Il y a une erreur interne. Si les erreurs persistent, veuillez en "
 "informer notre équipe via notre contact."
 
-#: core/resources/ui_strings.py:133
+#: core/resources/ui_strings.py:138
 msgid "Go to QUIZ-Home"
 msgstr "Allez au Quiz"
 
-#: core/resources/ui_strings.py:134
+#: core/resources/ui_strings.py:139
 msgid "KEMELANG"
 msgstr "KEMELANG"
 
-#: core/resources/ui_strings.py:135
+#: core/resources/ui_strings.py:140
 msgid "KEMELANG IS COMING"
 msgstr "KEMELANG ARRIVE"
 
-#: core/resources/ui_strings.py:136
+#: core/resources/ui_strings.py:141
 msgid "KEMELANG IS UNDER CONSTRUCTION!"
 msgstr "KEMELANG EST EN CONSTRUCTION!"
 
-#: core/resources/ui_strings.py:137
+#: core/resources/ui_strings.py:142
 msgid ""
 "Thank you for your interest in this project. The site is currently under "
 "construction."
@@ -466,37 +464,37 @@ msgstr ""
 "Merci de votre intérêt pour ce projet. Le site est actuellement en "
 "construction."
 
-#: core/resources/ui_strings.py:138
+#: core/resources/ui_strings.py:143
 msgid "Create Campaign"
 msgstr "Créer la Campagne"
 
-#: core/resources/ui_strings.py:139
+#: core/resources/ui_strings.py:144
 msgid "Campaign Image"
 msgstr "Image de Campagne"
 
-#: core/resources/ui_strings.py:140
+#: core/resources/ui_strings.py:145
 msgid "Add"
 msgstr "Ajouter"
 
-#: core/resources/ui_strings.py:141
+#: core/resources/ui_strings.py:146
 #: dashboard/templates/tags/campaign_creation_form.html:12
 #: dashboard/templates/tags/campaign_update_form.html:13
 msgid "Back"
 msgstr "Retour"
 
-#: core/resources/ui_strings.py:142
+#: core/resources/ui_strings.py:147
 #: dictionary/templates/tags/create_definition_form.html:25
 #: dictionary/templates/tags/create_phrase_form.html:32
 msgid "Create"
 msgstr "Créer"
 
-#: core/resources/ui_strings.py:143
+#: core/resources/ui_strings.py:148
 #: templates/tags/components/orders_tag.html:30
 #: templates/tags/components/shipments_tag.html:29
 msgid "Update"
 msgstr "Actualiser"
 
-#: core/resources/ui_strings.py:144
+#: core/resources/ui_strings.py:149
 #: dictionary/templates/tags/create_definition_form.html:24
 #: dictionary/templates/tags/create_phrase_form.html:31
 #: templates/accounts/account_detail.html:71
@@ -508,150 +506,149 @@ msgstr "Actualiser"
 msgid "Cancel"
 msgstr "Annuler"
 
-#: core/resources/ui_strings.py:145 templates/accounts/account_detail.html:72
+#: core/resources/ui_strings.py:150 templates/accounts/account_detail.html:72
 msgid "Send"
 msgstr "Envoyer"
 
-#: core/resources/ui_strings.py:146
+#: core/resources/ui_strings.py:151
 #: templates/tags/components/orders_tag.html:29
 #: templates/tags/components/shipments_tag.html:28
 msgid "Open"
 msgstr "Ouvrir"
 
-#: core/resources/ui_strings.py:147
+#: core/resources/ui_strings.py:152
 msgid "Close"
 msgstr "Fermer"
 
-#: core/resources/ui_strings.py:148
+#: core/resources/ui_strings.py:153
 msgid "African dictionary"
 msgstr "Dictionnaire Africain"
 
-#: core/resources/ui_strings.py:150
+#: core/resources/ui_strings.py:155
 msgid "Enter word ..."
 msgstr "Entrez le mot..."
 
-#: core/resources/ui_strings.py:151
+#: core/resources/ui_strings.py:156
 msgid "Space"
 msgstr "Espace"
 
-#: core/resources/ui_strings.py:152 core/templates/keyboard/keyboard.html:40
+#: core/resources/ui_strings.py:157 core/templates/keyboard/keyboard.html:40
 msgid "Backspace"
 msgstr "Effacer"
 
-#: core/resources/ui_strings.py:153
+#: core/resources/ui_strings.py:158
 msgid "No results"
 msgstr "Aucun resultats"
 
-#: core/resources/ui_strings.py:154
+#: core/resources/ui_strings.py:159
 #: templates/accounts/registration/password_reset_complete.html:11
 #: templates/registration/login.html:41
 #: templates/registration/password_reset_complete.html:11
 msgid "Login"
 msgstr "Connexion"
 
-#: core/resources/ui_strings.py:155
+#: core/resources/ui_strings.py:160
 #: templates/accounts/registration/vendor_register.html:49
 #: templates/registration/register.html:50
 #: templates/registration/vendor_register.html:49
 msgid "Sign In"
 msgstr "S'identifier"
 
-#: core/resources/ui_strings.py:156 templates/tags/dashboard_header.html:63
+#: core/resources/ui_strings.py:161 templates/tags/dashboard_header.html:63
 msgid "Logout"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:157
+#: core/resources/ui_strings.py:162
 msgid "Sign Out"
 msgstr "Se déconnecter"
 
-#: core/resources/ui_strings.py:158
+#: core/resources/ui_strings.py:163
 msgid "Sign Up"
 msgstr "S'inscrire"
 
-#: core/resources/ui_strings.py:159 templates/registration/login.html:34
+#: core/resources/ui_strings.py:164 templates/registration/login.html:34
 msgid "Password"
 msgstr "Mot de passe"
 
-#: core/resources/ui_strings.py:160
+#: core/resources/ui_strings.py:165
 msgid "Repeat your Password"
 msgstr "Repetez le mot de passe"
 
-#: core/resources/ui_strings.py:161
+#: core/resources/ui_strings.py:166
 #: templates/accounts/registration/password_reset_form.html:17
 #: templates/registration/login.html:38
 #: templates/registration/password_reset_form.html:16
 msgid "Forgot your password ?"
 msgstr "Mot de passe oublié ?"
 
-#: core/resources/ui_strings.py:162
-#: dashboard/templates/dashboard/user_detail.html:35
+#: core/resources/ui_strings.py:167
+#: dashboard/templates/dashboard/user_detail.html:23
 #: templates/accounts/account_detail.html:26
 #: templates/registration/login.html:30
 msgid "Username"
 msgstr "Nom d'utilisateur"
 
-#: core/resources/ui_strings.py:163
+#: core/resources/ui_strings.py:168
 msgid "First name"
 msgstr "Prénom"
 
-#: core/resources/ui_strings.py:164
+#: core/resources/ui_strings.py:169
 msgid "Last name"
 msgstr "Nom"
 
-#: core/resources/ui_strings.py:165
-#: dashboard/templates/dashboard/user_detail.html:44
+#: core/resources/ui_strings.py:170
+#: dashboard/templates/dashboard/user_detail.html:32
 msgid "E-Mail"
 msgstr "E-Mail"
 
-#: core/resources/ui_strings.py:166
+#: core/resources/ui_strings.py:171
 msgid "New Here ? "
 msgstr "Vous n'avez pas de compte ?"
 
-#: core/resources/ui_strings.py:167
+#: core/resources/ui_strings.py:172
 msgid "Already Have an Account ? "
 msgstr "Vous avez déjà un compte ?"
 
-#: core/resources/ui_strings.py:168
+#: core/resources/ui_strings.py:173
 #: templates/accounts/registration/email_validation.html:19
 #: templates/tags/dashboard_header.html:62
 msgid "My Account"
 msgstr "Mon Compte"
 
-#: core/resources/ui_strings.py:169
+#: core/resources/ui_strings.py:174
 msgid "Delete Account"
 msgstr "Supprimer Mon Compte"
 
-#: core/resources/ui_strings.py:170
+#: core/resources/ui_strings.py:175
 msgid "Deleting your account is irreversible."
 msgstr "La supppréssion de votre est irréversible"
 
-#: core/resources/ui_strings.py:171
+#: core/resources/ui_strings.py:176
 msgid "Start typing here ..."
 msgstr "Commencez à écrire ici..."
 
-#: core/resources/ui_strings.py:172
+#: core/resources/ui_strings.py:177
 msgid "Visite the Site"
 msgstr "Visiter le Site"
 
-#: core/resources/ui_strings.py:173
+#: core/resources/ui_strings.py:178
 msgid "Maintenance Mode"
 msgstr "Mode Maintenance"
 
-#: core/resources/ui_strings.py:174
+#: core/resources/ui_strings.py:179
 msgid "Allow Anonymous User"
 msgstr "Autoriser l'utilisateur anonyme"
 
-#: core/resources/ui_strings.py:175
+#: core/resources/ui_strings.py:180
 #, python-format
 msgid "Welcome to %(site_name)s"
 msgstr "Bienvenu(e) sur %(site_name)s"
 
-#: core/resources/ui_strings.py:176
+#: core/resources/ui_strings.py:181
 msgid "New user"
 msgstr "Nouvel utilisateur"
 
-#: core/resources/ui_strings.py:177
-
+#: core/resources/ui_strings.py:182
 msgid "E-Mail validation"
 msgstr "Validation de l'addresse E-Mail"
 
@@ -702,6 +699,7 @@ msgstr ""
 #: dashboard/templates/dashboard/group_list.html:24
 #: dashboard/templates/dashboard/new_user.html:24
 #: dashboard/templates/dashboard/settings.html:22
+#: dashboard/templates/dashboard/token_list.html:39
 #: dashboard/templates/dashboard/user_list.html:31
 #: dashboard/templates/tags/group_form.html:142
 #: dashboard/templates/tags/group_form_new.html:75
@@ -721,13 +719,6 @@ msgstr ""
 #: templates/accounts/account_detail.html:15
 msgid "Edit"
 msgstr "Editer"
-
-#: dashboard/templates/dashboard/group_detail.html:10
-#: dashboard/templates/dashboard/news_detail.html:7
-#: dashboard/templates/dashboard/news_list.html:11
-#: dashboard/templates/dashboard/user_detail.html:11
-msgid "Delete"
-msgstr "Supprimer"
 
 #: dashboard/templates/dashboard/group_detail.html:19
 #: dashboard/templates/tags/group_update_form_new.html:32
@@ -757,11 +748,13 @@ msgstr "actif,inactif"
 msgid "No Members"
 msgstr "Aucun membres"
 
-#: dashboard/templates/dashboard/group_update.html:8
-msgid "Create A Group"
-msgstr ""
+#: dashboard/templates/dashboard/news_detail.html:7
+#: dashboard/templates/dashboard/news_list.html:11
+#: dashboard/templates/dashboard/user_detail.html:9
+msgid "Delete"
+msgstr "Supprimer"
 
-#: dashboard/templates/dashboard/news_detail.html:19
+#: dashboard/templates/dashboard/news_detail.html:20
 #: dashboard/templates/dashboard/news_list.html:21
 #: dashboard/templates/dashboard/news_list.html:32
 #: dashboard/templates/tags/campaign_creation_form.html:33
@@ -771,7 +764,7 @@ msgstr ""
 msgid "Title"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:23
+#: dashboard/templates/dashboard/news_detail.html:24
 #: dictionary/templates/tags/create_phrase_form.html:24
 #: dictionary/templates/tags/update_phrase_form.html:22
 #: templates/tags/info_form_tag.html:14
@@ -779,7 +772,7 @@ msgstr ""
 msgid "Content"
 msgstr "Contenu"
 
-#: dashboard/templates/dashboard/news_detail.html:29
+#: dashboard/templates/dashboard/news_detail.html:30
 #: dashboard/templates/dashboard/news_list.html:22
 #: dashboard/templates/dashboard/news_list.html:33
 #: templates/tags/info_form_tag.html:20
@@ -787,35 +780,35 @@ msgstr "Contenu"
 msgid "Start"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:33
+#: dashboard/templates/dashboard/news_detail.html:34
 #: templates/tags/info_form_tag.html:24
 #: templates/tags/info_form_update_tag.html:24
 msgid "Expire"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:39
+#: dashboard/templates/dashboard/news_detail.html:40
 msgid "Create at"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:43
+#: dashboard/templates/dashboard/news_detail.html:44
 msgid "Last changed"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:49
+#: dashboard/templates/dashboard/news_detail.html:50
 msgid "Added by"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:53
+#: dashboard/templates/dashboard/news_detail.html:54
 msgid "Last changed by"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:59
+#: dashboard/templates/dashboard/news_detail.html:60
 #: templates/tags/info_form_tag.html:30
 #: templates/tags/info_form_update_tag.html:30
 msgid "Status"
 msgstr ""
 
-#: dashboard/templates/dashboard/news_detail.html:60
+#: dashboard/templates/dashboard/news_detail.html:61
 #: dashboard/templates/dashboard/news_list.html:23
 #: dashboard/templates/dashboard/news_list.html:34
 #: dashboard/templates/tags/campaign_creation_form.html:63
@@ -850,144 +843,111 @@ msgstr ""
 msgid "Date of Creation"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:12
+#: dashboard/templates/dashboard/token_list.html:10
+msgid "Add Token"
+msgstr "AJouter un Jeton"
+
+#: dashboard/templates/dashboard/token_list.html:17
+
+msgid "Token List"
+msgstr "Liste de Jetons"
+
+#: dashboard/templates/dashboard/token_list.html:31
+msgid "There are  no Token generated yet."
+msgstr ""
+
+#: dashboard/templates/dashboard/user_detail.html:10
 msgid "Welcome Mail"
 msgstr "Mail de Bienvenu"
 
-#: dashboard/templates/dashboard/user_detail.html:14
+#: dashboard/templates/dashboard/user_detail.html:12
 #: templates/accounts/account.html:13
 msgid "Send Validation Link"
 msgstr "Envoyer le lien de validation"
 
-#: dashboard/templates/dashboard/user_detail.html:17
-msgid "Add Balance"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:21
-msgid "Update Vendor"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:22
-msgid "Reset Vendor"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:23
-msgid "Pay Vendor"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:24
-msgid "Deactivate Products"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:25
-msgid "Activate Products"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:31
+#: dashboard/templates/dashboard/user_detail.html:19
 msgid "User Information"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:38
+#: dashboard/templates/dashboard/user_detail.html:26
 #: templates/accounts/account_detail.html:34
 msgid "Lastname"
 msgstr "Nom"
 
-#: dashboard/templates/dashboard/user_detail.html:41
+#: dashboard/templates/dashboard/user_detail.html:29
 #: templates/accounts/account_detail.html:30
 msgid "Firstname"
 msgstr "Prénom"
 
-#: dashboard/templates/dashboard/user_detail.html:47
+#: dashboard/templates/dashboard/user_detail.html:35
 msgid "User is Active"
 msgstr "L'Utilisateur est actif"
 
-#: dashboard/templates/dashboard/user_detail.html:58
+#: dashboard/templates/dashboard/user_detail.html:46
 #: dashboard/templates/tags/account_update_form.html:18
 msgid "City"
 msgstr "Ville"
 
-#: dashboard/templates/dashboard/user_detail.html:61
+#: dashboard/templates/dashboard/user_detail.html:49
 #: dashboard/templates/tags/account_update_form.html:26
 msgid "Telefon"
 msgstr "Téléphone"
 
-#: dashboard/templates/dashboard/user_detail.html:64
+#: dashboard/templates/dashboard/user_detail.html:52
 msgid "Account Type"
 msgstr "Type de Compte"
 
-#: dashboard/templates/dashboard/user_detail.html:67
+#: dashboard/templates/dashboard/user_detail.html:55
 msgid "Account"
 msgstr "Compte"
 
-#: dashboard/templates/dashboard/user_detail.html:70
+#: dashboard/templates/dashboard/user_detail.html:58
 msgid "Email is Validated"
 msgstr "L'e-mail est validé"
 
-#: dashboard/templates/dashboard/user_detail.html:73
+#: dashboard/templates/dashboard/user_detail.html:61
 msgid "Account is Active"
 msgstr "Le compte est actif"
 
-#: dashboard/templates/dashboard/user_detail.html:76
+#: dashboard/templates/dashboard/user_detail.html:64
 msgid "Customer ID"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:83
-msgid "Balance"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:88
-#: dashboard/templates/tags/dashboard_summary.html:15
-msgid "Solds"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:91
-#: dashboard/templates/tags/analytics.html:26
-msgid "Products"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:94
-msgid "Sold Products"
-msgstr ""
-
-#: dashboard/templates/dashboard/user_detail.html:98
+#: dashboard/templates/dashboard/user_detail.html:70
 #: templates/accounts/account_detail.html:65
 msgid "Date joined"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:101
+#: dashboard/templates/dashboard/user_detail.html:73
 #: templates/accounts/account_detail.html:61
 msgid "Last login"
 msgstr "Dernière connexion"
 
-#: dashboard/templates/dashboard/user_detail.html:109
-msgid "Create Access Token"
-msgstr "Créer un jeton d'accès"
-
-#: dashboard/templates/dashboard/user_detail.html:120
+#: dashboard/templates/dashboard/user_detail.html:92
 msgid "User Groups"
 msgstr "Groupes d'utilisateurs"
 
-#: dashboard/templates/dashboard/user_detail.html:128
+#: dashboard/templates/dashboard/user_detail.html:100
 msgid "Group Permissions"
 msgstr "Autorisations de groupe"
 
-#: dashboard/templates/dashboard/user_detail.html:140
+#: dashboard/templates/dashboard/user_detail.html:112
 msgid "User Permissions"
 msgstr "Autorisations utilisateur"
 
-#: dashboard/templates/dashboard/user_detail.html:153
+#: dashboard/templates/dashboard/user_detail.html:125
 msgid "Addressbook"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:163
+#: dashboard/templates/dashboard/user_detail.html:135
 msgid "No address found"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:169
+#: dashboard/templates/dashboard/user_detail.html:141
 msgid "User Shopping Cart"
 msgstr ""
 
-#: dashboard/templates/dashboard/user_detail.html:185
+#: dashboard/templates/dashboard/user_detail.html:157
 msgid "Recents Orders"
 msgstr ""
 
@@ -1022,6 +982,10 @@ msgstr ""
 
 #: dashboard/templates/tags/analytics.html:17
 msgid "Orders Price"
+msgstr ""
+
+#: dashboard/templates/tags/analytics.html:26
+msgid "Products"
 msgstr ""
 
 #: dashboard/templates/tags/analytics.html:35
@@ -1193,8 +1157,11 @@ msgstr ""
 msgid "Revenue"
 msgstr ""
 
+#: dashboard/templates/tags/dashboard_summary.html:15
+msgid "Solds"
+msgstr ""
+
 #: dashboard/templates/tags/group_form.html:14
-#: dashboard/templates/tags/group_form_new.html:9
 msgid "Create Group"
 msgstr "Créer le Groupe"
 
@@ -1251,7 +1218,6 @@ msgid "Selected Users"
 msgstr "Utilisateurs sélectionnés"
 
 #: dashboard/templates/tags/group_update_form.html:24
-#: dashboard/templates/tags/group_update_form_new.html:9
 msgid "Update Group"
 msgstr "Actualiser le Groupe"
 
@@ -1279,29 +1245,49 @@ msgstr ""
 msgid "Countries currently opened for Editing"
 msgstr ""
 
-#: dashboard/views.py:49
+#: dashboard/views.py:58
 msgid "New Setting created"
 msgstr ""
 
-#: dashboard/views.py:53
+#: dashboard/views.py:62
 msgid "Error when creating new setting"
 msgstr ""
 
-#: dashboard/views.py:56 dashboard/views.py:59
+#: dashboard/views.py:65 dashboard/views.py:68
 msgid "New Setting"
 msgstr "Nouveau Parametre"
 
-#: dashboard/views.py:72
+#: dashboard/views.py:81
 msgid "Setting updated"
 msgstr ""
 
-#: dashboard/views.py:76
+#: dashboard/views.py:85
 msgid "Error when updateing setting"
 msgstr "Erreur en actualisant le parametre"
 
-#: dashboard/views.py:79 dashboard/views.py:82
+#: dashboard/views.py:88 dashboard/views.py:91
 msgid "Update Setting"
 msgstr "Actualiser le parametre"
+
+#: dashboard/views.py:124
+#, fuzzy
+#| msgid "Dashboard"
+msgid "Dashboard Users"
+msgstr "Dashboard"
+
+#: dashboard/views.py:566
+#, python-brace-format
+msgid "User {name} created"
+msgstr ""
+
+#: dashboard/views.py:660
+#, python-brace-format
+msgid "Token successfully generated for user {username}"
+msgstr ""
+
+#: dashboard/views.py:664
+msgid "The submitted form is not valid"
+msgstr ""
 
 #: dictionary/constants.py:52
 msgid "Noun"
@@ -1791,19 +1777,19 @@ msgstr ""
 msgid "Already have an account ? "
 msgstr ""
 
-#: templates/dashboard_base.html:60
+#: templates/dashboard_base.html:54
 msgid "About us"
 msgstr ""
 
-#: templates/dashboard_base.html:61 templates/faq.html:6
+#: templates/dashboard_base.html:55 templates/faq.html:6
 msgid "FAQ"
 msgstr ""
 
-#: templates/dashboard_base.html:77
+#: templates/dashboard_base.html:71
 msgid "Search"
 msgstr ""
 
-#: templates/dashboard_base.html:83
+#: templates/dashboard_base.html:77
 msgid "Administrator"
 msgstr ""
 
@@ -1877,11 +1863,11 @@ msgstr ""
 #: templates/tags/components/sellers-snippet.html:35
 #: templates/tags/components/users-snippet.html:31
 msgid "There is no users yet"
-msgstr ""
+msgstr "Aucun utilisateur actuellement"
 
 #: templates/tags/components/groups-snippet.html:29
 msgid "There is no groups yet"
-msgstr ""
+msgstr "Aucun groupe actuellement"
 
 #: templates/tags/components/orders_tag.html:33
 msgid "Shipment"
@@ -2022,6 +2008,9 @@ msgstr ""
 #: templates/tags/users_sidebar.html:8
 msgid "Online Users"
 msgstr ""
+
+#~ msgid "Create Access Token"
+#~ msgstr "Créer un jeton d'accès"
 
 #~ msgid "Add Country"
 #~ msgstr "Ajouter un pays"

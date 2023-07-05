@@ -17,7 +17,7 @@
     </div>
 </div>
 <div class="container">
-    {% include "tags/components/groups-snippet.html"  with list_title=_('Groups') BASE_URL="dashboard:group-detail" %}    
+    {% include "tags/components/groups-snippet.html"  with list_title=UI_STRINGS_CONTEXT.LABEL_GROUPS_PLURAL BASE_URL="dashboard:group-detail" %}    
 </div>
 {% else %}
 <div class="access-error">
