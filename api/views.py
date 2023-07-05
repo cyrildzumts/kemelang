@@ -40,7 +40,7 @@ class UserSearchView(ListAPIView):
      queryset = User.objects.filter(is_superuser=False)
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 #@permission_classes([])
 @permission_classes([API_PERMISSIONS.TranslatorPermission])
 #@authentication_classes([])
