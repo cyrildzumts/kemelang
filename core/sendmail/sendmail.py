@@ -72,7 +72,7 @@ class EMailBackend(DefaultEmailBackend):
     
     @cached_property
     def ssl_context(self):
-        logger.info(f"ssl_context : using TLS  - SSL-Context")
+        logger.info(f"ssl_context : checking cert file")
         if self.ssl_certfile or self.ssl_keyfile:
             logger.info(f"ssl_context : using SSL_CERT")
             ssl_context = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_CLIENT)
