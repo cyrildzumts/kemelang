@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-03 18:46+0200\n"
+"POT-Creation-Date: 2023-07-05 09:59+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -604,7 +604,6 @@ msgid "E-Mail"
 msgstr "E-Mail"
 
 #: core/resources/ui_strings.py:166
-
 msgid "New Here ? "
 msgstr "Vous n'avez pas de compte ?"
 
@@ -641,6 +640,20 @@ msgstr "Mode Maintenance"
 #: core/resources/ui_strings.py:174
 msgid "Allow Anonymous User"
 msgstr "Autoriser l'utilisateur anonyme"
+
+#: core/resources/ui_strings.py:175
+#, python-format
+msgid "Welcome to %(site_name)s"
+msgstr "Bienvenu(e) sur %(site_name)s"
+
+#: core/resources/ui_strings.py:176
+msgid "New user"
+msgstr "Nouvel utilisateur"
+
+#: core/resources/ui_strings.py:177
+
+msgid "E-Mail validation"
+msgstr "Validation de l'addresse E-Mail"
 
 #: core/templates/core/catalog_filter_old.html:14
 msgid "Apply"
@@ -1375,11 +1388,11 @@ msgstr "Alphabet"
 msgid "Update for Example usage for word"
 msgstr ""
 
-#: kemelang/settings.py:305
+#: kemelang/settings.py:307
 msgid "French"
 msgstr "Francais"
 
-#: kemelang/settings.py:306
+#: kemelang/settings.py:308
 msgid "English"
 msgstr "Anglais"
 
@@ -1506,11 +1519,6 @@ msgstr ""
 
 #: templates/accounts/registration/email_validation.html:24
 msgid "Home Page"
-msgstr ""
-
-#: templates/accounts/registration/login.html:55
-#: templates/registration/login.html:44
-msgid "New here ?"
 msgstr ""
 
 #: templates/accounts/registration/password_change.html:7
@@ -1826,6 +1834,10 @@ msgstr ""
 
 #: templates/registration/email_validation.html:22
 msgid "Click on this link to get a new activation link"
+msgstr ""
+
+#: templates/registration/login.html:44
+msgid "New here ?"
 msgstr ""
 
 #: templates/registration/login.html:44
