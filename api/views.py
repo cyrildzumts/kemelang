@@ -43,7 +43,7 @@ class UserSearchView(ListAPIView):
 @api_view(['POST'])
 #@permission_classes([])
 @permission_classes([API_PERMISSIONS.TranslatorPermission])
-@authentication_classes([])
+#@authentication_classes([])
 def countries(request):
     logger.info(f"API: Countries request")
     try:
