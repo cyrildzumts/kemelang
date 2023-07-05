@@ -1,13 +1,17 @@
 import ssl
 from django.utils.functional import cached_property
 from django.core.mail.backends.smtp import EmailBackend as DefaultEmailBackend
+import logging
 
+
+logger = logging.getLogger(__name__)
 
 
 class EmailBackend(DefaultEmailBackend):
     
     @cached_property
     def ssl_context(self):
+        logger.info("EmailBackend from KEMELANG")
         if self.ssl_certfile or self.ssl_keyfile:
             ssl_context = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_CLIENT)
             ssl_context.load_cert_chain(self.ssl_certfile, self.ssl_keyfile)
