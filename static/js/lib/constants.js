@@ -8,8 +8,8 @@ define(function(){
     const SELECTION_TYPE_SOURCE = 0;
     const SELECTION_TYPE_TARGET = 1;
     const SELECTION_TYPE_AUTO = 2;
-    const API_BASE_URL = "https://api.kemelang.com";
-    const SITE_HOST = "https://kemelang.com";
+    const API_BASE_URL = "https://api.kemelang-local.com";
+    const SITE_HOST = "https://kemelang-local.com";
 
     return {
         'API_BASE_URL': API_BASE_URL,
