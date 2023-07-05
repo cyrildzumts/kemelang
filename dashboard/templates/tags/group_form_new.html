@@ -15,24 +15,24 @@
             </div>
         </div>
         <div class="container">
-            <div class="margin-v padding-v">
+            <div class="margin-v padding-v full">
                 <div class="">
                     <span class="bold">{% trans "Select Permissions to add" %}</span>
                 </div>
-                <div class="collapsible padding-v">
-                    <div class="collapsible-toggle padding-v open">
+                <div class="collapsible padding-b">
+                    <div class="collapsible-toggle padding-b open">
                         <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
                         <input class="js-list-filter" 
-                                type="text" data-element=".entry" 
+                                type="text" 
                                 data-target="available-permission-list" 
                                 data-fields="name codename"
                                 placeholder="{% trans 'Enter the term to filter' %}">
                     </div>
                 </div>
-                <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open padding-v">
+                <div class="collapsible padding-b">
+                    <div class="collapsible-toggle open padding-b">
                         <span class="bold">{% trans "Permission" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
@@ -45,12 +45,12 @@
                 </div>
                 
             </div>
-            <div class="margin-v padding-v">
+            <div class="margin-v padding-v full">
                 <div class="">
                     <span class="bold">{% trans "Select Users to add" %}</span>
                 </div>
-                <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open  padding-v">
+                <div class="collapsible padding-b">
+                    <div class="collapsible-toggle open  padding-b">
                         <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
@@ -61,8 +61,8 @@
                                 placeholder="{% trans 'Enter the term to filter' %}">
                     </div>
                 </div>
-                <div class="collapsible padding-v">
-                    <div class="collapsible-toggle open padding-v">
+                <div class="collapsible padding-b">
+                    <div class="collapsible-toggle open padding-b">
                         <span class="bold">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
