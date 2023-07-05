@@ -6607,12 +6607,6 @@ option:checked{
 .product-children .child:hover{
     border-bottom: 2px solid var(--primary-color);
 }
-.activity{
-	background-color: var(--activity-bg);
-}
-.activity:hover{
-	background-color: var(--activity-hover-bg);
-}
 .navbar .fas, .navbar .far{
     color: var(--secondary-color);
 }
