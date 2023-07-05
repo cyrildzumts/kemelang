@@ -93,13 +93,13 @@ def sendmail():
     msg['To'] = to
     
     message = EmailMessage(subject=subject, from_email=sender, body="Test mail CoreEmailBackend", bcc=receivers)
-    with smtplib.SMTP(HOST, PORT) as server:
-        try:
-            server.starttls()
-            server.sendmail(sender, receivers, msg.as_string())
-            logger.info('Test Mail sent with Standard Python smtp')
-        except Exception as e:
-            logger.warn(f"Error while sending : {e}", e)
+    # with smtplib.SMTP(HOST, PORT) as server:
+    #     try:
+    #         server.starttls()
+    #         server.sendmail(sender, receivers, msg.as_string())
+    #         logger.info('Test Mail sent with Standard Python smtp')
+    #     except Exception as e:
+    #         logger.warn(f"Error while sending : {e}", e)
     
     logger.info(f"Sending Mail with MailBackend CERT_KEY = {settings.EMAIL_SSL_KEYFILE}")
     try:
