@@ -79,8 +79,9 @@
 .align-baseline{
   align-items: baseline !important;
 }
-.align-end{
-  align-items: end !important;
+
+.align-strecht{
+  align-items: stretch !important;
 }
 
 .flex-wrap{
