@@ -1,5 +1,6 @@
 from django.forms.models import inlineformset_factory
 from django.shortcuts import get_object_or_404, redirect, render, HttpResponse
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseNotAllowed
 from django.core.exceptions import PermissionDenied, SuspiciousOperation, ObjectDoesNotExist
 from kemelang import utils
@@ -42,7 +43,7 @@ def dict(request):
     }
     return render(request, template_name, context)
 
-
+@login_required
 def create_country(request):
     template_name = "dictionary/create_country.html"
     context = {
@@ -63,7 +64,7 @@ def create_country(request):
     return render(request, template_name, context)
 
 
-
+@login_required
 def create_langage(request):
     template_name = "dictionary/create_langage.html"
     context = {
@@ -83,7 +84,7 @@ def create_langage(request):
         pass
     return render(request, template_name, context)
 
-
+@login_required
 def create_word(request):
     
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
@@ -107,6 +108,8 @@ def create_word(request):
     }
     return render(request, template_name, context)
 
+
+@login_required
 def create_phrase(request, word_uuid):
     template_name = "dictionary/create_phrase.html"
     word = get_object_or_404(Word, word_uuid=word_uuid)
@@ -130,6 +133,9 @@ def create_phrase(request, word_uuid):
     context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     return render(request, template_name, context)
 
+
+
+@login_required
 def create_translation(request, word_uuid=None):
     template_name = "dictionary/create_translation.html"
     word = None
@@ -154,7 +160,7 @@ def create_translation(request, word_uuid=None):
     return render(request, template_name, context)
 
 
-
+@login_required
 def add_translations(request, word_uuid=None):
     logger.info(f"API: New Translation creation request")
     word = get_object_or_404(Word, word_uuid=word_uuid)
@@ -172,7 +178,7 @@ def add_translations(request, word_uuid=None):
     return redirect(word)
 
 
-
+@login_required
 def add_synonymes(request, word_uuid=None):
     logger.info(f"API: New Synonymes creation request")
     word = get_object_or_404(Word, word_uuid=word_uuid)
@@ -189,6 +195,7 @@ def add_synonymes(request, word_uuid=None):
     return redirect(word)
 
 
+@login_required
 def update_country(request, country_slug, country_uuid):
     template_name = "dictionary/update_country.html"
     country = get_object_or_404(Country, country_uuid=country_uuid)
@@ -230,6 +237,9 @@ def update_country(request, country_slug, country_uuid):
     context.update(DICT_CONSTANTS.DICTIONARY_URL_COUNTRY_CONTEXT)
     return render(request, template_name, context)
 
+
+
+@login_required
 def update_phrase(request, phrase_uuid):
     template_name = "dictionary/update_phrase.html"
     phrase = get_object_or_404(Phrase, phrase_uuid=phrase_uuid)
@@ -252,6 +262,8 @@ def update_phrase(request, phrase_uuid):
     context.update(DICT_CONSTANTS.DICTIONARY_URL_PHRASE_CONTEXT)
     return render(request, template_name, context)
 
+
+@login_required
 def update_langage(request, langage_slug, langage_uuid):
     template_name = "dictionary/update_langage.html"
     langage = get_object_or_404(Langage, langage_uuid=langage_uuid)
@@ -295,6 +307,7 @@ def update_langage(request, langage_slug, langage_uuid):
     return render(request, template_name, context)
 
 
+@login_required
 def update_word(request, word, word_uuid):
     template_name = "dictionary/update_word.html"
     w = get_object_or_404(Word, word_uuid=word_uuid)
