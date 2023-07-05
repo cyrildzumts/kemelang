@@ -48,9 +48,6 @@
                                 <div class="entry">
                                         <span class="key">{% trans "Telefon" %}</span> <span class="value">{{user_instance.account.telefon}}</span>
                                 </div>
-                                <div class="entry">
-                                        <span class="key">{% trans "Account Type" %}</span> <span class="value">{{user_instance.account.account_type|account_type_value}}</span>
-                                </div>
                                  <div class="entry">
                                         <span class="key">{% trans "Account" %}</span> <span class="value">{{user_instance.account.account_uuid}}</span>
                                 </div>
@@ -61,7 +58,7 @@
                                         <span class="key">{% trans "Account is Active" %}</span> <span class="value">{{user_instance.account.is_active|yesno}}</span>
                                 </div>
                                 <div class="entry">
-                                        <span class="key">{% trans "Customer ID" %}</span> <span class="value">{{user_instance.account.customer_id|default_if_none:''}}</span>
+                                        <span class="key">{% trans "User ID" %}</span> <span class="value">{{user_instance.account.customer_id|default_if_none:''}}</span>
                                 </div>
                         </div>
                         {% endif %}
