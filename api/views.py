@@ -45,7 +45,6 @@ class UserSearchView(ListAPIView):
 @permission_classes([API_PERMISSIONS.TranslatorPermission])
 #@authentication_classes([])
 def countries(request):
-    logger.info(f"API: Countries request")
     try:
         queryset = dictionary_service.get_countries()
         #country_list = queryset.values('id', 'name','slug', 'country_uuid')
