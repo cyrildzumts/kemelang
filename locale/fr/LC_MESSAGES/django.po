@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-05 17:20+0200\n"
+"POT-Creation-Date: 2023-07-05 17:27+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -224,10 +224,8 @@ msgstr "Recherche de langues"
 msgid "Auto Detect"
 msgstr "Détection automatique"
 
-#: core/resources/ui_strings.py:69
-#: dashboard/templates/tags/group_update_form.html:8
-#: templates/dashboard_base.html:23 templates/tags/dashboard_sidebar.html:12
-#: templates/tags/users_sidebar.html:4
+#: core/resources/ui_strings.py:69 templates/dashboard_base.html:23
+#: templates/tags/dashboard_sidebar.html:12 templates/tags/users_sidebar.html:4
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -278,8 +276,6 @@ msgid "Info Update"
 msgstr "Actualiser l'Info"
 
 #: core/resources/ui_strings.py:81 core/resources/ui_strings.py:104
-#: dashboard/templates/dashboard/group_list.html:20
-#: dashboard/templates/tags/group_update_form.html:9
 #: templates/dashboard_base.html:28 templates/tags/users_sidebar.html:5
 msgid "Groups"
 msgstr "Groupes"
@@ -848,7 +844,6 @@ msgid "Add Token"
 msgstr "AJouter un Jeton"
 
 #: dashboard/templates/dashboard/token_list.html:17
-
 msgid "Token List"
 msgstr "Liste de Jetons"
 
@@ -1216,10 +1211,6 @@ msgstr "Utilisateurs disponibles"
 #: dashboard/templates/tags/group_update_form_new.html:74
 msgid "Selected Users"
 msgstr "Utilisateurs sélectionnés"
-
-#: dashboard/templates/tags/group_update_form.html:24
-msgid "Update Group"
-msgstr "Actualiser le Groupe"
 
 #: dashboard/templates/tags/group_update_form_new.html:47
 msgid "Available Permissions"
@@ -2008,6 +1999,9 @@ msgstr ""
 #: templates/tags/users_sidebar.html:8
 msgid "Online Users"
 msgstr ""
+
+#~ msgid "Update Group"
+#~ msgstr "Actualiser le Groupe"
 
 #~ msgid "Create Access Token"
 #~ msgstr "Créer un jeton d'accès"
