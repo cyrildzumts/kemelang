@@ -2544,9 +2544,8 @@ ul li{
 	  padding: 0;
 	  
 	  width: 100%;
-	  min-height: 32px;
+	  min-height: 3em;
 	  
-	  border-bottom: 1px solid #ccc;
 	  margin: 0.2em 0.4em;
   }
   .mat-list-item.language{

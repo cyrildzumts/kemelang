@@ -24,7 +24,11 @@
                         <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-permission-list" placeholder="{% trans 'Enter the term to filter' %}">
+                        <input class="js-list-filter" 
+                                type="text" data-element=".entry" 
+                                data-target="available-permission-list" 
+                                data-fields="name codename"
+                                placeholder="{% trans 'Enter the term to filter' %}">
                     </div>
                 </div>
                 <div class="collapsible padding-v">
@@ -32,9 +36,9 @@
                         <span class="padding-h">{% trans "Permission" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <ul class="mat-list" id="available-permission-list" data-target="#selected-permission-list" data-element="option">
+                        <ul class="mat-list filter-content" id="available-permission-list" data-target="#selected-permission-list" data-element="option">
                             {% for p in available_permissions %}
-                            <li class="mat-list-item" data-value="{{p.pk}}"><div class="flex"><input type="checkbox" name="permissions" id="perm-{{p.pk}}" value="{{p.pk}}"><label for="perm-{{p.pk}}">{{p.name}} - {{p.codename}}</label></div></li>
+                            <li class="entry" data-value="{{p.pk}}" data-name="{{p.name}}" data-codename="{{p.codename}}"><div class="flex"><input type="checkbox" name="permissions" id="perm-{{p.pk}}" value="{{p.pk}}"><label for="perm-{{p.pk}}">{{p.name}} - {{p.codename}}</label></div></li>
                             {% endfor %}
                         </ul>
                     </div>
@@ -50,7 +54,11 @@
                         <span class="padding-h">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <input class="js-jsfilter-input" type="text" data-element=".mat-list-item" data-target="#available-users-list" placeholder="{% trans 'Enter the term to filter' %}">
+                        <input class="js-list-filter" 
+                                type="text" data-element=".entry" 
+                                data-target="available-users-list" 
+                                data-fields="username firstname lastname"
+                                placeholder="{% trans 'Enter the term to filter' %}">
                     </div>
                 </div>
                 <div class="collapsible padding-v">
@@ -58,9 +66,9 @@
                         <span class="padding-h">{{UI_STRINGS_CONTEXT.LABEL_USERS_PLURAL}}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <ul class="mat-list" id="available-users-list">
+                        <ul class="mat-list filter-content" id="available-users-list">
                             {% for u in available_users %}
-                            <li class="mat-list-item" data-value="{{u.pk}}"><div class="flex"><input type="checkbox" name="users" id="user-{{u.pk}}" value="{{u.pk}}"><label for="user-{{u.pk}}">{{u.get_full_name}}[{{u.username}}]</label></div></li>
+                            <li class="entry" data-value="{{u.pk}}" data-username="{{u.username}}" data-firstname="{{u.first_name}}" data-lastname="{{u.last_name}}"><div class="flex"><input type="checkbox" name="users" id="user-{{u.pk}}" value="{{u.pk}}"><label for="user-{{u.pk}}">{{u.get_full_name}}[{{u.username}}]</label></div></li>
                             {% endfor %}
                         </ul>
                     </div>

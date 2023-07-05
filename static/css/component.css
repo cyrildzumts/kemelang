@@ -1952,9 +1952,8 @@
 	  padding: 0;
 	  /*overflow: hidden;*/
 	  width: 100%;
-	  min-height: 32px;
+	  min-height: 3em;
 	  /*max-height: 72px;*/
-	  border-bottom: 1px solid #ccc;
 	  margin: 0.2em 0.4em;
   }
   .mat-list-item.language{
