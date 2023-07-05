@@ -1,7 +1,9 @@
 import smtplib
 from email.mime.text import MIMEText
+import ssl
 from typing import Iterable, Optional
-from django.core.mail.backends.smtp import EmailBackend
+from django.utils.functional import cached_property
+from django.core.mail.backends.smtp import EmailBackend as DefaultEmailBackend
 from django.core.mail.utils import DNS_NAME
 from django.core.mail.message import EmailMessage
 from kemelang import settings
@@ -20,7 +22,7 @@ PORT = '25'
 
 
 
-class CoreEmailBackend(EmailBackend):
+class CoreEmailBackend(DefaultEmailBackend):
     
     def open(self):
         logger.info(f"Opening CoreEmailBackend using TLS - type of SSS Context {type(self.ssl_context)} - SSL-Context : {self.ssl_context}")
@@ -66,7 +68,19 @@ class CoreEmailBackend(EmailBackend):
     
 
 
-class MailBackend(EmailBackend):
+class EMailBackend(DefaultEmailBackend):
+    
+    @cached_property
+    def ssl_context(self):
+        if self.ssl_certfile or self.ssl_keyfile:
+            ssl_context = ssl.SSLContext(protocol=ssl.PROTOCOL_TLS_CLIENT)
+            ssl_context.load_cert_chain(self.ssl_certfile, self.ssl_keyfile)
+            return ssl_context
+        else:
+            ssl_context = ssl.create_default_context()
+            ssl_context.check_hostname = False
+            ssl_context.verify_mode = ssl.CERT_NONE
+            return ssl_context
     
     def open(self):
         logger.info(f"Opening CoreEmailBackend using TLS  - SSL-Context : {self.ssl_context}")
@@ -103,7 +117,7 @@ def sendmail():
     
     logger.info(f"Sending Mail with MailBackend CERT_KEY = {settings.EMAIL_SSL_KEYFILE}")
     try:
-        with MailBackend(
+        with EMailBackend(
                 host=settings.EMAIL_HOST, 
                 port=settings.EMAIL_PORT, 
                 username=settings.EMAIL_HOST_USER,
