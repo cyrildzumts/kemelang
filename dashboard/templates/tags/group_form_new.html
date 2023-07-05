@@ -16,15 +16,15 @@
         </div>
         <div class="container">
             <div class="margin-v padding-v full">
-                <div class="">
+                <div class="margin-b">
                     <span class="bold">{% trans "Select Permissions to add" %}</span>
                 </div>
-                <div class="collapsible padding-b">
+                <div class="collapsible">
                     <div class="collapsible-toggle padding-b open">
                         <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <input class="js-list-filter" 
+                        <input class="js-list-filter margin-b" 
                                 type="text" 
                                 data-target="available-permission-list" 
                                 data-fields="name codename"
@@ -46,15 +46,15 @@
                 
             </div>
             <div class="margin-v padding-v full">
-                <div class="">
+                <div class="margin-b">
                     <span class="bold">{% trans "Select Users to add" %}</span>
                 </div>
-                <div class="collapsible padding-b">
+                <div class="collapsible">
                     <div class="collapsible-toggle open  padding-b">
                         <span class="">{% trans "Filter" %}<i class="fas fa-angle-down padding-h"></i></span>
                     </div>
                     <div class="collapse-content">
-                        <input class="js-list-filter" 
+                        <input class="js-list-filter margin-b" 
                                 type="text" 
                                 data-target="available-users-list" 
                                 data-fields="username firstname lastname"
