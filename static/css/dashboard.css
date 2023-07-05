@@ -68,8 +68,8 @@ body{
     padding-top: 70px;
     box-shadow: var(--box-shadow);
     z-index: 10;
-    background-color: #ffe7e6;
-    color: #0A0A0A;
+    background-color: var(--sidebar-bg-color);
+    color: var(--sidebar-color);
     transition: all 0.2s ease-in-out;
 }
 .content-page{
@@ -372,8 +372,8 @@ body{
     position: fixed;
     align-items: center;
     justify-content: space-between;
-    background-color: #ff0d00;
-    color: #9B0800;
+    background-color: var(--nav-menu-bg);
+    color: var(--nav-menu-color);
     height: 70px;
     width: 100%;
     top: 0;
@@ -384,7 +384,7 @@ body{
 
 .navbar-header .icon{
 
-    color: #9B0800;
+    color: var(--nav-menu-color);
 }
 
 .topbar-menu{
