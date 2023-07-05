@@ -1,0 +1,37 @@
+
+{% extends "users_base.html"%}
+{% load i18n %}
+{% load l10n %}
+
+
+{% block CONTENT_MAIN %}
+{% if NO_SEARCH_RESULTS %}
+<div class="mat-box full">
+        <div class="mat-box-title full"><span class="bold">{{UI_STRINGS_CONTEXT.UI_NO_SEARCH_RESULT_TITLE}}</span></div>
+        <div class="mat-box-content">
+            <span class="text-center">{{UI_STRINGS_CONTEXT.UI_NO_SEARCH_RESULT}}</span>
+            <span>
+                <span>{{UI_STRINGS_CONTEXT.UI_SEARCHED_TERM_LABEL}} :</span>
+                <span class="padding-h bold">{% if search %}{{search}}{% endif %} </span>
+            </span>
+            
+        </div>
+        <div class="mat-box-footer">
+            <div class="actions">
+                <a class="mat-button mat-button-outline" href="{% url 'dashboard:users' %}"><span>{{UI_STRINGS_CONTEXT.UI_DISCOVER_OUR_CATALOG}}</span></a>
+            </div>
+        </div>
+    </div>
+{% else %}
+<div class="container">
+        <div class="product-list-wrapper">
+                <div class="nav-path-wrapper">
+                        <ul class="navigation-paths">
+                            <li class="mat-button-text path"><span>{{UI_STRINGS_CONTEXT.UI_SEARCH_RESULTS_LABEL}}</span><span class="padding-h bold">{{search}}</span></li>
+                        </ul>
+                </div>
+                {% include "tags/components/users-snippet.html"  with users=user_list BASE_URL="dashboard:user-detail" %}  
+        </div>
+</div>
+{% endif %}
+{% endblock CONTENT_MAIN %}

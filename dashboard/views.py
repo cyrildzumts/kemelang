@@ -17,6 +17,7 @@ from dashboard import dashboard_service, constants as DASHBOARD_CONSTANTS
 from core import permissions as PERMISSIONS
 from core.resources import ui_strings as CORE_UI_STRINGS
 from core.tasks import send_mail_task
+from dictionary import dictionary_service
 from kemelang import settings, utils
 
 import logging
@@ -669,3 +670,17 @@ def generate_token(request):
 
 
 
+def search_users(request):
+    if request.method != 'GET':
+        raise SuspiciousOperation
+    context = {}
+    search_query = utils.get_request_data(request).get('q')
+    template_name = "dashboard/user_search_results.html"
+    page_title = (search_query or "Error") + " - " + settings.SITE_NAME
+    user_list = dictionary_service.search_users(search_query)
+    user_not_found = user_list is None or not user_list.exists()
+    context['page_title'] = page_title + " | " + settings.SITE_NAME
+    context['user_list'] = user_list
+    context['search'] = search_query
+    context['NO_SEARCH_RESULTS'] = user_not_found
+    return render(request,template_name, context)

@@ -61,6 +61,7 @@ def core_send_mail(recipient_list, subject, message):
     send_mail(subject, message, recipient_list)
 
 
+
 def log_user_tracking(data):
     action = int(data.get('action'))
     logger.info(f'ABTEST action : {action}')

@@ -511,3 +511,13 @@ def translate(query, source_lang, target_lang):
         result = {'success': False, 'auto_detect': auto_detect, 'message': f"Error while translating word {query}"}
     
     return result
+
+
+
+def search_users(search_query):
+    
+    logger.info(f"Search user : {search_query}")
+    USER_VECTOR = SearchVector('username') + SearchVector('last_name') + SearchVector('first_name') + SearchVector('email')
+    DB_VECTOR = USER_VECTOR 
+    DB_QUERY = SearchQuery(search_query, search_type=Constants.SEARCH_TYPE_WEBSEARCH) 
+    return User.objects.annotate(similarity=TrigramSimilarity('email', search_query), rank=SearchRank(DB_VECTOR, DB_QUERY)).filter(Q(rank__gte=Constants.SEARCH_RANK_FILTER)|Q(similarity__gte=Constants.SEARCH_SIMILARITY_FILTER)).order_by(Constants.SEARCH_ORDER_BY_RANK_DESCENDING)

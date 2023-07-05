@@ -20,6 +20,7 @@ dashboard_patterns = [
     #path('users-home/partner-token-details/<uuid:token_uuid>/', views.partner_token_details, name='partner-token-details'),
     #path('users-home/partner-token-create', views.create_partner_token, name='partner-token-create'),
     #path('users-home/partner-token-update/<uuid:token_uuid>/', views.update_partner_token, name='partner-token-update'),
+    path('user-searches/', views.search_users, name="user-searches"),
     path('users-home/tokens/', views.tokens, name='tokens'),
     path('users-home/generate-token/', views.generate_token, name='generate-token'),
     path('users-home/users/', views.users, name='users'),
