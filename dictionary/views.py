@@ -7,7 +7,7 @@ from kemelang import utils
 from dictionary.models import Comment, Country, Definition, Langage, Word, TranslationWord, Phrase
 from dictionary import constants as DICT_CONSTANTS
 from dictionary import dictionary_service
-from core import renderers
+from core import permissions as PERMISSIONS
 from core.resources import ui_strings as CORE_UI_STRINGS
 from django.contrib import messages
 from django.utils import timezone
@@ -49,6 +49,9 @@ def create_country(request):
     context = {
         'page_title': "New Country",
     }
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
@@ -66,11 +69,16 @@ def create_country(request):
 
 @login_required
 def create_langage(request):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
+    
     template_name = "dictionary/create_langage.html"
     context = {
         'page_title': "New Langage",
         'country_list': dictionary_service.get_countries(),
     }
+    
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
         try:
@@ -86,6 +94,9 @@ def create_langage(request):
 
 @login_required
 def create_word(request):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     
     if request.method == DICT_CONSTANTS.REQUEST_METHOD_POST:
         data = utils.get_postdata(request)
@@ -111,6 +122,9 @@ def create_word(request):
 
 @login_required
 def create_phrase(request, word_uuid):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     template_name = "dictionary/create_phrase.html"
     word = get_object_or_404(Word, word_uuid=word_uuid)
     context = {
@@ -137,6 +151,10 @@ def create_phrase(request, word_uuid):
 
 @login_required
 def create_translation(request, word_uuid=None):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
+    
     template_name = "dictionary/create_translation.html"
     word = None
     if word_uuid:
@@ -162,6 +180,11 @@ def create_translation(request, word_uuid=None):
 
 @login_required
 def add_translations(request, word_uuid=None):
+    
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
+    
     logger.info(f"API: New Translation creation request")
     word = get_object_or_404(Word, word_uuid=word_uuid)
     if request.method != 'POST':
@@ -180,6 +203,9 @@ def add_translations(request, word_uuid=None):
 
 @login_required
 def add_synonymes(request, word_uuid=None):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     logger.info(f"API: New Synonymes creation request")
     word = get_object_or_404(Word, word_uuid=word_uuid)
     if request.method != 'POST':
@@ -197,6 +223,9 @@ def add_synonymes(request, word_uuid=None):
 
 @login_required
 def update_country(request, country_slug, country_uuid):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     template_name = "dictionary/update_country.html"
     country = get_object_or_404(Country, country_uuid=country_uuid)
     context = {
@@ -241,6 +270,9 @@ def update_country(request, country_slug, country_uuid):
 
 @login_required
 def update_phrase(request, phrase_uuid):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     template_name = "dictionary/update_phrase.html"
     phrase = get_object_or_404(Phrase, phrase_uuid=phrase_uuid)
     context = {
@@ -265,6 +297,9 @@ def update_phrase(request, phrase_uuid):
 
 @login_required
 def update_langage(request, langage_slug, langage_uuid):
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     template_name = "dictionary/update_langage.html"
     langage = get_object_or_404(Langage, langage_uuid=langage_uuid)
     context = {
@@ -309,6 +344,10 @@ def update_langage(request, langage_slug, langage_uuid):
 
 @login_required
 def update_word(request, word, word_uuid):
+    
+    if not request.user.has_perm(PERMISSIONS.DASHBOARD_ACCESS_TRANSLATOR_PERM):
+        logger.warning(f"Dashboard : PermissionDenied to user {request.user.username} for path {request.path}")
+        raise PermissionDenied
     template_name = "dictionary/update_word.html"
     w = get_object_or_404(Word, word_uuid=word_uuid)
     
