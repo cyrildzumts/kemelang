@@ -134,6 +134,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api', 'constants']
         let editorIsready = editor.init();
         try {
             await editorIsready;
+            console.log("All editor pluging loaded");
             if(!editor.created){
                 console.warn("Editor not created for tag %s", result.editor.id);
                 return;
@@ -156,7 +157,7 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api', 'constants']
             });
             this.incremente_management_form();
         } catch (err) {
-            console.error("error on initializing Editor for tag country %s", prefix;
+            console.error("error on initializing Editor for tag country %s", prefix);
         }
         
         
