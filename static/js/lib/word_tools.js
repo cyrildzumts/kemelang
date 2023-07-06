@@ -165,6 +165,7 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
         }
     
         response.words.forEach(word =>{
+            let children = [];
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'id': `word-${word.id}`,
                 'type': 'checkbox',
@@ -180,13 +181,27 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
                 'cls':'result-header',
                 'children': [label,input]
             }});
-            let description = tag_api.create_tag({'element': 'div', 'options': {
-                'cls': 'result-content',
-                'children': Editor_API.render(word.description.blocks)
-            }});
+            children.push(span_word);
+            if(word.definition){
+                let span_def = tag_api.create_tag({'element': 'span', 'options': {
+                    'innerText': word.definition
+                }});
+                let definition = tag_api.create_tag({'element': 'div', 'options': {
+                    'cls': 'result-content',
+                    'children': [span_def]
+                }});
+                children.push(definition);
+            }else if (word.description && word.description.blocks){
+                let description = tag_api.create_tag({'element': 'div', 'options': {
+                    'cls': 'result-content',
+                    'children': Editor_API.render(word.description.blocks)
+                }});
+                children.push(description);
+            }
+            
             let div = tag_api.create_tag({'element': 'div', 'options': {
                 'cls': 'search-result',
-                'children': [span_word, description]
+                'children': children
             }});
             result_container.appendChild(div);
         });
