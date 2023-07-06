@@ -176,7 +176,12 @@
                                         <span class="bold word-type">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span>
                                     </div>
                                     <div class="margin-v full">
+                                        {% if translation.definition %}
+                                        <div class="margin-b">{{translation.definition}}</div>
+                                        {% endif %}
+                                        {% if translation.description %}
                                         {% render_tag translation.description %}
+                                        {% endif %}
                                     </div>
                                     {% if translation.synonymes.exists %}
                                     <div class="margin-v flex flex-left full">
