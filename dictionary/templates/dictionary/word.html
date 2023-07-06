@@ -167,16 +167,13 @@
                                 {% endif %}
                             </div>
                         {% endcomment %}
-                        <div class="flex flex-left full">
+                        <div class="flex flex-left full margin-b">
                             <span class="bold word-type">{{word}}</span>
-                            {% if word.word_type is not None %}
-                            <span class="small bold">, [{{word.word_type|word_type}}]</span>
-                            {% endif %}
                             {% if word.transliteration %}
-                            <span class="small bold">, [{{translation.transliteration}}]</span>
+                            <span class="small bold">, [{{word.transliteration}}]</span>
                             {% endif %}
-                            <span class="margin-h"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
-                            <span class="bold margin-l">: {{word.definition}}</span>
+                            <span class="margin-h"><i class="fas fa-language"></i><span>{{word.langage}}</span></span>
+                            <span class="margin-l">: {{word.definition}}</span>
                         </div>
                         <ul class="">
                             {% for translation in translations %}
