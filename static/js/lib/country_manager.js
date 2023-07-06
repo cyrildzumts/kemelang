@@ -125,33 +125,40 @@ define(["ajax_api", 'tag_api', 'country_form_factory','editor_api', 'constants']
         this.form_management.appendChild(this.form_MAX_NUM_FORMS);
     }
 
-    CountryManager.prototype.add_country_form = function(prefix){
+    CountryManager.prototype.add_country_form = async function(prefix){
         let self = this;
         let result = this.countryFormFactory.create_form(this.total_form, prefix, this.remove_country_form.bind(this));
         
         this.form_container.appendChild(result.tag);
         let editor = new Editor_API.EditorWrapper(result.editor.id, {});
-        editor.init()
-        if(!editor.created){
-            console.warn("Editor not created for tag %s", result.editor.id);
-            return;
-        }
-        this.wrappers.push(result.tag);
-        
-        ['keyup'].forEach(function (e) {
-            result.name_input.addEventListener(e, function(event){
-                if(!result.name_input || !result.name_input.value || !result.name_input.value.trim().length){
-                    result.name_input.value = "";
-                    return;
-                }
-                if(self.scheduled_query){
-                    clearTimeout(self.scheduled_query);
-                }
-                self.scheduled_query = setTimeout(self.find_country.bind(self), QUERY_DELAY, result.name_input);
-                //self.find_country(result.name_input);
+        let editorIsready = editor.init();
+        try {
+            await editorIsready;
+            if(!editor.created){
+                console.warn("Editor not created for tag %s", result.editor.id);
+                return;
+            }
+    
+            this.wrappers.push(result.tag);
+            
+            ['keyup'].forEach(function (e) {
+                result.name_input.addEventListener(e, function(event){
+                    if(!result.name_input || !result.name_input.value || !result.name_input.value.trim().length){
+                        result.name_input.value = "";
+                        return;
+                    }
+                    if(self.scheduled_query){
+                        clearTimeout(self.scheduled_query);
+                    }
+                    self.scheduled_query = setTimeout(self.find_country.bind(self), QUERY_DELAY, result.name_input);
+                    //self.find_country(result.name_input);
+                });
             });
-        });
-        this.incremente_management_form();
+            this.incremente_management_form();
+        } catch (err) {
+            console.error("error on initializing Editor for tag country %s", prefix;
+        }
+        
         
     };
 

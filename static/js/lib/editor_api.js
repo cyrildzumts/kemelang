@@ -428,6 +428,7 @@ function(require, ajax_api, tag_api, EditorJS) {
             }
             this.create_editor();
             this.created = true;
+            return this.editor.isReady;
         }
 
         EditorWrapper.prototype.create_editor = function(){
