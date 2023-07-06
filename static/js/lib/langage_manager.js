@@ -393,6 +393,9 @@ define(["ajax_api", 'tag_api', 'langage_form_factory','editor_api', 'constants']
             contentType : false,
             enctype : 'multipart/form-data',
             crossDomain: true,
+            xhrFields: {
+                withCredentials: false
+            },
             data: formData,
             url : url
         }
