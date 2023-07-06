@@ -157,6 +157,27 @@
                     
                     <div class="padding-v full">
                         {% if translations %}
+                        {% comment %}
+                            <div class="margin-v full">
+                                {% if word.definition %}
+                                <div class="margin-b">{{word.definition}}</div>
+                                {% endif %}
+                                {% if word.description %}
+                                {% render_tag word.description %}
+                                {% endif %}
+                            </div>
+                        {% endcomment %}
+                        <div class="flex flex-left full">
+                            <span class="bold word-type">{{word}}</span>
+                            {% if word.word_type is not None %}
+                            <span class="small bold">, [{{word.word_type|word_type}}]</span>
+                            {% endif %}
+                            {% if word.transliteration %}
+                            <span class="small bold">, [{{translation.transliteration}}]</span>
+                            {% endif %}
+                            <span class="margin-h"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
+                            <span class="bold margin-l">: {{word.definition}}</span>
+                        </div>
                         <ul class="">
                             {% for translation in translations %}
                             <li>
