@@ -28,7 +28,13 @@
                         <span class="bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></span>
                     </div>
                     <div class="margin-v full">
+                        {% if langage.description %}
                         {% render_tag langage.description %}
+                        {% else %}
+                        <div class="bold margin-v">
+                            <span></span>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div id="langage-countries" class="tab-content margin-v full">

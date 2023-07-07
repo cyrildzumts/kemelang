@@ -25,7 +25,9 @@
                         <span class="bold"><span class="capitalize">{{UI_STRINGS_CONTEXT.LABEL_DESCRIPTION}}</span></span>
                     </div>
                     <div class="margin-v full">
+                        {% if country.description %}
                         {% render_tag country.description %}
+                        {% endif %}
                     </div>
                 </div>
                 <div id="country-langages" class="tab-content margin-v full">

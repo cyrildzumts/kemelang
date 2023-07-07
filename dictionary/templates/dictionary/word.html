@@ -84,9 +84,9 @@
                             <span class="bold word-type">{{UI_STRINGS_CONTEXT.LABEL_SYNONYME_PLURAL}}</span>
                         </div>
                         {% if word.synonymes.all %}
-                        <ul class="grid">
+                        <ul class="grid flex-left">
                             {% for synonyme in word.synonymes.all %}
-                            <li class="margin-b margin-r>
+                            <li class="margin-b margin-r">
                                 <div class="margin-b full">
                                     <a class="bold" href="{{SITE_HOST}}{{synonyme.get_absolute_url}}">
                                         <div class="flex flex-left">
