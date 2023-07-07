@@ -505,8 +505,10 @@ def translate(query, source_lang, target_lang):
             found = translation_set.exists()
             result = {'success': True,'found':found,'auto_detect': auto_detect, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
         elif len(suggestions) > 0 :
+            logger.info(f"suggestions found for query {query}")
             result = {'success': True,'found':False,'auto_detect': auto_detect, 'query':query,'word': None, 'words': None ,'translations': [], 'suggestions': suggestions}
         else:
+            logger.warn(f"word and suggestions not found for query {query}")
             raise Word.DoesNotExist(f"Word {query} not found")
     except Word.DoesNotExist as e:
         logger.warning(f"translate : word {query} not found")
