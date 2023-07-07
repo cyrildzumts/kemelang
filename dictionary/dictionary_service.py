@@ -489,26 +489,32 @@ def translate(query, source_lang, target_lang):
     auto_detect = source_lang == Constants.TRANSLATE_AUTO_DETECT
     WORD_FILTER, TRANSLATE_FILTER = build_translate_filter(query, source_lang, target_lang, source_lang == Constants.TRANSLATE_AUTO_DETECT)
     word = None
+    word_found = False
     result = None
+    suggestions = []
     try:
         word_set = Word.objects.filter(WORD_FILTER)
-        if not word_set.exists():
+        word_found = word_set.exists()
+        if not word_found:
+            suggestions = search_words(query)
+        if word_found:
+            words = [word.as_dict(True) for word in word_set]
+            word = words[0]
+            w = word_set.first()
+            translation_set = w.translations.filter(langage__slug__iexact=target_lang)
+            found = translation_set.exists()
+            result = {'success': True,'found':found,'auto_detect': auto_detect, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
+        elif len(suggestions) > 0 :
+            result = {'success': True,'found':False,'auto_detect': auto_detect, 'query':query,'word': None, 'words': None ,'translations': [], 'suggestions': suggestions}
+        else:
             raise Word.DoesNotExist(f"Word {query} not found")
-        
-        words = [word.as_dict(True) for word in word_set]
-        word = words[0]
-        w = word_set.first()
-        translation_set = w.translations.filter(langage__slug__iexact=target_lang)
-        #translation_set = TranslationWord.objects.filter(TRANSLATE_FILTER)
-        found = translation_set.exists()
-        result = {'success': True,'found':found,'auto_detect': auto_detect, 'query':query,'word': word, 'words': words ,'translations': [translation.as_dict() for translation in translation_set]}
     except Word.DoesNotExist as e:
         logger.warning(f"translate : word {query} not found")
-        result = {'success': True, 'found': False, 'auto_detect': auto_detect, 'word': None, 'query': query,'message': f"word {query} not found"}
+        result = {'success': True, 'found': False, 'auto_detect': auto_detect, 'word': None,'suggestions': None, 'query': query,'message': f"word {query} not found"}
     
     except Exception as e:
         logger.warning(f"Error while translating word {query}", e)
-        result = {'success': False, 'auto_detect': auto_detect, 'message': f"Error while translating word {query}"}
+        result = {'success': False, 'auto_detect': auto_detect,'word': None, 'suggestions': None, 'message': f"Error while translating word {query}"}
     
     return result
 

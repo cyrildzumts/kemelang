@@ -42,6 +42,7 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         this.no_filter_results = document.getElementById('no-results');
         this.dict_text_definitions = document.getElementById('word-definitions-container');
         this.dict_translation_container = document.getElementById('word-translations-container');
+        this.word_suggestion_container = document.getElementById('word-suggestion-container');
         this.word_container = document.getElementById("word-container");
         this.wrappers = [];
         this.detect_langage_active = true;
@@ -362,8 +363,10 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
                 if(response.found){
                     self.on_translated(self.dict_text, response.translations);
                     self.on_word_exist(self.dict_text,response.word,response.words);
-                }else if (response.words){
+                }else if (response.word && response.words){
                     self.on_word_exist(self.dict_text,response.word,response.words);
+                }else if (response.suggestions){
+                    self.on_suggestion_found(self.dict_text, response.suggestions);
                 }
                 self.translation_placeholder.classList.add('hidden');
                 self.no_translation.classList.toggle('hidden', response.found);
@@ -389,11 +392,22 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         console.log("Translations : ", translations);
     }
 
+    DictManager.prototype.on_suggestion_found = function(tag, suggestions){
+        let self = this;
+        
+        suggestions.forEach(function(word){
+            let word = self.dictFactory.create_word(self.word_translation_container, word);
+            word.classList.add('word-input-wrapper');
+        });
+        console.log("Suggestions : ", suggestions);
+    }
+
     DictManager.prototype.clear_definitions = function(){
         remove_children(this.dict_translation_container);
         remove_children(this.dict_text_definitions);
         remove_children(this.word_container);
         remove_children(this.dict_translation_container);
+        remove_children(this.word_suggestion_container);
     }
 
 
