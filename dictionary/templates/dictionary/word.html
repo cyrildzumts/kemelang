@@ -171,7 +171,7 @@
                             <div class="margin-v margin-r">
                                 <span class="bold word-type">{{word}}</span>
                                 {% if word.transliteration %}
-                                <span class="small bold">, [{{word.transliteration}}]</span>
+                                <span class="small bold">[{{word.transliteration}}]</span>
                                 {% endif %}
                                 <span>:</span>
                             </div>
@@ -185,10 +185,10 @@
                                     <div class="flex flex-left full">
                                         <span class="bold word-type">{{translation}}</span>
                                         {% if translation.word_type is not None %}
-                                        <span class="small bold">, [{{translation.word_type|word_type}}]</span>
+                                        <span class="small bold">[{{translation.word_type|word_type}}]</span>
                                         {% endif %}
                                         {% if translation.transliteration %}
-                                        <span class="small bold">, [{{translation.transliteration}}]</span>
+                                        <span class="small bold">[{{translation.transliteration}}]</span>
                                         {% endif %}
                                         <span class="margin-h"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
                                         <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
