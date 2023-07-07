@@ -34,7 +34,7 @@ function chunks_of(str, n){
     }
     return chunks;
 }
-let SPECIAL_CHARACTERS_LOWER = "āǎαʌⲃɓτⲥçɗðēeⲉɛǝẹƒɠɖɣⲯɦɩɟⲓƙλϫɴŋɲñɔọƥɽṣʃⳁƭʈⲩⲗθʉⲫωϣⲭvⲡʋⲏϥϩzʒƹⲝʔɽ";
+let SPECIAL_CHARACTERS_LOWER = "āǎαʌⲃɓτⲥçɗðēeⲉɛǝẹƒɠɖɣⲯɦɩɟⲓƙλϫɴⲙŋɲñɔọƥɽṣʃⲣⳁƭʈⲩⲗθʉⲫωϣⲭⲁvⲡʋⲏⲅϥϭϧϩzʒƹⲝʔⲋɽ";
 let UPPERCASE_LETTERS;
 const LOWERCASE_LETTERS = [
     ['ɓ','ɖ','ɛ','ǝ','Ǝ','ƒ','ɣ','ŋ','ɔ','ʃ', 'ʋ'],
