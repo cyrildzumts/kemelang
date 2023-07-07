@@ -2,7 +2,7 @@
 
 
 <div class="full">
-    <div id="langage-list" class="grid padding filter-content">
+    <div id="langage-list" class="grid mat-box scrollable-v filter-content">
     {% for langage in langage_list %}
         <div class="langage-select langage-selection" data-id="{{langage.pk}}" data-name="{{langage.name}}" data-slug="{{langage.slug}}" data-uuid="{{langage.langage_uuid}}"><span class="padding">{{langage.name}}</span></div>
     {% empty %}
