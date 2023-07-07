@@ -3,7 +3,7 @@
 
 <div class="mat-box full">
     <div class="dict-search-langage-wrapper flex flex-left">
-        <input id="search-langages" data-filter="dict-langage-selection" type="text" name="langage" class="search-langages" placeholder="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}">
+        <input id="search-langages" data-filter="dict-langage-selection" type="text" name="langage" class="search-langages" placeholder="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_SEARCH_LANGAGE}}" autofocus>
         <button 
                 id="auto-select-detect-langage" 
                 class="dict-langage-selection bold" 
@@ -15,7 +15,7 @@
                 {{UI_STRINGS_CONTEXT.LABEL_AUTO_DETECT}}
         </button>
     </div>
-    <div id="dict-langages-container" class="dict-langages-container margin-v">
+    <div id="dict-langages-container" class="dict-langages-container padding margin-v">
     {% for langage in langage_list %}
         <div class="dict-langage-select dict-langage-selection" 
                 data-id="{{langage.pk}}" 
