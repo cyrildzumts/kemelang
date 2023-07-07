@@ -396,8 +396,8 @@ define(["ajax_api", 'tag_api', 'dict_factory','editor_api', 'constants'],functio
         let self = this;
         
         suggestions.forEach(function(word){
-            let word = self.dictFactory.create_word(self.word_translation_container, word);
-            word.classList.add('word-input-wrapper');
+            let w = self.dictFactory.create_word(self.word_translation_container, word);
+            w.classList.add('word-input-wrapper');
         });
         console.log("Suggestions : ", suggestions);
     }
