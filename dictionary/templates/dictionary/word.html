@@ -33,9 +33,9 @@
                 <div id="word-definitions" class="tab-content margin-v full">
                     
                     <div class="flex flex-left flex-wrap full">
-                        <span class="bold margin-r"><span class="lowercase">{{word}}</span></span>
+                        <span class="bold margin-small-r"><span class="lowercase">{{word}}</span></span>
                         {% if word.word_type is not None %}
-                        <span class="small bold margin-r">[{{word.word_type|word_type}}]</span>
+                        <span class="small bold margin-small-r">[{{word.word_type|word_type}}]</span>
                         {% endif %}
                         {% if word.transliteration %}
                         <span class="small bold">[{{word.transliteration}}]</span>
@@ -88,12 +88,6 @@
                                     <a class="bold" href="{{SITE_HOST}}{{synonyme.get_absolute_url}}">
                                         <div class="flex flex-left">
                                             <span class="bold word-type">{{synonyme.word}}</span>
-                                            {% if synonyme.word_type is not None %}
-                                            <span class="small bold">, [{{synonyme.word_type|word_type}}]</span>
-                                            {% endif %}
-                                            {% if synonyme.transliteration %}
-                                            <span class="small bold">, [{{synonyme.transliteration}}]</span>
-                                            {% endif %}
                                         </div>
                                     </a>
                                     
@@ -169,7 +163,7 @@
                             </div>
                         {% endcomment %}
                         <div class="flex flex-left flex-wrap full margin-b">
-                            <div class="margin-v margin-r">
+                            <div class="margin-v margin-small-r">
                                 <span class="bold word-type">{{word}}</span>
                                 {% if word.transliteration %}
                                 <span class="small bold">[{{word.transliteration}}]</span>
@@ -184,14 +178,14 @@
                             <li>
                                 <div class="grid">
                                     <div class="flex flex-left full">
-                                        <span class="bold word-type margin-r">{{translation}}</span>
+                                        <span class="bold word-type margin-small-r">{{translation}}</span>
                                         {% if translation.word_type is not None %}
-                                        <span class="small bold">[{{translation.word_type|word_type}}]</span>
+                                        <span class="small bold margin-small-r">[{{translation.word_type|word_type}}]</span>
                                         {% endif %}
                                         {% if translation.transliteration %}
-                                        <span class="small bold">[{{translation.transliteration}}]</span>
+                                        <span class="small bold margin-small-r">[{{translation.transliteration}}]</span>
                                         {% endif %}
-                                        <span class="margin-h"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
+                                        <span class="margin-small-r"><i class="fas fa-language"></i><span>{{translation.langage}}</span></span>
                                         <a class="link" href="{{SITE_HOST}}{{translation.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
                                     </div>
                                     <div class="margin-t full">
