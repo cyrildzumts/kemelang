@@ -37,13 +37,13 @@
                     </div>
                     <div class="padding-v full">
                         {% if country_list %}
-                        <div class="margin-v flex flex-left full">
+                        <div class="margin-v flex flex-left mat-box full">
                             <input class="js-list-filter search-langages full" 
                             data-target="country-list" data-fields="name slug" type="text"  
-                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" autofocus>
                         </div>
                         {% endif %}
-                        <ul id="country-list" class="grid-list filter-content">
+                        <ul id="country-list" class="grid-list mat-box filter-content">
                             {% for country in country_list %}
                             <li class="margin-b dict-list-entry" data-name="{{country.name}}" data-slug="{{country.slug}}">
                                 <a href="{{country.get_absolute_url}}"><span class="word-type">{{country}}</span></a>
@@ -63,13 +63,13 @@
                     </div>
                     <div class="padding-v full">
                         {% if word_list %}
-                        <div class="margin-v flex flex-left full">
+                        <div class="margin-v flex flex-left mat-box full">
                             <input class="js-list-filter search-langages full" 
                             data-target="word-list" data-fields="word type" type="text"  
-                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                            placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" autofocus>
                         </div>
                         {% endif %}
-                        <ul id="word-list" class="grid-list filter-content">
+                        <ul id="word-list" class="grid-lang-list mat-box filter-content">
                             {% for word in word_list %}
                             <li class="margin-b dict-list-entry" data-word="{{word.word}}" data-type="{{word.word_type|word_type}}">
                                 <a href="{{SITE_HOST}}{{word.get_absolute_url}}"><span class="word-type">{{word.word}}({{word.word_type|word_type}})</span></a>

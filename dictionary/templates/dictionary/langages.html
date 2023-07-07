@@ -19,13 +19,13 @@
             
             <div class="margin-v full">
                 {% if langage_list %}
-                <div class="filter margin-v flex flex-left">
+                <div class="filter margin-v flex mat-box flex-left">
                     <input class="js-list-filter search-langages" 
                     data-target="language-list" data-fields="name slug" type="text"
-                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}">
+                    placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" autofocus>
                 </div>
                 {% endif %}
-                <ul id="language-list" class="grid-list filter-content">
+                <ul id="language-list" class="grid-lang-list mat-box filter-content">
                     {% for langage in langage_list %}
                     <li class="margin-b dict-list-entry" data-name="{{langage.name}}" data-slug="{{langage.slug}}">
                         <a href="{{langage.get_absolute_url}}"><span class="word-type">{{langage}}</span></a>
