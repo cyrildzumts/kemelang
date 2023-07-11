@@ -7,10 +7,10 @@
 {% if word_list %}
 <div class="margin-v flex flex-left mat-box full">
     <input class="js-list-filter search-langages full" 
-    data-target="country-list" data-fields="word definition lang" type="text"  
+    data-target="word-list" data-fields="word definition lang" type="text"  
     placeholder="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" aria-label="{{UI_STRINGS_CONTEXT.LABEL_FILTER_INPUT}}" autofocus>
 </div>
-<ul class="grid-list">
+<ul id="word-list" class="grid-list">
     {% for word in word_list %}
     <li class="margin-b margin-r" data-word="{{word.word}}" data-definition="{{word.definition}}" data-lang="{{word.langage}}">
         <div class="">
