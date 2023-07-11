@@ -50,3 +50,7 @@ def create_resources_opened():
         'editing_langage_list': Langage.objects.filter(editing=True),
         'editing_country_list': Country.objects.none()
     }
+    
+
+def get_word_missing_translation():
+    return Word.objects.filter(translations=None)

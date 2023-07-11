@@ -11,6 +11,7 @@
             {% block SIDEBAR_CONTENT %}
             <li><a class="link" href="{% url 'dashboard:dashboard'%}"><i class="fas fa-tachometer-alt icon"></i><span>{% trans "Dashboard" %}</span></a></li>
             <li><a class="link" href="{% url 'dashboard:settings'%}"><i class="fas fa-gear icon"></i><span>{% trans "Settings" %}</span></a></li>
+            <li><a class="link" href="{% url 'translators:translators'%}"><i class="fas fa-gear icon"></i><span>{% trans "Translators" %}</span></a></li>
             {% if perms.auth.view_group %}<li><a class="link" href="{% url 'dashboard:groups'%}"><i class="fas fa-users icon"></i><span>{% trans "Groups" %}</span></a></li>{% endif %}
             
             {% if perms.auth.view_user %}

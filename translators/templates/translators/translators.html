@@ -1,0 +1,23 @@
+{% extends "dashboard_base.html"%}
+{% load i18n %}
+{% load core_tags %}
+{% if not perms.dashboard.can_access_translator %}
+{% include "tags/unauthorized.html" %}
+{% else %}
+
+<div class="main-content">
+{% block DASHBOARD_SUMMARY %}
+        
+{% endblock DASHBOARD_SUMMARY %}
+
+{% block CONTENT %}
+<div class="container">
+        {% include 'tags/resources_tag.html' %}
+        {% include 'tags/missing_translations_tag.html' %}
+</div>
+
+{% endblock CONTENT %}
+</div>
+
+
+{% endif %}

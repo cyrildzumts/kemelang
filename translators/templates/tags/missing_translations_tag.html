@@ -1,0 +1,26 @@
+{% load i18n %}
+<div class="margin-v full">
+    <span class="bold word-type">{{UI_STRINGS_CONTEXT.LABEL_TRANSLATION_PLURAL}}</span>
+</div>
+{% if word_list %}
+<ul class="grid flex-left">
+    {% for word in word_list %}
+    <li class="margin-b margin-r">
+        <div class="flex flex-left full">
+            <span class="bold word-type margin-small-r">{{word}}</span>
+            {% if word.word_type is not None %}
+            <span class="small bold margin-small-r">[{{word.word_type|word_type}}]</span>
+            {% endif %}
+            {% if word.transliteration %}
+            <span class="small bold margin-small-r">[{{word.transliteration}}]</span>
+            {% endif %}
+            <span class="margin-small-r"><i class="fas fa-language"></i><span>{{word.langage}}</span></span>
+            <a class="link" href="{{SITE_HOST}}{{word.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
+        </div>
+    </li>
+    {% empty %}
+    <li class="margin-b margin-r">
+        <div class="padding"><span class="bold word-type">{{UI_STRINGS_CONTEXT.UI_NO_RESULT}}</span></div>
+    </li>
+    {% endfor %}
+</ul>

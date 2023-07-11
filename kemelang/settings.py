@@ -107,6 +107,7 @@ INSTALLED_APPS = [
     'core.apps.CoreConfig',
     'dictionary.apps.DictionaryConfig',
     'dashboard.apps.DashboardConfig',
+    'translators.apps.TranslatorsConfig',
 ]
 
 # RESTFRAMEWORK SETTINGS
