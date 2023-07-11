@@ -12,7 +12,7 @@
 </div>
 <ul class="grid-list">
     {% for word in word_list %}
-    <li class="margin-b margin-r dict-langage-select dict-langage-selection" data-word="{{word.word}}" data-definition="{{word.definition}}" data-lang="{{word.langage}}">
+    <li class="margin-b margin-r" data-word="{{word.word}}" data-definition="{{word.definition}}" data-lang="{{word.langage}}">
         <div class="">
             <div class="flex flex-left full">
                 <span class="bold word-type margin-small-r">{{word}}</span>
@@ -23,7 +23,7 @@
                 <span class="small bold margin-small-r">[{{word.transliteration}}]</span>
                 {% endif %}
                 <span class="margin-small-r"><i class="fas fa-language"></i><span>{{word.langage}}</span></span>
-                <a class="link" href="{{SITE_HOST}}{{word.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
+                <a class="nav-link" href="{{SITE_HOST}}{{word.get_absolute_url}}" title="{% translate 'Details' %}"><i class="fas fa-book-open big"></i></a>
             </div>
             {% if word.definition %}
             <div class="margin-v margin-b">
