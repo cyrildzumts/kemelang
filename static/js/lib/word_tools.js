@@ -127,8 +127,12 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
             return;
         }
         let self = this;
+        let exclude = "";
+        if(tag.dataset.word){
+            exclude = `&exclude=${tag.dataset.word}`;
+        }
         this.preview_value = tag.value.trim();
-        let url = `${Constants.API_BASE_URL}/search-word/?word=${tag.value}`;
+        let url = `${Constants.API_BASE_URL}/search-word/?word=${tag.value}${exclude}`;
         let option = {
             type:'GET',
             dataType: 'json',

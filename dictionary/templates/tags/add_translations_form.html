@@ -7,12 +7,12 @@
         <div class="full create-form">
     
                 <input type="hidden" name="changed_by" value="{{request.user.pk|default:''}}">
-                <input id="word" type="hidden" name="word" value="{{word.word}}">
+                <input id="word" type="hidden" name="word" value="{{word.word}}" data-word="{{word.word_uuid}}">
                 <input id="translation-langage" type="hidden" name="langage" value="{{word.langage.pk}}">
                 <div class="form-group-wrapper">
                     <div class="form-group">
                         <label for="translation-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
-                        <input id="translation-search-word" class="search-word" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
+                        <input id="translation-search-word" class="search-word" data-word="{{word.word_uuid}}" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                 </div>
                 <div id="translation-search-word-results" class="search-word-results form-group-wrapper scrollable">
