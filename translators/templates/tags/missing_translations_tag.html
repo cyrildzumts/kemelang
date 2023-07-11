@@ -12,8 +12,8 @@
 </div>
 <ul class="grid-list">
     {% for word in word_list %}
-    <li class="margin-b margin-r" data-word="{{word.word}}" data-definition="{{word.definition}}" data-lang="{{word.langage}}">
-        <div class="word">
+    <li class="margin-b margin-r dict-langage-select dict-langage-selection" data-word="{{word.word}}" data-definition="{{word.definition}}" data-lang="{{word.langage}}">
+        <div class="">
             <div class="flex flex-left full">
                 <span class="bold word-type margin-small-r">{{word}}</span>
                 {% if word.word_type is not None %}
