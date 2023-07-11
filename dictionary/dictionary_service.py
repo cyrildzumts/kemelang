@@ -330,9 +330,9 @@ def log_word_full_search(p):
     logger.info(f"Distance Word : {p.distance_word} - Distance Description : {p.distance_description}")
     logger.info(f"WordDistance Word : {p.word_distance_word} - WordDistance Description : {p.word_distance_description}")
 
-def search_words(search_query, exclude_word=None, exclude_lang=None):
+def search_words(search_query, exclude_word=None, exclude_lang=None, filter_lang=None):
     
-    logger.info(f"Search word : {search_query} - Exclude word : {exclude_word or ''} - Exclude lang : {exclude_lang or ''}")
+    logger.info(f"Search word : {search_query} - Filter lang : {filter_lang or ''} - Exclude word : {exclude_word or ''} - Exclude lang : {exclude_lang or ''}")
     CAST_DEFINITION = Cast('description', output_field=TextField())
     WORD_VECTOR = SearchVector('word', weight='A')
     DEFINITION_VECTOR = SearchVector('definition', weight='A')
@@ -385,6 +385,8 @@ def search_words(search_query, exclude_word=None, exclude_lang=None):
         word_distance_definition=TRIGRAMWORD_FIELD_DEFINITION_DISTANCE,
         word_distance_description=TRIGRAMWORD_FIELD_DESCRIPTION_DISTANCE
     ).filter(SEARCH_FILTER).order_by(*ORDER_BY)
+    if filter_lang is not None:
+        queryset = queryset.filter(langage__langage_uuid=filter_lang)
     if exclude_word is not None:
         queryset = queryset.exclude(word_uuid=exclude_word)
     if exclude_lang is not None:

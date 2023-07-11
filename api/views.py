@@ -284,7 +284,8 @@ def search_word(request):
         search_query = utils.get_request_data(request).get('word')
         exclude_word = utils.get_request_data(request).get('exclude-word')
         exclude_lang = utils.get_request_data(request).get('exclude-lang')
-        query_list = dictionary_service.search_words(search_query, exclude_word, exclude_lang)
+        filter_lang  = utils.get_request_data(request).get('filter-lang')
+        query_list = dictionary_service.search_words(search_query, exclude_word, exclude_lang, filter_lang)
         word_list = [w.as_dict() for w in query_list]
         if len(query_list) > 0 :
             result = {'success': True, 'words': word_list, 'query': search_query, 'found': True}

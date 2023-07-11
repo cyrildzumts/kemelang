@@ -12,7 +12,7 @@
                 <div class="form-group-wrapper mat-box margin-b">
                     <div class="">
                         <label for="translation-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
-                        <input id="translation-search-word" class="search-word" data-word="{{word.word_uuid}}" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
+                        <input id="translation-search-word" class="search-word" data-exclude-word="{{word.word_uuid}}" data-exclude-lang="{{word.langage.langage_uuid}}" data-field="translations" data-target="translation-search-word-results" data-error="search-translation-word-error" data-keyboard_btn="translation-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                     <div class="margin-h"><input type="checkbox" id="select-all-translation" class="js-select-all" data-target="translation-search-word-results"><label for="select-all-synonyme">{{UI_STRINGS_CONTEXT.LABEL_SELECT_ALL}}</label></div>
                 </div>

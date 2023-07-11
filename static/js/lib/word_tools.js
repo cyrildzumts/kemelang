@@ -149,14 +149,18 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
         let self = this;
         let exclude_word = "";
         let exclude_lang = "";
-        if(tag.dataset.word){
-            exclude_word = `&exclude-word=${tag.dataset.word}`;
+        let filter_lang = "";
+        if(tag.dataset.excludeWord){
+            exclude_word = `&exclude-word=${tag.dataset.excludeWord}`;
         }
-        if(tag.dataset.lang){
-            exclude_lang = `&exclude-lang=${tag.dataset.lang}`;
+        if(tag.dataset.excludeLang){
+            exclude_lang = `&exclude-lang=${tag.dataset.excludeLang}`;
+        }
+        if(tag.dataset.filterLang){
+            filter_lang = `&filter-lang=${tag.dataset.filterLang}`;
         }
         this.preview_value = tag.value.trim();
-        let url = `${Constants.API_BASE_URL}/search-word/?word=${tag.value}${exclude_word}${exclude_lang}`;
+        let url = `${Constants.API_BASE_URL}/search-word/?word=${tag.value}${exclude_word}${exclude_lang}${filter_lang}`;
         let option = {
             type:'GET',
             dataType: 'json',

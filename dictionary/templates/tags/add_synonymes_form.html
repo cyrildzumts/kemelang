@@ -11,7 +11,7 @@
                 <div class="form-group-wrapper margin-b mat-box">
                     <div class="">
                         <label for="synonymes-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
-                        <input id="synonymes-search-word" class="search-word" data-word="{{word.word_uuid}}" data-lang="{{word.langage.langage_uuid}}" data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
+                        <input id="synonymes-search-word" class="search-word" data-exclude-word="{{word.word_uuid}}" data-filter-lang="{{word.langage.langage_uuid}}"  data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                     <div class="margin-h"><input type="checkbox" id="select-all-synonyme" class="js-select-all" data-target="synonymes-search-word-results"><label for="select-all-synonyme">{{UI_STRINGS_CONTEXT.LABEL_SELECT_ALL}}</label></div>
                 </div>
