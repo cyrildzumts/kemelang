@@ -6,12 +6,12 @@
     <form id="word-form-synonymes" class="form update-form" name="synonymes-form" data-endpoint="/add-synonymes/{{word.word_uuid}}/" data-word="{{word.word_uuid}}" action="{% url SYNONYME_ADD_URL word.word_uuid  %}" method="POST">{% csrf_token %}
         <div class="full create-form">
                 <input type="hidden" name="changed_by" value="{{request.user.pk|default:''}}">
-                <input id="synonymes-form-word" type="hidden" name="word" value="{{word.pk}}" data-word="{{word.word_uuid}}">
+                <input id="synonymes-form-word" type="hidden" name="word" value="{{word.pk}}" data-word="{{word.word_uuid}}" data-lang="{{word.langage.langage_uuid}}">
                 <input id="synonymes-langage" type="hidden" name="langage" value="{{word.langage.pk}}">
                 <div class="form-group-wrapper margin-b mat-box">
                     <div class="">
                         <label for="synonymes-source_word">{{UI_STRINGS_CONTEXT.LABEL_WORD}}</label>
-                        <input id="synonymes-search-word" class="search-word" data-word="{{word.word_uuid}}" data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
+                        <input id="synonymes-search-word" class="search-word" data-word="{{word.word_uuid}}" data-lang="{{word.langage.langage_uuid}}" data-field="synonymes" data-target="synonymes-search-word-results" data-error="search-synonyme-word-error" data-keyboard_btn="synonyme-keyboard-btn" type="text" placeholder="{{UI_STRINGS_CONTEXT.UI_ENTER_WORD_FORM_INVITE}}">
                     </div>
                     <div class="margin-h"><input type="checkbox" id="select-all-synonyme" class="js-select-all" data-target="synonymes-search-word-results"><label for="select-all-synonyme">{{UI_STRINGS_CONTEXT.LABEL_SELECT_ALL}}</label></div>
                 </div>
