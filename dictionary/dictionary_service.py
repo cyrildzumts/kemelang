@@ -23,7 +23,6 @@ logger = logging.getLogger(__name__)
 def get_default_translation_langages():
     source_lang = Langage.objects.get(slug=Constants.TRANSLATE_DEFAULT_SOURCE_LANGAGE)
     dest_lang = Langage.objects.get(slug=Constants.TRANSLATE_DEFAULT_DESTINATION_LANGAGE)
-    logger.info(f"Found default languages : {source_lang} - {dest_lang}")
     return source_lang, dest_lang
 
 
