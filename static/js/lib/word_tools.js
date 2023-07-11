@@ -18,6 +18,26 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
         }
     }
 
+    function register_selectable(container, selectable_list){
+        let selectables = selectable_list || document.querySelectorAll('.js-selectable', container);
+        selectables = Array.from(selectables);
+        let select_all = $('.js-select-all');
+        select_all = document.querySelectorAll('.js-select-all', container);
+        select_all.forEach(input=>{
+            input.addEventListener('change', function(event){
+                selectables.forEach(i=>{
+                    i.checked = input.checked;
+                });
+            });
+        });
+        selectables.forEach(i=>{
+            i.addEventListener('change', function(event){
+                let all_selected = selectables.every(input => input.checked);
+                select_all.forEach(input => input.checked = all_selected);
+            });
+        });
+    }
+
     function WordTools(){
         
         this.form = document.getElementById('word-form-translation');
@@ -167,11 +187,13 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
             result_container.appendChild(div);
             return;
         }
-    
+        let inputs = [];
         response.words.forEach(word =>{
             let children = [];
+            
             let input = tag_api.create_tag({'element': 'input', 'options': {
                 'id': `word-${word.id}`,
+                'cls': 'js-selectable',
                 'type': 'checkbox',
                 'name': tag.dataset.field,
                 'value': word.id,
@@ -208,7 +230,9 @@ define(["ajax_api", 'tag_api', 'keyboard', 'editor_api', 'constants'],function(a
                 'children': children
             }});
             result_container.appendChild(div);
+            inputs.push(input);
         });
+        register_selectable(result_container, inputs);
     }
 
     WordTools.prototype.clear = function(){
