@@ -588,7 +588,7 @@ def create_account(request):
         
     context['user_form'] = user_form
     context['account_form'] = account_form
-    context['content_title'] = CORE_UI_STRINGS.DASHBOARD_USER_CREATE_TITLE
+    context['content_title'] = CORE_UI_STRINGS.LABEL_USER_CREATE
     return render(request, template_name, context)
 
 
