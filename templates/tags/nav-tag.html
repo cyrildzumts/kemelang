@@ -25,7 +25,7 @@
                 <ul class="navbar-nav secondary">
                     {% comment %}<li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}" title="{% trans 'Search for posts' %}"><i class="fas fa-search icon"></i>{% translate "Search" %}</a></li>{% endcomment %}
                     
-                    {% if perms.can_access_dashboard %}
+                    {% if perms.dashboard.can_access_dashboard %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{%url 'dashboard:dashboard'%}" title="{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}"><i class="fas fa-tachometer-alt icon"></i><span>{{UI_STRINGS_CONTEXT.LABEL_DASHBOARD}}</span></a></li>
                     {% endif %}
                     
@@ -46,7 +46,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'dictionary:words' %}" title="{% trans 'Words' %}"><i class="fas fa-font"></i><span class="hidden-m">{% trans "Words" %}</span></a></li>
                     {% endcomment %}
                     {% if request.user.is_authenticated %}
-                    {% if perm.dashboard.can_access_translator %}
+                    {% if perms.dashboard.can_access_translator %}
                     <li class="nav-item"><a class="nav-link" href="{% url 'translators:translators'%}"><i class="fas fa-language"></i><span>{% trans "Translators" %}</span></a></li>
                     {% endif %}
                     <li class="nav-item"><a class="nav-link" href="{{SITE_HOST}}{% url 'accounts:account' %}" title="{{UI_STRINGS_CONTEXT.UI_ACCOUNT_LABEL}}"><i class="fas fa-user icon"></i><span>{{UI_STRINGS_CONTEXT.UI_ACCOUNT_LABEL}}</span></a></li>
