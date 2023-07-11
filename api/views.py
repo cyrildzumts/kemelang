@@ -282,8 +282,9 @@ def search_word(request):
     logger.info(f"API: Search Words request")
     try:
         search_query = utils.get_request_data(request).get('word')
-        exclude = utils.get_request_data(request).get('exclude')
-        query_list = dictionary_service.search_words(search_query, exclude)
+        exclude_word = utils.get_request_data(request).get('exclude-word')
+        exclude_lang = utils.get_request_data(request).get('exclude-lang')
+        query_list = dictionary_service.search_words(search_query, exclude_word, exclude_lang)
         word_list = [w.as_dict() for w in query_list]
         if len(query_list) > 0 :
             result = {'success': True, 'words': word_list, 'query': search_query, 'found': True}
